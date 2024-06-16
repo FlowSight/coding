@@ -1,0 +1,1 @@
+// prime can be represented as 6k+1 or 6k-1 .. 
