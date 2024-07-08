@@ -17,13 +17,17 @@ class Codec
 
 public:
     // Encodes a tree to a single string.
-    string nullStr = "$", sep = ";";
-    string serialize(TreeNode *root)
-    {
-        if (!root)
-            return nullStr + sep;
-        auto ll = serialize(root->left), rr = serialize(root->right);
-        return to_string(root->val) + sep + ll + rr;
+    char nullStr = "$", sep = ";";
+    void serialize(TreeNode* root, string& res) {
+        if(!root) {
+            res.push_back(sep);
+            res.push_back(nullStr);
+            return;
+        }
+        res.push_back(sep);
+        res += to_string(root->val);
+        serialize(root->left,res);
+        serialize(root->right,res);
     }
     // iterative
     string serialize(TreeNode *root)
