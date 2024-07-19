@@ -2,6 +2,8 @@
     "files.associations": {
         "MLTable": "yaml",
         "limits": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "stack": "cpp",
+        "string": "cpp"
     }
 }
