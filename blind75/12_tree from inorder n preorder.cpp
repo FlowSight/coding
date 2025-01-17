@@ -1,3 +1,8 @@
+// 16 dec 2024
+// recursive basic sol..6.30 min..no mistake..Verdict : PASS
+// time optimization in 30s..Verdict : PASS
+// forgot the O(1) solution..(TODO)
+
 
 public:
     unordered_map<int,int> mm;
@@ -36,3 +41,34 @@ public:
         return node;
     }
 };
+
+// iterative
+// forgot this completely..(TODO)
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        if(preorder.size()==0) return nullptr;
+        stack<TreeNode*> st;
+        TreeNode* root= new TreeNode(preorder[0]);
+        TreeNode* curr = root;
+        int n=preorder.size();
+        for(int i=1,j=0;i<n;i++)
+        {
+            if(curr->val!=inorder[j]) 
+            {
+                curr->left= new TreeNode(preorder[i]);
+                st.push(curr);
+                curr=curr->left;
+            }
+            else
+            {
+                j++;
+                while(!st.empty() && st.top()->val==inorder[j])
+                    {
+                        curr=st.top();
+                        st.pop();
+                        j++;
+                    }
+                curr=curr->right = new TreeNode(preorder[i]);
+            }
+        }
+        return root;
+    }

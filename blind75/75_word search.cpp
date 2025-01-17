@@ -1,3 +1,6 @@
+//14 dec 2024...my code was correct though..its a cpp and input issue..verdict : FAIL
+
+
     typedef vector<char> vc;
     typedef vector<vc> vvc;
     typedef vector<int> vi;

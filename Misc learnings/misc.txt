@@ -1,0 +1,12 @@
+for matrix traversal...visited dorkar nei...change the cell to some other value..
+    this wont work in some corner case.
+
+map upper bound : finds next larger , 
+    if key >=largest, result is ::end,
+    if key < smallest : result is ::begin()
+map lower bound : finds equal or next larger ,
+     if key > largest, result is ::end, 
+     if key < smallest : result is ::begin()
+
+for string palindrome :
+    when insert/delete is supposed to happen..and if you are expanding from middle..it will go out of order as comparsion order has changed..so should ideally check palindrome from end and meet in middle

@@ -1,13 +1,74 @@
-/**
- * Definition for singly-linked list.
- * struct ListNode {
- *     int val;
- *     ListNode *next;
- *     ListNode() : val(0), next(nullptr) {}
- *     ListNode(int x) : val(x), next(nullptr) {}
- *     ListNode(int x, ListNode *next) : val(x), next(next) {}
- * };
- */
+// nov 10 2024..fucked up many things
+// 1. forgot how to define custom comparator for priority queue and set, if you HAVE to work with given struct
+// 2. missed a critical base case.
+
+//approach 1:
+ListNode* mergeKLists(vector<ListNode*>& lists) {
+    while(lists.size() > 1) {
+        auto last = lists.back();
+        lists.pop_back();
+        auto secondLast = lists.back();
+        lists.pop_back();
+        lists.push_back(merge2Lists(last,secondLast));
+    }
+    return lists.empty() ? nullptr : lists[0];
+}    
+ListNode* merge2Lists(ListNode* node1, ListNode* node2){
+    if(!node1) return node2;
+    if(!node2) return node1;
+    if(node1->val < node2->val){
+        node1->next = merge2Lists(node1->next, node2);
+        return node1;
+    } else {
+        node2->next = merge2Lists(node1, node2->next);
+        return node2;
+    }
+}
+ListNode* merge2ListsIterative(ListNode* node1, ListNode* node2){
+    if(!node1) return node2;
+    if(!node2) return node1;
+    ListNode* dummy = new ListNode();
+    ///....some code.....
+}
+
+//TC
+// n list nodes
+// k per list
+// n-1 times merge called 
+// for last two lists n-1 times == 2k*(n-1)
+// for last 3rd lists node n-2 times = k*(n-2)
+// for first list node 1 times = k
+// = k + k*2 + k*3 + k*4 + k*5 + ... + k*(n-1)
+// = k(1+2+3+...+n-1)
+// = kn^2 
+
+
+
+// approach 2:
+public static ListNode mergeKListsMergeSort(ListNode[] lists,int l,int r){
+    if(l>r)return nullptr;
+    if(l==r)  return lists[l];
+    int mid=(l+r)/2;
+    ListNode l1=mergeKListsMergeSort(lists,l,mid);
+    ListNode l2=mergeKListsMergeSort(lists,mid+1,r);
+    return merge2Lists(l1,l2);
+}
+
+// TC
+// t(n/2)+O(n)
+// t(n/4)+o(n/2)+O(n)
+// t(n/8)+o(n/4)+o(n/2)+O(n)
+// t(n/8)+o(nk/4)+o(nk/2)+O(nk)
+// ....
+// O(nk)+O(nk/2)+O(nk/4)+...+O(nk/2^log(n))
+// nklogn
+
+
+
+
+
+//approach 3:
+
 struct cmp {
     bool operator() (const ListNode* node1, const ListNode* node2) const {
         return node1->val < node2->val;
@@ -39,3 +100,5 @@ public:
         return dummyNode->next;
     }
 };
+
+//TC nklog(n)

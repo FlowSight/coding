@@ -33,3 +33,20 @@ long largest_power(long N) {
     N = N | (N>>16);
     return (N+1)>>1;
 }
+
+
+    bool isPowerOfFour(int n) {
+        return (n & ((long)n-1)) ==0 && (n%3==1);
+    }
+
+       boolean isPowerOfFour(int num) {
+        return num > 0 && (num&(num-1)) == 0 && (num & 0x55555555) != 0;
+    }
+
+    bool isPowerOfThree(int n) {
+        return n > 0 && (1162261467 % n == 0);
+    }
+     bool isPowerOfThree(int n) {
+        int ma = pow(3,(int)(log(INT_MAX)/log(3)));
+        return n > 0 && (ma % n == 0);
+    }

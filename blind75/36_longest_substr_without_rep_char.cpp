@@ -1,3 +1,36 @@
+// 26 dec 2024..6 mins..
+// silly logic mistake in the end..
+// verdict : FAIL
+    int lengthOfLongestSubstring(string s) {
+        int n = s.size(), ans = 0;
+        unordered_map<int,int> mm;
+        for(auto i=0,l = 0;i<n;i++){
+            mm[s[i]]++;
+            while((mm[s[i]] > 1) && (l<i)) {
+                mm[s[l++]]--;
+            }
+            ans = max(ans,i-l+1);
+        }
+        return ans;
+    }
+
+
+// 1nov 2024..3 mins..no mistakes
+    int lengthOfLongestSubstring(string s) {
+        int n = s.size(), ans = 0;
+        unordered_map<char,int> mm;
+        for(auto l=0,r=0;r<n;r++){
+            mm[s[r]]++;
+            while(mm[s[r]] > 1 && l<r) {
+                mm[s[l]]--;
+                l++;
+            }
+            ans = max(ans,r-l+1);
+        }
+        return ans;
+    }
+
+    
 class Solution {
 public:
     int lengthOfLongestSubstring(string s) {

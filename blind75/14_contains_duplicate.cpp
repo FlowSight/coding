@@ -1,3 +1,6 @@
+// 18 dec 2024 .. 1 min..again made compiler errror...
+// verdict : FAIL
+
 class Solution {
 public:
     bool containsDuplicate(vector<int>& nums) {

@@ -1,3 +1,7 @@
+// 14 dec 2024..
+// 4.30 mins for brute force..still failed in a silly mistake..verdict : FAIL
+// forgot the below most optimized solution..verdict : FAIL
+
 class Solution {
 public:
     uint32_t reverseBits(uint32_t n) {

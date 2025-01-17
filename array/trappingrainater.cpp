@@ -1,3 +1,9 @@
+// 24 dec 2024...18 mins..forgot original approach..took some time to remember after running in mind..
+// then 3-5 index mistake..
+// didnt even remember 2 pointer approach.
+// verdict : FAIL
+
+
 
 // this is genious..
 //    2 pointer, smaller ones moves..

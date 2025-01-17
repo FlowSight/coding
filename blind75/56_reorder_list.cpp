@@ -1,3 +1,9 @@
+// 7 nov 2024...took 35 mins..mistake in reverse list...forgot syntax
+// got it now...the assigning has to be like ... rhs == next lines lhs
+// prev = cur;
+// cur = prev;
+// way slow...has to be within 15 mins with dry run..
+
 /**
  * Definition for singly-linked list.
  * struct ListNode {

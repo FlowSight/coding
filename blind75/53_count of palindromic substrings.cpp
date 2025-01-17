@@ -1,3 +1,25 @@
+
+// 3 nov..5 min..no mistakes..
+class Solution {
+public:
+    typedef vector<int> vi;
+    typedef vector<vi> vvi;
+    int countSubstrings(string s) {
+        int n = s.size(), ans = n;
+        vvi dp(n,vi(n,0));
+        for(auto i=0;i<n;i++)dp[i][i] = 1;
+        for(auto len = 2;len<=n; len++){
+            for(auto i=0;i+len-1<n;i++) {
+                auto j = i+len-1;
+                dp[i][j] = (len == 2 ? s[i]==s[j] : (s[i]==s[j]) && (dp[i+1][j-1]) );
+                ans+=dp[i][j];
+            }
+        }
+        return ans;
+    }
+};
+
+
 class Solution {
 public:
     int countSubstrings(string s) {

@@ -1,3 +1,6 @@
+// 14 dec 2024..11 mins..no mistake...VERIDCT : PASS
+// ektu komate hobe time taken
+
 class Solution {
 public:
     long mod = 1e11+7;

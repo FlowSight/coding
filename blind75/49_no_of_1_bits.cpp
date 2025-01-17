@@ -1,3 +1,6 @@
+// 14 dec 2024..chalaki marte giye dheriyechi..but mone chilo main trick ta..
+// verdcit : FAIL 
+
 class Solution {
 public:
     int hammingWeight(int n) {

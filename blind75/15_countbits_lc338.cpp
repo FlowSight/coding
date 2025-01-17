@@ -1,3 +1,6 @@
+// 14dec2024...7 mins..fucked up..remembered that it has to be dp, but used log, forgot log2 instead of log.
+// also forgot other dp approaches..verdict : FAIL
+
     vector<int> countBits(int n) {
         vector<int> dp(n+1,0);
         for(auto i=0;i<=n;i++){

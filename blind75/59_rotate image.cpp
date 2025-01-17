@@ -42,3 +42,6 @@ public:
     }
 };
 
+
+
+// 13sep..ekhono ektu problem ache..kaj korte hobe..transpose code e chude jachhi

@@ -4,6 +4,18 @@
         "limits": "cpp",
         "algorithm": "cpp",
         "stack": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "__bit_reference": "cpp",
+        "__hash_table": "cpp",
+        "__split_buffer": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "initializer_list": "cpp",
+        "string_view": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "queue": "cpp",
+        "bitset": "cpp",
+        "ios": "cpp"
     }
 }

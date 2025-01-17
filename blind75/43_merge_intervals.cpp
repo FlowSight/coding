@@ -1,3 +1,26 @@
+//  23 dec 2024..8 min...missed the boundary condition to add in map...
+//  verdict: fail
+    vector<vector<int>> merge(vector<vector<int>>& intervals) {
+        map<int,int> mm;
+        vector<vector<int>>  ans;
+        int x = -1, cur = 0;
+        for(auto it : intervals) {
+            mm[it[0]]++;
+            mm[it[1]]--;
+        }
+        for(auto it : mm){
+            if(x == -1) x = it.first;
+            cur+=it.second;
+            if(cur == 0){
+                ans.push_back({x,it.first});
+                x = -1;
+            }
+        }
+        return ans;
+    }
+
+
+
 class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& arr) {

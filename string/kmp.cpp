@@ -1,3 +1,5 @@
+// 14dec ...fucked up kmp code...forgot...
+
 bool substr(string& s1, string& s2){
     int m = s1.size(), n = s2.size();
     auto lps = getLPS(s2);
@@ -14,6 +16,8 @@ vector<int> getLPS(string& s){
     vector<int> lps(n,0);
     for(auto i=1,j=0;i<n;i++){
         while(j && (s[i] != s[j]))j = lps[j-1];
+        if(s[i] == s[j])j++;
+        lps[i] = j;
     }
     return lps;
 }

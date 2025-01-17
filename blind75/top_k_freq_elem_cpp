@@ -1,0 +1,54 @@
+// 11 jan 2025..
+// 7 min..
+// tried sort approach..1 compiler error
+// didnt think of bucket sort..
+// Verdict : fail
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        sort(nums.begin(),nums.end());
+        vector<int> ans;
+        set<pair<int,int>> ss;
+        int n = nums.size(), cnt = 0;
+        for(auto i=0;i<n;i++){
+            if(i && (nums[i]!=nums[i-1])) {
+                ss.insert({cnt,nums[i-1]});
+                if(ss.size() > k)ss.erase(ss.begin());
+                cnt = 1;
+            }
+            else {
+                cnt++;
+            }
+        }
+        if(cnt)ss.insert({cnt,nums.back()});
+        if(ss.size() > k)ss.erase(ss.begin());
+        while(k--){
+            ans.push_back(ss.begin()->second);
+            ss.erase(ss.begin());
+        }
+        return ans;
+    }
+
+
+// 15 dec 2024..5 min..Verdict : PASS
+
+class Solution {
+public:
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        vector<int> ans;
+        priority_queue<pair<int,int>> pq;
+        unordered_map<int, int> mm;
+
+        for(auto &it : nums){
+            mm[it]++;
+        }
+        for(auto &it : mm) {
+            pq.push({it.second,it.first});
+        }
+        while(pq.size() && k--){
+            ans.push_back(pq.top().second);
+            pq.pop();
+        }
+        return ans;
+    }
+};
+
+// {{3,1},{2,2},{1,3}}
