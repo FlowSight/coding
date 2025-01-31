@@ -1,3 +1,29 @@
+// 28 jan 2025..
+// 10 mins..
+// 1 compiler mistake..bad .. 
+// // forgot the O(1) space solution..(TODO)
+// verdict : FAIL
+
+    unordered_map<int,int> mm;
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        mm.clear();
+        int n = preorder.size(), idx = 0;
+        for(auto i=0;i<n;i++)mm[inorder[i]] = i;
+        return helper(preorder,inorder,idx,0,n-1);
+    }
+
+    TreeNode* helper(vector<int>& preorder, vector<int>& inorder, int& idx, int left, int right){
+        if(idx >= preorder.size() || (idx<0) || (left > right)) return nullptr;
+        auto root = new TreeNode(preorder[idx++]);
+        int rootIdx = mm[root->val];
+        root->left = helper(preorder,inorder,idx,left,rootIdx-1);
+        root->right = helper(preorder,inorder,idx,rootIdx+1,right);
+        return root;
+    }
+};
+
+
+
 // 16 dec 2024
 // recursive basic sol..6.30 min..no mistake..Verdict : PASS
 // time optimization in 30s..Verdict : PASS
