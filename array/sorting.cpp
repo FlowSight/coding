@@ -8,20 +8,32 @@ void quickSort(vector<int>& nums, int l, int r){
         quickSort(nums,pIdx+1,r);
     }
 
-int partition(vector<int>& nums, int l, int r){
-    int n = (r-l+1), idx = l+1, pIdx = rand()%n+l, pivot = nums[pIdx];
-    swap(nums[l],nums[pIdx]);
+    // >=...pivot...<
+    int partition(vector<int>& nums, int l, int r){
+        int n = (r-l+1), idx = l+1, pIdx = rand()%n+l, pivot = nums[pIdx];
+        swap(nums[l],nums[pIdx]);
 
-    for(auto i=l+1;i<=r;i++){
-        if(nums[i] >= pivot){
-            swap(nums[idx++],nums[i]);
+        for(auto i=l+1;i<=r;i++){
+            if(nums[i] >= pivot){
+                swap(nums[idx++],nums[i]);
+            }
+            if(nums[r]<=pivot)r--; // critical step to reduce iterations
         }
-        if(nums[r]<=pivot)r--; // critical step to reduce iterations
+        swap(nums[--idx],nums[l]);
+        return idx;
     }
-    swap(nums[--idx],nums[l]);
-    return idx;
-}
-
+    // <= ... pivot ..>
+    int partition(vector<vector<int>>& arr, int l, int r){
+        int idx = l+rand()%(r-l+1);
+        swap(arr[l],arr[idx]);
+        for(auto i=l+1;i<=r;i++){
+            if(dist(arr[i]) > dist(arr[l])) {
+                swap(arr[r--],arr[i--]);
+            }
+        }
+        swap(arr[r],arr[l]);
+        return r;
+    }
 // TODO : Floyd-Rivest 
 
 // heap sort

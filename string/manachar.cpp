@@ -1,3 +1,10 @@
+
+// 15 feb 2025..
+// 17 mins...indexing error..
+// sev1
+
+// QS to do : https://leetcode.com/problems/longest-palindromic-substring/, 
+// https://leetcode.com/problems/palindromic-substrings/description/
 // check palindrome in O(n)
 
 // left...x..center...i..right
@@ -6,6 +13,7 @@
 // so dp[x] should be same as dp[i] only when x+dp[x]<center and x-dp[x]>=left 
 // this means i+dp[x]<=right
 // if i+dp[x]>right then dp[i] = right - i // this is the crunch
+// severity : sev0
 
 cclass Solution {
 public:

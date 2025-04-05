@@ -1,3 +1,15 @@
+// 1 apr 2025.
+// 14 min..
+// considered neg numbers while dry running..
+// still one complier error...
+// sev3
+
+// 5 feb 2025..
+// 15 min.
+// logical error : didnt consider negative numbers...
+// severity : sev1
+// verdict : FAIL
+
 #include <cstddef>
 #include <string>
 #include <stack>

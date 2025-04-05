@@ -16,6 +16,8 @@
         "vector": "cpp",
         "queue": "cpp",
         "bitset": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "iosfwd": "cpp",
+        "39_max product subarray": "cpp"
     }
 }

@@ -12,11 +12,24 @@ int count_one(int n) {
     return count;
 }
 
+// sum of integers without using + or - operators
 
 int getSum(int a, int b) {
     return b==0? a:getSum(a^b, (a&b)<<1); //be careful about the terminating condition;
 }
-
+// hard way below:
+    int getSum(int a, int b) {
+        int ans = 0;
+        bool car = 0 ,abit, bbit;
+        for(auto i=0;i<32;i++){
+            abit = a&(1<<i);
+            bbit = b&(1<<i);
+            if(abit ^ bbit ^ car) ans ^= (1<<i);
+            car = ((abit ^ bbit)&car) | (abit & bbit);
+        }
+        return ans;
+    }
+//=================
 
 uint32_t reverseBits(uint32_t n) {
         n = (n >> 16) | (n << 16);

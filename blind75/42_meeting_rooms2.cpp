@@ -1,3 +1,7 @@
+// 29 march 2025
+// failed..forgot and oversimplified the problem
+// sev0
+
 /**
  * Definition of Interval:
  * class Interval {
@@ -31,7 +35,4 @@ public:
         return ans;
     }
 };
-
-// 165,221 65,424. 351,507.   387,722.  259,722.  19,797.  314,807.   136,897
-// 19,797. 65,424. 136,897    165,221.  259,722.  314,807  351,507.   387,722. 
 

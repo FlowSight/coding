@@ -3,10 +3,10 @@
 bool substr(string& s1, string& s2){
     int m = s1.size(), n = s2.size();
     auto lps = getLPS(s2);
-    for(auto i=0,j=0;i<m;i++){
-        while(j && (s1[i] != s2[j]))j = lps[j-1];
-        if(s1[i] == s2[j])j++;
-        if(j == n)return true;
+    for(auto i=0,idx=0;i<m;i++){
+        while(idx && (s1[i] != s2[idx]))idx = lps[idx-1];
+        if(s1[i] == s2[idx])idx++;
+        if(idx == n)return true;
     }
     return false;
 }
@@ -14,10 +14,9 @@ bool substr(string& s1, string& s2){
 vector<int> getLPS(string& s){
     int n = s.size();
     vector<int> lps(n,0);
-    for(auto i=1,j=0;i<n;i++){
-        while(j && (s[i] != s[j]))j = lps[j-1];
-        if(s[i] == s[j])j++;
-        lps[i] = j;
+    for(auto i=1,idx=0;i<n;i++){
+        while(idx && (s[i] != s[idx]))idx = lps[idx-1];
+        lps[i] = idx + (s[i] == s[idx]);
     }
     return lps;
 }

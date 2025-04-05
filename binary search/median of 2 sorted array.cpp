@@ -1,4 +1,10 @@
+12 feb 2025..
+could not match finally..forgot algo
+sev0
+
+
 //27 oct 2024
+// sev1
 
 class Solution {
 public:
@@ -13,6 +19,8 @@ public:
             l2 = (cut2==0?INT_MIN:arr2[cut2-1]), r2 = (cut2==arr2.size()?INT_MAX:arr2[cut2]);
         // this is to basically guarantee that the order is, (l1,l2), (r1,r2)
         // if this is the case then, its intersecting..that means..some 2 nos out of these 4 wiill give median
+        // internalize this below code : imagine you have cut1 in arr1 and cut2 in arr2.you must pick the larger one,
+        //(1,3), (2,4) => l1=1,r1 = 3, l2 = 2, r2 = 4 => max(1,2) = 2, min(3,4) = 3 => median = (2+3)/2...
         if((l1<=r2 )&& l2<=r1){ 
             return (arr1.size()+arr2.size())%2 ? max(l1,l2) : (double)(max(l1,l2)+min(r1,r2))/2.0;
         }

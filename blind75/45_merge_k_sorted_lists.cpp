@@ -1,6 +1,13 @@
+// 11 mar 2025
+// forgot comparator syntax..
+// also forgot base case..
+// sev0...
+
+
 // nov 10 2024..fucked up many things
 // 1. forgot how to define custom comparator for priority queue and set, if you HAVE to work with given struct
 // 2. missed a critical base case.
+// sev0
 
 //approach 1:
 ListNode* mergeKLists(vector<ListNode*>& lists) {
@@ -55,17 +62,11 @@ public static ListNode mergeKListsMergeSort(ListNode[] lists,int l,int r){
 }
 
 // TC
-// t(n/2)+O(n)
-// t(n/4)+o(n/2)+O(n)
-// t(n/8)+o(n/4)+o(n/2)+O(n)
-// t(n/8)+o(nk/4)+o(nk/2)+O(nk)
-// ....
-// O(nk)+O(nk/2)+O(nk/4)+...+O(nk/2^log(n))
-// nklogn
-
-
-
-
+// 2*t(n/2)+O(nk)
+// 4*t(n/4)+2*o(nk/2)+O(nk)
+// 8*t(n/8)+4*o(nk/4)+2*o(nk/2)+O(nk)
+// O(nk) * log(n) times 
+// O(nklogn)
 
 //approach 3:
 

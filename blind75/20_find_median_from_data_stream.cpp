@@ -1,3 +1,55 @@
+// 11 mar 2025
+// 15 mins..did during call..
+// fucked up the base case of size 1
+// sev1
+
+class MedianFinder {
+    public:
+        multiset<pair<int,int>> ss;
+        multiset<pair<int,int>>::iterator it;
+        int ts;
+        MedianFinder() {
+            ss.clear();
+            it = ss.begin();
+            ts = 0;
+        }
+        
+        void addNum(int num) {
+            ss.insert({num,ts++});
+            if(ss.size() == 1){
+                it = ss.begin();
+                return;
+            }
+    
+            if(ss.size()%2) {
+                // was even
+                if(it->first<=num) {
+                    it++;
+                }
+    
+            } else {
+                // was odd
+                if(it->first>num) {
+                    it--;
+                }
+            }
+        }
+        
+        double findMedian() {
+            auto one = it->first, two = (ss.size()%2)?one : next(it)->first;
+            return (one+two)/2.0;
+        }
+    };
+    
+    /**
+     * Your MedianFinder object will be instantiated and called as such:
+     * MedianFinder* obj = new MedianFinder();
+     * obj->addNum(num);
+     * double param_2 = obj->findMedian();
+     */
+
+
+
 struct node{
     int idx;
     double num;

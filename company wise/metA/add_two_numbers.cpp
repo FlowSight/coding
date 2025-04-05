@@ -1,3 +1,32 @@
+// 12 feb 2025..
+// 8 mins..
+// one logical error
+// 1 compiler error..
+// verdict : FAIL
+// sev2
+
+class Solution {
+public:
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+        int cur = 0, carry = 0;
+        ListNode* dummyNode = new ListNode();
+        ListNode* prevNode = dummyNode;
+        while(l1 || l2 || carry) {
+            cur = (l1 ? l1->val : 0) + (l2 ? l2->val : 0) + carry;
+            carry = cur/10;
+            cur = cur%10;
+            prevNode->next = new ListNode(cur);
+
+            prevNode = prevNode->next;
+            if(l1)l1 = l1->next;
+            if(l2)l2 = l2->next;
+        }
+        return dummyNode->next;
+    }
+};
+
+
+
 // 13 jan 2025..
 // 11 mins
 // verdict : pass

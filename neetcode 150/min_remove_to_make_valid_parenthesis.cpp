@@ -1,7 +1,14 @@
+// 30 march...was corect
+// BUT DIDNT DRY RUN..
+// HENCE HAD TO PAY PRICE..13 MINS..
+// SEV1
+
+
 // 27 dec 2024..
 // 12 min
 // didnt read qs...first coded assuming we need to output the no of removes..
 // verdict : FAIL
+// SEV0
 
 
 // 22 dec 2024...8 min..

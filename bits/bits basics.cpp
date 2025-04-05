@@ -6,10 +6,21 @@ int count_one(int n) {
     return count;
 }
 
-bool isPowerOfFour(int n) {
-    return !(n&(n-1)) && (n&0x55555555);
-    //check the 1-bit location;
+// power of i variants
+
+bool isPowerOfTwo(int n) {
+    return !(n&(n-1));
 }
+bool isPowerOfFour(int n) {
+    return  isPowerOfTwo(n) && (n&0x55555555);
+}
+
+bool isPowerOfFour(int n) {
+    return isPowerOfTwo(n) && (n%3==1);
+}
+
+
+////
 
 int getSum(int a, int b) {
     return b==0? a:getSum(a^b, (a&b)<<1); //be careful about the terminating condition;
@@ -35,13 +46,6 @@ long largest_power(long N) {
 }
 
 
-    bool isPowerOfFour(int n) {
-        return (n & ((long)n-1)) ==0 && (n%3==1);
-    }
-
-       boolean isPowerOfFour(int num) {
-        return num > 0 && (num&(num-1)) == 0 && (num & 0x55555555) != 0;
-    }
 
     bool isPowerOfThree(int n) {
         return n > 0 && (1162261467 % n == 0);

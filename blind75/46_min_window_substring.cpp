@@ -1,3 +1,41 @@
+// 13 mar 2025
+// did whole thing..
+// but missed the fact that it can have A=Z also 
+// sev1
+
+class Solution {
+    public:
+        string minWindow(string s, string t) {
+            unordered_map<char,int> cnt, cnt1;
+            // O(t.size())
+            for(auto c: t){
+                cnt[c]++;
+            }
+            int n = s.size(), ansL = -1, ans = n+1;
+            for(auto l=0,r=0;r<n;r++){ //O(s.size())
+                cnt1[s[r]]++;
+                while(covered(cnt,cnt1)){ //O(52)
+                    if(ans > r-l+1){
+                        ans = r-l+1;
+                        ansL = l;
+                    }
+                    cnt1[s[l++]]--;
+                }
+            }
+            return ansL == -1 ? "" : s.substr(ansL,ans);
+        }
+        // O(52)
+        bool covered(unordered_map<char,int>& cnt1, unordered_map<char,int>& cnt2){
+            for(auto it : cnt1){
+                if(cnt2.find(it.first) == cnt2.end()) return false;
+                if(cnt2[it.first] < it.second) return false;
+            }
+            return true;
+        }
+    };
+
+
+
 class Solution {
 public:
     string minWindow(string s, string t) {

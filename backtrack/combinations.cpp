@@ -1,3 +1,7 @@
+// damn, could not think this way..
+// ifany no is >n, regenerate from the no before it...this is essentially backtracking
+// severity : sev0
+
 class Solution {
 public:
     typedef vector<int> vi;
@@ -20,5 +24,3 @@ public:
     }
 };
 
-// damn, could not think this way..
-// ifany no is >n, regenerate from the no before it...this is essentially backtracking

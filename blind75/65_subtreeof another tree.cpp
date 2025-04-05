@@ -1,14 +1,12 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
+// 4 feb 2025
+// forgot kmp code
+// forgot how to do iterative serializing
+// forgot how to do recursive serializing...actually
+// forgot rabin karp method
+// verdict : FAILED
+
+
+
 class Solution {
 public:
     char null = '$', sep = ';';
