@@ -1,3 +1,9 @@
+// 6 apr 2025
+// 7 min..
+// 1 stupid compiler mistake
+// sev3
+
+
 // 27 dec 2024..7.30 mins
 // verdict : PASS
 

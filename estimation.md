@@ -1,7 +1,26 @@
 
+==============================
 5 apr 2025
 
-backward estimation
+
+///// checkpointing (anirban)
+nc 150 done
+HI 17 done
+meta tagged hard 10 done (??? in doubt as shared account)
+
+
+///// target checkpointing on 20 apr 2025
+HI done : 1 pass
+nc 150 in muscle memory
+behavorial : at least 10 stories prepared
+
+sumita:
+HI : 4 qs breakdown + all key tech
+LC : meta tagged medium = 30 done
+
+
+
+/// backward estimation (anirban)
 
 sd :
     HI : 8 rem : 1st pass
@@ -27,7 +46,10 @@ coding:
             3 months = 400
             hard only = 50
             1 pass = 50/3 per day = 17 days
-            med only = 228
+            med only = 228= 
+
+        I wil do only hard+meta+3months
+        sumita wil do only medium+meta+3months
 
 
     nc 150 = 1/3 2 times = 50/3*4 = 66 days
@@ -45,7 +67,9 @@ structuring = 5 days (basic) + ongoing(continuous)
 reharse = 10 days (min)
 = 25 days
 
-////////////////
+============================
+
+
 - code
     - state : need to reach  a state where i can do hards in 20 mins..and covered a lot of hards..in LC and codeforces..
     - few qs arises from above statement:

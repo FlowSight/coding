@@ -1,3 +1,9 @@
+// 6 apr 2025
+// 19 min..
+// 1 logical mistake..didnt take multiset..
+// sev2
+
+
 // completely beaten...could not think..eularian path
 // missed the main catch : greedily taking doesnt guarantee the correct path..we need minimal AS WELL AS the correct path
 // 25 mar 2025

@@ -1,3 +1,8 @@
+// 9 apr 2025
+// i got it done by a innovative method..still missed a corner case..as didnt dry run
+// also forogt the actual approach
+// sev2
+
 // 2 jan 2025..
 // verdict : FAILED, BEATEN
 // TODO
