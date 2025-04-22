@@ -1,5 +1,46 @@
+// 12 apr 2025
+// 15 mins..
+// missed the very very basic case of updating the map with hydrated values into map 
+// sev2
+
+
+// TODO: another good idea
+int longestConsecutive(vector<int>& nums) {
+    unordered_map<int, int> mm;
+    int ans = 0;
+    for (auto it: nums) {
+        if (mm.find(it) != mm.end()) continue;
+        
+        auto ll = mm.find(it-1) == mm.end() ? 0 : mm[it-1],
+            rr = mm.find(it+1) == mm.end() ? 0 : mm[it+1];
+        mm[it] = ll + rr + 1;
+        mm[it - ll] = mm[it];
+        mm[it + rr] = mm[it];
+        ans = max(ans, mm[it]);
+    }
+    return ans;
+}
+
+// TODO: another great idea
+
+int longestConsecutive(vector<int>& nums) {
+    unordered_set<int> ss;
+    int ans = 0;
+    for(auto it : nums)ss.insert(it);
+    for(auto it : ss){
+        if(ss.find(it-1) != ss.end()) continue;
+        auto num = it+1;
+        while(ss.find(num) != ss.end()){
+            num++;
+        }
+        ans = max(ans,num-it);
+    }
+    return ans;
+}
+
 // 22 dec 2024..missed the set usecase..11 mins
 // verdict : FAIL
+// sev0
 
     int longestConsecutive(vector<int>& nums) {
         unordered_map<int,int> left, right;
@@ -76,6 +117,9 @@ public:
         return ans;
     }
 };
+
+
+
 
 // 100:100,4:4,200:200,1:1,3:3,2:1
 // 100:100,4:4,200:200,1:2,3:3

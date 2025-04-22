@@ -1,3 +1,25 @@
+// 15 apr 2025
+// silly mistake..didnt check hotspots..
+// took much time to code.
+// // didnt even remember 2 pointer approach.
+// sev1 sev1
+
+class Solution {
+    public:
+        int trap(vector<int>& height) {
+            int n = height.size(), ans = 0;
+            vector<int> rightMax(n,0);
+            for(auto i=n-1;i>=0;i--) {
+                rightMax[i] = max( (i==n-1 ? 0 : rightMax[i+1]),height[i]);
+            }
+            for(auto i=1,leftMax = height[0];i<n-1;i++){
+                ans += max(0,min(leftMax,rightMax[i+1])-height[i]); 
+                leftMax = max(leftMax,height[i]);
+            }
+            return ans;
+        }
+    };
+
 // 24 dec 2024...18 mins..forgot original approach..took some time to remember after running in mind..
 // then 3-5 index mistake..
 // didnt even remember 2 pointer approach.

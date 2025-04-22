@@ -39,6 +39,7 @@
 };
 
 // stephan pochman did some shit
+// sev0
 int kthSmallest(TreeNode* root, int k) {
     vector<TreeNode*> stac(k);
     int i = 0, j = k;

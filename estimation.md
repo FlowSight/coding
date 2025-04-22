@@ -1,3 +1,70 @@
+22 apr 2025
+ sumita :
+    coding:
+        nc 150 :TODO(revise)
+        meta 1 month easy : 42
+        per day : 2 meta code + 3 random nc visit, if feel iffy, do it 
+        meta = 42/2 = 21
+        nc 150 = 150/3 = 50
+        max(meta , nc 150) = 50
+    sd : 
+        first pass :
+            HI :
+                qs breakdown : 18 rem + 5 done
+                key tech: 7 (done)
+            alex xu : 7 rem
+            HI 18 rem = 18*1.5 = 27
+            alex xu : 7*1.5 = 11
+            time to finish 1st round = 38
+
+        second pass:
+            revision = 23 (HI) + 7 key tech (HI)  = 30 = 30 days
+                alex xu notes will be INSIDE HI notes, so revision separtely not needed
+
+    total = max(sd, coding) = max(50,68) = 68
+
+
+// 16 apr 2025
+
+meta interview in 1 month
+i need to cover and put  in finger tip meta last 3 months med + hard
+also finger tipify nc150
+nc150 2nd pass deadline : 20 apr
+meta 3 months med/hard : 
+    tot : 271
+    hard done : 39/51
+    med done : 10/220
+
+    hard rem : 12
+    med rem : 210
+    tot rem : 222
+
+    solving each qs = 222/30 = 7 /day..impossible
+    have to read/mentally solve easier ones
+    maybe 100 actually-solve and 122 soft-solve 
+        = feasible as 3/day avg for 30 days
+
+but nc150 needs revision as well. at least 2 times
+4 days per revision = 8 days
+total becoming 38 days.
+
+need to schedule HI paid mocks.
+need to start personal mocks
+
+1. I mock myself (start today 16/4/25)
+2. sumita mocks me (start after 20/4/25)
+3. HI mocks me (in may first week).
+
+practice method:
+    for meta tagged:
+        1. give 15 min and 5 mins buffer. Whatever state it is in 20 mins..stop it. mark it as fail and reason of failure. Move ahead.
+        2. 3 hr = 9 slots of 20 mins..at least 7 qs should be done. 20*2=40 mins buffer time.
+    nc150 method:
+        1. see questions, if the qs feels iffy, do it, similar 15+5=20 mins.
+        2. above is bound to 1 hr.
+        3. every nth revision of nc150 will be doing from a subset of qs
+            selected from (n-1)th revision where I stumbled. The goal of nth iteration is to reduce the list. In nth iteration i will soft solve all 150, solve iffy ones and keep in new list. hope
+            is this list size will go down.
 
 ==============================
 5 apr 2025

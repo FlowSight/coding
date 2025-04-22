@@ -1,3 +1,8 @@
+// 12 apr 2025
+// 2 compiler mistake..
+// but code was better than before...but 12 mins
+// sev3
+
 // 29 march 2025
 // 17 min..
 // no mistake..but didnt use sep as i thought sep like $ is inside 256

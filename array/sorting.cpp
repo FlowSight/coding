@@ -1,6 +1,10 @@
 // qucik sort
 // avg case tc = 2t(n/2) + n = O(nlogn)
 // for kth smallest or largest avg case = t(n/2) + n = O(n)
+// sev0
+
+
+// avg case tc = 2t(n/2) + n = O(nlog
 void quickSort(vector<int>& nums, int l, int r){
         if(l>=r)return;
         int pIdx = partition(nums,l,r);
@@ -9,6 +13,8 @@ void quickSort(vector<int>& nums, int l, int r){
     }
 
     // >=...pivot...<
+    // mistake point : have to remember how are we partitioning..greater first or lesser first
+    // having hard time remembering this
     int partition(vector<int>& nums, int l, int r){
         int n = (r-l+1), idx = l+1, pIdx = rand()%n+l, pivot = nums[pIdx];
         swap(nums[l],nums[pIdx]);
@@ -17,11 +23,26 @@ void quickSort(vector<int>& nums, int l, int r){
             if(nums[i] >= pivot){
                 swap(nums[idx++],nums[i]);
             }
-            if(nums[r]<=pivot)r--; // critical step to reduce iterations
+            if((r>i) && (nums[r]<=pivot))r--; // critical step to reduce iterations
         }
         swap(nums[--idx],nums[l]);
         return idx;
     }
+
+    // another >=...pivot...< partition
+    int partition(vector<pair<int,int>>& arr, int l, int r){
+        int idx = rand()%(r-l+1) + l;
+        swap(arr[l],arr[idx]);
+        for(auto i=l+1;i<=r;i++){
+            if(arr[i].first < arr[l].first){
+                swap(arr[r--],arr[i--]);
+            } 
+            if((r>i) && (nums[r]<=nums[l]))r--;
+        }
+        swap(arr[l],arr[r]);
+        return r;
+    }
+
     // <= ... pivot ..>
     int partition(vector<vector<int>>& arr, int l, int r){
         int idx = l+rand()%(r-l+1);

@@ -1,3 +1,7 @@
+// 15 apr 2025
+// did it correct..remembered cpp remainder issue..but dry run fucked up..missed silly issue..
+// also missed a corner case..2 corner case in total..
+
 //19/2/25
 //  same issue : forgot that cpp mod does actually give SIGNED CORRECT REMAINDER
 // sev0 ... 
@@ -16,7 +20,6 @@
             if((INT_MAX/10 < res) || (INT_MIN/10 > res)) return 0; 
             res = (res*10) + (x%10);
             x/=10;
-            cout<<res<<endl;
         }
         return res;
     }

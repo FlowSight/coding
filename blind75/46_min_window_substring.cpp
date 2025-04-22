@@ -1,3 +1,9 @@
+// 16 apr 2025
+// did 2-3 logical mistakes..
+// while in call..
+// stupid
+// sev2
+
 // 13 mar 2025
 // did whole thing..
 // but missed the fact that it can have A=Z also 

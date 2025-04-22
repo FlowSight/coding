@@ -1,3 +1,8 @@
+// 21 apr 2025..
+// i fucked up in lower bound code..
+// then fucked up in spiral..
+// sev0 sev0 sev0
+
 // 1 jan 2025
 // 10 mins..
 // logic mistake..returned number instead of index..
