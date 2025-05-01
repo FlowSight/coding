@@ -1,0 +1,1 @@
+../string/manachar.cpp

@@ -1,3 +1,7 @@
+// 30 apr 2025
+// got the >=...< idea but wronged the parittion caller binary search logic..resulted into timeuut.
+// sev0
+
 // 13 apr 2025
 // forgot partition algo..
 // also didnt quite think through the left and right boundary selection after

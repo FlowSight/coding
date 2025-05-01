@@ -1,3 +1,4 @@
+// 29 apr 2025..forgot kmp and substr again
 // 14dec ...fucked up kmp code...forgot...
 
 bool substr(string& s1, string& s2){
@@ -16,7 +17,8 @@ vector<int> getLPS(string& s){
     vector<int> lps(n,0);
     for(auto i=1,idx=0;i<n;i++){
         while(idx && (s[i] != s[idx]))idx = lps[idx-1];
-        lps[i] = idx + (s[i] == s[idx]);
+        idx += (s[i] == s[idx]);
+        lps[i] = idx;
     }
     return lps;
 }

@@ -31,6 +31,7 @@ int getUpperBound(int key){
     if(it ==mm.end()) return -1;
     return it->second;
 }
+
 /////////////////////////////comparators///////////////////////
 
  //if you HAVE TO use given STRUCT :
@@ -51,3 +52,17 @@ int getUpperBound(int key){
 
 // if you are flexible, choose struct over class..
 
+// if you have to get multiple bounds in a sorted set (e.g. array or other)..
+// use lower bound or upper bound but not both 
+// how?
+// lets say in an array you need to find (l..r) where arr[l]>= num1 and arr[r]<=num2..
+// basically a bounded range
+// you can do  l= lower_bound(num1); r =lower_bound(num2+1);
+// OR 
+// l= upper_bound(num1-1); r =upper_bound(num2);
+// THIS WILL WORK FOR DUPLICATES ALSO.
+
+
+// string :
+// find : s1.find(s2)
+// susbtr : s1.substr(start, len) // len is optional

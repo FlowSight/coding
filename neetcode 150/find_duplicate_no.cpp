@@ -5,6 +5,41 @@
 // didnt dry run...
 // sev1
 
+// explanation : linked_list_cycle2.md
+// basic idea is make a linked list of the array..then with help of the disgram 
+// above it will be clear
+
+// one more solution..changes the array 
+class Solution {
+    public:
+        int findDuplicate(vector<int>& nums) {
+            while (nums[0] != nums[nums[0]])
+                swap(nums[0], nums[nums[0]]);
+            return nums[0];
+        }
+    };
+// one more solution..reuires two passes
+class Solution {
+    public:
+        int findDuplicate(vector<int>& nums) {
+            int duplicate = -1;
+            for (int i = 0; i < nums.size(); i++) {
+                int cur = abs(nums[i]);
+                if (nums[cur] < 0) {
+                    duplicate = cur;
+                    break;
+                }
+                nums[cur] *= -1;
+            }
+            
+            // Restore numbers
+            for (auto& num : nums)
+                num = abs(num);
+            
+            return duplicate;
+        }
+    };
+
 class Solution {
     public:
         int findDuplicate(vector<int>& nums) {

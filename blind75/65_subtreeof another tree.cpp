@@ -1,3 +1,9 @@
+// 29 apr 2025
+// did serialization..15 mins..
+// my main problem is that think while coding..little lack of clarity in preorder vs postorder..
+// im thinking preorder..but i say or write postorder
+// sev0
+
 // 4 feb 2025
 // forgot kmp code
 // forgot how to do iterative serializing

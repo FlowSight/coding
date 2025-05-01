@@ -1,3 +1,11 @@
+// when u do this qs understand the series..
+// basic version is only +/
+// then adding ()
+// then  +-*/ no ()
+// then +-*/ with ()
+// then + - * / with ()
+
+
 // 9 apr 2025
 // i got it done by a innovative method..still missed a corner case..as didnt dry run
 // also forogt the actual approach

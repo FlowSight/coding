@@ -30,4 +30,4 @@ class SetName{
 same pattern for priority queue, just that the order is reversed
 Also, if equal == operator is not defined, then set will not add the element if it is already present in the set.
 
-
+for priority queue in reverse order, negate the value while push and pop

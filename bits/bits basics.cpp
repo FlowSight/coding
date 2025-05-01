@@ -64,3 +64,10 @@ long largest_power(long N) {
         int ma = pow(3,(int)(log(INT_MAX)/log(3)));
         return n > 0 && (ma % n == 0);
     }
+
+    int rangeBitwiseAnd(int left, int right) {
+        while(right>left){
+            right = right & (right-1);
+        }
+        return right;
+    }

@@ -1,4 +1,5 @@
 
+// 27 apr 2025..no error
 //11 nov..2024..8 mins..dry run..no  error
     ListNode* removeNthFromEnd(ListNode* head, int n) {
         n--;

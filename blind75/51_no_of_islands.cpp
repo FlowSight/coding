@@ -1,3 +1,6 @@
+// 30 apr..1 compiler mistake..
+// sev2
+
 // 22 dec 2024...took 20 mins to get tha fact that I should not assign grid[i][j] = '-1'
 // Verdci: FAIL 
 

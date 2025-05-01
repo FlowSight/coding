@@ -1,9 +1,13 @@
 // TODO(practice) : cnt(0)
 
-5. code
+6. dry run (small tc -> boring edge case -> interesting edge case -> big tc if time permits)
+ 
+5.3 check variables, braces, ; , other syntaxes (all these per line)
+5.2 check hotspot ( and dry run in mind)
+5.1 conceptual walkthrough of code verbally while coding
+5.0 code
 
 
-6. dry run
 4. write tc
 3. write idea
 2. write corner cases

@@ -1,3 +1,36 @@
+// 30 apr 2025..
+// go a new approach..didnt remember the old one..sev3
+
+
+// my approach
+class Solution {
+    public:
+        vector<int> minInterval(vector<vector<int>>& intervals, vector<int>& queries) {
+            sort(intervals.begin(),intervals.end(),[](vector<int>& v1, vector<int>& v2) {
+                return v1[1]-v1[0] < v2[1]-v2[0];
+            });
+            set<int> ss;
+            unordered_map<int,int> mm;
+            for(auto q : queries)ss.insert(q);
+            for(auto it : intervals){
+                auto l = it[0], r = it[1];
+                auto ll = ss.lower_bound(l);
+                auto rr = ss.upper_bound(r);
+                for(auto it = ll;it != rr;it++){
+                    mm[*(it)] = r-l+1;
+                }
+                ss.erase(ll,rr);
+            }
+            vector<int>  ans;
+            for(auto q : queries){
+                ans.push_back(mm.find(q) == mm.end() ? -1 : mm[q]);
+            }
+            return ans;
+        }
+    };
+    
+
+
 // 13 mar 2025
 // got a convoluted approach..but not quite elegant..took 30 min to implement..instead i saw the sol..
 // sev0

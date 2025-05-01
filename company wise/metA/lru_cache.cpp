@@ -1,3 +1,9 @@
+// 27 apr 2025
+// failed again in implementation..
+// key points:
+// last is dummy + make calcRecency method
+// sev0
+
 // 11 MAR 2025
 // tried linkedist approach..
 // failed badly..although I came up with the idea correctly..didnt dry run and look at the code deeply
@@ -76,13 +82,6 @@ public:
     }
 };
 
-/**
- * Your LRUCache object will be instantiated and called as such:
- * LRUCache* obj = new LRUCache(capacity);
- * int param_1 = obj->get(key);
- * obj->put(key,value);
- */
-
 // dumm->1->2
 
 
@@ -109,9 +108,6 @@ public:
         auto val = keyValMap[key];
         clock++;
         keyValMap[key] = {clock,val.second};
-
-        //tsToKeyMap.erase(val.first);
-        //tsToKeyMap[clock] = key;
 
         if(tsToKey.size() == clock) tsToKey.push_back(key);
         else tsToKey[clock] = key;

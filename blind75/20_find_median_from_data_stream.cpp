@@ -1,3 +1,6 @@
+// 30 apr 2025
+// compiler error..iterator..sev2
+
 // 11 mar 2025
 // 15 mins..did during call..
 // fucked up the base case of size 1

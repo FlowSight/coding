@@ -1,6 +1,8 @@
+
 // 29 march 2025
 // failed..forgot and oversimplified the problem
 // sev0
+// there is another method with sorting + O(n) space..try that
 
 /**
  * Definition of Interval:

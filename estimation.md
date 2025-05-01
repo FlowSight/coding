@@ -1,3 +1,25 @@
+26 apr 2025
+anirban
+    coding :
+        meta 1 month :
+            6 hard + 5 med + easy(delegated to sumita)
+            TODO : 3 months meta medium + hard = 120 + 30 = 150 qs
+            TODO : 1 months meta : revise = 120 (med) + 26(hard) = 150 revise
+        nc 150 : 11 topics remaining (will do after above meta done)
+            TODO: practice method: same as earlier (reduce from n-1th iteration)
+        every day : scan all topic wise + nc150 wise + meta wise sev0123 problems and notes
+        special issue :
+            graph : bellman ford + floyd warshall
+            dp : striver list ??
+            bit : special patterns
+    
+    sd : HI all read 1 pass
+        TODO: 1 more pass, this time interview style, capture feedback
+    behavorial: TODO
+
+    8 -> (6,11) -> 7
+
+
 22 apr 2025
  sumita :
     coding:

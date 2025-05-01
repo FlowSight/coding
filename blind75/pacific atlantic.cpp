@@ -1,3 +1,6 @@
+// 30 apr 2025
+// messed up sidess..21 mins..sev0
+
 // 18 mar 2025..
 // i messed up again..stupid visited logic error in code..
 // sev0

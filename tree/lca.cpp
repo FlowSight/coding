@@ -1,3 +1,6 @@
+// 29 apr 2025..
+// 1 compilation error..8 mins..better ..sev3
+
 // 12 jan 2025..
 // 15 mins
 // made logical mistake of while condition : didnt recheck code...
@@ -8,7 +11,7 @@
         TreeNode* lastPop = nullptr;
         while(((st.size()>0) || root) && ((pPath.size() == 0) || (qPath.size()==0))) {
             if(root){
-                st.push_back(root);
+                st.push_back(root); // comment : dont check parent while putting to stack..check while popping
                 if(root == p){
                     pPath = st;
                 }
