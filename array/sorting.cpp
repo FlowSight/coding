@@ -60,6 +60,7 @@ void quickSort(vector<int>& nums, int l, int r){
 // heap sort
 // avg case tc = 2t(n/2) + n = O(nlogn)
 
+
 void heapSort(vector<int>& nums){
     int n = nums.size();
     for(int i=n/2-1;i>=0;i--){
@@ -71,6 +72,7 @@ void heapSort(vector<int>& nums){
     }
 }
 
+
 void heapify(vector<int>& nums, int n, int i){
     int l = 2*i+1, r = 2*i+2, largest = i;
     if(l<n && nums[l]>nums[largest])largest = l;
@@ -80,3 +82,49 @@ void heapify(vector<int>& nums, int n, int i){
         heapify(nums,n,largest);
     }
 }
+
+priority queue 
+
+class MyHeap {
+    public:
+    vector<int> arr;
+    int size;
+    MyHeap(){
+        size = 0;
+    }
+    void push(int num){
+        arr.push_back(num);
+        size++;
+        for(auto i=size/2-1;i>=0;i--){
+            heapify(i);
+        }
+    }
+
+    void pop(){
+        if(size == 0) return;
+        int ans = arr[0];
+        swap(arr[0],arr[size-1]);
+        arr.pop_back();
+        size--;
+        heapify(0);
+    }
+
+    int top() {
+        return (size ? arr[0] : INT_MIN);
+    }
+
+    int getSize(){
+        return size;
+    }
+
+    void heapify(int idx){
+        int smaller = idx, ll = 2*idx+1, rr = 2*idx+2;
+        if((ll<size) && (arr[ll] < arr[smaller])) smaller = ll;
+        if((rr<size) && (arr[rr] < arr[smaller])) smaller = rr;
+        swap(arr[idx],arr[smaller]);
+        if(smaller != idx){
+            heapify(smaller);
+        }
+    }
+};
+

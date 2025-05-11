@@ -1,18 +1,19 @@
-// TODO(practice) : cnt(0)
+story of interview:
+interviewer is trying to give you a unseen problem. Even if you had seen it, you need to ACT. Come up with reasoning 
+of why you are choosing the approach.
+assessment parameters
+1. Problem solving/analytical skills
+2. coding skills : can transorm idea into working, modular, readable code
+3. technical skills [optional] : may not be required in some companies. It is asked when code is asked to make multi threaded, or some particular niche
+4. communication : 
+5. experience [optional] : 
 
-6. dry run (small tc -> boring edge case -> interesting edge case -> big tc if time permits)
- 
-5.3 check variables, braces, ; , other syntaxes (all these per line)
-5.2 check hotspot ( and dry run in mind)
-5.1 conceptual walkthrough of code verbally while coding
-5.0 code
 
 
-4. write tc
-3. write idea
-2. write corner cases
-1. write qs key points
 
+thinking path:
+based on problem can start with arr,graph,ds
+the algo path can be 2p,greedy,dp,binary search..switching lanes is important
 
 
 gayle/ctci recommendation=====
@@ -24,11 +25,7 @@ conceptual walkthrough of code (not dry run) (verbally)
 
 
 
-Meta :
-1. https://vimeo.com/157480836  (pass : FB_IPS) (TODO)
-    - get the resume formatting and prepare pitch (first 10 mins)
-    - mention things (not necessarily on job...maybe something like trekking whetever..for me it can be tripwyz or may other things..this will show willingness to take difficult problem )
-    - then pick past 1-3 project that i can talk very well and are great to mention
-2. https://vimeo.com/158532188 (TODO)
 
-3. https://interviewing.io/guides/hiring-process/meta-facebook (TODO)
+
+
+

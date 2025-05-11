@@ -1,0 +1,1 @@
+../../company wise/metA/majority_element_2.cpp

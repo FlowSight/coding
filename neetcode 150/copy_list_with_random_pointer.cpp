@@ -1,6 +1,12 @@
 // 16 mar 2025
 // humilation.. beaten
 // sev0 sev0
+
+// solution :
+// zigzag pattern
+// create clone -> establish random -> establish next for both 
+
+
 class Solution {
     public:
         Node* copyRandomList(Node* head) {

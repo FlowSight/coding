@@ -1,3 +1,7 @@
+// 7 may 2025..
+// 1 logical mistake..
+// sev2
+
 // 14 mar 2025
 // 26 mins..
 // 2 compiler mistakes

@@ -1,3 +1,6 @@
+// 10 may 2025
+// there is a O(n) approach ..do that
+
 // 1 may 2025
 // 2 compiler mistake + 1 logical mistake..
 // sev3
