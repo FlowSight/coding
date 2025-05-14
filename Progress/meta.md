@@ -15,8 +15,17 @@ Meta:
 7. Is meta tagged last 3 months enough? 
 8. 
 
-before i start just check with interview if my dry run is solid
 
+// strategy
+do all meta tagged 150 past 6 months
+follow framework.
+metrics:
+    all approaches should be talked about.
+    code should be almost memorized
+    should be doable like a robot with no glitch.
+NOTE: my note should contain all possible solutions AND
+    I should have them memorized fully.
+    
 
 
 Meta :

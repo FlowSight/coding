@@ -1,3 +1,30 @@
+15 may 2025
+anirban
+    coding:
+       method:
+        meta 6 months :I will do either mentally or code (if felt iffy) + sumita will randomly mock interview me from list
+        GOAL : 5q/day
+    sd:
+        method : practice all 25 from HI
+        GOAL : complete practice of 1q from HI
+    behavorial : 
+        GOAL : make min 2 stories
+sumita:
+    coding:
+        method
+        meta 6 months :
+            I will do either mentally or code (if felt iffy)
+            anirban will randomly mock interview sumita from list
+        GOAL : 10q/day
+    sd:
+        GOAL:
+            Revision : core concepts
+            Study : 2 new topics from HI
+
+    behavorial : make min 2 stories
+[Next meet : 17/5/25]
+
+
 26 apr 2025
 anirban
     coding :
@@ -16,8 +43,6 @@ anirban
     sd : HI all read 1 pass
         TODO: 1 more pass, this time interview style, capture feedback
     behavorial: TODO
-
-    8 -> (6,11) -> 7
 
 
 22 apr 2025

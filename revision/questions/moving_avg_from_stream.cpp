@@ -1,0 +1,1 @@
+../../company wise/metA/moving_avg_from_stream.cpp

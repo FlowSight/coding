@@ -1,3 +1,5 @@
+// TOOD: do the left/right  way too..its more intuitive..
+
 // 22 apr 2025
 // 3.5 min..pass
 

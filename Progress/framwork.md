@@ -17,7 +17,7 @@
 5 One Scan : [TIME : ]
     1. THIS IS VERY IMP. FOR YOU TO MENTALLY SOLVE CASES AND SEE CODE CORRECTNESS. AFTER THIS ANY MISTAKE FOUND IS A NEGATIVE MARK. 
     2. check hotspot ( and dry run in MIND)
-    3. check variables, braces, ; , other syntaxes (all these per line)
+    3. check variables, braces, ; , other syntaxes (all these per line). Speak : 'Now IM CHECKING FOR SYNTAX ERRORS'
 4 start coding [TIME : ]
     1. try to use pseudo code's steps to decorate parts of code e.g. code sections or methods...AFTER that part is coded
     2. [optional] : whenever feel like some twisted logic is, add one liner comment 

@@ -7,6 +7,30 @@
 // no mistake
 // verdict : PASS
 
+
+// MEta key : use the getline method
+
+string simplifyPath(string path) {
+    stringstream ss(path);
+    vector<string> arr;
+    string tmp = "", ans = "";
+    while(getline(ss,tmp,'/')){
+        if((tmp == ".") || (tmp.size() == 0)) continue;
+        if(tmp == "..") { 
+            if(!arr.empty()) {
+                arr.pop_back();
+            }
+        }
+        else arr.push_back(tmp);
+    }
+
+    for(auto it : arr){
+        ans.push_back('/');
+        for(auto c: it) ans.push_back(c);
+    }
+    return ans.size() == 0 ? "/" : ans;
+}
+
 class Solution {
 public:
     string simplifyPath(string path) {

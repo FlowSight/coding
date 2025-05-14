@@ -5,6 +5,26 @@
 class Solution {
     public:
         int maximumSwap(int num) {
+            string s = to_string(num);
+            int n = s.size(), maxsofar = n-1;
+            vector<int> cand = {0,0};
+            for(auto i=n-2;i>=0;i--){
+                if(s[i] < s[maxsofar]) {
+                    cand = {i,maxsofar};
+                }
+                else if(s[i] > s[maxsofar]){
+                    maxsofar = i;
+                }
+            }
+            swap(s[cand[0]],s[cand[1]]);
+            return stoi(s);
+    
+        }
+    };
+
+class Solution {
+    public:
+        int maximumSwap(int num) {
             if(num < 10) return num;
     
             auto str = to_string(num);
