@@ -1,3 +1,5 @@
+// 17 may 2025..took a lot of tume to think
+
 // 20 jan 2025
 // 15 min..
 // 1 compiler error.didnt cross check..
@@ -14,14 +16,13 @@ public:
             }
             mid = (l+r)/2;
             if(isPeak(nums,mid)) return mid;
-            left = (mid == 0?INT_MIN : nums[mid-1]);
-            right = (mid == nums.size()-1 ?INT_MIN : nums[mid+1]);
-
-            if((left<=nums[mid]) && (nums[mid]<=right)) l = mid+1;
-            else if((left>=nums[mid]) && (nums[mid]>=right)) r = mid-1;
+            int left = (mid == 0? INT_MIN : nums[mid-1]),
+                right = (mid == n-1? INT_MIN : nums[mid+1]);
+            if(nums[mid] < nums[r]) l = mid+1;
+            else if(nums[mid] < nums[l]) r = mid-1;
             else {
-                if(right>left) l = mid+1;
-                else r = mid-1;
+                if(left > right) r = mid-1;
+                else l = mid+1;
             }
         }
         return l;
@@ -35,5 +36,9 @@ public:
 
 };
 
+// Key:
 // >, not >=
-// not unique
+// not unique, but nums[i] != nums[i+1]
+// if end is higher than current, then ans MUST be in that half
+// if both ends are smaller, lean toward the half which has immediate larger element
+// key is last element, if thats higher, its provable that ans is in that half

@@ -1,3 +1,68 @@
+18 may 2025
+learnt something new + was not able to code past one due to RE 
+pattern
+
+class Solution {
+public:
+    vector<char> ops = {'+','-','*'};
+    vector<string>  ans;
+    vector<string> addOperators(string num, int target) {
+        string cur = "";
+        int idx = 0, n = num.size();
+        long cur_sum = 0, cur_mult = 0;
+        char op = '+';
+        vector<int> st;
+        helper(num,target,cur,idx,n,cur_sum,cur_mult,op);
+        return ans;
+    }
+
+    void helper(string& num, int& target, string& cur, int idx, int& n, long& cur_sum, long& cur_mult, char& op){
+        if((cur_sum > INT_MAX) || (cur_mult > INT_MAX)) return;
+
+        if(idx == num.size()) {
+            if(cur_sum == (long)target){
+                ans.push_back(cur);
+            }
+            return;
+        }
+
+        int cnt = 0;
+        long tmp_sum, tmp_mult;
+        string tmp = "";
+        for(auto i=idx;i<n;i++) {
+            if((num[idx] == '0') && (i-idx)) break;
+            cnt++;
+            cur.push_back(num[i]);
+            tmp.push_back(num[i]);
+            long cur_tmp = stol(tmp);
+            if(op == '+') {
+                tmp_sum = cur_sum + cur_tmp;
+                tmp_mult = cur_tmp;
+            } else if(op == '-') {
+                tmp_sum = cur_sum - cur_tmp;
+                tmp_mult = -cur_tmp;
+            } else {
+                tmp_sum = cur_sum - cur_mult + cur_mult*cur_tmp;
+                tmp_mult = cur_mult * cur_tmp;
+            }
+            if(i == n-1) helper(num,target,cur,i+1,n,tmp_sum,tmp_mult,ops[0]);
+            else {
+                for(auto op : ops){
+                    cur.push_back(op);
+                    helper(num,target,cur,i+1,n,tmp_sum, tmp_mult,op);
+                    cur.pop_back();
+                }
+            }
+        }
+        while(tmp.size()) {
+            cur.pop_back();
+            tmp.pop_back();
+        }
+    }
+};
+
+
+
 // 9 apr 2025
 // got the idea..but to get hold of the actual impplementation took long time..
 // also missed things like : no 0 starting operand, can have operands more than single digit..these i missed.

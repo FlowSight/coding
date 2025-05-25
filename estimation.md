@@ -2,13 +2,16 @@
 anirban
     coding:
        method:
-        meta 6 months :I will do either mentally or code (if felt iffy) + sumita will randomly mock interview me from list
+        meta 6 months : I will do either mentally or code (if felt iffy) + sumita will randomly mock interview me from list
         GOAL : 5q/day
+        UPDATE(19/5/25) : 90 DONE
     sd:
         method : practice all 25 from HI
         GOAL : complete practice of 1q from HI
+        UPDATE(19/5/25)  : NONE
     behavorial : 
         GOAL : make min 2 stories
+        UPDATE(19/5/25)  : NONE
 sumita:
     coding:
         method
@@ -16,13 +19,19 @@ sumita:
             I will do either mentally or code (if felt iffy)
             anirban will randomly mock interview sumita from list
         GOAL : 10q/day
+        UPDATE(19/5/25)  : 10 DONE
     sd:
         GOAL:
             Revision : core concepts
             Study : 2 new topics from HI
+        UPDATE(19/5/25)  : NONE
+    behavorial : 
+        GOAL: 
+            make min 2 new stories
+            HAVE PAST STORIES CREATED
+        UPDATE(19/5/25) : NONE + SUMITA DOES NOT HAVE STORIES CREATED
 
-    behavorial : make min 2 stories
-[Next meet : 17/5/25]
+[Next meet : 21/5/25]
 
 
 26 apr 2025

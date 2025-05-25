@@ -12,6 +12,8 @@
 // we randomly choose a pivot, we almost partition it into half..but its not complete proof 
 // also need to discuss range of no (counting sort)
 
+
+// this qs has 2 hard variant in meta : implement heap, do quickselect
 class Solution {
     public:
         int findKthLargest(vector<int>& nums, int k) {

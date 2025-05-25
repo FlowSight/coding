@@ -1,3 +1,6 @@
+// 20 may 2025
+// missed a <= case and 1 compiler error 
+
 // 6 apr 2025
 // got it..22 min..but fumbled midway..also missed corner case..
 // did digress in midway thinking its dijkstra

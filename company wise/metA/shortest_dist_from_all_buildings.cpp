@@ -1,3 +1,6 @@
+// 21 may 2025..
+// same mistake as last time..sev0
+
 // 8 apr 2025
 // I did m^2n^2..correct approach..only that the question expected a diff optimization..i.e. 
 //     start from the houses

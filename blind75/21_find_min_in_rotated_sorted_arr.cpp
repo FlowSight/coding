@@ -14,10 +14,10 @@ public:
                 return nums[l];
             }
             mid = (l+r)/2;
-            if(nums[mid] < nums[l]) r = mid;
-            else {
-                if(nums[mid] < nums[r]) r = mid;
-                else l = mid+1;
+            if(nums[mid] > nums[r]) {
+                l = mid+1;
+            } else {
+                r = mid;
             }
         }
         return nums[l];
