@@ -1,48 +1,39 @@
+//bfs : has issue..sev0
+// dfs no issue..
+
+
 // 18 mar 2025
 // 11 min 
 // no issue
 
-
-
 // 2 nov 2024..22 min..one corner case missed...
+
+
 
 class Solution {
 public:
-    
+    unordered_map<Node*,Node*> mm;
     Node* cloneGraph(Node* node) {
         if(!node) return node;
-        queue<pair<Node*,Node*>> q;
-        unordered_map<int,Node*> mm;
-        unordered_set<int> visited;
-        auto curCloned = new Node(node->val); 
-        q.push({node,curCloned});
-        mm[node->val] = curCloned;
-
+        queue<Node*> q;
+        q.push(node);
+        mm[node] = new Node(node->val);
         while(!q.empty()){
-            int sz = q.size();
+            auto sz = q.size();
             while(sz--){
-                auto tp = q.front();
+                auto cur = q.front();
                 q.pop();
-                if(visited.find(tp.first->val) != visited.end())continue;
-                visited.insert(tp.first->val);
-
-                for(auto it : tp.first->neighbors){
-                    if(mm.find(it->val) != mm.end()) {
-                        curCloned = mm[it->val];
-                    } else {
-                        curCloned = new Node(it->val);
-                        mm[it->val] = curCloned;
+                for(auto it : cur->neighbors){
+                    if(mm.find(it) == mm.end()){
+                        mm[it] = new Node(it->val);
+                        q.push(it);
                     }
-                    tp.second->neighbors.push_back(curCloned);
-                    if(visited.find(it->val) != visited.end()) continue;
-                    q.push({it,curCloned});
+                    mm[cur]->neighbors.push_back(mm[it]);
                 }
             }
         }
-        return mm[node->val];
+        return mm[node];
     }
-};
-
 // before july 2024
 class Solution {
 public:

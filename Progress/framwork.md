@@ -23,19 +23,29 @@
     2. [optional] : whenever feel like some twisted logic is, add one liner comment 
     3. comment on top of each method on its role...also comment how multiple methods are linked
 3. write and touch upon ideas one by one: [TIME : ]
-    1. brute force (time and space complexity, data structure used,shortcomings)
-    2. more optimal if any  (time and space complexity, data structure used,shortcomings)
-    3. most optimal ..then mention 'i think this is most optimal that i can think of'  (time and space complexity, data structure used,shortcomings)
-        1. then ask him 'are you looking for any specific approach'?
-        2. if he says no :
-            1. try to think of the approach, once done goto step 3.3
-        3. if he says yes:
-            1.  write pseudo code step  by step . Marking 1,2,3 etc.
-            2. dry run basic and short cases
-            3. ask him : " should we try corner cases now or after coding?"  
+    1. How many approaches are coming to you? 
+        If only one, 
+            Take some time (30s) to think more. 
+            If still not able to think second. stop. and say it.(steps + TC + DS)
+        If many ways are coming to you. 
+            write 1-2 words against it in notepad.
+            think which one is easier to do. say that with (steps + TC, DS + AQ)
+    2. IF interviewer insists on more optimal or a diff approach:
+        if the approach you ALREADY know, pause few seconds, act, then say it with (steps + TC + DS + AQ)
+        if you dont know the approach : take 1-2 min, think deep (CRITICAL)
+            if cant find a way, speak your line of thought
+            if you can find a way, speak line of thought + say the approach with (steps + TC + DS + AQ)
+        At the end of this step, one of below will happen
+            1 Interviewer will ask you for another (more optimal or diff) approach -> go to step 3.2
+            2. you and you interviewer will AGREE on the approach -> go to step 4
+            3 you will not find best approach, but interviewer will ask you to code suboptimal one -> goto step 4
+            4 interviewer will move to next qs or drop the interview -> NA
 2. [TIME : ]
     1. ask and write size constrainst
     2. ask and write data types
     3. ask and write corner cases and output
 1 write qs key points [TIME : ]
 
+
+
+AQ = Approach question = "i think this is most optimal that i can think of. are you looking for any specific approach?"

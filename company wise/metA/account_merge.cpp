@@ -1,6 +1,10 @@
+// sev0..did miss n+m based index
+
 // 22 apr 2025..
 // didnt read that we have to return in sorted order..+ 20 mins
 // sev2
+
+// the issue with this qs is that it takes time to implement union find, and index manipulation  + result processing is tricky
 
 class UnionFind {
     public:

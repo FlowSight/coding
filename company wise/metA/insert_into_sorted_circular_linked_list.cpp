@@ -1,3 +1,6 @@
+// 28 may 2025
+// sev1..corner case..11 min.
+
 Node* insert(Node* head, int insertVal) {
     if (!head) {
         head = new Node(insertVal, nullptr);

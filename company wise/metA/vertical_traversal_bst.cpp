@@ -1,3 +1,6 @@
+// 29 may 2025..
+// compiler error silly..
+
 // 30 march 2025
 // 14 min 
 // didnt care to read the qs..its easy..

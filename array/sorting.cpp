@@ -84,46 +84,50 @@ void heapify(vector<int>& nums, int n, int i){
 }
 
 priority queue 
-
 class MyHeap {
-    public:
+public:
     vector<int> arr;
-    int size;
+    int sz;
     MyHeap(){
-        size = 0;
-    }
-    void push(int num){
-        arr.push_back(num);
-        size++;
-        for(auto i=size/2-1;i>=0;i--){
-            heapify(i);
-        }
-    }
-
-    void pop(){
-        if(size == 0) return;
-        int ans = arr[0];
-        swap(arr[0],arr[size-1]);
-        arr.pop_back();
-        size--;
-        heapify(0);
-    }
-
-    int top() {
-        return (size ? arr[0] : INT_MIN);
+        sz = 0;
     }
 
     int getSize(){
-        return size;
+        return sz;
     }
 
-    void heapify(int idx){
-        int smaller = idx, ll = 2*idx+1, rr = 2*idx+2;
-        if((ll<size) && (arr[ll] < arr[smaller])) smaller = ll;
-        if((rr<size) && (arr[rr] < arr[smaller])) smaller = rr;
+    int top() {
+        return sz ? arr[0] : INT_MIN;
+    }
+    void push(int num){
+        arr.push_back(num);
+        sz++;
+        bubbleUp(sz-1);
+    }
+
+    void pop(){
+        if(sz == 0) return;
+        swap(arr[0],arr[sz-1]);
+        arr.pop_back();
+        sz--;
+        bubbleDown(0);
+    }
+
+    void bubbleDown(int idx){
+        int smaller = idx;
+        if((2*idx+1 < sz) && (arr[2*idx+1] <= arr[smaller])) smaller = 2*idx+1;
+        if((2*idx+2 < sz) && (arr[2*idx+2] <= arr[smaller])) smaller = 2*idx+2;
         swap(arr[idx],arr[smaller]);
-        if(smaller != idx){
-            heapify(smaller);
+        if(idx != smaller) {
+            bubbleDown(smaller);
+        }
+    }
+
+    void bubbleUp(int idx){
+        int par = (idx-1)/2;
+        if(arr[par] > arr[idx]) {
+            swap(arr[idx],arr[par]);
+            bubbleUp(par);
         }
     }
 };
