@@ -49,3 +49,9 @@
 
 
 AQ = Approach question = "i think this is most optimal that i can think of. are you looking for any specific approach?"
+
+
+intro : I am Anirban, a enginner at Microsoft, leading a team of 5 in Project Operations Time Entry module developing Agentic ERP systems. Before this I was at cohesity where I joined (after Graduating from IIT Roorkee)to work on enterprise backup restore where my work is filed for a patent. Love to travel, paint. Looking forward to this conversation.
+
+If probed : MSFT : latest work Time Agent is one of first agents introduced by Satya in KeyNote.
+

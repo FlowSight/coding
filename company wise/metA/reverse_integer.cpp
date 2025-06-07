@@ -1,3 +1,6 @@
+// 3 june 2025
+// didnt remember the exact code..tried to do the hard way..
+
 // 15 apr 2025
 // did it correct..remembered cpp remainder issue..but dry run fucked up..missed silly issue..
 // also missed a corner case..2 corner case in total..

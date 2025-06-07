@@ -18,6 +18,7 @@
         "bitset": "cpp",
         "ios": "cpp",
         "iosfwd": "cpp",
-        "39_max product subarray": "cpp"
+        "39_max product subarray": "cpp",
+        "ratio": "cpp"
     }
 }

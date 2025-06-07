@@ -2,6 +2,30 @@
 using namespace std;
 
 
+// right shift of signed negative number in 2s compliment is implementation defined...dont try this 
+// while coding..always convert to unsigned first
+2s compliment = 
+msb 1 : negative number
+msb 0 : positive number
+
+take rest bits + flip + add 1
+-7 = 
+7 is 111 -backtrack-> 110 --flip-> 001
+then -7 = 1001 = 9
+same -9 =  7 = 
+
+how to get 2s compliment?
+1s compliment + 1
+to denote a positive number, write in proper binary format
+then take 1s compliment
+then add 1 to it
+e.g. for 4 bit system 
+int num = 9; // 1001
+1s compliment = 0110
++1 = 0111
+2^4 - num = 16 - 9 = 7 = 0111
+
+
 
 priority_queue basic is REVERSE ORDER
 

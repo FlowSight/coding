@@ -1,0 +1,1 @@
+../../company wise/metA/solving_qs_with_brainpower.cpp

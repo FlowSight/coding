@@ -1,3 +1,6 @@
+// 31 may 2025
+// while speaking forgot the approach..messsed up..sev0
+
 // 30 apr 2025
 // compiler error..iterator..sev2
 
