@@ -1,1 +1,1 @@
-//bs..coudl not come up with it
+//binary search trial and error..coudl not come up with it

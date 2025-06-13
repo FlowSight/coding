@@ -46,66 +46,41 @@ class MedianFinder {
             return (one+two)/2.0;
         }
     };
-    
-    /**
-     * Your MedianFinder object will be instantiated and called as such:
-     * MedianFinder* obj = new MedianFinder();
-     * obj->addNum(num);
-     * double param_2 = obj->findMedian();
-     */
 
 
-
-struct node{
-    int idx;
-    double num;
-    node(int _idx, double _num){
-        idx = _idx;
-        num = _num;
-    }  
-    bool operator< (const node& n) const {
-        return n.num == num ? idx > n.idx : num < n.num;
-    }
-};
-
-class MedianFinder {
+    // another approach
+    class MedianFinder {
 public:
-    set<node> ss;
-    int idx;
-    set<node>::iterator med;
+    
+    priority_queue<double> maxpq;
+    priority_queue<double, vector<double>, greater<double>> minpq;
+    bool even;
+    
     MedianFinder() {
-        ss.clear();
-        idx = 0;
-        med = ss.end();
+       even = true;
     }
     
     void addNum(int num) {
-        ss.insert(node(idx++,num));
-        if(ss.size() == 1)med = ss.begin();
-        else {
-            if((num > med->num) && (ss.size() % 2 == 0)) {
-                med++;
-            } else if((num <= med->num) && (ss.size() % 2)){
-                med--;
-            }
+        if(even) {
+            maxpq.push(num);
+            minpq.push(maxpq.top());
+            maxpq.pop();
+        } else {
+            minpq.push(num);
+            maxpq.push(minpq.top());
+            minpq.pop();
         }
+        even = !even;
     }
     
     double findMedian() {
-        double res = med->num;
-        if(ss.size() % 2 == 0){
-            res = (res + prev(med)->num)/2.0;
-        }
-        return res;
+         if(even) {
+             return (maxpq.top() + minpq.top())/2;
+         } else {
+             return minpq.top();
+         }
     }
 };
-
-/**
- * Your MedianFinder object will be instantiated and called as such:
- * MedianFinder* obj = new MedianFinder();
- * obj->addNum(num);
- * double param_2 = obj->findMedian();
- */
 
 
 //  2 3 4* 5 6

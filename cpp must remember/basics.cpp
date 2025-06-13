@@ -1,6 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+when storing in an index arr[i] = arr[j]*mult + arr[i].. this mod > max(arr[j],arr[i])
+
+
+digit dp/sum :
+if digit has to be considered only once 
+    for (auto d: digits){
+        for(auto i=1;i<=sum;i++){
+            ...
+        }
+    }
 
 // right shift of signed negative number in 2s compliment is implementation defined...dont try this 
 // while coding..always convert to unsigned first

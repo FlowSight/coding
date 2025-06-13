@@ -23,6 +23,7 @@ class Solution {
                 for(auto j=1;j<=n;j++){
                     if(p[j-1] == '*'){
                         dp[i][j] = dp[i][j-2] || (((p[j-2] == '.') || (p[j-2]==s[i-1])) && dp[i-1][j]);
+                        // this is done because.dp[i-1][j] means  s[0....i-2] matches upto p[j], hence only need to match i-1th char
                     } else {
                         dp[i][j] = ((p[j-1] == '.' )|| (p[j-1]==s[i-1])) && dp[i-1][j-1];
                     }
