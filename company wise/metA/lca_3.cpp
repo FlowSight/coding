@@ -1,6 +1,7 @@
 
 // below is the most cunning sol..but be careful if you do it in interview
-// for interview the naive sol..is better and almost similar 
+// for interview the naive sol..is better and almost similar
+// key : swith when null
 class Solution {
     public:
         Node* lowestCommonAncestor(Node* p, Node * q) {

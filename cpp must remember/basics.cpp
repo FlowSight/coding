@@ -1,6 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+labs for long abs
+
+// locking unlocking
+std::mutex mtx;
+std::lock_guard<std::mutex> lock(mtx); // unlocks the mutex automatically when it goes out of scope // locks the mutex automatically when it goes out of scope
+
+always init a class constructor with explicit  arg 
 when storing in an index arr[i] = arr[j]*mult + arr[i].. this mod > max(arr[j],arr[i])
 
 

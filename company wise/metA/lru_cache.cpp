@@ -1,3 +1,6 @@
+// always do calcRecency
+// only time calcrecency is no called, is when new node is inserted at the end
+
 // 26 may 2025
 // sev0
 

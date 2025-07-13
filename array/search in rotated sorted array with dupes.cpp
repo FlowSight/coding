@@ -1,6 +1,56 @@
 class Solution {
 public:
     bool search(vector<int>& nums, int target) {
+        int n = nums.size();
+        int pivotIdx = findPivot(nums,0,n-1);
+        if(pivotIdx == -1) return find(nums,0,n-1,target);
+        if(nums[0]<=target) return find(nums,0,pivotIdx,target);
+        return find(nums,pivotIdx+1, n-1,target);
+    }
+
+
+    int findPivot(vector<int>& nums, int l, int r){
+        int n = nums.size(),  mid = 0;
+        while(l<r){
+            if(l+1 == r){
+                if(nums[l]>nums[r]) return l;
+                if( (r<n-1) && (nums[r] > nums[r+1])) return r;
+                return -1;
+            }
+            mid = (l+r)/2;
+            if(nums[l] > nums[mid]) r = mid;
+            else if(nums[mid] > nums[r]){
+                l = mid;
+            } else if(nums[l] < nums[mid]){
+                l = mid;
+            } else if(nums[mid] < nums[r]){
+                r = mid;
+            } else {
+                auto ll = findPivot(nums,l,mid);
+                if(ll != -1) return ll;
+                return findPivot(nums,mid+1,r);
+            }
+        }
+        return  ((l<n-1) && (nums[l] > nums[l+1])) ? l : -1;
+    }
+
+    bool find(vector<int>& nums, int l,int r, int target){
+        int mid =0 ;
+        while(l<r){
+            mid = (l+r)/2;
+            if(nums[mid] == target) return true;
+            if(nums[mid] < target) l = mid+1;
+            else r = mid-1;
+        }
+        return nums[l] == target;
+    }
+};
+
+
+
+class Solution {
+public:
+    bool search(vector<int>& nums, int target) {
         int l = 0, r = nums.size()-1;
         while(l<r){
             if(l+1 == r) {

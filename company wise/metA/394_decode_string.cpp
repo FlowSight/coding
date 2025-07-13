@@ -1,3 +1,59 @@
+class Solution {
+public:
+    string decodeString(string s) {
+        int idx = 0;
+        return helper(s,idx);
+    }
+
+    bool isDigit(char c){
+        return (c>='0') && (c<='9');
+    }
+
+    string helper(string& s,int& idx){
+        int val = 0;
+        string ans = "";
+        while(idx<s.size()){
+            if(isDigit(s[idx])) {
+                val = val*10 + (s[idx++]-'0');
+            } else {
+                if(s[idx] == ']') break;
+                if(s[idx] == '[') {
+                    idx++;
+                    auto tmp = helper(s,idx);
+                    for(auto i=1;i<=val;i++) ans += tmp;
+                    idx++;
+                } else {
+                    ans.push_back(s[idx++]);
+                }
+                val = 0;
+            }
+        }
+        return ans;
+    }
+};
+
+
+//saving [] indexes
+    string helper(string& s,int l, int r){
+        int val = 0;
+        string ans = "";
+        for(auto i=l;i<=r;){
+            if(s[i] == ']') break;
+            if(s[i] == '['){
+                auto tmp = helper(s,i+1,mm[i]-1);
+                for(auto j=1;j<=val;j++) ans += tmp;
+                i = mm[i]+1;
+                val = 0;
+            } else if(isDigit(s[i])) {
+                val = val*10 + (s[i++]-'0');
+            } else {
+                ans.push_back(s[i++]);
+            }
+        }
+        return ans;
+    }
+
+
 // 14 jan 2025 
 20 mins..
 logical error .. didnt see index not being set properly..

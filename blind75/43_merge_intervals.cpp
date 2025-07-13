@@ -1,3 +1,5 @@
+i missed the end = max(end,..) condition
+
 //  23 dec 2024..8 min...missed the boundary condition to add in map...
 //  verdict: fail
     vector<vector<int>> merge(vector<vector<int>>& intervals) {

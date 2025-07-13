@@ -1,3 +1,5 @@
+stupidity...almost memorized..and i cant memorize
+
 // 26 apr 2025
 // 2 compiler error.
 // sev1

@@ -15,26 +15,28 @@ public:
         return helper(s,idx,n);
     }
     int helper(string& s, int& idx, int n){
-        long cur_eval = 0, cur_mult = 0,val = 0;
+        long  val = 0, cur_eval = 0, cur_mult = 0;
         char op = '+';
         for(;idx<n;idx++){
-            if(s[idx] == '(') {
-                idx++;
-                val = helper(s,idx,n);
-                calc(cur_eval, cur_mult, val, op);
-                continue;
-            } else if(s[idx] == ')'){
-                return cur_eval;
-            } else if(s[idx] == ' ') continue;
-            else if(isOp(s[idx])) {
+            if(s[idx] == ' ') continue;
+            if(isOp(s[idx])) {
                 op = s[idx];
                 continue;
             }
-            while((idx<n) && (isDigit(s[idx]))) {
-                val = val*10 + (s[idx++]-'0');
+            if(s[idx] == '(') {
+                idx++;
+                val = helper(s,idx,n);
+                calc(cur_eval, cur_mult,val,op);
+                continue;
+            } else if(s[idx] == ')') {
+                return cur_eval;
             }
+            while((idx<n) && isDigit(s[idx])){
+                val = val*10 + (s[idx]-'0');
+                idx++;
+            }
+            calc(cur_eval, cur_mult,val,op);
             idx--;
-            calc(cur_eval, cur_mult, val, op);
         }
         return cur_eval;
     }
@@ -47,15 +49,24 @@ public:
             cur_eval += -val;
             cur_mult = -val;
         } else if(op == '*'){
-            cur_eval -= cur_mult + cur_mult*val;
+            cur_eval = cur_eval - cur_mult + cur_mult*val;
             cur_mult *= val;
         } else {
-            cur_eval -= cur_mult + cur_mult/val;
+            cur_eval = cur_eval - cur_mult + cur_mult/val;
             cur_mult /= val;
         }
         val = 0;
     }
 };
+
+
+// given a expression in string, evaluate it.
+// Input: s = "1 + 1"
+// Output: 2
+// Example 2:
+
+// Input: s = " 2-1 + 2 "
+// Output: 3
 
 
 // given a expression in string, evaluate it.

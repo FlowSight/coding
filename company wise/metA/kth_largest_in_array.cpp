@@ -1,3 +1,6 @@
+// 14 june 2025
+// my main problem is i overlook the k-1 index and >=/< v/s >/<= logic 
+
 // 30 apr 2025
 // got the >=...< idea but wronged the parittion caller binary search logic..resulted into timeuut.
 // sev0

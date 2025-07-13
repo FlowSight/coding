@@ -7,7 +7,6 @@
 
     int search(vector<int>& nums, int target) {
         int pivot = findPivot(nums), n = nums.size();
-        cout<<pivot<<endl;
         return pivot == -1? find(nums,0,n-1,target) : (nums[0] <= target ? find(nums,0,pivot,target) : find(nums,pivot+1,n-1,target));
     }
 

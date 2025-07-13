@@ -1,1 +1,1 @@
-../company wise/metA/check_completeness_of_binary_tree.cpp
+../../company wise/metA/check_completeness_of_binary_tree.cpp
