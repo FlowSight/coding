@@ -1,1 +1,2 @@
 - https://thebehavioral.substack.com/
+- https://interviewing.io/blog/how-software-engineering-behavioral-interviews-are-evaluated-meta

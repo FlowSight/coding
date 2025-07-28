@@ -1,0 +1,61 @@
+“Tell me about a time you identified a personal growth area and worked on it.” ✅ Best fit
+
+“Tell me about a time you tried to improve how your team works.”
+
+“Tell me about a time you handled unexpected challenges during a project.”
+
+### **SITUATION**
+
+Over the course of several large, multi-sprint projects, I noticed a consistent pattern:
+Toward the end of each project, **unexpected blockers** would emerge — whether it was a CI/CD pipeline issue, a late-breaking PM requirement change, or an unplanned dependency from a partner team.
+
+In these moments, I’d often go into **“rescue mode”** — I’d silo myself, come up with unorthodox solutions, make aggressive calls, and push through just in time. While leadership appreciated the outcomes, it took a toll on me — both mentally and physically — and I found myself **unable to clearly explain the rationale behind these reactive decisions** to my peers or manager.
+
+---
+
+### **TASK**
+
+I realized that my tendency to **vertically scale myself during chaos** wasn’t sustainable — and more importantly, it didn’t **build resilience into the team**.
+
+So I made it a goal to:
+
+* Reflect on and **deconstruct my own crisis responses**
+* Help the team **anticipate and plan for uncertainty earlier**
+* Shift from being a “rescuer” to being a **scaler of foresight**
+
+---
+
+### **ACTION**
+
+I went back and reviewed **three recent projects** where I had made last-minute interventions — e.g., rolling out simultaneous PRs for multiple fix hypotheses, redeploying multiple times to isolate edge issues, etc.
+
+I then walked the team through these past patterns in a **feature planning meeting**, not to glorify the heroics — but to **highlight the common signs and missed warning cues** that led to late surprises. I asked the team to reflect and find their own ways to stay ahead of the chaos.
+
+This included:
+
+* Encouraging them to **push for early validation with partner teams**
+* Identifying “risk multipliers” during grooming (e.g., volatile components or vague specs)
+* Normalizing early prototyping or fallback planning
+
+---
+
+### **RESULT**
+
+Since then, I’ve seen encouraging signs. For example:
+
+* In a recent sprint, one teammate noticed an **undocumented API change** and proactively implemented a workaround, which we ended up adopting team-wide.
+* I’ve had to intervene less frequently, and when I do, it’s often in collaboration — not isolation.
+
+That said, I’m still working on it. In some cases, I still **fail to recognize risk early** — even after consulting SMEs — and I’m learning to get better at **escalating earlier and asking for help**, instead of relying on grit.
+
+This journey taught me that **leadership at scale isn’t just about delivering under pressure — it’s about enabling the team to see around corners.**
+
+
+- situation :
+    Towards the end of a large 6+ sprin feature, when ad hoc adversaries arise such as build pipeline blocked, PM requirement change OR new ask from a partner team, I tend to go in my silo, make some unorthodox moves in my way, make plans ahead, and somehow make project meet the timeline. Although my leaderships appreciate this, this takes a toll on my health towards the end of every project due to me vertically scaling extremely and I am often unable to explain to my manager or peers why did I make those unorthodox moves
+- Task :
+    I need to be successful to make peer realize the need for finding a way to foresee risk of missed, deadline  and somehow formulate a way, brainstorm together a way to deal, instead of being reactive, dealing with concerns as they come.
+- Action :
+    I have taken past 3 projects that I led, making such moves towards the end where I had to stretch, take ad hoc routes, e.g. do multiple deployments, raise multiple PRs based on multiple fix hypothesis, and why did I do those. I explained this to team before feature planning urging people to take idea , find pattern and come up with their own way of staying ahead o things.
+- Result : 
+    although I see some improvements, in  specific instances I had to jump in. One occurrance was one teammate was able to find a unannounced feature changed and came up with his own workaround which we incorporated. I hope this will scale well and as a team we will be able to achieve more without me vertically scaling. But I still fail sometime to recognize early how a work can spiral even after discussing with SMEs.

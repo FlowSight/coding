@@ -1,0 +1,1 @@
+../company wise/metA/minimize_the_max_diff_between_two_indices.cpp

@@ -39,3 +39,7 @@ sev0 : could not think
 sev1 : got approach in mind, corner case miss..
 sev2 : compliation miss
 sev3 : longer time to solve
+
+
+TODO:
+behavorial : 3/7 stories make
