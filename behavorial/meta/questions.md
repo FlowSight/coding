@@ -24,7 +24,7 @@
 from lc
 11. How do you deal with difficult co worker
 12. Project you are most proud of
-    - time agent
+    - time agent perf optimization
 13. Instance where you had to change direction mid execution
 14. Biggest weakness
     - ability to accurately (almost) predict things that could delay + go wrong

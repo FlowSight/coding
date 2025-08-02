@@ -1,4 +1,52 @@
+//29 july 2025
+    vector<double> medianSlidingWindow(vector<int>& arr, int k) {
+        int n = arr.size();
+        multiset<int,greater<int>> left;
+        multiset<int> right;
+        vector<double>  ans;
+        double first = 0, second = 0;
+
+        for(auto i=0;i<k;i++){
+            left.insert(arr[i]);
+            if(left.size() > k/2){
+                right.insert(*(left.begin()));
+                left.erase(left.begin());
+            }
+        }
+        first = *(right.begin())/2.0;
+        second = k%2 ? first : *(left.begin())/2.0;
+        ans.push_back((first+second));
+
+        for(auto i=k;i<n;i++){
+            if(arr[i] >= *(right.begin())) {
+                right.insert(arr[i]);
+            } else {
+                left.insert(arr[i]);
+            }
+            if(arr[i-k] >= *(right.begin())) {
+                right.erase(right.lower_bound(arr[i-k]));
+            } else {
+                left.erase(left.lower_bound(arr[i-k]));
+            }
+
+            if(left.size() > k/2) {
+                right.insert(*(left.begin()));
+                left.erase(left.begin());
+            }
+
+            if(right.size() > k/2 + k%2) {
+                left.insert(*(right.begin()));
+                right.erase(right.begin());
+            }
+            first = *(right.begin())/2.0;
+            second = k%2 ? first : *(left.begin())/2.0;
+            ans.push_back(first+second);
+        }
+        return ans;
+    }
+
 14 june 2025
+
 
 // two heap is the way..iterator way doesnt makes sense..
 // left is half, right is half + (sz%2)

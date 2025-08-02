@@ -13,13 +13,10 @@ https://interviewing.io/blog/how-software-engineering-behavioral-interviews-are-
 
     
     stories :
-    2. copilot ac data edited from card? done in agent pub prev, not in copilot
-    4. why wanna change : cant use any thing in arch, way too many review/process, sudden review suprise,(TODO)
-    5. I had to move to fno, from feature, then lost context onfeature. (TODO)
-    6. weakness : vertical scaling towards end 
-    7. maxim : (TODO)
-    8. wamika (TODO)
+    2. lenovo sev2 (TODO)
     9. copilot regression early find(TODO)
+    why wanna change : cant use any thing in arch, way too many review/process, sudden review suprise,(TODO)
+    I had to move to fno, from feature, then lost context onfeature. (TODO)
 
 
 - questions
