@@ -26,10 +26,10 @@ How would your co-workers describe you?
 Can you describe a situation where you had to work with a decision that you didn't agree with? (TODO : maxim/2 min in agent)
 Describe a technical mistake you have made recently? (lenovo sev2)
 What's the most difficult/challenging problem you have had to solve? (TOD:lenovo sev2)
-If things aren't going to plan, how do you move yourself/your projects forward? (TODO : wamila hce, every project towwards end issue)
-How do you seek our opportunities? (we really like candidates who are proactive at fixing/improving things) (TODO)
-You can expect to be asked "What would you like to do at Meta? so be prepared to talk about specific interests of yours and how they relate to Meta as a tech company and/or product. (TODO)
-We are looking for go-getters / people who can direct themselves and seek out opportunities. Think of some examples where you have been proactive on seeking out opportunities/solving problems without being told to do this. (TODO : time agent scale issue/copilot regression check while in EC)
+If things aren't going to plan, how do you move yourself/your projects forward? (TODO : wamila hce, every project towwards end issue)*****
+How do you seek our opportunities? (we really like candidates who are proactive at fixing/improving things) (TODO)*****
+You can expect to be asked "What would you like to do at Meta? so be prepared to talk about specific interests of yours and how they relate to Meta as a tech company and/or product. (TODO)****
+We are looking for go-getters / people who can direct themselves and seek out opportunities. Think of some examples where you have been proactive on seeking out opportunities/solving problems without being told to do this. (TODO : time agent scale issue/copilot regression check while in EC)*****
 
 
 
