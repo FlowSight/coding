@@ -30,3 +30,13 @@ If things aren't going to plan, how do you move yourself/your projects forward? 
 How do you seek our opportunities? (we really like candidates who are proactive at fixing/improving things) (TODO)
 You can expect to be asked "What would you like to do at Meta? so be prepared to talk about specific interests of yours and how they relate to Meta as a tech company and/or product. (TODO)
 We are looking for go-getters / people who can direct themselves and seek out opportunities. Think of some examples where you have been proactive on seeking out opportunities/solving problems without being told to do this. (TODO : time agent scale issue/copilot regression check while in EC)
+
+
+
+questions:
+should it always have to be techcial or it can be more interpersonal and less technical?
+some experiences are tough, raw, unfiltered, not sure if they can become controversial : (share mahima story etc) ask are these controversial to speak about in an interview?
+what are the signals?
+meta specific stories, examples
+how many stories are good enough ? 4-5
+    2-3 big examples

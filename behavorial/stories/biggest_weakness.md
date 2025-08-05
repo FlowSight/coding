@@ -36,6 +36,7 @@ This included:
 * Encouraging them to **push for early validation with partner teams**
 * Identifying “risk multipliers” during grooming (e.g., volatile components or vague specs)
 * Normalizing early prototyping or fallback planning
+* designing with minimal dependency even if a solution exists in partner teams scope as a fallback
 
 ---
 
