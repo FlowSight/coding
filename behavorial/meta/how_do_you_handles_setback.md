@@ -1,0 +1,2 @@
+- focus on learnings
+- show resilience

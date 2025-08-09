@@ -1,54 +1,94 @@
-1. **“Tell me about a time you disagreed with a technical direction.”** ✅ Best fit
-2. “Tell me about a time you took initiative on a project.”
-3. “Tell me about a time when you had to work across teams.”
+prompt: “Tell me about a time you took initiative on a project.”
+
+### **SITUATION**
+
+- Recently at Microsoft,  during adoption of time entry agent by a airline customer, I learned that their internal security system runs codescan, which reported violations in microsoft 1p codebase shipped by us. 
+- the violations were from hardcoded urls in code.
+- This took me by shock and being blocked by this meant failure for a customer onboarding and a revenue loss of a almost secure deal of thousands of dollars.
+
+### **TASK**
+- Although there was a peer security team who is specialized for these incidents, as my feature was used as a entry point for customer adoption, I realized I should do some due diligence and ensure further work is clearer.
+- Customer codescan required urls to be moved to a json or xml, but I needed to ensure other customers stay compatible with new change.
+
+### **Action**
+- I needed to gather information of all customer codescan like system.
+- We have 250+ enterprises onboarded. Figuring out each customers security practice by manually reaching out via PM path is not scalable and infeasible within 2 weeks of sla
+- I examined telemetry and filtered 180 customers who had no customization layer.
+- the rest of them we engaged via PM and partners and learned there is no customer who is so far implementing this.
+- I created a poc of migration of urls into json for our module.
+- I started larger discussion with product owner, 360 team, 3 architects on the priority and feasibility of the solution. I presented our current finding, my solution and its extensibility by other 7 teams.
+- But the other teams raised concern on competing priorities, tight deadline.  Also, the product owner decided to pursue the customer to disable their codescan temporarily.
+- I suggested a long term solution of adopting the learning from customer to move our urls across codebase.
+
+### **Result**
+- the customer had temporarily disabled their codescan and onboarded my feature and our product.
+- My suggestion for long term solution was backed by architect and product owners.
+- Although I was bummed that my work was undone temporarily, I finished sanitization of our codebase fast and created a feature which im leading cross  7 teams to ensure its done by this wave.
+I realized a central place for constants and artifacts is a much decoupled and better practice and im looking for more instances of scattered artifacts across our codebase as candidates for sanitization.
+
+#####
+Prompt: tell me about a time situation where you had to work with a decision that you didn't agree with
 
 
 ### **SITUATION**
 
-At Microsoft, an internal security system flagged **hardcoded endpoint URLs** in our codebase as vulnerabilities. A virtual team was formed across three peer teams, each represented by a lead — including myself — to remove these hardcoded URLs.
-
-Early on, one of the other leads, person W, proposed and built a framework that the group quickly aligned on. While I agreed to move forward, I had **serious concerns**. Based on my understanding of our deployment models, I had a **strong hunch** that the framework would break in sandboxed environments where local file system access is restricted.
-
-Unfortunately, I was proven right — when I encountered such a case, **the framework failed**, and we were stuck without a fallback.
-
----
+- Recently at Microsoft,  during adoption of time entry agent by a airline customer, I learned that their internal codescan reported violations due to hardcoded urls in code shipped by us.
+- After discussion with Architects, it was decided to dump urls into a json and follow it cross the 8 teams touching the codebase. 
+- I was tasked with creation of the framework which other peer teams would use.
+- I had a hunch json dump approach will not be a one size fits all solution, but I didnt have a data point to prove it.
+- I went along the agreement and started poc.
 
 ### **TASK**
+- I needed to quickly determine a framework with a poc whether the design fits all, not only my teams codebase but also others
+- I needed to demonstrate whether the serialize/deserialize nature of json is costlier than other approach like db read or env variable.
 
-By this time, we had already missed the original security remediation deadline and were working under a short extension.
+### **Action**
+- I built the framework poc for json dump
+- I built a parallel poc using feature control settings for my hypothesis of reading from table.
+- I raised two PRs with 2 test paths by consuming the framework from different codepaths.
+- There were around 200 different hardcoded urls across 80 files. I grouped the consumers by their nature and tested each group.
+- I benchmarked the url load time for both framework.
+- when i carried out e2e test, it appeared that, sandbox apis fail to use json approach as they are prohibited from filesystem access.
+-  db reads had cold start of around 500ms, json load had 700ms cold start using newtonsoft, but both can be solved by adding caching, so my hypothesis was not really accurate on load time, but I had a new finding which i didnt account for.
+- I brought this insight to our next sync
+- I suggested a dual solution using db read for sandbox apis and json dump for test framework and non-critical codepath + benchmark the latency.
 
-I realized that the group had gone into **circular discussions** — without a resolution path — and the extension was also on the verge of being missed.
+### **Result**
+- Architects appreciated the findings and inclined on the approach.
+- the co-dev by peer teams started, ongoing effort, targeted with a sprint from now.
+- I addeed this latency callout to our modules performance painpoint documents low impact zone.
+- I realized data always is the final truth, personal believes, hypothesis should always be validated before committing onto something.
 
-My goal became clear:
 
-* **Unblock the situation** with a practical, working solution.
-* **Own my team’s changes**, and
-* Step in to **help cover for another team** whose lead had gone on leave.
 
----
 
-### **ACTION**
 
-I started by consulting an architect and proposed a more **pragmatic, short-term solution** using environment variables — which would work across all environments, including sandboxed ones.
 
-I quickly implemented this across my team’s code. Around the same time, another lead went on extended leave, so I **volunteered to take over their portion of the remediation** as well — ensuring consistency and speed.
 
-During code review, a principal engineer raised concerns about using a static data-driven approach and asked if we could go further.
 
-Instead of debating, I proposed a **two-step plan**:
 
-1. Immediately mitigate the security issue using my current implementation.
-2. Follow up with a more robust, dynamic config model as a long-term fix — which I scoped as a \~1-week effort post-deadline.
 
-He agreed, and we moved forward.
 
----
 
-### **RESULT**
 
-* We successfully met the revised deadline, unblocking a major security concern.
-* I added a **pre-merge PR check** that now prevents hardcoded URLs from being introduced in future commits.
-* The longer-term architectural fix is now part of the backlog and scoped.
 
-This experience reinforced for me the value of **balancing pragmatism and technical ideals** — and the importance of **stepping in with clarity when group consensus stalls.**
+
+
+
+/////////dont read below/////////
+
+
+- airline customer..newly adopted product
+- early adopter of time entry agent, which I led
+- I was interacting with customer to help them onboard,when  they reported a security issue to me as their system's codescan failed.
+- after digging i figured it was due to hardcoded urls in our codebase
+- our entire codebase touches 8 teams, 
+- sla of 1 week, 500k loss
+- consulted architects, all 8 team leads, on how to mitigate as well as keeping the change backward compatible (T)
+- an architect proposed a solution involving dumping all urls into a json in shared solution folder.
+- I carried out the POC where I figured for sandbox apis it would fail.I introduced a Feature control setting based solution, finished the poc and proposed it to the team.
+- Received consensus from the team on above approach
+- I decided to test incrementally by first deploying a component solution in customer UAT.
+- With minor , independent bugs I was able to ship the fix within a week. 
+- This resulted in a key insight to maintain code hygiene in our codebase, following which I implemented a code scanner check to prevent hardcoded urls to get checked in via pull requests.
 

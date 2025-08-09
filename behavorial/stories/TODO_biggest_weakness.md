@@ -1,3 +1,14 @@
+“In high-pressure moments — particularly toward the end of large deliveries — I’ve historically defaulted to going into a silo to unblock paths myself. My intent is to preserve delivery timelines and reduce churn, especially when ambiguity or unexpected issues arise. And while this often leads to successful outcomes, I’ve recognized that it can unintentionally reduce team visibility and shared problem-solving.
+
+To address this, I’ve started treating past incidents as ‘case studies’ during planning — proactively sharing what went wrong and inviting the team to co-design risk mitigation strategies. For example, before our last wave, I walked the team through three prior projects where I had to stretch to land last-minute asks. That triggered a broader conversation around how to anticipate escalation patterns — and in one instance, a teammate surfaced an unannounced change and navigated it independently. That kind of shared ownership is what I want to scale.
+
+I’m still learning to strike the right balance between urgency and alignment, but I’m much more intentional now about staying transparent under pressure and enabling the team to move as a unit.”
+
+
+“What would your manager say about that?”
+“They’d likely say I’m someone who will always ensure delivery — even if it means going above and beyond personally. But they’d also point out that I’ve sometimes over-relied on myself in those moments. We’ve discussed this, and they’ve supported me in shifting from being a ‘fixer’ to being a ‘multiplier.’ They’ve appreciated the way I’ve started building mechanisms for shared foresight and stronger risk communication across the team.”
+
+
 “Tell me about a time you identified a personal growth area and worked on it.” ✅ Best fit
 
 “Tell me about a time you tried to improve how your team works.”

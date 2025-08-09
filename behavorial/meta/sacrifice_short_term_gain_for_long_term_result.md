@@ -1,0 +1,4 @@
+- signal expected : ownership, impact
+- story candidates:
+    - agent perf improvement
+    - hce

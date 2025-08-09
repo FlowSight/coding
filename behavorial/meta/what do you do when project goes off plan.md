@@ -1,0 +1,1 @@
+- i failed my first startup, ton of money

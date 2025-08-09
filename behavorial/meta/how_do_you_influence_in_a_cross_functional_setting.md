@@ -1,0 +1,2 @@
+- not about sm expertise
+- about collaboaration, interpersnal skill, influence

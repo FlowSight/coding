@@ -1,0 +1,3 @@
+- type1 : reversible
+- type2 : irreversible
+- story : ocv ryan

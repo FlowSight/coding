@@ -1,0 +1,3 @@
+- top 3 prioritization process
+- explain prcess
+- if asked instance then go : an instance in star format

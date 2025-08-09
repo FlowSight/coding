@@ -1,55 +1,34 @@
 SITUATION:
-- Led a team working on a feature to differentiate between human-edited and AI-generated content
-- Feature was a key commitment made to customers by Principal PM and Group Engineering Manager
-- Project had been on the roadmap for several months
-- Had approximately one month for complete implementation. Feature was considered a 'low hanging fruit' prioritized for end of wave delivery
-- Designed a solution using stringified JSON in SQL column for storing edited details
-- Used feature branch approach, work by indiviuduals were merged into feature branch. Then later feature to master.
-- When merging to master, peer team architect blocked PR.
+- I was leading and was at the verge of finishing public preview stage of a feature called Time Entry Agent. 
+- Post dev and testing, during the final stage of code merge , a architect of a peer team raised concern.
+- The concerned piece involved usage of stringifed json  to differentiate between Human edited fields vs AI edited fields of a time entry. 
+- The suggestion was to use another table or columns in same table to caputre the last editor.
+- The e2e feature including this piece was designed by me and other peer agent teams relied on it.
+-  This concern could deepen the risk for 3 other partner teams' agents as well, as some of them had already merged their entire feature.
+- Other items in the feature were built on top of this piece. Also, the feature was committed to customers by stakeholders months back. Being a flagship feature, it had a potential to draw millions of dollars in AI subscripton revenue.
+
 
 TASK:
-- Needed to navigate through the archiect and leadership to ensure a timely delivery. Atleast a conclusion on path forward
+- I needed to understand the concern quickly, find a middle ground to possibly navigate this. 
+- Parallely I was continuously reflecting on what consideration did I make to not take the alternate path during design.
 
 ACTION:
-- Had discussion with architect, my manager, explained rationale: limited fields (3-5), non-customizable nature, and conscious choice to avoid over-engineering. He still didnt seem inclined.
--  When initial discussions failed, escalated to leadership with full context via email
-- Proposed maintaining existing design with possibility for future redesign using version field for backward compatibility
-- Reached out to other architects, and product owner to get consensus. 2 other architects aligned, and leadership strongly aligned as it was a committed feature.
+- Had a discussion with the architect, lets call him M, to understand the view. 
+- The concern was : string serialize and deserialize is costly, in average  agent scenario path, there could be as much as 80 ser-deser ops per invocation. Plus, in future if there is expansion to more columns tracking, it will only be worse
+- The concern was real, however it was considered during design but deprioritized as business requirement was strictly 2 columns and no plan for expansion.
+- I thought only way the argument can settle is by data with a quick experimentation.
+- I raised a parallel PR rewriting a portion of the feature using new table to track column editor. 
+- Used time to Create, update and read per time entry as KPI and added telemetry around it.
+- It turned out that 2 new table lookup(one for editor, one for enum) infact resulted 100ms-500ms worse latency than existing approach which means at least 8sec added latency per user context. This would multiply for more fields.
+
 
 RESULT:
-- Successfully got PR unblocked with leadership support
-- Delivered feature within committed timeline
-- Implemented process improvement: including architects from peer teams in design discussions even when its our team specific feature
-- Maintained good cross-team relationships while being direct about priorities
-- Successfully balanced immediate delivery needs with technical considerations
+- M was happy and surprised that this was the case. Aligned with the idea and provided sign-off.
+I realized a crucial mistake:
+- Had I involved him along with other architects, during initial review, clarity would have much earlier
+- When I decided against the table based approach, I took a judgement call, instead of data-driven call. I was lucky to be on the right side this time, but my methodology was not right.
 
+This led me to a deeper insight that M's POV help me uncover : there are sql views across our system which are serving different forms by doing multiple table joins. 
+I discussed with M and another architect (lets call him E) about their thought on considering stringified json or denormalization in deep nested joins. 
+We created exploration feature in our roadmap where we (me, M and E) are investigating different sql views and evaluating points eligible for optimization. Its a ongoing effort and we are planning to conclude by few months.
 
-///////////////REFIINED VERSON///////
-
-maps to 
-“Tell me about a time you had to influence a decision without having full authority.” ✅
-
-“Tell me about a time you faced a technical disagreement with a stakeholder.”
-
-“Tell me about a time you had to deliver something on a tight timeline despite resistance.”
-
-
-### **SITUATION**
-I was leading the engineering effort for a feature that distinguishes between human-edited and AI-generated content — a key commitment made to customers by our Principal PM and Group Engineering Manager. The project had been on the roadmap for months, but was prioritized late as a “low-hanging fruit” for end-of-wave delivery. We had just about a month to implement it.
-
-To move fast, I designed a simple solution using a stringified JSON column in SQL to capture edited metadata — we had only 3–5 fields, and this avoided unnecessary over-engineering. We followed a feature branch model, and when the work was merged to main, a peer team architect blocked the PR citing concerns about storing JSON in SQL.
-
-### **TASK**
-I needed to influence multiple stakeholders — including the architect who didn’t report to me — to move forward without delaying delivery, while preserving technical integrity. At the very least, I had to reach a concrete decision path quickly.
-
-### **ACTION**
-I started by engaging directly with the blocking architect and my manager to explain the rationale: the limited scope, fixed schema, and our conscious tradeoff given the delivery timeline. Despite this, the architect remained unconvinced.
-
-Seeing the risk of slipping a committed customer promise, I escalated with full context to leadership via email — including tradeoffs, alternative paths, and the customer impact. I also proactively reached out to two neutral architects from other peer teams to validate the design. Both aligned with our approach, and leadership strongly backed moving forward, citing the importance of the commitment.
-
-To ensure we kept long-term maintainability open, I proposed tagging this design with a version field, so we could migrate schema later without breaking changes.
-
-### RESULT: ###
-The PR was unblocked with leadership backing. We delivered the feature on time.
-
-Importantly, we introduced a new practice: even for team-specific features, we now include architects from other teams in early design discussions — this helped reduce friction for future work. **I was able to maintain strong cross-team relationships by staying direct but respectful about priorities**, and balancing near-term delivery with a scalable long-term path.

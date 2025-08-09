@@ -1,0 +1,2 @@
+- trick question
+- signal looking for: high standards

@@ -1,0 +1,2 @@
+- learning
+- story : lenovo sev2
