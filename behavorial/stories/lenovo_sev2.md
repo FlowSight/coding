@@ -10,9 +10,12 @@ __
 I designed ,led, orchestrated implementation with a team of 4 and was responsible for success of  a CVP level visible product called Time entry copilot which lets service based enterprises enable their employees log,submit and approve their time entries automatically.
 After complete roll out, exactly and only one of our **largest enterprise clients** raised a **Sev2**. Thousands of employees were **unable to submit time**, disrupting **payroll processing**, **billing**, and **regulatory reporting**. An estimated **\$1.2M per day business losss was quoted by customer in potential downstream impact**, and leadership was deeply involved due to the visibility of the unwanted blockage. There was a real possibility of entire business loss with the customer.
 
+*Question: Please explain what this time entry copilot does. how many enterprises was it deployed.*
 **Task**
 After a day of unsolved sev2, I had to jump on it to help the team . I had to introspect, figure out the RCA, and retrospect on how this went uncaught in multiple testing, int test etc. Do all these ASAP as more delay indicates customer quoting more business value loss which could make conversations harder among leadership.
 
+
+*Question: Can we add it was working for most of the customer except one.*
 **ACtion**
 As I could not replicate the issue in any flavour of our internal systems, but was reproducible in shadow.
 - This led me into thinking if any org setting was differing. 

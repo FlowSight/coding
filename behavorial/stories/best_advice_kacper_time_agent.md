@@ -18,20 +18,27 @@
 
 <!-- I made it my goal to **reprioritize performance work** and **drive this scale bottleneck into the roadmap**, even if it meant challenging our agreed-upon plan. --> very bad impression (NONONO)
 ---
-
+*Question : can we talk more about the feature. what it actually does. *
+*what is the lag. why is the lag and how did you fix it *
 ### **ACTION**
 - I first re-initiated the conversation within team between manager and PM, citing concerns of M2. 
 - Next, I organized a 3 way meeting between M2,M1 and PM. 
 -Shared the context of problem and let PM share the rationale for deprioritization. 
 - M2 immediately recognized the risk and raised concern on evaluating priorities. Asked to repriortize ONLY if quick, scalable POC is achieved after validating the hypothesis with architects.
 - I discussed with my manager to slightly postpone my competing priority items in order to make room for the POC temporarily, time bounded by a sprint.
-- I modified the existing 5 e2e db connection setup + call framework into creating  a set of required transactions in the beginning of the execution path while handling them in one-shot instead of 5 diff back-n-forth inter service calls
+*Question: share the context and give understanding of the risk. What was the existing thing. What did you change and why did you change*
+*multiple redundant db calls . 
+- I modified the 
+existing 5 e2e db connection setup + call framework into creating  a set of required transactions in the beginning of the execution path while handling them in one-shot instead of 5 diff back-n-forth inter service calls
 - This saved :
 (4 round trip calls from agent to application per user + 4 db connection setups + 12 db calls) per user.
 - Additionally, removed explicit 1min sleep time post per user invocation by letting db queue up the reqs and starve each req using pessimistic locking which was in fact much lower than 1min per user.
 - Within a week, I had built this functional prototype single handedly, (as I had the design lingering in mind for sometime) that brought median latency down drastically to 12secs per user. 
 - I delegated dashboard and metrics work to an SDE2 from my team to help support the narrative with numbers.
+*Question: Can you say you did you with your team member/junior . not mentioning the role*
 - I demoed it across among same audience, M2 was super happy and  took the proposal to our CVP and got buy-in. This officially became our next roadmap item.
+
+*Question: can we talk about did you convinced everyone with the data and comparison with two env.*
 - 
  
 ---
@@ -53,6 +60,8 @@ This experience taught me the value of
 <!-- //////////// -->
 **Prompt:** *Describe the most impactful project you had worked on?*
 - best project you have worked on
+-Mistake 
+-
 
 ### **SITUATION**
 
@@ -104,5 +113,7 @@ feedback:
 3. exactly what technical changes
 
 
+
+*8. How do you seek our opportunities? (we really like candidates who are proactive at fixing/improving things)*
 
 

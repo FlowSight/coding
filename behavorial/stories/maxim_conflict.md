@@ -14,7 +14,8 @@ TASK:
 
 ACTION:
 - Had a discussion with the architect, lets call him M, to understand the view. 
-- The concern was : string serialize and deserialize is costly, in average  agent scenario path, there could be as much as 80 ser-deser ops per invocation. Plus, in future if there is expansion to more columns tracking, it will only be worse
+- The concern was : string serialize and deserialize is MAY BE costly 
+, in average  agent scenario path, there could be as much as 80 ser-deser ops per invocation. Plus, in future if there is expansion to more columns tracking, it will only be worse
 - The concern was real, however it was considered during design but deprioritized as business requirement was strictly 2 columns and no plan for expansion.
 - I thought only way the argument can settle is by data with a quick experimentation.
 - I raised a parallel PR rewriting a portion of the feature using new table to track column editor. 
@@ -26,9 +27,16 @@ RESULT:
 - M was happy and surprised that this was the case. Aligned with the idea and provided sign-off.
 I realized a crucial mistake:
 - Had I involved him along with other architects, during initial review, clarity would have much earlier
+
+
+*Question : Not agreeing to point 2*
 - When I decided against the table based approach, I took a judgement call, instead of data-driven call. I was lucky to be on the right side this time, but my methodology was not right.
 
 This led me to a deeper insight that M's POV help me uncover : there are sql views across our system which are serving different forms by doing multiple table joins. 
 I discussed with M and another architect (lets call him E) about their thought on considering stringified json or denormalization in deep nested joins. 
+
 We created exploration feature in our roadmap where we (me, M and E) are investigating different sql views and evaluating points eligible for optimization. Its a ongoing effort and we are planning to conclude by few months.
 
+
+
+*Can you describe a situation where you had to work with a decision that you didn't agree with*
