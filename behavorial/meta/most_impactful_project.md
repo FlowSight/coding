@@ -1,3 +1,6 @@
+- alternate prompt
+    - Project you are most proud of
+
 - make the interviewer feel related to the project, make connection
 - way too much details needed, should sound like you actually did do the whole thing
 

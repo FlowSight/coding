@@ -1,3 +1,6 @@
+- alternate prompt
+    -How do you seek our opportunities
+
 - whats in for me
 - whats in for them
 
@@ -11,9 +14,16 @@
         - diff authoring time (DAT) per file : highest normalized DAT files are reauthored first
         - Knowledge loss
     - logarithm 
+    - meta scale history
+        - fb
+        - insta
+        - llama
 
 - info
     - meta code review powered by 'Phabricator'
     - meta is rewriting java to kotlin
     - logarithm is being improved to support structured data, improve search-filter-sort latency, I;ve worked on similar
-    - 
+
+
+- question to mock guide
+    - whats the ideal ans to this qs?

@@ -47,3 +47,9 @@ what are the signals?
 meta specific stories, examples
 how many stories are good enough ? 4-5
     2-3 big examples
+
+our framework
+- sitation : bg story, how did i land up in story, 
+- task: why did i do it, why no other alternative
+- action : what and how
+- result : outcome

@@ -1,0 +1,3 @@
+- vertical scale
+- ad hoc deprioritization
+- explain non-technical things to tech people
