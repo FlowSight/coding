@@ -20,8 +20,10 @@
 
 class Solution {
 public:
+    mutex mtx;
     unordered_map<TreeNode*, vector<int>> mm;
     int minCameraCover(TreeNode* root) {
+        lock_guard<mutex> lock(mtx);
         return helper(root);
     }
 
