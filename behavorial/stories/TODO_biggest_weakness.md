@@ -71,3 +71,5 @@ This journey taught me that **leadership at scale isn’t just about delivering 
     I have taken past 3 projects that I led, making such moves towards the end where I had to stretch, take ad hoc routes, e.g. do multiple deployments, raise multiple PRs based on multiple fix hypothesis, and why did I do those. I explained this to team before feature planning urging people to take idea , find pattern and come up with their own way of staying ahead o things.
 - Result : 
     although I see some improvements, in  specific instances I had to jump in. One occurrance was one teammate was able to find a unannounced feature changed and came up with his own workaround which we incorporated. I hope this will scale well and as a team we will be able to achieve more without me vertically scaling. But I still fail sometime to recognize early how a work can spiral even after discussing with SMEs.
+
+    *Question: I like it but it is not technical or specific . Can ths work"xsss
