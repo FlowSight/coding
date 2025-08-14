@@ -4,7 +4,7 @@
 - story candidate:
     - kacper agent perf improvement
     - maxim json
-    - hce story
+    - hce story part 2
 
 - signals:
     Communication

@@ -41,11 +41,9 @@ We are looking for go-getters / people who can direct themselves and seek out op
 
 
 questions:
-should it always have to be techcial or it can be more interpersonal and less technical?
-some experiences are tough, raw, unfiltered, not sure if they can become controversial : (share mahima story etc) ask are these controversial to speak about in an interview?
-what are the signals?
-meta specific stories, examples
-how many stories are good enough ? 4-5
+
+1. about 'how do you do...', is there a star like structure? do I have to ans with a situation?
+2. how many stories are good enough ? 4-5
     2-3 big examples
 
 our framework

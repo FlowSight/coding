@@ -1,0 +1,2 @@
+- candidate :
+    - lenovo sev2

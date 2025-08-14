@@ -1,2 +1,2 @@
 - for inteeview, stress is an simulator
-- sport, workout, seratonin rush
+- sport, workout, seratonin rush, watching travel vlogs

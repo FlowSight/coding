@@ -8,7 +8,7 @@
 - This stemmed from a design gap. As we were moving fast,stakeholders decided to address the latency when busines demand arises.  
 - While helping to onboard a customer, I learnt that they had interest to purchase upto 50k user licenses.
 - I resurfaced the concern with my M1 where our current infra does not meet a potential customer scale. He sugegested to discuss further with M2.
-- I raised it in a 1:1 M2 , citing a potential instant demand for scale-up(after decision with my M1). - Sumita's input
+- I raised it in a 1:1 M2 , citing a potential instant demand for scale-up(after decision with my M1).
 - M2 suggested to figure out a possibility to quickly pivot via a poc if a more scalable solution is achievable.
 - his words were in the lines of : 'For AI to become what leadership envisions, the tools of AI must be optimal'
 

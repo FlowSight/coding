@@ -1,4 +1,4 @@
 - signal expected : ownership, impact
 - story candidates:
     - agent perf improvement
-    - hce
+    - hce part2 , part1 (order of pref)
