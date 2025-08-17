@@ -1,4 +1,4 @@
-- i failed my first startup, ton of money
+- talk about blockers
 
 - maxim
 - lenovo sev2

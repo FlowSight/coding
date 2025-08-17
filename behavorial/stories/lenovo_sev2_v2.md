@@ -55,11 +55,9 @@ It taught me that while failures are inevitable, **how you respond defines your 
 
 
 
-
-
 ##### ***chatgpt***
 
-Sure. One of the biggest failures I’ve faced—and also one of the most valuable growth moments—happened during the launch of a high-impact product I was leading called **Time Entry Copilot**. It’s designed to help enterprise users automate time logging, submission, and approval flows.
+
 
 Initially, I tried a few debugging approaches, but nothing surfaced the root cause. Realizing time was slipping and stakes were rising, I took a step back and shifted to a **structured elimination approach**. Eventually, I traced the issue to a **schema metadata mismatch**. Our system lacked validation for certain table schema changes—an assumption we had mistakenly made about upstream data hygiene.
 

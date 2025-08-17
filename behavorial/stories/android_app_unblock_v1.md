@@ -7,11 +7,12 @@
 - There is no policy in our entire org to account for external user tester scenario
 
 ### **TASK**
+
 - Have to navigate a way around temporarily by making leadership aware of the situation
 - Have a permanent process creation which can be used by other teams as we are the first team facing it unfortunately.
 
 ### **ACTION**
--
+- Have 3 choices : request extension from google v/s let org security team establish process for testing env access v/s me finding a quick,middle ground solution and enable us.
 
 
 

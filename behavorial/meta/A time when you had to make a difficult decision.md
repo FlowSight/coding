@@ -1,0 +1,6 @@
+- stories
+    - perf work
+    - android app blocker work
+        - ask more extension
+        - let org security team figure a way out to establish rules for testing env
+        - find a middle ground

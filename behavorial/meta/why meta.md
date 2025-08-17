@@ -9,6 +9,7 @@
 - tooling : cicd pipeline issue in msft, how meta handles it via fabricator and how outage and auth,provision and failures are tackled
 
 - points to bring up
+    - compliance process in microsoft -> slow moving V/S Meta moves fast
     - Meta’s “Better Engineering” initiatives
         - https://arxiv.org/html/2504.12517v1 : Jump from  4% to 14% diff in meta are devoted to code improvement
         - diff authoring time (DAT) per file : highest normalized DAT files are reauthored first

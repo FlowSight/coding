@@ -1,3 +1,7 @@
+- type1 and type2 decisions
+ - 
+
+
 ***gpt sample***
 
  “I start by clarifying the objective and success criteria — whether it’s a customer-facing impact, infra efficiency, or unblock for another team.
