@@ -54,6 +54,9 @@ It taught me that while failures are inevitable, **how you respond defines your 
 
 
 
+*Interviewer feedback : Why was it hard : explain before going to action . Use terms like We were not able to replicate in any flavour, Cant fix what we cant replicate, handling over to someone was not an option because we build a lot of context while investigating things . 
+Interviewer should have to find out why it is hard
+
 
 ##### ***chatgpt***
 

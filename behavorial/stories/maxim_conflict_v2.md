@@ -36,6 +36,7 @@ I realized a crucial mistake:
 - I made a unconsicous bias of choosing a more simpler solution. I took a judgement call, instead of data-driven call. I was lucky to be on the right side partially this time, but my methodology was not right.
 - I lacked a more future look-ahead mindset. I could not contemplate that business requirement might change and our design need to extensible from start.
 
+*Interviewer feedback : USe terms like "data over debates" , did performace benchmarking and came back with data 
 <!-- This led me to a deeper insight that M's POV help me uncover : there are sql views across our system which are serving different forms by doing multiple table joins. 
 I discussed with M and another architect (lets call him E) about their thought on considering stringified json or denormalization in deep nested joins. 
 

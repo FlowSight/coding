@@ -25,6 +25,7 @@ prompt: “Tell me about a time you took initiative on a project.”
 - My suggestion for long term solution was backed by architect and product owners.
 - Although I was bummed that my work was undone temporarily, I finished sanitization of our codebase fast and created a feature which im leading cross  7 teams to ensure its done by this wave.
 I realized a central place for constants and artifacts is a much decoupled and better practice and im looking for more instances of scattered artifacts across our codebase as candidates for sanitization.
+*Interviewer feedback : sound little immature : instead can use that my work was undone temporarily, I finished sanitization of our codebase first* 
 
 #####
 Prompt: tell me about a time situation where you had to work with a decision that you didn't agree with
@@ -46,6 +47,7 @@ Prompt: tell me about a time situation where you had to work with a decision tha
 - I built the framework poc for json dump
 - I built a parallel poc using feature control settings for my hypothesis of reading from table.
 - I raised two PRs with 2 test paths by consuming the framework from different codepaths.
+*Interview feedback : POC from multiple different code paths to proof the flexibility of the solution * 
 - There were around 200 different hardcoded urls across 80 files. I grouped the consumers by their nature and tested each group.
 - I benchmarked the url load time for both framework.
 - when i carried out e2e test, it appeared that, sandbox apis fail to use json approach as they are prohibited from filesystem access.
@@ -60,7 +62,7 @@ Prompt: tell me about a time situation where you had to work with a decision tha
 - I realized data always is the final truth, personal believes, hypothesis should always be validated before committing onto something.
 
 
-
+*Interviewer feedback : make more data driven *
 
 
 
