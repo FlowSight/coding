@@ -28,3 +28,7 @@
 
 - question to mock guide
     - whats the ideal ans to this qs?
+
+
+*interviewer feedback : speak how are you aligned with meta's vision and their products. 
+Add personal reason : social connect . power of social media, products which social media is building can help mankind.believing in the vision of what meta does . youre bvelievs vs meta's . your experience vs metas

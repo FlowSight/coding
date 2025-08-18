@@ -51,3 +51,62 @@ our framework
 - task: why did i do it, why no other alternative
 - action : what and how
 - result : outcome
+
+
+Got it 👍 — you’re looking for **idioms / catchy phrases** that fit the vibe of technical rounds (interviews, system design, coding discussions), similar to *“tried and true,” “going south,” “data over debates,” “replicate in any flavour.”*
+
+Here’s a curated list you could use naturally in technical conversations:
+
+---
+
+### General Problem-Solving / Reliability
+
+* **Tried and tested** → proven approach that works reliably.
+* **Don’t reinvent the wheel** → don’t build something from scratch if a solution already exists.
+* **If it ain’t broke, don’t fix it** → don’t over-engineer.
+* **Battle-tested** → code/system that has stood real-world stress.
+* **Fail fast, fix faster** → quick iteration and debugging mindset.
+
+---
+
+### Risk / Failure
+
+* **Going south** → things failing or worsening.
+* **Single point of failure** → risky dependency.
+* **On thin ice** → fragile or risky implementation.
+* **The devil is in the details** → tricky bugs hidden in small details.
+* **House of cards** → system that may collapse under pressure.
+
+---
+
+### Data-Driven / Engineering Culture
+
+* **Data over debates** → let metrics drive decisions.
+* **Numbers don’t lie** → trust measurable performance.
+* **In God we trust, all others bring data** → classic engineering phrase.
+* **Measure twice, cut once** → plan and verify before implementing.
+* **Proof of the pudding is in the eating** → test in real usage.
+
+---
+
+### Flexibility / Scaling
+
+* **Replicate in any flavour** → adaptable, modular solution.
+* **Plug and play** → easy integration.
+* **Scale on demand** → grows with load.
+* **Future-proof** → designed for longevity.
+* **One size doesn’t fit all** → design should consider variation.
+
+---
+
+### Debugging / Problem Analysis
+
+* **Root cause analysis** → get to the bottom of an issue.
+* **Needle in a haystack** → elusive bug.
+* **Peel the onion** → debug layer by layer.
+* **Smoke and mirrors** → code looks like it works but doesn’t under the hood.
+* **Silver bullet (or lack thereof)** → no single fix solves everything.
+
+---
+
+👉 Would you like me to **make a compact “cheat sheet” of these idioms** (grouped by theme) that you can quickly glance at before interviews?
