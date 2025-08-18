@@ -61,7 +61,7 @@ Here’s a curated list you could use naturally in technical conversations:
 
 ### General Problem-Solving / Reliability
 
-* **Tried and tested** → proven approach that works reliably.
+* **Tried and true** → proven approach that works reliably.
 * **Don’t reinvent the wheel** → don’t build something from scratch if a solution already exists.
 * **If it ain’t broke, don’t fix it** → don’t over-engineer.
 * **Battle-tested** → code/system that has stood real-world stress.

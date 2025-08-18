@@ -91,6 +91,8 @@ This experience taught me the value of
 
 ### **RESULT**
 - I benchmarked 5000 users in A/B testing and demonstrated with extrapolation that for 50k users and 10k users, it would take agents total runtime of 5 days and 1 day respectively, giving a 85% SLA improvement as opposed to 35 days and 7 days. 
+
+
 -  After a successful demo among same audience plus some peer architects, M2 took the proposal to our CVP and got buy-in. This officially became our next roadmap item.
 - I led the team to design and implement the fix in full — with cross-team sign-off from architects. 
 - This gained confidence in our critical setof enterprise customers having 10k+ users, which resulted in thousands of ai license purchases pivoting time agent.
