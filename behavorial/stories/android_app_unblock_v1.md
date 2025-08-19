@@ -4,7 +4,9 @@
 - our internal security policy enforced mfa for logging into all internal tenant after crowdstrike incident. 
 - The enforcement trickled down to orgs simultaneously, every org created process around testing and accessing environments.
 - Google team was blocked to due to being external user lacking mfa setup. We were met with a deadline risking app removal.
+- App has MAU of 200k with some significant customers contributung to millions in revenue.
 - There is no policy in our entire org to account for external user tester scenario
+- 
 
 ### **TASK**
 
@@ -13,6 +15,21 @@
 
 ### **ACTION**
 - Have 3 choices : request extension from google v/s let org security team establish process for testing env access v/s me finding a quick,middle ground solution and enable us.
+- i decided to anyway ask for extension from google to buy time, which I did after discussing with manager and stakeholder.
+- read deep into azure ad changes which orchestrates the user management. Reached out to a Azure AD team for guidence
+- I learnt there is a way to pause the MFA temporarily with a feature setting which can be set via jarvis, but its meant for internal users.
+- I proposed a solution using ephemeral tenant which is isolated to internal and production tenants and combining the new found learning.
+- I discussed with M2, Pm and M1, who agreed and asked to get leadership approval.
+- I asked for approval to CTO , CVP and security council, cititing the concern, urgency. We received approval.
+
+### Result
+- I provided google with test env. Our app was signed off by google.
+- As this was bound to be faced by to other app teams sooner or later, I decided to create a framework.
+- After discussing with security council, we have agreed to follow the framework I followed across teams. 
+- I created script and wiki for teams to follow.
+- At least 5 teams have benefited from our framework by whitelisting their app which contributed to 10+ millions iin revenue.
+
+=====end======
 
 
 
@@ -28,4 +45,5 @@
 
 - key point :
     - influence cross team
-    - 
+    - create structure/work in ambiguity
+    - difficult decision

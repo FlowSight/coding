@@ -10,15 +10,17 @@ __
 ***Give time entry agent context with top 3 highest MAU***
 - After private preview phase of complete roll out on 100+ enterprise customers across 7 geos, 200+ tenants and 400+ orgs, exactly and only one of our **largest enterprise clients** raised a **Sev2**. 
 - Thousands of employees of the customer were **unable to submit time**, disrupting **payroll processing**, **billing**, and **regulatory reporting**. An estimated **\$1.2M per day business losss was quoted by customer in potential downstream impact**, and leadership was deeply involved due to the visibility of the unwanted blockage. There was a real possibility of entire business loss with the particular customer.
+- Team could not replicate this in internal env. We cant solve what we cant replicate. The generic logs were not at all indicative of the true reason.
+- handling over to on-call cross geo team was not an option because we build a lot of context while investigating things . 
 
 
 **Task**
-- After a day of unsolved sev2, I had to jump on it to help the team . 
 - I had to introspect on why 100+ customers have not faced with this exact same build, figure out the RCA, and retrospect on how this went uncaught in multiple testing, int test etc. 
 - Do all these ASAP as more delay indicates customer quoting more business value loss which could make conversations harder among leadership.
 
 
 **ACtion**
+- After a day of unsolved sev2, I had to jump on it to help the team . 
 - As I could not replicate the issue in any flavour of our internal systems, but was reproducible in shadow.
 - This led me into thinking if any org setting was differing. 
 - Compared and figured out audit trail was enabled org wide which was overriding table and column level settings. This was against usual recommendation from microsoft to customers. 
