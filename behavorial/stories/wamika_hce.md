@@ -23,7 +23,7 @@ prompt: “Tell me about a time you took initiative on a project.”
 ### **Result**
 - the customer had temporarily disabled their codescan and onboarded my feature and our product.
 - My suggestion for long term solution was backed by architect and product owners.
-- Although I was bummed that my work was undone temporarily, I finished sanitization of our codebase fast and created a feature which im leading cross  7 teams to ensure its done by this wave.
+- Although, my work was undone temporarily, I finished sanitization of our codebase fast and created a feature which im leading cross  7 teams to ensure its done by this wave.
 I realized a central place for constants and artifacts is a much decoupled and better practice and im looking for more instances of scattered artifacts across our codebase as candidates for sanitization.
 *Interviewer feedback : sound little immature : instead can use that my work was undone temporarily, I finished sanitization of our codebase first* 
 
@@ -46,7 +46,7 @@ Prompt: tell me about a time situation where you had to work with a decision tha
 ### **Action**
 - I built the framework poc for json dump
 - I built a parallel poc using feature control settings for my hypothesis of reading from table.
-- I raised two PRs with 2 test paths by consuming the framework from different codepaths.
+- I conduncted parallel POCs involving 2 different code paths by consuming the framework from different codepaths.
 *Interview feedback : POC from multiple different code paths to proof the flexibility of the solution * 
 - There were around 200 different hardcoded urls across 80 files. I grouped the consumers by their nature and tested each group.
 - I benchmarked the url load time for both framework.
@@ -57,7 +57,9 @@ Prompt: tell me about a time situation where you had to work with a decision tha
 
 ### **Result**
 - Architects appreciated the findings and inclined on the approach.
-- the co-dev by peer teams started, ongoing effort, targeted with a sprint from now.
+- the co-dev by peer teams started and finished within a sprint by moving 120 urls to db
+and remaining to single json dump. 
+- This json dump resulted our test pipeline having a added latency ~10 mins which is negligible compared to the total 4hr runtime. 
 - I addeed this latency callout to our modules performance painpoint documents low impact zone.
 - I realized data always is the final truth, personal believes, hypothesis should always be validated before committing onto something.
 

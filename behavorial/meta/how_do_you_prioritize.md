@@ -1,5 +1,6 @@
 - type1 and type2 decisions
- - 
+ - typ1 : 10%, irreversible, must take together, cautiously
+ - type2 : 90%, reversible, fast, take individually or delegate.
 
 
 ***gpt sample***
