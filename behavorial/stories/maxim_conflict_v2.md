@@ -9,6 +9,10 @@ SITUATION:
 -  This concern could deepen the risk for 3 other partner teams' agents as well, as some of them had already merged their entire feature.
 - the feature was committed by stakeholders to customers  months back. Being a flagship feature, it had a potential to draw millions of dollars in AI subscripton revenue.
 
+*Sumita's comments: the architect blocked the PR and spoke to your manager regarding the design flow according to him. As this was an urgent change : manager wanted to push the architects suggestion . Also I was not able to explain him why my suggestion might work as good as the architect for this problem . 
+So I did proof of concept and replicated the condition to check his points will not reduce the time significantly. 
+
+Due to lack of time : I decided to explain both manager and the architect. About my thoughts and provided data to support my points. They were convinced. I was able to get the approval and push the change on time *
 
 TASK:
 - I needed to understand the concern quickly, find a middle ground to possibly navigate this. 
@@ -48,3 +52,5 @@ We created exploration feature in our roadmap where we (me, M and E) are investi
 
 -questions
     - *Question : Not agreeing to point 2* in task
+
+
