@@ -1,3 +1,7 @@
+** explain lenovo sev2**
+
+=== end====
+
 - stories
     - perf work
     - android app blocker work

@@ -15,7 +15,8 @@
     -for interview, stress is an simulator
 - For time stress, rewarding myself with some small, unknown dopamines help.
 - situation :
-    - In past 3-4 projects which I led, I measured at about 2 sprints before deadline, the stress starts to spike up.
+    - I have been following the strategy for past 2 phases of time agent which I led. 
+    - I measured at about 2 sprints before deadline, the stress starts to spike up.
     - I decided to celebrate smaller milestones of works.
 - Task + action
     -  to keep the surprise element active I made a small bot in teams which I fed some resturants, activities, shows 

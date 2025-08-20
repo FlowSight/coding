@@ -1,3 +1,20 @@
+- The blockers can be of Unpredictable external or Unpredictable internal.
+- My  order of line of defence is as below:
+    - did any other team face this earlier
+    - Can we buy time? have this blocker and still move around to reach our goal and come back?
+    - aboe two solves >70%. If I cant buy time, and its a totally unforseen problem I start evaluating the unknowns. 
+        - If its my teams area, I ask few qs to myself
+            1. Why did this happen?
+            2. How could I stop this from happening.
+            3. What can I do to stop this from happening in future.
+        - Else, I recognize its a dependency issue. I do following:
+            - Take help of SMEs
+            - Recognize this dependency failure and improve our teams learning bank to stop repeatable failure.
+
+    - ****Give time mobile app blocking example****
+    -   
+======end====
+
 - focus on learnings
 - show resilience
 - signals
