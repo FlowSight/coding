@@ -1,3 +1,5 @@
+
+- context switch
 - commercially aware*
 - fast learner*
 - flexible and versatile*

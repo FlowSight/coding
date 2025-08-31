@@ -25,8 +25,12 @@ prompt: “Tell me about a time you took initiative on a project.”
 - My suggestion for long term solution was backed by architect and product owners.
 - Although, my work was undone temporarily, I finished sanitization of our codebase fast and created a feature which ive led across  7 teams and concluded in 3 sprints
 I realized a central place for constants and artifacts is a much decoupled and better practice and im looking for more instances of scattered artifacts across our codebase as candidates for sanitization.
+
+======= end====
 *Interviewer feedback : sound little immature : instead can use that my work was undone temporarily, I finished sanitization of our codebase first* 
 
+
+==== start======
 #####
 Prompt: tell me about a time situation where you had to work with a decision that you didn't agree with
 
