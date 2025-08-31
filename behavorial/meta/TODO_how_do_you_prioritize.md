@@ -1,7 +1,15 @@
 - I admire Jeff bezos' philosophy, type1 and type2 decisions
- - typ1 : 10%, irreversible, must take together, cautiously
+ - type1 : 10%, irreversible, must take together, cautiously
  - type2 : 90%, reversible, fast, take individually or delegate.
 
+ - type1 decision is driven by : conviction, experience, skill, consensus
+    - lenovo sev2 : 
+        - it was irreversible as if that build went in, and didnt fix, more 1mill/day loss, reputation loss,added debugging cost.
+        - although I did have conviction and probably the skill, did not have experience in that codebase + consensus. so waited till monday to get consensus with m1,m2 and architects.
+        - also
+
+
+======end=====
 
 ***gpt sample***
 

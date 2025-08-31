@@ -14,16 +14,16 @@ prompt: “Tell me about a time you took initiative on a project.”
 - I needed to gather information of all customer codescan like system.
 - We have 250+ enterprises onboarded. Figuring out each customers security practice by manually reaching out via PM path is not scalable and infeasible within 2 weeks of sla
 - I examined telemetry and filtered 180 customers who had no customization layer.
-- the rest of them we engaged via PM and partners and learned there is no customer who is so far implementing this.
-- I created a poc of migration of urls into json for our module.
+- for the rest of them I engaged via PM and partners and learned there is no customer who is so far implementing this.
+- I created a poc of migration of urls into json only for our module.
 - I started larger discussion with product owner, 360 team, 3 architects on the priority and feasibility of the solution. I presented our current finding, my solution and its extensibility by other 7 teams.
-- But the other teams raised concern on competing priorities, tight deadline.  Also, the product owner decided to pursue the customer to disable their codescan temporarily.
+- But the other teams raised concern on competing priorities, tight deadline.  Seeing this, the product owner decided to pursue the customer to disable their codescan temporarily.
 - I suggested a long term solution of adopting the learning from customer to move our urls across codebase.
 
 ### **Result**
 - the customer had temporarily disabled their codescan and onboarded my feature and our product.
 - My suggestion for long term solution was backed by architect and product owners.
-- Although, my work was undone temporarily, I finished sanitization of our codebase fast and created a feature which im leading cross  7 teams to ensure its done by this wave.
+- Although, my work was undone temporarily, I finished sanitization of our codebase fast and created a feature which ive led across  7 teams and concluded in 3 sprints
 I realized a central place for constants and artifacts is a much decoupled and better practice and im looking for more instances of scattered artifacts across our codebase as candidates for sanitization.
 *Interviewer feedback : sound little immature : instead can use that my work was undone temporarily, I finished sanitization of our codebase first* 
 
@@ -35,19 +35,21 @@ Prompt: tell me about a time situation where you had to work with a decision tha
 
 - Recently at Microsoft,  during adoption of time entry agent by a airline customer, I learned that their internal codescan reported violations due to hardcoded urls in code shipped by us.
 - After discussion with Architects, it was decided to dump urls into a json and follow it cross the 8 teams touching the codebase. 
-- I was tasked with creation of the framework which other peer teams would use.
+- I was responsible for  creation of the framework which other peer teams would use.
 - I had a hunch json dump approach will not be a one size fits all solution, but I didnt have a data point to prove it.
 - I went along the agreement and started poc.
 
 ### **TASK**
-- I needed to quickly determine a framework with a poc whether the design fits all, not only my teams codebase but also others
-- I needed to demonstrate whether the serialize/deserialize nature of json is costlier than other approach like db read or env variable.
+- I needed to quickly determine a framework with a poc where the design fits all, not only my teams codebase but also others
+- ALTHOUGH NOT CALLED OUT, I needed to evaluate whether the serialize/deserialize nature of json is costlier than other approach like db read or env variable.
 
 ### **Action**
-- I built the framework poc for json dump
-- I built a parallel poc using feature control settings for my hypothesis of reading from table.
-- I conduncted parallel POCs involving 2 different code paths by consuming the framework from different codepaths.
+- I built the framework poc for json dump, lets call it solution 1.
+- I built a parallel poc using feature control settings for my hypothesis of reading from table, solution 2.
+- I conduncted these parallel POCs by consuming both the frameworks from different codepaths to proof the flexibility of the solution
+
 *Interview feedback : POC from multiple different code paths to proof the flexibility of the solution * 
+
 - There were around 200 different hardcoded urls across 80 files. I grouped the consumers by their nature and tested each group.
 - I benchmarked the url load time for both framework.
 - when i carried out e2e test, it appeared that, sandbox apis fail to use json approach as they are prohibited from filesystem access.
@@ -60,7 +62,7 @@ Prompt: tell me about a time situation where you had to work with a decision tha
 - the co-dev by peer teams started and finished within a sprint by moving 120 urls to db
 and remaining to single json dump. 
 - This json dump resulted our test pipeline having a added latency ~10 mins which is negligible compared to the total 4hr runtime. 
-- I addeed this latency callout to our modules performance painpoint documents low impact zone.
+- I addeed this latency callout to our modules performance painpoint wiki under low impact zone.
 - I realized data always is the final truth, personal believes, hypothesis should always be validated before committing onto something.
 
 

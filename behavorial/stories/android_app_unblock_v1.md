@@ -10,13 +10,13 @@
 
 ### **TASK**
 
-- Have to navigate a way around temporarily by making leadership aware of the situation
+- Have to navigate a way around temporarily while making leadership aware of the situation
 - Have a permanent process creation which can be used by other teams as we are the first team facing it unfortunately.
 
 ### **ACTION**
 - Have 3 choices : request extension from google v/s let org security team establish process for testing env access v/s me finding a quick,middle ground solution and enable us.
 - i decided to anyway ask for extension from google to buy time, which I did after discussing with manager and stakeholder.
-- read deep into azure ad changes which orchestrates the user management. Reached out to a Azure AD team for guidence
+- I reached out to Azure AD team for guidence instead of reading into a foreign team repo due to lack of time.
 - I learnt there is a way to pause the MFA temporarily with a feature setting which can be set via jarvis, but its meant for internal users.
 - I proposed a solution using ephemeral tenant which is isolated to internal and production tenants and combining the new found learning.
 - I discussed with M2, Pm and M1, who agreed and asked to get leadership approval.
@@ -25,9 +25,9 @@
 ### Result
 - I provided google with test env. Our app was signed off by google.
 - As this was bound to be faced by to other app teams sooner or later, I decided to create a framework.
-- After discussing with security council, we have agreed to follow the framework I followed across teams. 
+- After discussing with security council, it was agreed to follow the process I followed earlier 
 - I created script and wiki for teams to follow.
-- At least 5 teams have benefited from our framework by whitelisting their app which contributed to 10+ millions iin revenue.
+- Witin 3 months at least 5 teams faced the same blocker from google where they leveraged my framework to whitelist their app which saved 30M in combined potential revenue loss.
 
 =====end======
 

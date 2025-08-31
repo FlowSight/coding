@@ -11,6 +11,38 @@
 // BTW I HATE THIS QS
 
 
+    bool isNumber(string s) {
+        int dot = 0, exp = 0, dig = 0, sign = 0;
+        for(auto c: s){
+            if(c == ' '){
+                if(dig || dot || exp) return false;
+            }
+            else if( (c == '+') || (c=='-')) {
+                if(dig || dot || sign) return false;
+                sign = 1;
+            }
+            else if(c=='.'){
+                if(dot || exp) return false;
+                dot = true;
+            } else if(isDigit(c)){
+                dig = 1;
+            } else if((c=='e') || (c=='E')){
+                if(!dig || exp) return false;
+                dig = 0;
+                sign = 0;
+                dot = 0;
+                exp = 1;
+            } else return false;
+        }
+        return dig;
+    }
+
+    bool isDigit(char c){
+        return (c>='0') && (c<='9');
+    }
+
+    
+
 class Solution {
     public:
         bool isNumber(string s) {

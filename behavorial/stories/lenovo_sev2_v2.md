@@ -7,8 +7,8 @@ Prompt : tell me about the hardest problem you had solved
 __
 
 **Situation**
-***Give time entry agent context with top 3 highest MAU***
-- After private preview phase of complete roll out on 100+ enterprise customers across 7 geos, 200+ tenants and 400+ orgs, exactly and only one of our **largest enterprise clients** raised a **Sev2**. 
+***Give time entry COPILOT context with top 3 highest MAU***
+- After public preview phase of complete roll out on 250+ enterprise customers across 7 geos, 1000+ tenants and 400+ orgs, exactly and only one of our **largest enterprise clients** raised a **Sev2**. 
 - Thousands of employees of the customer were **unable to submit time**, disrupting **payroll processing**, **billing**, and **regulatory reporting**. An estimated **\$1.2M per day business losss was quoted by customer in potential downstream impact**, and leadership was deeply involved due to the visibility of the unwanted blockage. There was a real possibility of entire business loss with the particular customer.
 - Team could not replicate this in internal env. We cant solve what we cant replicate. The generic logs were not at all indicative of the true reason.
 - handling over to on-call cross geo team was not an option because we build a lot of context while investigating things . 
@@ -26,10 +26,10 @@ __
 - Compared and figured out audit trail was enabled org wide which was overriding table and column level settings. This was against usual recommendation from microsoft to customers. 
 - Still I could not relate how enabling audit impacted time workflow as we didnt introduce any change related to audit.
 - I used git bisect across all 40ish commits for the feature, deployed and figured the culprit commit. I took the teams help to scale this.
-- It was **schema metadata mismatch** introduced in a PR by my peer with schema name being a__b instead of a_b, and a audit check must be failing here which was overlooked by me as our documentation doesnt mention any restriction in schema naming.
+- It was **schema metadata mismatch** introduced in a PR by my peer with schema name being a__b instead of a_b, and a audit check must be failing here which was ignored by me as our documentation doesnt mention any restriction in schema naming.
 - I took complete ownership by communicating to leadership that it was a test miss.
--  I further realized our or our product teams system does not have a check to prevent incorrect table schema metadata, but upstream data modelling team does, which does not have any documentation exposed to us, 1p teams.
-- I realized the fix has to lie in the data modelling teams' codebase.
+-  I further realized our teams or our product teams system does not have a check to prevent incorrect table schema metadata, but upstream data modelling team does, which does not have any documentation exposed to us, 1p teams.
+- I realized the fix FOR THIS ISSUE has to lie in the data modelling teams' codebase.
 - It was weekend and transferring of ownership was an option, but it would only increase the customer pain time.
 - After reading codebase, I found there is a check to convert each column unique name to smallcase, and a lookup in all columns physicalname for a exact match.
 - So, I introduced a unorthodox fix where I introduced a reversed incorrect column name in our codebase with a__b physical name and a_b schema name. This fix worked.

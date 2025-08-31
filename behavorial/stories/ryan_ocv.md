@@ -18,7 +18,7 @@ I realized that to succeed, I had to:
 1. **Refine the spec and define the scope** for myself and others.
 2. **Create a extensible, robust framework** that could be reused by all agents, along with my other feature priorities.
 3. **Ensure successful delivery for both my own teams agent and other agents as we must have uniform onboarding onto ocv across agents inside our product group** —  without having direct authority over other teams.
-This meant stepping into a leadership gap and driving clarity and consistency **across teams** without waiting for PM direction.
+This meant stepping into a leadership gap and driving clarity and consistency **across teams** without waiting for stakeholders direction.
 
 ### **ACTION**
 
@@ -35,9 +35,9 @@ This meant stepping into a leadership gap and driving clarity and consistency **
 ### **RESULT**
 
 - I had to co-dev on one other teams agent. My own teams time agent, expense and sales agent were onboarded to ocv on time.
-- Approval agent teams bandwith was limited due to bandwidth and competing priorities, so I had asked for code complete deadline extension from our leadership.
+- Approval agent teams bandwith was limited due to competing priorities, so I had asked for code complete deadline extension of one week from our leadership.
 - Within next 1 week I, my teams peer and approval teams peer co-deved together to complete the merge.
 
-- I realized first hand how challenging a managing and naviagting across multiple stakeholders can be. 
+- I realized first hand how challenging a managing a items success by naviagting across multiple stakeholders can be. 
 - The key is **creating structure when none exists, establishing scope, having scalable framework that makes repeatable actions smoother**.
 

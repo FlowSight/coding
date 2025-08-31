@@ -15,6 +15,7 @@
 // compiler error : 1
 // verdict : FAIL
 
+
 class Solution {
 public:
     string minRemoveToMakeValid(string s) {
@@ -42,3 +43,41 @@ public:
     }
 };
 
+
+// in place sol
+
+class Solution {
+public:
+    string minRemoveToMakeValid(string s) {
+        int total_open = 0, extra_open = 0, n = s.size(), idx = 0, keep = 0, len = 0;
+        for(auto c:s) {
+            if(c=='('){
+                total_open++;
+                extra_open++;
+                s[idx++] = c;
+            } else if(c==')') {
+                if(extra_open) {
+                    extra_open--;
+                    s[idx++] = c;
+                }
+            } else {
+                s[idx++] = c;
+            }
+        }
+        len = idx;
+        idx = 0;
+        keep = total_open - extra_open;
+        for(auto i=0;i<len;i++) {
+            auto c = s[i];
+            if(c == '(') {
+                if(keep) {
+                    s[idx++] = c;
+                    keep--;
+                }
+            } else  {
+                s[idx++] = c;
+            }
+        }
+        return s.substr(0,idx);
+    }
+};
