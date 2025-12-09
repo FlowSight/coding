@@ -1,0 +1,6 @@
+design a movie review system where users can browse and review movies.
+the system should allow users to search for movies based on title, genre, and release year.
+users should be able to write reviews and rate movies on a scale of 1 to 10.
+the system should display average ratings and recent reviews for each movie.
+the system should support user profiles, allowing users to view their review history.
+the system should provide an admin interface to manage movie listings and moderate reviews.

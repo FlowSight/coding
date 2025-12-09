@@ -1,5 +1,8 @@
 prompt: “Tell me about a time you took initiative on a project.”
 
+## gist##
+- time agent phase 0
+- 
 ### **SITUATION**
 
 - Recently at Microsoft,  during adoption of time entry agent by a airline customer, I learned that their internal security system runs codescan, which reported violations in microsoft 1p codebase shipped by us. 
@@ -32,7 +35,7 @@ I realized a central place for constants and artifacts is a much decoupled and b
 
 ==== start======
 #####
-Prompt: tell me about a time situation where you had to work with a decision that you didn't agree with
+Prompt: tell me about a time where you had to work with a decision that you didn't agree with
 
 
 ### **SITUATION**
@@ -67,6 +70,7 @@ Prompt: tell me about a time situation where you had to work with a decision tha
 and remaining to single json dump. 
 - This json dump resulted our test pipeline having a added latency ~10 mins which is negligible compared to the total 4hr runtime. 
 - I addeed this latency callout to our modules performance painpoint wiki under low impact zone.
+- This change affected enitre 500+ customers and 2Mil MAUs
 - I realized data always is the final truth, personal believes, hypothesis should always be validated before committing onto something.
 
 

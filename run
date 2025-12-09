@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Quick Run Script - Shortcut for make run
+# Usage: ./run <cpp_file_path>
+# Example: ./run multithreading/basic.cpp
+
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 <cpp_file_path>"
+    echo "Example: $0 multithreading/basic.cpp"
+    echo ""
+    echo "This is a shortcut for: make run FILE=<cpp_file_path>"
+    exit 1
+fi
+
+make run FILE="$1"

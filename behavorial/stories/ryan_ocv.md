@@ -36,7 +36,7 @@ This meant stepping into a leadership gap and driving clarity and consistency **
 
 - I had to co-dev on one other teams agent. My own teams time agent, expense and sales agent were onboarded to ocv on time.
 - Approval agent teams bandwith was limited due to competing priorities, so I had asked for code complete deadline extension of one week from our leadership.
-- Within next 1 week I, my teams peer and approval teams peer co-deved together to complete the merge.
+- Within next 1 week I, my teams peer and approval teams peer co-deved together to complete the merge impacting 1mil MAU.
 
 - I realized first hand how challenging a managing a items success by naviagting across multiple stakeholders can be. 
 - The key is **creating structure when none exists, establishing scope, having scalable framework that makes repeatable actions smoother**.

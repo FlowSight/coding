@@ -2,5 +2,5 @@
 - signal looking for: high standards
 
 - candidate :
-    - maxim
-    - lenovo sev2
+    - impact : time agent scale
+    - hce part 1

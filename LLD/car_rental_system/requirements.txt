@@ -1,0 +1,11 @@
+
+
+
+design a car rental system where users can rent cars from different locations.
+the system should allow users to search for available cars based on location, date, and car type.
+users should be able to book a car for a specific date range and location.
+the system should handle car availability and prevent double bookings.
+the system should support different car types (e.g., sedan, suv, truck) and pricing models (e.g., hourly, daily, weekly).
+the system should allow users to cancel bookings and receive refunds based on the cancellation policy.
+the system should maintain user profiles and booking history.
+the system should provide an admin interface to manage car inventory, locations, and pricing.

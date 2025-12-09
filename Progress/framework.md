@@ -1,3 +1,4 @@
+8. repeat 1-7 for follow ups also
 7. dry run  [TIME : ]
     1. ask the interviewer :
         1. do you want specific tc to dry run, 
@@ -55,3 +56,4 @@ intro : I am Anirban, a enginner at Microsoft, leading a team of 5 in Project Op
 
 If probed : MSFT : latest work Time Agent is one of first agents introduced by Satya in KeyNote.
 
+sbi wa : 9022690226

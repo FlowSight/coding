@@ -8,10 +8,10 @@ __
 
 **Situation**
 ***Give time entry COPILOT context with top 3 highest MAU***
-- After public preview phase of complete roll out on 250+ enterprise customers across 7 geos, 1000+ tenants and 400+ orgs, exactly and only one of our **largest enterprise clients** raised a **Sev2**. 
+- After public preview phase of complete roll out on 250+ enterprise customers across 7 geos, 1000+ tenants and 4000+ orgs, exactly and only one of our **largest enterprise clients** raised a **Sev2**. 
 - Thousands of employees of the customer were **unable to submit time**, disrupting **payroll processing**, **billing**, and **regulatory reporting**. An estimated **\$1.2M per day business losss was quoted by customer in potential downstream impact**, and leadership was deeply involved due to the visibility of the unwanted blockage. There was a real possibility of entire business loss with the particular customer.
 - Team could not replicate this in internal env. We cant solve what we cant replicate. The generic logs were not at all indicative of the true reason.
-- handling over to on-call cross geo team was not an option because we build a lot of context while investigating things . 
+- handling over to on-call cross geo team was not an option because we build a lot of context while investigating things and the ownership of the module was with US!
 
 
 **Task**
@@ -50,6 +50,7 @@ __
 2. Documentation on new learning including a case study of the customer issue
 3. Introduce audit-enabled variations of all existing scenarios in release sign-off testing.
 4. Start a office hours between data modelling group and our product group, to make us aware of any change being introduced in upstream. Im working to improve the participation in this forum.
+5. Enhanced telemetry to capture audit scenarios
 
 It taught me that while failures are inevitable, **how you respond defines your impact**.
 

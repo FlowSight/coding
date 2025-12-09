@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/anirbanm/repos/coding/company wise/databricks/test.output'
+relocations:     []
+...

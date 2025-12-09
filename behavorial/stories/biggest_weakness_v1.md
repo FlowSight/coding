@@ -13,8 +13,11 @@ tried to improve instances mindfully: example 1/2
 
 
 ### **SITUATION**
-- One area I’m actively improving is my tendency to take on too much myself towards the end of a project — jumping in to fix  **unexpected blockers**  — whether it was a CI/CD pipeline issue, a late-breaking PM requirement change, or an unplanned dependency from a partner team. 
-- It comes from wanting to protect timelines and deliver commitments.
+- One area I’ve been working on is my tendency to jump in and take on too much myself when a project is under pressure.
+- My instinct has always been to protect timelines — so if regressions, ad hoc asks, or blockers pile up near the end, I’d often vertically scale and resolve them myself. 
+<!-- - While that gets results, it isn’t scalable and it risks the projects sustainability and taks a toll on my healh. -->
+<!-- - One area I’m actively improving is my tendency to take on too much myself towards the end of a project — jumping in to fix  **unexpected blockers**  — whether it was a CI/CD pipeline issue, a late-breaking PM requirement change, or an unplanned dependency from a partner team.  -->
+<!-- - It comes from wanting to protect timelines and deliver commitments. -->
 
 - In these moments, I’d often go into **“rescue mode”** — I’d silo myself, come up with unorthodox solutions, make aggressive calls, and push through just in time. While leadership appreciated the outcomes, it took a toll on me — both mentally and physically 
 
@@ -34,7 +37,7 @@ So I made it a goal to:
 
 ### **ACTION**
 
-I went back and reviewed **three recent project : time copilot GA, time agent private and public previews** where I had made last-minute interventions — e.g., rolling out simultaneous PRs for multiple fix hypotheses, redeploying multiple times, kept many vms reserved for myself, reserving good commit branches ready, etc.
+I went back and reviewed **three recent project : time copilot phase 2 and 3, time agent public preview** where I had made last-minute interventions — e.g., rolling out simultaneous PRs for multiple fix hypotheses, redeploying multiple times, kept backup orgs reserved for myself, reserving good commit branches ready as fallback, etc.
 
 I then walked the team through these past patterns in a **feature planning meeting**, not to glorify the heroics — but to **highlight the common signs and missed warning cues** that led to late surprises. I asked the team to reflect and find their own ways to stay ahead of the chaos.
 
@@ -56,7 +59,7 @@ Since then, I’ve seen encouraging signs. For example:
 
 That said, I’m still working on it. In some cases, I still **fail to recognize risk early** — even after consulting SMEs — and I’m learning to get better at **seeking out help earlier instead of relying on grit**
 
-This journey taught me that **leadership at scale isn’t just about delivering under pressure — it’s about enabling the team to see around corners.**
+This journey taught me that **leadership at scale isn’t just about delivering under pressure — it’s about enabling the team to become replicas of you so you can focus on larger scope.**
 
 
 ======end=======
