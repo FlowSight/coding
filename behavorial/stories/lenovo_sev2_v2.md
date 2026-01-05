@@ -8,9 +8,10 @@ __
 
 **Situation**
 ***Give time entry COPILOT context with top 3 highest MAU***
-- After public preview phase of complete roll out on 250+ enterprise customers across 7 geos, 1000+ tenants and 4000+ orgs, exactly and only one of our **largest enterprise clients** raised a **Sev2**. 
+- After public preview phase of complete roll out on 250+ enterprise customers across 7 geos, 1000+ tenants and 4k+ orgs, exactly and only one of our **largest enterprise clients** raised a **Sev2**. 
 - Thousands of employees of the customer were **unable to submit time**, disrupting **payroll processing**, **billing**, and **regulatory reporting**. An estimated **\$1.2M per day business losss was quoted by customer in potential downstream impact**, and leadership was deeply involved due to the visibility of the unwanted blockage. There was a real possibility of entire business loss with the particular customer.
-- Team could not replicate this in internal env. We cant solve what we cant replicate. The generic logs were not at all indicative of the true reason.
+- Team could not replicate this in internal env. We cant solve what we cant replicate. The generic logs were not at all indicative of the true reason. ***
+- we could not rollback as it would need rollback of entire package which was also not supported. ***
 - handling over to on-call cross geo team was not an option because we build a lot of context while investigating things and the ownership of the module was with US!
 
 
@@ -42,7 +43,7 @@ __
 
 - I realized during the post mortem review:
 1. It **was** our failure not to account for the dependency. 
-2. We normally overlook simple things like naming, but if the area lies with another team, we need written contracts and agreements to follow without assuming that there is no implication. we should look at dependency points and establish contracts with a rationale.
+2. We normally overlook simple things like naming, but if the area lies with another team,for those dependency points we need established contracts and agreements to follow without assuming that there is no implication.
 3. PR reviews can overlook mistakes. this can only be solved by automated code-coverage, which needs to be worked upon at scale, as this could be any other 1p team instead of us. For which, a larger initiative needs to be taken to avoid this across our codebase which involves 8 teams.
 
 -  I immediately consulted peer architects and introduced few changes
@@ -60,6 +61,8 @@ It taught me that while failures are inevitable, **how you respond defines your 
 *Interviewer feedback : Why was it hard : explain before going to action . Use terms like We were not able to replicate in any flavour, Cant fix what we cant replicate, handling over to someone was not an option because we build a lot of context while investigating things . 
 Interviewer should have to find out why it is hard
 
+
+======end====
 
 ##### ***chatgpt***
 

@@ -1,6 +1,7 @@
 // 29 march 2025
 // its so easy..but i missed 2-3 corner cases..
 // sev1
+// didnt realize that abc->ab => invalid case..
 
 class Solution {
     public:

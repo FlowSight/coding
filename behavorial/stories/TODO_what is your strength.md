@@ -1,10 +1,12 @@
 
 - context switch
+    - agent/fno/bugs/
 - fast learner*
-    - In my tenure at MSFT, I switched teams thrice, due to reorg. In current org I led features in 2 completely different flavour of systems from scratch.
+    - In my tenure at MSFT, I switched teams thrice, due to reorg. In current org I led features in 2 completely different flavour of systems from scratch. 1 in legacy system and multiple in empty slate systems
     - I often provided fix in diff teams codebase when its impacting my teams features.
 - Adaptive :
-    - keeping my own good branch, orgs, find ad hoc fixes without following the recommended path (pac cli vs pipeline deploy vs pd package), strong beliver in alternate design
+    - keeping my own good branch, orgs, find ad hoc fixes without following the recommended path (pac cli vs pipeline deploy vs pd package), 
+    - strong beliver in alternate design
 - commercially aware*
 - flexible and versatile*
 

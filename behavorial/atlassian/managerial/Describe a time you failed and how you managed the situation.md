@@ -36,7 +36,7 @@
 - Customer concern was resolved within 1 business day as I delivered the fix on saturday.
 - I requested architects for a more product level rolout mechanism. It did not meet with assurance or certainity of timeline citing necessity or bandwith crunch.
 - I decided to squeeze out my module into a separate solution and have a rollback for my module only, so that no DAG/topological sort needs to be calculated.
-- - I ensured ALL product paths have telemetry coverage for audit scenario, but creating and managing a task among teammates.
+- - I ensured ALL product paths have telemetry coverage for audit scenario, by creating and managing a task among teammates.
 - The same customer had many open performance related incidents across multiple teams but it was never highlighted that the audit was on globally. With this finding immediate resolution was received in at least 8 incidents by turning off auditing.
 - customer publicly acked and appreciated the response time. Before next relase, they proceeded to purchase more $200k worth of licenses for agent adoption.
 

@@ -1,6 +1,7 @@
 18 may 2025
-learnt something new + was not able to code past one due to RE 
-pattern
+// learnt something new + was not able to code past one due to RE 
+// pattern
+// key : operator then number + calculate when number ends
 
 class Solution {
 public:

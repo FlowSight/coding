@@ -3,7 +3,9 @@ Values:
 1. Be the change you seek
 
 - When have you advocated to push for change? 
-    - candidates : time agent perf, hce change
+    - candidates : 
+        time agent perf
+        hce change
 - What did you learn from this process? 
 - What was the outcome?
 
@@ -17,13 +19,16 @@ Values:
     - nikita/abhigna
     - sobhan during copilot
 - Have you ever had to put the team’s goals above personal ambitions?
+    - hce part 2 where initially I went along with json based sol but found out better with data.
     - hce adoption, had to align with PM who said no to cx
     - 
 
 3. Don’t #@!% the customer
 
 - How is your mentality ‘user-centred’? 
-    - time agent perf, hce, lenovo sev2
+    - lenovo sev2, 
+    - time agent perf
+    - hce
 - How have you put the customer first? 
 - What trade-off(s) did you make to do this?
 
@@ -46,7 +51,7 @@ Values:
 - How do you think about prioritisation and decision making? 
     - type1 vs type2
 - What are examples when you or the team have missed the mark? 
-    - revrec,android app unblock, maxim conflict 
+    - android app unblock
 - How did you react? 
     - above
 - How did you approach fixings things?

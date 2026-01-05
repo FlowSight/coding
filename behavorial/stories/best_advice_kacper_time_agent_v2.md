@@ -83,6 +83,8 @@ This experience taught me the value of
 - During our phase0 of agent rollouts it became evident to me that the floor agent execution latency per user is 1 min. 
 - This stemmed from a design gap. As we were moving fast,stakeholders decided to address the latency when busines demand arises.  
 - While helping to onboard a customer, I learnt that they had interest to purchase upto 50k user licenses.
+- Its a painpoint for a enterprise to have multiple ERP solution, but our Agent were not mature to host 50k user as it would take 35 days to run for all users.
+- I saw this as a critical opportunity to unlock customer value and drive significant business growth by solving a scalability challenge.
 - I resurfaced the concern with my M1 where our system does not meet a potential customer scale. He sugegested to discuss further with M2.
 - I raised it in a forum with M1, M2 and PM, citing a potential instant demand for scale-up.
 - M2 suggested to figure out a possibility to quickly pivot via a poc if a more scalable solution is achievable. Keeping our next priority on hold temporarily

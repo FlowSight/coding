@@ -14,7 +14,7 @@ prompt: “Tell me about a time you took initiative on a project.”
 - Customer codescan required urls to be moved to a json or xml, but I needed to ensure other customers stay compatible with new change.
 
 ### **Action**
-- I needed to gather information of all customer codescan like system.
+- I needed to gather information of all existing customers codescan like system.
 - We have 250+ enterprises onboarded. Figuring out each customers security practice by manually reaching out via PM path is not scalable and infeasible within 2 weeks of sla
 - I examined telemetry and filtered 180 customers who had no customization layer.
 - for the rest of them I engaged via PM and partners and learned there is no customer who is so far implementing this.
@@ -43,7 +43,7 @@ Prompt: tell me about a time where you had to work with a decision that you didn
 - Recently at Microsoft,  during adoption of time entry agent by a airline customer, I learned that their internal codescan reported violations due to hardcoded urls in code shipped by us.
 - After discussion with Architects, it was decided to dump urls into a json and follow it cross the 8 teams touching the codebase. 
 - I was responsible for  creation of the framework which other peer teams would use.
-- I had a hunch json dump approach will not be a one size fits all solution, but I didnt have a data point to prove it.
+- I had called out that I had a hunch that json dump approach will not be a one size fits all solution, but I didnt have a data point to prove it.
 - I went along the agreement and started poc.
 
 ### **TASK**

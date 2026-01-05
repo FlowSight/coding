@@ -5,43 +5,25 @@
 
 using namespace std;
 
-class ThreadSafe {
-    int val;
-    std::mutex mtx;
+class FunctorClass {
     public:
-    ThreadSafe() {
-        val = 0;
+    void operator() (string message) {
+        cout<<message<<endl;
     }
 };
 
-class ThreadFunctor {
-    public:
-    void test(int num) {
-        cout<<"thread id: "<<this_thread::get_id()<<" func"<<endl;
-    } 
-};
-volatile int running = 0;
-void testFunc(shared_ptr<int> num){
-    while(running){
-        cout<<"Running"<<endl;
-        this_thread::sleep_for(chrono::seconds(2));
-    }
-    //cout<<"thread id: "<<this_thread::get_id()<<" test func "<<*(num)<<endl;
+void loopMethod(){
+    for(auto i=0;i<10;i++)cout<<i<<" "<<this_thread::get_id()<<endl;
+}
+
+void printMethod(shared_ptr<string> message){
+    cout<<*(message.get())<<endl;
 }
 
 int main(){
-    ThreadFunctor tf;
-    int num = 1;
-    running = 1;
-    auto shared_num = make_shared<int>(num);
-    // thread t1(&ThreadFunctor::test,&tf,num);
-    thread t2(&testFunc,shared_num);
-    this_thread::sleep_for(chrono::seconds(6));
-
-    running = 0;
-
-    //t1.join();
-    t2.join();
-
+    string message = "hello world";
+    auto message_ptr = make_shared<string>(message);
+    thread t1(&printMethod,message_ptr);
+    t1.join();
     return 0;
 }

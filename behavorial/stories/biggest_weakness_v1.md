@@ -8,12 +8,18 @@
 
 ===========start==========
 
-effectivly delegation lacked
-tried to improve instances mindfully: example 1/2
+*effectivly delegation lacked
+*needed to teach team how to handle adversary situations
+    and unknowns
+    1. pipeline break : use old commit, keep good state of code handy, keep good vms safe
+    2. dependent team regression : reach out for help first without debugging, raise icm fast, parallelize other unrelated PRs
+    3. alternate design : i used to keep it private with me, i made it public/teamwide later
+*tried to improve instances mindfully: example 1/2
 
 
 ### **SITUATION**
 - One area I’ve been working on is my tendency to jump in and take on too much myself when a project is under pressure.
+- When things break in dev phase, my teammates often used to be completely blocked and be busy in deadend debugging which led to wasted bandwidth.
 - My instinct has always been to protect timelines — so if regressions, ad hoc asks, or blockers pile up near the end, I’d often vertically scale and resolve them myself. 
 <!-- - While that gets results, it isn’t scalable and it risks the projects sustainability and taks a toll on my healh. -->
 <!-- - One area I’m actively improving is my tendency to take on too much myself towards the end of a project — jumping in to fix  **unexpected blockers**  — whether it was a CI/CD pipeline issue, a late-breaking PM requirement change, or an unplanned dependency from a partner team.  -->
@@ -37,12 +43,13 @@ So I made it a goal to:
 
 ### **ACTION**
 
-I went back and reviewed **three recent project : time copilot phase 2 and 3, time agent public preview** where I had made last-minute interventions — e.g., rolling out simultaneous PRs for multiple fix hypotheses, redeploying multiple times, kept backup orgs reserved for myself, reserving good commit branches ready as fallback, etc.
+I went back and reviewed **three recent project : time copilot phase 2 and 3** where I had made last-minute interventions — e.g., rolling out simultaneous PRs for multiple fix hypotheses, redeploying multiple times, kept backup orgs reserved for myself, reserving good commit branches ready as fallback, etc.
 
 I then walked the team through these past patterns in a **feature planning meeting**, not to glorify the heroics — but to **highlight the common signs and missed warning cues** that led to late surprises. I asked the team to reflect and find their own ways to stay ahead of the chaos.
 
 This included:
 
+* Keeping safe orgs, code branches, at all time. Raise request early if blocked on other team.
 * Encouraging them to **push for early validation with partner teams**
 * Identifying “risk multipliers” during grooming (e.g., volatile components or vague specs)
 * Normalizing early prototyping or fallback planning

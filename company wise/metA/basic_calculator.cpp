@@ -1,6 +1,9 @@
 // 18 may 2025..
 // stream approach : cur_eval and cur_mult
 
+// 23 dec 2025
+// made corner case mistake..+ forgot stack approach..sev0..sev0
+
 class Solution {
 public:
     bool isOp(char c){
@@ -119,7 +122,6 @@ public:
         }
         return tot;
     }
-
     bool isDigit(char c){
         return (c>='0') && (c<='9');
     }

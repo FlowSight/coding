@@ -44,3 +44,45 @@ public:
             return curMax;
         }
 
+// another naive approch
+// stack based rolling..put the sum on stack and keep compact
+    class Solution {
+public:
+    int longestValidParentheses(string s) {
+        vector<int> arr;
+        int ans = 0, cur = 0;
+        for(auto c:s){
+            if(c=='(') arr.push_back(-1);
+            else {
+                cur = compact(arr);
+                if(!arr.empty() && (arr.back() == -1)){
+                    cur+=2;
+                    arr.back() = cur;
+                } 
+                else arr.push_back(-2);
+                ans = max(ans,cur);
+            }
+        }
+        cur = 0;
+        while(!arr.empty()) {
+            cur = 0;
+            if(arr.back() < 0) {
+                arr.pop_back();
+            }
+            else {
+                cur = compact(arr);
+                ans = max(ans,cur);
+            }
+        }
+        return ans;
+    }
+
+    int compact(vector<int>& arr){
+        int ans = 0;
+        while(!arr.empty() && (arr.back() >0)) {
+            ans+= arr.back();
+            arr.pop_back();
+        }
+        return ans;
+    }
+};

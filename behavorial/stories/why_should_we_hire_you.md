@@ -1,0 +1,3 @@
+- I have worked with cohesity (series d startup), and microsoft (a trillion dollar company) i have worked on both extreme scale. I have shipped features on legacy codebase and completely clean slate. 
+- I am keen in improving system performance. I had scaled time agent perf by 85% by scaling it to 200k users from ground up.
+- I am certain <> will have scalability and redesign challenges which I help solve by bridging customer pain with technical resources available to me.

@@ -1,0 +1,4 @@
+- I resonate with values
+- I led and delivered Time Agent, an AI powered Agent that automated time entry lifecycle, got CVP level visibility. Atlassian has built Rovo, which i intend to leverage in daily work and if possible, contribute.
+    -  how atlassian is leveraging AI to enhance productivity. (e..g https://www.atlassian.com/blog/developer/how-to-effectively-utilise-ai-to-enhance-large-scale-refactoring) where they used AI to cleanup code across frontend mono repo.
+- how atlassian creates collaborative products which is built by collaborative teams
