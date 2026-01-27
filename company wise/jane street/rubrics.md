@@ -15,3 +15,16 @@ connect-4
 imp links:
 https://signalsandthreads.com/
 https://blog.janestreet.com/
+
+Wiill there be tc or i have to come up with it
+Will i have to optimize without prompting ? if it helps, 
+Is discussing multiple approaches must before coding? 1-2 is fine
+Do i pick the approach to code or should we both agree first? 
+How much emphasis on exact syntax ? bit of red flag
+total time?
+
+
+problem solving
+code quality
+communication
+

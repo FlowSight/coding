@@ -126,3 +126,6 @@ while (getline(ss,tmp,delim))
 // you traverse the matrix in a strict order, i.e. for all x in 0 to n-1 , 
 // for all y in 0 to m-1, then your current cells ans is dependent on a cell 
 // that you have not YET TRAVERSED. REMEMBER THIS KEY.
+
+map : dont dp mm[key], do mm.find(key)
+becareful : mm[key] is 0 if not present

@@ -1,0 +1,2 @@
+- what would you say a most immediate challenge that a person joining would have to encounter
+- coudl u expplain the dynamic between ths role and team it wokrs with most closely?
