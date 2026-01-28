@@ -1,4 +1,8 @@
 //sev0..failed in implementation..sev0
+// didnt think of below:
+// 1. "" case, 
+// 2. palindrome word case..
+// 28jan 2026 : sev0, really struggled in non trie approach..missed revSuf case..
 
 class Trie {
     public:
@@ -85,3 +89,72 @@ public:
         return ans;
     }
 };
+
+
+// non trie:
+
+class Solution {
+public:
+    vector<vector<int>> palindromePairs(vector<string>& words) {
+        int n = words.size();
+        unordered_map<string,vector<int>> mm;
+        unordered_set<string> visited;
+        vector<vector<int>> ans;
+        for(auto i=0;i<n;i++){
+            mm[words[i]].push_back(i);
+        }
+        for(auto it : mm){
+            string word = it.first, cur = "", curRev = "";
+            if(word == "") continue;
+            int len = word.size();
+            for(auto i=0;i<len;i++){
+                cur.push_back(word[i]);
+                curRev.push_back(word[len-1-i]);
+                auto revWord = cur, revSuf = curRev;
+                reverse(revWord.begin(),revWord.end());
+                //reverse(revSuf.begin(),revSuf.end());
+
+                if((i==len-1) && (visited.find(revWord) != visited.end())) continue;
+                if(mm.find(revWord) != mm.end()) {
+                    if(isPalin(word,i+1,len-1)){
+                        for(auto it1 : it.second){
+                            for(auto it2: mm[revWord]){
+                                if((i==len-1) && (revWord == word) && (it1 == it2)) continue;
+                                ans.push_back({it1,it2});
+                            }
+                        }
+                    }
+                }
+                if(mm.find(revSuf) != mm.end()) { 
+                    if(isPalin(word,0,len-2-i)){
+                        for(auto it1 : it.second){
+                            for(auto it2: mm[revSuf]){
+                                if((i==len-1) && (revSuf == word) && (it1 == it2)) continue;
+                                ans.push_back({it2,it1});
+                            }
+                        }
+                    }
+                }
+                visited.insert(word);
+            }
+            if(isPalin(word,0,len-1)){
+                for(auto it1 : mm[""]){
+                    for(auto it2 : it.second){
+                        ans.push_back({it1,it2});
+                        ans.push_back({it2,it1});
+                    }
+                }
+            }
+        }
+        return ans;
+    }
+    
+    bool isPalin(string& word, int l, int r){
+        if(l>=r) return true;
+        while(l<r){
+            if(word[l++] != word[r--]) return false;
+        }
+        return true;
+    }
+};
+
