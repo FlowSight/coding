@@ -1,0 +1,33 @@
+{
+	"Problem Tracking Header": {
+		"prefix": ["track", "progress", "header"],
+		"body": [
+			"// Severity: ${1|Sev0,Sev1,Sev2|}",
+			"// Date: ${CURRENT_DATE}${CURRENT_MONTH_NAME_SHORT}${CURRENT_YEAR_SHORT}",
+			"// Problem: ${2:problem_name}",
+			"// ",
+			"// How much solved: ${3|Fully,Mostly,Partially,Stuck|}",
+			"// Where I failed: ${4:description}",
+			"// Pattern: ${5:pattern_name}",
+			"// Notes: ${6:additional_notes}",
+			"//",
+			"// Sev0 = Couldn't solve / Major conceptual gap",
+			"// Sev1 = Solved with hints / Minor issues",
+			"// Sev2 = Solved independently",
+			"",
+			"$0"
+		],
+		"description": "Insert problem tracking header for coding practice"
+	},
+	"Quick Track": {
+		"prefix": ["qtrack", "qt"],
+		"body": [
+			"// ${1|sev0,sev1,sev2|}..${CURRENT_DATE}${CURRENT_MONTH_NAME_SHORT}${CURRENT_YEAR_SHORT}.",
+			"// ${2:what_i_learned_or_failed}",
+			"// pattern: ${3:pattern_name}",
+			"",
+			"$0"
+		],
+		"description": "Quick tracking header (compact format)"
+	}
+}

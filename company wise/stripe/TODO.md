@@ -1,0 +1,3 @@
+- http call hands on
+- writing to db transactions hands on
+- multithreading hands on

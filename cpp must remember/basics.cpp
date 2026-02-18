@@ -129,3 +129,5 @@ while (getline(ss,tmp,delim))
 
 map : dont dp mm[key], do mm.find(key)
 becareful : mm[key] is 0 if not present
+
+explicit: forces compiler to match types in constructor..doesnt assume anything
