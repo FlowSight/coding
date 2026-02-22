@@ -1,4 +1,5 @@
 // 7 feb 2025
+// LC: 39
 // 15 min
 // i major base case mistake..
 // sev1

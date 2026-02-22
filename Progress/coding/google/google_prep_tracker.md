@@ -326,8 +326,9 @@ Focus on **frequently asked** Google problems not yet solved.
 ---
 
 ## Quick Links
-- [Interview Framework](../../Progress/framework.md)
-- [Google Company Problems](../../company%20wise/google/)
-- [Blind 75](../../blind75/)
-- [Neetcode 150](../../neetcode%20150/)
-- [Daily Progress](../../Progress/daily_progress.md)
+- [Question Tracker (CSV)](./question_tracker.csv)
+- [Interview Framework](../../../Progress/framework.md)
+- [Google Company Problems](../../../company%20wise/google/)
+- [Blind 75](../../../blind75/)
+- [Neetcode 150](../../../neetcode%20150/)
+- [Daily Progress](../../../Progress/daily_progress.md)

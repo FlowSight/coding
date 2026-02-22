@@ -1,4 +1,5 @@
 // 25jan2026.
+// LC: 960
 // sev0.sev0.didnt get idea..
 
 class Solution {

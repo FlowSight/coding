@@ -1,12 +1,15 @@
 #!/bin/bash
 
-# Usage: ./newproblem.sh <filename> [directory]
-# Example: ./newproblem.sh two_sum.cpp blind75/
-# Example: ./newproblem.sh cracking_safe.cpp "company wise/google/"
+# Usage: ./tools/tracking/newproblem.sh <filename> [directory]
+# Example: ./tools/tracking/newproblem.sh two_sum.cpp blind75/
+# Example: ./tools/tracking/newproblem.sh cracking_safe.cpp "company wise/google/"
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+ROOT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 if [ -z "$1" ]; then
-    echo "Usage: ./newproblem.sh <filename.cpp> [directory]"
-    echo "Example: ./newproblem.sh two_sum.cpp blind75/"
+    echo "Usage: ./tools/tracking/newproblem.sh <filename.cpp> [directory]"
+    echo "Example: ./tools/tracking/newproblem.sh two_sum.cpp blind75/"
     exit 1
 fi
 
@@ -15,6 +18,11 @@ DIR="${2:-.}"  # Default to current directory if not specified
 
 # Get current date in format: 13Feb26
 DATE=$(date +"%d%b%y" | sed 's/\([A-Z]\)/\L\1/g')
+
+# Resolve directory relative to ROOT_DIR
+if [[ "$DIR" != /* ]]; then
+    DIR="$ROOT_DIR/$DIR"
+fi
 
 # Create the directory if it doesn't exist
 mkdir -p "$DIR"
@@ -32,16 +40,9 @@ fi
 cat > "$FILEPATH" << EOF
 // Severity: Sev_
 // Date: $DATE
-// Problem: ${FILENAME%.cpp}
-// 
-// How much solved: 
 // Where I failed: 
 // Pattern: 
 // Notes: 
-//
-// Sev0 = Couldn't solve / Major conceptual gap
-// Sev1 = Solved with hints / Minor issues  
-// Sev2 = Solved independently
 
 #include <bits/stdc++.h>
 using namespace std;

@@ -1,0 +1,66 @@
+Problem,LC#,Status,Date,Tag,Notes
+Range Sum Query - Mutable,307,Not Started,,Segment Tree / BIT,BIT + Segment Tree both
+Count of Smaller Numbers After Self,315,Not Started,,Segment Tree / BIT,BIT / Merge Sort
+Range Sum Query 2D - Mutable,308,Not Started,,Segment Tree / BIT,2D BIT
+My Calendar III,732,Not Started,,Segment Tree / BIT,Segment Tree + Lazy Propagation
+Falling Squares,699,Not Started,,Segment Tree / BIT,Segment Tree
+Count of Range Sum,327,Not Started,,Segment Tree / BIT,BIT / Merge Sort
+Next Greater Element II,503,Not Started,,Monotonic Stack / Deque,Template problem
+Sliding Window Maximum,239,Not Started,,Monotonic Stack / Deque,Monotonic Deque
+Largest Rectangle in Histogram,84,Not Started,,Monotonic Stack / Deque,Classic monotonic stack
+Maximal Rectangle,85,Not Started,,Monotonic Stack / Deque,Stack + DP
+Shortest Subarray with Sum at Least K,862,Not Started,,Monotonic Stack / Deque,Monotonic Deque + Prefix Sum
+Sum of Subarray Minimums,907,Not Started,,Monotonic Stack / Deque,Monotonic stack pattern
+Online Stock Span,901,Not Started,,Monotonic Stack / Deque,
+Course Schedule II (Topological Sort),210,Not Started,,Advanced Graph,Clean template
+Alien Dictionary,269,Solved,19feb2026,Advanced Graph,Already done - revisit
+Longest Increasing Path in Matrix,329,Not Started,,Advanced Graph,Topo sort + memoization
+Critical Connections in a Network,1192,Not Started,,Advanced Graph,Tarjan's bridges
+Strongly Connected Components,-,Not Started,,Advanced Graph,Tarjan's/Kosaraju template
+Minimum Cost to Reach City With Discounts,2093,Not Started,,Advanced Graph,Modified Dijkstra
+Swim in Rising Water,778,Not Started,,Advanced Graph,Binary Search + BFS / UF
+Partition to K Equal Sum Subsets,698,Not Started,,Bitmask DP / Bits,Bitmask DP
+Shortest Path Visiting All Nodes,847,Not Started,,Bitmask DP / Bits,BFS + bitmask
+Maximum Students Taking Exam,1349,Not Started,,Bitmask DP / Bits,Bitmask DP
+Find the Shortest Superstring,943,Not Started,,Bitmask DP / Bits,TSP-style bitmask DP
+Number of Valid Words for Each Puzzle,1178,Not Started,,Bitmask DP / Bits,Bitmask + subset enumeration
+Subarray Sum Equals K,560,Solved,,Prefix Sum / Diff Array,Already done - revisit
+Product of Array Except Self,238,Solved,,Prefix Sum / Diff Array,Already done
+Range Addition,370,Not Started,,Prefix Sum / Diff Array,Difference array template
+Corporate Flight Bookings,1109,Not Started,,Prefix Sum / Diff Array,Difference array
+Maximum Sum of 3 Non-Overlapping Subarrays,689,Not Started,,Prefix Sum / Diff Array,Prefix sum + DP
+Stamping the Grid,2132,Not Started,,Prefix Sum / Diff Array,2D prefix sum + diff array
+LRU Cache,146,Solved,,Design,Revisit for speed
+LFU Cache,460,Not Started,,Design,Google favorite
+Design In-Memory File System,588,Not Started,,Design,Trie-based
+Design Search Autocomplete System,642,Solved,,Design,Already done
+Snapshot Array,1146,Not Started,,Design,Google tagged
+Design Hit Counter,362,Not Started,,Design,
+Iterator for Combination,1286,Not Started,,Design,Iterator pattern
+The Skyline Problem,218,Not Started,,Geometry / Line Sweep,Line sweep + heap
+Rectangle Area II,850,Not Started,,Geometry / Line Sweep,Line sweep + segment tree
+Max Points on a Line,149,Not Started,,Geometry / Line Sweep,GCD based
+Minimum Number of Arrows to Burst Balloons,452,Not Started,,Geometry / Line Sweep,Greedy sweep
+Maximum Frequency Stack,895,Not Started,,Stack + HashMap,Stack + HashMap
+Split Array Largest Sum,410,Not Started,,Binary Search,Binary Search + Greedy
+Median of Two Sorted Arrays,4,Solved,,Binary Search,Revisit for under 10 min
+Count Different Palindromic Subsequences,730,Not Started,,DP,DP
+Minimum Window Subsequence,727,Solved,,Sliding Window,Already done
+Race Car,818,Not Started,,BFS / DP,BFS / DP
+Strobogrammatic Number III,248,Not Started,,Recursion,Recursion
+Minimize Max Distance to Gas Station,774,Not Started,,Binary Search,Binary Search
+Maximum Sum of 3 Non-Overlapping Subarrays,689,Not Started,,DP / Prefix Sum,DP
+Campus Bikes II,1066,Not Started,,Bitmask DP,Bitmask DP / Hungarian
+Longest String Chain,1048,Not Started,,DP,DP
+Number of Atoms,726,Not Started,,Stack / Parsing,Stack + Parsing
+Flip Equivalent Binary Trees,951,Not Started,,Trees,Recursion
+Minimum Area Rectangle,939,Not Started,,Geometry / Hash,HashSet
+Odd Even Jump,975,Not Started,,Monotonic Stack / DP,Monotonic stack + DP
+Most Stones Removed with Same Row or Column,947,Not Started,,Graph (Union-Find),Union-Find
+Robot Room Cleaner,489,Not Started,,Backtracking,DFS + backtrack
+Detect Squares,2013,Not Started,,Design / Hash,HashMap
+Amount of New Area Painted Each Day,2158,Not Started,,Segment Tree,Segment tree / sorted set
+Step-By-Step Directions From a Binary Tree Node to Another,2096,Not Started,,Trees / LCA,LCA
+Combination Sum,39,Solved,19feb2026,Backtracking,classic backtrack template
+Number Of Beautiful Partitions,2478,Solved,19feb2026, dp, TODO
+Count K Subsequences Of A String With Maximum Beauty,2842,Solved,20feb2026, greedy, hard..mathmod

@@ -7,6 +7,8 @@
 //
 
 
+
+
 class Solution {
 public:
     typedef vector<int> vi;

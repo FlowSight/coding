@@ -25,10 +25,10 @@ make r FILE=multithreading/basic.cpp
 ### Using the build script:
 ```bash
 # Compile and run a file
-./build_and_run.sh multithreading/basic.cpp
+./tools/build/build_and_run.sh multithreading/basic.cpp
 
 # Compile with custom name
-./build_and_run.sh multithreading/basic.cpp my_threading_app
+./tools/build/build_and_run.sh multithreading/basic.cpp my_threading_app
 ```
 
 ### Using Makefile:
