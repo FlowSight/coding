@@ -1,4 +1,5 @@
-We are given an array representing the number of instances available for each machine type. Customers arrive one by one (M customers total).
+We are given an array representing the number of instances available for each machine type.
+ Customers arrive one by one (M customers total).
 
 For each customer:
 

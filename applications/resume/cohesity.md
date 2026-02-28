@@ -1,0 +1,2 @@
+Developed solutions to backup and restore enterprise scale VMs involving Bare metal restore, VSS/LVS backup and source side deduplication. 
+Technologies : cpp, java, go, python, Raft, zookeeper, distributed systems.

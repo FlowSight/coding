@@ -1,0 +1,93 @@
+ 
+Anirban  Mitra  
+Senior
+ 
+Software
+ 
+Engineer,
+ 
+Microsoft
+ 
+(+91)
+ 
+8126611655
+ 
+anbanmta@gmail.com
+ 
+LinkedIn
+:
+ 
+/
+andrew0x0x1
+ 
+Leetcode:
+ 
+/andrewPre
+ 
+EXPERIENCE
+  
+Microsoft   IDC,  AI  ERP   -  
+Senior  Software  Engineer        
+             
+3/22
+ 
+-
+ 
+Present
+            
+ 
+Time  Entry  Agent  :  As  part  of  a  vision  of  autonomous  ERP,   Architected  and  delivered  Time  Entry  Agent  by   leading   a  team  of  junior  and  mid  level  engineers.  TEA   is  a  LLM  powered  RAG  capable  of  scheduled  time  entry  creation,  report  generation,  submission  while  reducing  delayed  invoicing  cost  by  21%  and  reducing  meta   work  by  70%.  Done  in  multiple  phases  while  GA  to  be  announced  in  early  26.[ https://aka.ms/AAw8d07 ]   Time  Copilot :  Led   and  developed   copilot  feature  for  Time  module  capable  of  creating  schedule  and   time  entries,  generating  reports  with  both  NLQ  and  action  based  interactions  by  leveraging  LLM,  intelligent  control.   On-demand  Contract   Line  Based  Revenue  Recognition :   Engineered  an  on-demand  Contract  Line  Based  Revenue  Recognition  feature,  integrating  CE  and  FnO  systems;  expanded  from  single  to  multiple  contract  lines,  leveraging  OData  service  for  diverse  project  aspects  and  enhanced  functionality.  Adapted  by  3  major  customers  resulting  in  28%  increase  of  MAU  of  the  module.  [https://aka.ms/AAqoohj]   Distributed  Dual-write :  Proposed  in  hackathon  and  later  led  a  cross  functional  team  collaboration  to  realize   a  limited  geo  implementation  of  a   decentralized,  async  multi-platform,  data  agnostic ,  event  based  CRU  framework   (  for  Project  Budgeting  business  logic  initially)  which  saved  ~ 40%  events  drops,   20%  e2e  travel  time  for  p95  events.   
+Cohesity
+ 
+India
+ 
+—
+ 
+Member
+ 
+of
+ 
+Technical
+ 
+Staff
+                           
+     
+6/18
+ 
+-
+ 
+3/22
+ Source  Side  Deduplication-based  backup  using  Rabin  Fingerprinting ,  with  brick  support.*  Bare  Metal  Restore :  p2v/v2p.  Parallel  File  backup/restore.  Support  Microsoft  DFS/SMB2  referral  Misc :   Efﬁcient  File-Restore,  and  Volume  Restore .   
+INTERNSHIP
+ 
+IBM  India  Software  Labs —  Brokering  PaaS  and  SaaS  Services  
+MAY
+  
+2017
+ 
+-
+ 
+JULY
+ 
+2017
+ 
+A  recipe  recommendation  system  for  solutions.  Derived  from  the  structured  data  from  user’s  requirements  and  the  unstructured  data  from  cognitive  features  extracted  from  the  learning  modules  along  with  Watson’s  Sentiment  Insights .   
+  
+EDUCATION
+  IIT  ROORKEE -  M.Tech  in  CS  May  2018                       8.12/10.0     
+SKILLS
+ C++,  Python,  NodeJS,  Java,  X++,  React,  Azure     Patents  Applied  Utilizing   Fixed-Sized  and   variable-length  data  chunks  to  perform  source  side  deduplication(17/731,056)*      PUBLICATIONS    Author:  Mitra  A .   Thermal  Comfort  Index  Estimation  and  Parameter  Selection  Using  Fuzzy  Convolutional  Neural  Network.   ICANN  2018.  LNCS,  vol  11139.  Springer.**  Co-Author:  Sharma  A, Mitra  A.   Estimation  of  Air  Quality  Index  from  Seasonal  Trends  Using  Deep  Neural  Network.   ICANN  2018.  LNCS,  vol  11141.  Springer.***     
+AWARDS/
+ 
+ACHIEVEMENTS
+ 
+ 
+ 
+Microsoft
+ 
+IDC:
+ 
+AI
+ hackathon(2022)   Runner  up  Cohesity  Green  CAP  2018  (Best  performer).
+ GATE  CSE  2016  AIR  332   Misc.  2X  Exceptional  Impact  @Microsoft Scrum  Master  @Microsoft Teaching  Assistant@IITR  Founder  @  TripWyz ,  a  Trip  Planner  :  https://tripwyz.ai/  
+ 

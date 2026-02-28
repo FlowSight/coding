@@ -1,15 +1,15 @@
 Problem,LC#,Status,Date,Tag,Notes
 Range Sum Query - Mutable,307,Not Started,,Segment Tree / BIT,BIT + Segment Tree both
-Count of Smaller Numbers After Self,315,Not Started,,Segment Tree / BIT,BIT / Merge Sort
+Count of Smaller Numbers After Self,315,Redo,28feb2026, merge sort,BIT / Merge Sort
 Range Sum Query 2D - Mutable,308,Not Started,,Segment Tree / BIT,2D BIT
 My Calendar III,732,Not Started,,Segment Tree / BIT,Segment Tree + Lazy Propagation
 Falling Squares,699,Not Started,,Segment Tree / BIT,Segment Tree
-Count of Range Sum,327,Not Started,,Segment Tree / BIT,BIT / Merge Sort
+Count of Range Sum,327,Redo,28feb2026, merge sort and segment tree,BIT / Merge Sort
 Next Greater Element II,503,Not Started,,Monotonic Stack / Deque,Template problem
 Sliding Window Maximum,239,Not Started,,Monotonic Stack / Deque,Monotonic Deque
 Largest Rectangle in Histogram,84,Not Started,,Monotonic Stack / Deque,Classic monotonic stack
 Maximal Rectangle,85,Not Started,,Monotonic Stack / Deque,Stack + DP
-Shortest Subarray with Sum at Least K,862,Not Started,,Monotonic Stack / Deque,Monotonic Deque + Prefix Sum
+Shortest Subarray with Sum at Least K,862,Redo,28feb2026, monotone queue, pref sum,Monotonic Deque + Prefix Sum
 Sum of Subarray Minimums,907,Not Started,,Monotonic Stack / Deque,Monotonic stack pattern
 Online Stock Span,901,Not Started,,Monotonic Stack / Deque,
 Course Schedule II (Topological Sort),210,Not Started,,Advanced Graph,Clean template

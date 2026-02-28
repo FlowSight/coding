@@ -1,3 +1,11 @@
+/// Severity: Sev2
+// Date: 28Feb26
+// LC: 315
+// Where I failed: corner cas + inplace merge
+// Pattern: merge sort
+
+
+
 // 18 apr 2025 
 // devastated
 // sev0 sev0 sev0 sev0 sev0
