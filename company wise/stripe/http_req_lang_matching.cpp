@@ -66,6 +66,7 @@ Does case matter (e.g., "en-us" vs "en-US")?
 What if the header string is messy or broken?
 Should we remove spaces around the tags?
 What do we return if nothing matches?
+
 Part 2: Prefix Matching
 Problem Requirements
 Update your function to handle "generic" language codes. These are codes without a region, like "en" or "fr".
@@ -114,6 +115,7 @@ Keep the header's order.
 Questions to Ask
 If we match "en", in what order should "en-US" and "en-GB" appear?
 Should "en" match complex tags like "zh-Hans-CN"?
+
 Part 3: Handling Wildcards
 Problem Requirements
 The header might contain an asterisk (*). This is a wildcard. It means "any language I haven't mentioned yet."
@@ -157,6 +159,7 @@ Key Tasks
 Remember which languages are already matched.
 When you hit *, loop through supported languages and add any missing ones.
 Keep the order consistent.
+
 Part 4: Quality Scores (q-factors)
 Problem Requirements
 Sometimes the header includes "q-factors". These are numbers between 0.0 and 1.0 that tell you how much the user wants a language.
@@ -206,7 +209,7 @@ Key Tasks
 Extract the q=value part from the string.
 Assign 1.0 if no value exists.
 Sort the result list by score (descending).
-Use a stable sort (Python's sort is stable by default).
+Use a stable sort (Pythons sort is stable by default).
 Questions to Ask
 Should we completely remove q=0 languages or just put them last?
 How many decimal places can the score have?

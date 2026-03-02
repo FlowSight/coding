@@ -8,6 +8,7 @@ Balancing Workload: Give the task to the worker who is least busy.
 Matching Skills: Only give tasks to workers who have the right skills.
 Client History: Try to keep the same worker for the same client (Account Affinity).
 Worker Availability: Handle situations where workers go offline.
+
 Data Format
 You will get a list of workers and a list of tasks.
 
@@ -39,7 +40,7 @@ Rules:
 Go through the tasks one by one, in order.
 Give the task to the worker with the minimum total work time right now.
 Tie-breaker: If two workers have the same workload, give it to the one who appears earlier in the workers list.
-When a worker gets a task, add that task's duration to their total workload.
+When a worker gets a task, add that tasks duration to their total workload.
 Example Case
 Input:
 
@@ -72,6 +73,8 @@ Handle tasks one by one.
 Keep track of total work time for each worker.
 Use the list order to break ties.
 Return the assignments in the same order as the tasks.
+
+=====
 Step 2: Matching Skills
 The Goal
 Now, workers have specific skills (specialties). Tasks require specific skills. You can only give a task to a worker if they have the right skill.
@@ -108,6 +111,9 @@ Key Requirements
 Filter the list of workers to find only those with the right skill.
 If no one matches the skill, skip the task.
 Once you have the list of skilled workers, pick the one with the lowest workload.
+
+
+==========
 Step 3: Client History (Affinity)
 The Goal
 We want to send tasks from the same client ("account") to the same worker. If a worker has helped a client before, they should get priority for new tasks from that client.

@@ -1,6 +1,7 @@
 Transaction Fee Calculator
 The Challenge
-You need to build a system that calculates fees for a payment platform. You will get transaction data as a long CSV string. You need to read this data and calculate the fee for each payment based on specific rules.
+You need to build a system that calculates fees for a payment platform. You will get transaction data as a long CSV string. 
+You need to read this data and calculate the fee for each payment based on specific rules.
 
 There are three parts to this problem. We start with simple math and add harder rules later.
 
@@ -23,27 +24,20 @@ buyer_country: Country code of the buyer.
 transaction_type: What kind of action it is (e.g., "payment").
 payment_provider: How they paid (e.g., "card", "klarna").
 status: Did it work? (e.g., "payment_completed", "payment_failed").
+
+=====
 Part 1: Basic Fee Calculation
 The Task
-Write a function to read the CSV string. Calculate the fee for each transaction based on the payment_provider. Each provider charges a percentage of the amount plus a fixed fee.
+Write a function to read the CSV string. Calculate the fee for each transaction based on the payment_provider.
+Each provider charges a percentage of the amount plus a fixed fee.
 
 Fee Table:
 
-Payment Provider
+Payment Provider || Fee Rate 
+card ||          || 2.9% + 30 cents
+bank_transfer    || 0.8% flat
+klarna           || 3.5% + 50 cents
 
-Fee Rate
-
-card
-
-2.9% + 30 cents
-
-klarna
-
-3.5% + 50 cents
-
-bank_transfer
-
-0.8% flat
 
 You must round the final fee down to the nearest whole number (integer).
 
@@ -51,10 +45,12 @@ Example Data
 Input:
 
 id,reference,amount,currency,date,merchant_id,buyer_country,transaction_type,payment_provider,status
-py_1,1,1000,eur,2024-12-24,acct_1,ie,payment,card,payment_completed
+py_1,1,      1000,    eur,2024-12-24,acct_1,   ie,              payment,       card, payment_completed
 py_2,2,2500,eur,2024-12-24,acct_2,de,payment,card,payment_failed
 py_3,3,3400,eur,2024-12-25,acct_2,ie,payment,klarna,payment_completed
 py_4,4,5000,eur,2024-12-25,acct_1,fr,payment,bank_transfer,payment_completed
+
+
 Output:
 
 id,transaction_type,payment_provider,fee
@@ -73,6 +69,8 @@ Read the CSV string properly (ignore the header row after reading it).
 Use the right math formula for each provider.
 Return the result as a CSV string.
 Round fees down (use integer conversion).
+
+=====
 Part 2: Conditional Fee Rules
 New Rules
 Now, update your code to handle status checks and countries.
@@ -82,17 +80,10 @@ Failed Payments: If the status is failed or pending, the fee is 0.
 Regional Rates: Ireland ("ie") has special, cheaper rates.
 Special Rates for Ireland (ie):
 
-Payment Provider
+Payment Provider  || Fee Rate
 
-Fee Rate
-
-card
-
-1.9% + 20 cents
-
-klarna
-
-2.5% + 40 cents
+card              || 1.9% + 20 cents
+klarna            || 2.5% + 40 cents
 
 All other countries use the standard rates from Part 1.
 
@@ -124,31 +115,23 @@ What You Need To Do
 Look at the status column before doing math.
 Check the buyer_country. If it is "ie", use the special rates.
 Keep your code clean. Separate the logic for checking status and calculating fees.
+
+===
 Part 3: Volume-Based Discounts
 Adding Discounts
 Now we add volume discounts. Merchants who sell more get cheaper fees. You need to count how many successful transactions a merchant has made.
 
 Discount Table:
 
-Total Transactions so far
+Total Transactions so far       || Discount
 
-Discount
+1-10                                0% (Normal price)
 
-1-10
+11-50                               10% off
 
-0% (Normal price)
+51-100                              15% off
 
-11-50
-
-10% off
-
-51-100
-
-15% off
-
-101+
-
-20% off
+101+                                20% off
 
 Configuration Data:
 
@@ -177,6 +160,8 @@ Check the merchant's count before the current transaction to find the discount.
 Only increase the count if the transaction is "payment_completed".
 Process rows in order. The order in the CSV matters.
 Use the provided dictionary for country fees. If the country isn't there, use "default".
+
+
 Questions to Ask the Interviewer
 Do I apply the discount before rounding or after?
 What if a merchant sells in different countries? Does that count towards the same volume total?

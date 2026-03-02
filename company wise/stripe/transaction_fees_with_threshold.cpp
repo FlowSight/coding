@@ -6,7 +6,8 @@ provider_id (payment provider)
 amount (integer)
 A fee is charged on each transaction. You need to add a new rule:
 
-If a merchant’s cumulative transaction amount on a given provider becomes strictly greater than 10000, then all subsequent transactions for that (merchant, provider) pair incur zero fee.
+If a merchant’s cumulative transaction amount on a given provider becomes strictly greater than 10000, 
+then all subsequent transactions for that (merchant, provider) pair incur zero fee.
 
 Implement a program that processes transactions in input order and outputs the fee for each transaction.
 

@@ -1,0 +1,1 @@
+Design a data analysis system with a focus on high interactivity. First, provide a high-level design, such as traditional Spark processing, but consider that latency may not meet the requirements. Then, dive deep into stream processing solutions, such as Flink aggregation. Key points to address include integration between Flink and Kafka, and handling recovery when Flink fails.

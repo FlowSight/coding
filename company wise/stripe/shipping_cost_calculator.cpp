@@ -65,11 +65,14 @@ Key Requirements
 Handle orders with multiple different products.
 Use the correct prices for the specific country.
 Return the answer as an integer (whole number).
+
+===
 Step 2: Volume Discounts
 The Task
 Update your function to handle "tiered pricing." This means the cost per unit changes based on the quantity.
 
-Each tier has a start number (minQuantity) and an end number (maxQuantity). This works like a bulk discount—buying more units might lower the price for the extra items.
+Each tier has a start number (minQuantity) and an end number (maxQuantity).
+This works like a bulk discount—buying more units might lower the price for the extra items.
 
 Example Case
 Input:
@@ -126,11 +129,14 @@ Process the rules in order from lowest quantity to highest.
 If maxQuantity is None, it means there is no limit for that tier.
 The range includes the start number but stops before the end number ( [min, max) ).
 Calculate the cost for each tier separately and add them up.
+
 Clarification Questions
 Are the tiers always sorted by minQuantity?
 Do the ranges include the maxQuantity number or exclude it?
 Are there gaps between tiers, or do they overlap?
 What should happen if the quantity is zero?
+
+====
 Step 3: Mixed Pricing Types
 The Task
 Now, the system needs to support two different ways to charge for a tier:

@@ -60,6 +60,7 @@ Should hit() stop requests that go over the limit, or just record them?
 Are the timestamps always positive numbers?
 Is the time measured in seconds or milliseconds?
 Does allowed() count the current request, or only the past ones?
+
 Part 2: Saving Memory
 The Issue
 In real systems, a user might stop sending requests for a long time. You need to remove old timestamps efficiently. If you don't, the memory will fill up with useless data.
@@ -72,6 +73,7 @@ Goals
 Remove timestamps that are older than the current window.
 Memory usage should depend on active requests, not all past requests.
 Cleaning up data must not slow down the system.
+
 Part 3: Tricky Situations
 The Issue
 You need to improve your code to handle difficult situations that happen in production.
@@ -100,6 +102,7 @@ limiter.allowed("user_2", 10) # Should count both hits
 limiter.hit("user_3", 1)
 limiter.hit("user_3", 2)
 limiter.allowed("user_3", 1000)  # Returns True (old hits are gone)
+
 Part 4: Handling Multiple Threads
 The Issue
 In a real system, many threads or processes might call hit() and allowed() at the same time. Your code must be thread-safe. It needs to handle this without crashing or corrupting data.
@@ -123,6 +126,7 @@ Example Error
 # Thread B hits -> count becomes 4 (Over limit!)
 # Both were allowed, but only one should have been.
 How to Solve It
+
 Solution 1: Using a Deque
 Strategy:
 
@@ -164,6 +168,8 @@ allowed(): O(k) amortized.
 Space Complexity:
 
 O(n × m). n is the number of keys, m is the average hits per key.
+
+
 Solution 2: Optimizing Memory
 Better Cleanup Strategy:
 
@@ -206,7 +212,9 @@ class RateLimiter:
         return len(self.hits[key]) < self.max_requests
 Complexity Analysis:
 
-| Operation | Best Case | Worst Case | Amortized | | :--- | :--- | :--- | :--- | | hit() | O(1) | O(m) | O(1) | | allowed() | O(1) | O(m) | O(1) |
+| Operation | Best Case | Worst Case | Amortized | | :--- | :--- | :--- | :--- | 
+| hit() | O(1) | O(m) | O(1) | 
+| allowed() | O(1) | O(m) | O(1) |
 
 m is the number of timestamps in the deque.
 
@@ -299,6 +307,7 @@ class ThreadSafeRateLimiter:
             if key not in self.hits:
                 return True
             return len(self.hits[key]) < self.max_requests
+
 2. Per-Key Locks (Better Speed)
 
 Use a different lock for each user key. This allows different users to be processed at the same time.
@@ -343,6 +352,7 @@ class PerKeyLockRateLimiter:
             if key not in self.hits:
                 return True
             return len(self.hits[key]) < self.max_requests
+            
 3. Read-Write Lock
 
 Allows many threads to read (check limits) at once, but only one to write (add hits).

@@ -1,6 +1,7 @@
 Business Account Data Verification
 Problem Requirements
-You are building a system to verify new business accounts. This is a "Know Your Customer" (KYC) system. The system reads business data from a CSV string. You must decide if each account is VERIFIED or NOT VERIFIED.
+You are building a system to verify new business accounts. This is a "Know Your Customer" (KYC) system. 
+The system reads business data from a CSV string. You must decide if each account is VERIFIED or NOT VERIFIED.
 
 You will build the solution in five steps. Each step adds a new rule:
 

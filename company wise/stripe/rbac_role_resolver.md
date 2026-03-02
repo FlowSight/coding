@@ -69,6 +69,8 @@ does the order of the roles matter?
 Can a user have more than one role on one account?
 Are role names case-sensitive?
 What should happen if the user or account does not exist?
+
+=====
 Phase 2: Adding Inheritance
 Task Requirements
 Update your code to handle inheritance. When you check a user's roles for an account, you must also include roles from all ancestor accounts (parent, grandparent, etc.).
@@ -107,6 +109,8 @@ Interview Questions
 What is the Time Complexity of your function?
 How would you speed this up if we call it many times?
 Why did you choose these data structures?
+
+====
 Phase 3: Finding Users with Access
 Task Requirements
 Write a function to find all users who have access to a specific account. This includes:
@@ -146,6 +150,8 @@ Interview Questions
 How do you make sure a user isn't listed twice?
 What is the Time Complexity?
 How would you optimize this for frequent use?
+
+===
 Phase 4: Filtering Users by Role
 Task Requirements
 Update the previous function to filter the users. Only return users who have ALL the required roles (either directly or inherited).

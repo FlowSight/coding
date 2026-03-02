@@ -121,6 +121,7 @@ Do we need space between the letters?
 Are the heights always the same for every letter?
 What happens if a letter is missing from the font?
 Do we need to handle newlines?
+=========
 Part 3: Compressed Fonts (RLE)
 The Task
 Some fonts use Run-Length Encoding (RLE) to save space. This method stores the count of repeated pixels instead of every single pixel.

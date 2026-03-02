@@ -84,6 +84,7 @@ Questions to Ask the Interviewer
 Are positions always positive numbers?
 Can two factories be at the same spot?
 Is there a limit to how many factories are in one stage?
+
 Part 3: Handling Many Stages
 The Task
 Make your solution work for any number of stages. You cannot write fixed loops (like one loop for stage 0, one for stage 1, etc.) because you don't know how many stages there will be.
@@ -106,6 +107,7 @@ Goal
 Handle N stages (not just 3).
 Handle different numbers of factories per stage.
 Keep the code fast enough to run reasonably well.
+
 Part 4: Skipping a Step
 The Task
 New rule: You must skip exactly one stage. When you skip a stage, calculate the moving cost between the stage before the gap and the stage after the gap.

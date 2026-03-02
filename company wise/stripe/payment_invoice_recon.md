@@ -1,6 +1,7 @@
 Payment Invoice Reconciliation
 The Challenge
-You need to build a system that matches incoming payments to unpaid invoices. When a customer sends money, you must figure out which invoice they are paying. The logic gets harder in three steps:
+You need to build a system that matches incoming payments to unpaid invoices. 
+When a customer sends money, you must figure out which invoice they are paying. The logic gets harder in three steps:
 
 Match by ID: Look for a specific invoice ID written in the payment note.
 Match by Amount: If there is no ID, look for an invoice with the exact same money amount.
@@ -59,6 +60,7 @@ The ID in the note is not in the invoice list.
 There are many invoices, but only one correct ID.
 The text has different capital letters (like "Paying" vs "paying").
 The payment string is missing data.
+
 Step 2: Match by Amount
 The Task
 Update your code to handle payments that do not have an invoice ID. If the note does not contain an ID, look for an invoice that has the exact same amount.
@@ -89,14 +91,17 @@ If no ID is found, search for invoices that match the payment amount.
 If you find multiple invoices with the same amount, pick the oldest one.
 Read the dates correctly to see which is older.
 Return "could not be matched" if no match is found.
-Questions to Ask the Interviewer
+
+Questions to Ask the Interviewer:
 If we match by ID, does the money amount also need to match?
 What if two invoices have the same amount and the exact same date?
 What date format are we using?
 Do we need to handle negative numbers or zero?
+
+=======
 Step 3: Match with "Forgiveness" (Fuzzy Match)
 The Task
-Sometimes banks charge fees or round numbers differently. A customer might owe 100butthebanktakesa100 but the bank takes a 2 fee, so you only get $98. You need to handle these small differences.
+Sometimes banks charge fees or round numbers differently. A customer might owe 100 but the bank takes a 2 fee, so you only get $98. You need to handle these small differences.
 
 Add a third rule: fuzzy matching with forgiveness. If you cannot find an exact amount match, look for invoices where the amount is "close enough." The difference must be within the forgiveness limit. If multiple invoices are close enough, pick the one with the earliest date.
 

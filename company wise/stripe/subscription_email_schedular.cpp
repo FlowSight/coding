@@ -65,10 +65,12 @@ Important Logic
 Flexible Schedule: Do not write code specifically for -15. Detect number keys and do the math.
 Active Time: If a subscription starts on day X and lasts D days, it ends on day X+D.
 Math: For a number key like -15, the date is end_date + -15.
+
 Questions to Ask the Interviewer
 Will the schedule keys always be "start", "end", or a negative number?
 What if the calculated date is before the user joined?
 Does the order of emails on the same day matter?
+===
 Part 2: Changing Plans
 Problem Requirements
 Now, update the system to handle plan changes. Users can switch plans while their subscription is active.
@@ -120,6 +122,8 @@ Logic Rules
 Only change the plan name. Do not change the end date.
 Process changes in date order.
 Changes must happen while the subscription is active.
+
+===
 Part 3: Handling Renewals
 Problem Requirements
 Add support for renewals. A user can add more time to their subscription.

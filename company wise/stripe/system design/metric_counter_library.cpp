@@ -1,8 +1,10 @@
 Metric Counter Library
 What We Need to Build
-We need to design a library that helps services count and track data (metrics). Most real-world systems use this to track events, check speed, and show graphs on dashboards.
+We need to design a library that helps services count and track data (metrics). 
+Most real-world systems use this to track events, check speed, and show graphs on dashboards.
 
-Your library needs a simple interface. Services will use it to save data and check values. The library must do three main things:
+Your library needs a simple interface. Services will use it to save data and check values. 
+The library must do three main things:
 
 Count up: Record when things happen (like API calls, errors, or user clicks).
 Check time windows: Look at counts for specific times (like the last minute, hour, or day).
@@ -22,7 +24,7 @@ counter.increment("api.requests", Map.of("endpoint", "/payments", "status", "200
 long lastMinute = counter.getCount("api.requests", TimeWindow.LAST_MINUTE)
 Important Design Choices
 Performance: How do we record a lot of data very fast? We must not slow down the main service.
-Memory: Storing data for different time windows takes space. How do we make sure we don't use too much memory?
+Memory: Storing data for different time windows takes space. How do we make sure we dont use too much memory?
 Accuracy: Do the numbers need to be perfect? Is it okay to use an estimate? When should we use probabilistic data structures?
 Sending Data: How and when do we send the metrics to a central system for storage?
 Deeper Questions
