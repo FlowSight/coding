@@ -64,6 +64,65 @@
                 "showReuseMessage": false
             },
             "detail": "Read LC#/severity/pattern from file header and sync to CSV"
+        },
+        {
+            "type": "shell",
+            "label": "Run C++11",
+            "command": "${workspaceFolder}/tools/build/runcpp11",
+            "args": ["${file}"],
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": ["$gcc"],
+            "presentation": { "reveal": "always", "panel": "shared", "showReuseMessage": false },
+            "detail": "Compile & run active file with -std=c++11"
+        },
+        {
+            "type": "shell",
+            "label": "Run C++14",
+            "command": "${workspaceFolder}/tools/build/runcpp14",
+            "args": ["${file}"],
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": ["$gcc"],
+            "presentation": { "reveal": "always", "panel": "shared", "showReuseMessage": false },
+            "detail": "Compile & run active file with -std=c++14"
+        },
+        {
+            "type": "shell",
+            "label": "Run C++17",
+            "command": "${workspaceFolder}/tools/build/runcpp17",
+            "args": ["${file}"],
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": ["$gcc"],
+            "presentation": { "reveal": "always", "panel": "shared", "showReuseMessage": false },
+            "detail": "Compile & run active file with -std=c++17"
+        },
+        {
+            "type": "shell",
+            "label": "Run C++20",
+            "command": "${workspaceFolder}/tools/build/runcpp20",
+            "args": ["${file}"],
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": ["$gcc"],
+            "presentation": { "reveal": "always", "panel": "shared", "showReuseMessage": false },
+            "detail": "Compile & run active file with -std=c++20"
+        },
+        {
+            "type": "shell",
+            "label": "Run C++ (pick standard)",
+            "command": "${workspaceFolder}/tools/build/runcpp",
+            "args": ["${input:cppStandard}", "${file}"],
+            "options": { "cwd": "${workspaceFolder}" },
+            "problemMatcher": ["$gcc"],
+            "presentation": { "reveal": "always", "panel": "shared", "showReuseMessage": false },
+            "detail": "Pick C++ standard, then compile & run active file"
+        }
+    ],
+    "inputs": [
+        {
+            "id": "cppStandard",
+            "type": "pickString",
+            "description": "Select C++ standard",
+            "options": ["11", "14", "17", "20"],
+            "default": "17"
         }
     ],
     "version": "2.0.0"

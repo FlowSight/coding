@@ -1,0 +1,22 @@
+# Build outputs
+*.o
+*.out
+*.output
+*.dSYM/
+run.output
+run
+
+# Executables (no extension)
+executables/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+
+# Images
+*.jpeg
+*.jpg
+*.png
+*.dat

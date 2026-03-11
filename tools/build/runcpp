@@ -1,0 +1,58 @@
+#!/bin/bash
+# runcpp - Compile & run C++ with a specific standard
+# Usage: runcpp11 <file>   or   runcpp 11 <file>
+#
+# Shortcuts (symlinks):
+#   runcpp11  → -std=c++11
+#   runcpp14  → -std=c++14
+#   runcpp17  → -std=c++17
+#   runcpp20  → -std=c++20
+#
+# Output binary always goes to: /Users/anirbanm/repos/coding/run.output
+
+BASE_DIR="/Users/anirbanm/repos/coding"
+OUTPUT="$BASE_DIR/run.output"
+CXX="g++"
+
+# Determine C++ standard from script name or first arg
+SCRIPT_NAME=$(basename "$0")
+
+if [[ "$SCRIPT_NAME" =~ runcpp([0-9]+) ]]; then
+    STD="${BASH_REMATCH[1]}"
+    FILE="$1"
+elif [[ "$1" =~ ^[0-9]+$ ]]; then
+    STD="$1"
+    FILE="$2"
+else
+    echo "Usage: runcpp<std> <file>  or  runcpp <std> <file>"
+    echo "  e.g. runcpp11 myfile.cpp"
+    echo "  e.g. runcpp 17 myfile.cpp"
+    echo ""
+    echo "Supported standards: 11, 14, 17, 20"
+    exit 1
+fi
+
+if [ -z "$FILE" ]; then
+    echo "Error: No file specified"
+    echo "Usage: runcpp${STD} <file>"
+    exit 1
+fi
+
+if [ ! -f "$FILE" ]; then
+    echo "Error: File not found: $FILE"
+    exit 1
+fi
+
+echo "── Compile: $CXX -std=c++${STD} -g -pthread \"$FILE\" -o $OUTPUT ──"
+$CXX -std=c++${STD} -g -pthread "$FILE" -o "$OUTPUT"
+
+if [ $? -ne 0 ]; then
+    echo "❌ Compilation failed"
+    exit 1
+fi
+
+echo "── Running ──"
+"$OUTPUT"
+EXIT_CODE=$?
+echo "── Exit code: $EXIT_CODE ──"
+exit $EXIT_CODE

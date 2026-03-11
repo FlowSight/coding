@@ -71,7 +71,7 @@ class ExecService {
                     return _shutdown || !tasks.empty();
                 });
             
-                if(_shutdown) return;
+                if(_shutdown && tasks.empty()) return;
                 task = move(tasks.front());
                 tasks.pop();
                 {

@@ -46,6 +46,8 @@ Process the list in order.
 Group the money totals by account ID.
 Only return accounts with a balance greater than 0.
 Return a dictionary.
+
+
 Step 2: Stopping Overdrafts
 Goal
 Update your code to check the balance before making a change. If a withdrawal makes the balance negative, reject it. Return two things: the final balances and a list of the rejected transactions.
@@ -85,6 +87,8 @@ Do not allow a transaction if the result is negative.
 Deposits (adding money) are always allowed.
 Keep a list of rejected items in the correct order.
 Include accounts with zero balance in the final list.
+
+====
 Step 3: Covering Negative Balances
 Goal
 Now, the bank will help users. If a transaction makes the balance negative, do not reject it. Instead, take money from a special "platform account" to fill the gap. The user's account should end up at exactly zero.

@@ -26,3 +26,6 @@ wake up -> see no work availble -> sleep again
 cv.wait(ul,..) rekeases the lock while sleeping/waiting
 barrier is multi use, latch is one time 
 barrier : all theead wait at arrive_and_wait, latch : threads decrease and leave
+
+volatile does NOT provide atomicity or ordering guarantees. 
+It only prevents compiler optimization, not CPU reordering.(***this can be tricky to understand)

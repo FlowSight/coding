@@ -6,6 +6,7 @@
 #include <chrono>
 #include <thread>
 #include <shared_mutex>
+#include <vector>
 #include <mutex>
 using namespace std;
 
@@ -43,37 +44,24 @@ int main() {
     constexpr int NUM_THREADS_WRITE = 4;
     constexpr int NUM_ARGS = 3;
 
-    std::thread lstThRead[NUM_THREADS_READ];
-    std::thread lstThWrite[NUM_THREADS_WRITE];
+    vector<thread> lstThRead;
+    vector<thread> lstThWrite;
     int lstArg[NUM_ARGS];
 
-
-    // INITIALIZE
-    // lstArg = { 0, 1, 2, ..., NUM_ARG - 1 }
     std::iota(lstArg, lstArg + NUM_ARGS, 0);
 
-
-    // CREATE THREADS
-    for (auto&& th : lstThRead) {
+    for (int i = 0; i < NUM_THREADS_READ; i++) {
         int arg = lstArg[ rand()%NUM_ARGS ];
-        th = std::thread(&readFunc, arg);
+        lstThRead.emplace_back(readFunc, arg);
     }
 
-    for (auto&& th : lstThWrite) {
-        int arg = lstArg[ rand()%NUM_ARGS];
-        th = std::thread(&writeFunc, arg);
+    for (int i = 0; i < NUM_THREADS_WRITE; i++) {
+        int arg = lstArg[ rand()%NUM_ARGS ];
+        lstThWrite.emplace_back(writeFunc, arg);
     }
 
-
-    // JOIN THREADS
-    for (auto&& th : lstThRead) {
-        th.join();
-    }
-
-    for (auto&& th : lstThWrite) {
-        th.join();
-    }
-
+    for (auto& th : lstThRead) th.join();
+    for (auto& th : lstThWrite) th.join();
 
     return 0;
 }
