@@ -1,0 +1,1 @@
+Coding: Find the cheapest common ancestor for two nodes in a tree. Each node of the tree has a price and knows its parent and children. You are provided with two different nodes of the tree and you must find the one with the cheapest price among all the common ancestors.

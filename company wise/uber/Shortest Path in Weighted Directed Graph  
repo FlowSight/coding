@@ -1,0 +1,7 @@
+Given a weighted directed graph, find the shortest path from a specified starting point to all nodes in the graph. Return the time required to traverse all nodes in the shortest path; return -1 if it is impossible to reach all nodes.
+
+Example
+Input
+4
+[(1, 2, 1), (2, 3, 1), (1, 3, 4), (3, 4, 2)]
+1
