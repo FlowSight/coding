@@ -131,3 +131,21 @@ map : dont dp mm[key], do mm.find(key)
 becareful : mm[key] is 0 if not present
 
 explicit: forces compiler to match types in constructor..doesnt assume anything
+
+
+/////////
+CAS
+//////////
+atomic<int> val{0};
+int expected = 0, desired = 42;
+if(val.compare_exchange_strong(expected,desired)) {
+    // set
+} else{
+    // expected = val
+}
+    ==== is same as==
+    if(val == expected) {
+        val = desired
+    } else {
+        expected = val
+    }

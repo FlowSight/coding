@@ -1,7 +1,3 @@
-// LC#: N/A | Severity: Medium | Pattern: Concurrency / Monitor
-// Political Bathroom – Rubrik
-// Bathroom capacity 3, no mixed parties (D/R), fairness via arrival order.
-
 #include <iostream>
 #include <vector>
 #include <queue>
