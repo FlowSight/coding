@@ -1,0 +1,31 @@
+Given two arrays, Person[] and Apartment[]. Each Person object has a name and a want_share field indicating whether the person is willing to share a room. Each Apartment object has an apt_num and num_rooms. Design a function to allocate apartments to each person based on realistic scenarios. Resolve conflicts if not every person’s preference can be met, such as when some people have to share rooms or when not all demands can be satisfied. How would you handle the situation if there are not enough apartments to allocate?
+
+Input
+Person[] with name: str and want_share: bool.
+Apartment[] with apt_num: str and num_rooms: int.
+Output
+Return an allocation scheme showing which people are in which apartments.
+
+Example
+Given the input Person[]:
+
+[
+  {"name": "Alice", "want_share": false},
+  {"name": "Bob", "want_share": true},
+  {"name": "Charlie", "want_share": true}
+]
+Apartment[]:
+
+[
+  {"apt_num": "A1", "num_rooms": 2},
+  {"apt_num": "A2", "num_rooms": 1}
+]
+A possible output is:
+
+{
+  "A1": ["Bob", "Charlie"],
+  "A2": ["Alice"]
+}
+Example
+Input
+[{"name": "Alice", "want_share": false}, {"name": "Bob", "want_share": true}, {"name": "Charlie", "want_share": true}], [{"apt_num": "A1", "num_rooms": 2}, {"apt_num": "A2", "num_rooms": 1}]
