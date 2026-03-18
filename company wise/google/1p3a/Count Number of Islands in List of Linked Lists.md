@@ -1,0 +1,1 @@
+Given a List<LinkedListNode> representing islands, implement a function to count the number of islands using the optimal Union-Find solution.

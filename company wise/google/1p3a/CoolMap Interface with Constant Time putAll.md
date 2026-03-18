@@ -1,0 +1,1 @@
+Implement an interface CoolMapInterface, which extends the typical HashMap with two methods: put and get, plus an additional putAll method that updates all values in O(1) time complexity.

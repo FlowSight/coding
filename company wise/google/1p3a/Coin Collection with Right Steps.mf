@@ -1,0 +1,5 @@
+Given a game board represented as a string, where 'T' represents a token and 'C' represents a coin, determine the maximum number of coins the token can collect. The token can move three steps to the right each time.
+
+Example
+Input
+T.T.CCCCC
