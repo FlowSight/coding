@@ -1,194 +1,175 @@
 #include <iostream>
 #include <vector>
-#include <queue>
-#include <string>
-#include <numeric>
 #include <thread>
-#include <mutex>
-#include <condition_variable>
-#include <atomic>
-#include <cassert>
 #include <chrono>
-#include <unordered_set>
-
+#include <mutex>
+#include<condition_variable>
 
 using namespace std;
-using Clock = chrono::steady_clock;
-using Time = chrono::milliseconds;
 
+enum Party { NoParty = 0, Democrat, Republican};
 
-
-enum Party { Democrat = 0, Republican};
 struct Person {
-    Time timetaken;
-    Party party;
     string name;
+    int time;
+    Party party;
     Person() = default;
-    Person(Time _time, Party _p, string _name){
-        timetaken = _time;
+    Person(string _n, int _t, Party _p){
+        name = _n;
+        time = _t;
         party = _p;
-        name = _name;
-    }
-
-    bool operator> (const Person& p1) const {
-        return timetaken >  p1.timetaken;
     }
 };
 
-
-class BathroomService {
+class BathroomManager {
     public:
-    explicit BathroomService(int _numth){
-        numTh = _numth;
-        for(auto i=0;i<numTh;i++)workers.emplace_back(&BathroomService::workerloop,this);
-        scheduler = thread(&BathroomService::schedulerfunc,this);
-        inwashroom = vector<Person>(3);
+    explicit BathroomManager(int _cap,vector<Person> persons){
+        cap = _cap;
+        for(auto it : persons)timemap[it.name]= it;
+        admitterdemo = thread(&BathroomManager::admitDemo,this);
+        admitterrepub = thread(&BathroomManager::admitRepub,this);
+        toilerprocesser = thread(&BathroomManager::usetoilet,this);
     }
 
-    void admit(Person p){
-        unique_lock<mutex> ul(mtxDRq);
-        if(p.party == 0) {
-            demoQueue.push(p);
+    void addtoqueue(Person p){
+        if(p.party == Party::Democrat){
+            unique_lock<mutex> ul(mtxdemoq);
+            demowait.push(p);
+            cvdemowait.notify_one();
+        } else {
+            unique_lock<mutex> ul(mtxrepubq);
+            repubwait.push(p);
+            cvrepubwait.notify_one();
         }
-        else {
-            repubQueue.push(p);
-        }
-        cvScheduler.notify_one();
     }
-    void shutdown() {
-        stopped.store(true);
-        cvworker.notify_all();
-        cvScheduler.notify_all();
-        for(auto& th : workers){
-            if(th.joinable()) th.join();
-        }
-        if(scheduler.joinable()) scheduler.join();
+    void stop(){
+        stopped = true;
+        cvusing.notify_all();
+        cvdemowait.notify_one();
+        cvrepubwait.notify_one();
+        if(admitterdemo.joinable()) admitterdemo.join();
+        if(admitterrepub.joinable()) admitterrepub.join();
+        if(toilerprocesser.joinable()) toilerprocesser.join();
     }
 
-    ~BathroomService() {
-        shutdown();
-    }
+    private :
 
-    private:
-    int numTh;
-    vector<thread> workers;
-    thread scheduler;
-    queue<Person> entered;
-
-    priority_queue<Person,vector<Person>,greater<Person>> demoQueue, repubQueue;
-    mutex mtxDRq, mtxentered;
-    condition_variable cvScheduler, cvworker;
-    atomic<bool> stopped{false};
-    atomic<int> usingnow{0}, curParty{-1};
-    vector<Person> inwashroom;
-
-    void workerloop(){
+    void admitDemo(){
         Person p;
-        while (true)
-        {
+        while(true){
             {
-                unique_lock<mutex> ul1(mtxentered);
-                cvworker.wait(ul1,[this] { 
-                    return stopped || !entered.empty();
+                unique_lock<mutex> ul(mtxdemoq);
+                cvdemowait.wait(ul,[this]{
+                    return stopped || !demowait.empty();
                 });
                 if(stopped) return;
-                p = entered.front();
-                entered.pop();
-                curParty.store(p.party);
-             }
-
-            cout<<"using washroom for "<<p.name<<" for "<< to_string(p.timetaken.count()) <<" ms"<<endl;
-            this_thread::sleep_for(p.timetaken);
-            cout<<"done using washroom for "<<p.name<<endl;
-            {
-                unique_lock<mutex> ul2(mtxentered);
-                usingnow.fetch_add(-1);
-                if(usingnow.load() == 0) curParty.store(-1);
-                else curParty.store(p.party);
-                cvScheduler.notify_one();
+                p = demowait.front();
+                demowait.pop();
+                cvdemowait.notify_all();
             }
-            
+            {
+                unique_lock<mutex> ul1(mtxusing);
+                cvusing.wait(ul1,[this]{
+                    return stopped || canAdmit(Party::Democrat);
+                });
+                if(stopped) return;
+                usingnow++;
+                curparty = Party::Democrat;
+                inbathroom.push(p);
+                cvusing.notify_all();
+            }
         }
     }
-    
-    // mtxentered : entered, usingnow,curparty
-    // mtxdrqueue : pq1, pq2
-
-    void schedulerfunc(){
+    void admitRepub(){
         Person p;
-        bool found = false;
-        while(true) {
-                {
-                    unique_lock<mutex> ul1(mtxentered);
-                    cvScheduler.wait(ul1,[this]{
-                        if(stopped) return true;
-                        return usingnow.load() < 3;
-                    });
-                    if(stopped) return;
-                    while(usingnow.load() < 3){
-                        {
-                            unique_lock<mutex> ul2(mtxDRq);
-                            if(curParty.load() == 0) {
-                                
-                                if(demoQueue.empty()) break;
-                                p = demoQueue.top();
-                                demoQueue.pop();
-                                found = true;
-                            }
-                            else if(curParty.load() == 1) {
-                                if(repubQueue.empty()) break;
-                                p = repubQueue.top();
-                                repubQueue.pop();
-                                found = true;
-                            } else {
-                                if(demoQueue.empty() && repubQueue.empty()) break;
-                                if(!repubQueue.empty()) {
-                                    p = repubQueue.top();
-                                    repubQueue.pop();
-                                    found = true;
-                                } else{
-                                    p = demoQueue.top();
-                                    demoQueue.pop();
-                                    found = true;
-                                }
-                            }
-                            if(found) {
-                                entered.push(p);
-                                usingnow.fetch_add(1);
-                                curParty.store(p.party);
-                                cvworker.notify_one();
-                            } else {
-                                break;
-                            }
-                            found = false;
-                        }
-                    }
-                }
+        while(true){
+            {
+                unique_lock<mutex> ul(mtxrepubq);
+                cvrepubwait.wait(ul,[this]{
+                    return stopped || !repubwait.empty();
+                });
+                if(stopped) return;
+                p = repubwait.front();
+                repubwait.pop();
+                cvrepubwait.notify_all();
+            }
+            {
+                unique_lock<mutex> ul1(mtxusing);
+                cvusing.wait(ul1,[this]{
+                    return stopped || canAdmit(Party::Republican);
+                });
+                if(stopped) return;
+                usingnow++;
+                curparty = Party::Republican;
+                inbathroom.push(p);
+                cvusing.notify_all();
             }
         }
+
+    }
+
+    void usetoilet() {
+        Person p;
+        while(true){
+            {
+                unique_lock<mutex> ul1(mtxusing);
+                cvusing.wait(ul1,[this]{
+                    return stopped || (usingnow >0);
+                });
+                if(stopped) return;
+                p = inbathroom.front();
+                inbathroom.pop();
+                cvusing.notify_all();
+            }
+            this_thread::sleep_for(chrono::milliseconds(p.time));
+            cout<<"Person :"<<p.name<<" party : "<<p.party<<" is done using washroom"<<endl;
+            {
+                unique_lock<mutex> ul2(mtxusing);
+                usingnow--;
+                if(usingnow == 0) curparty =  Party::NoParty;
+                cvusing.notify_all();
+            }
+        }
+    }
+
+    bool canAdmit(Party party){
+        if(curparty == Party::NoParty) return true;
+        if(curparty != party) return false;
+        if(usingnow >= cap) return false;
+        return true;
+    }
+
+    int cap;
+    atomic<int> usingnow{0}, stopped{0};
+    queue<Person> demowait,repubwait;
+    queue<Person> inbathroom;
+    mutex mtxdemoq, mtxrepubq, mtxusing;
+    thread admitterdemo, admitterrepub, toilerprocesser;
+    atomic<Party> curparty{Party::NoParty};
+    condition_variable cvdemowait, cvrepubwait, cvusing;
+    unordered_map<string,Person> timemap;
 };
 
-
 void testmethod1(){
-    BathroomService bs(3);
-    for(auto i=0;i<5;i++){
-        Time time = Time(rand()%1000);
-        Party party = rand()%2 ? Party::Republican : Party::Democrat;
-        string name = "person"+to_string(i);
-        bs.admit(Person(time,party,name));
+    vector<Person> arr = {
+        Person("bush",1000,Party::Democrat),
+        Person("Obama",150,Party::Republican),
+        Person("Trump",8000,Party::Democrat),
+        Person("Biden",1500,Party::Republican),
+        Person("Lincoin",100,Party::Republican),
+        Person("Clinton",2000,Party::Democrat)
+    };
+    BathroomManager bm(3,arr);
+    for(auto it : arr){
+        bm.addtoqueue(it);
     }
-    this_thread::sleep_for(Time(10000));
-    bs.shutdown();
-    
-}
-
-void testmethod2(){
+    this_thread::sleep_for(chrono::milliseconds(50000));
+    bm.stop();
 
 }
 
 int main(){
     testmethod1();
-    //testmethod2();
-
+    // //testmethod2();
     return 0;
 }

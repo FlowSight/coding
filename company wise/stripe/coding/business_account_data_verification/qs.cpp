@@ -69,9 +69,12 @@ Can I assume the CSV format is perfect, or should I check for errors?
 What if a row is missing columns completely?
 What do I print if the business name itself is empty?
 Do special characters count as "empty"?
+
+
 Part 2: Check Description Length
 What You Need To Do
-Update your code to check the length of the Full Description (col5). It must follow Stripe's rules. The length must be between 5 and 31 characters (inclusive).
+Update your code to check the length of the Full Description (col5). It must follow Stripe's rules. 
+The length must be between 5 and 31 characters (inclusive).
 
 Remove extra spaces before counting. If the length is wrong, mark it NOT VERIFIED.
 
@@ -99,9 +102,14 @@ Rules
 Remove whitespace from col5 before checking.
 Length must be between 5 and 31.
 Check this after checking for missing fields (Part 1).
+
+
+
+========
 Part 3: Block Bad Words
 What You Need To Do
-To stop fraud, we must block generic business names in the Full Description (col5). If col5 contains any of these words, mark the account NOT VERIFIED:
+To stop fraud, we must block generic business names in the Full Description (col5). 
+If col5 contains any of these words, mark the account NOT VERIFIED:
 
 Blocked Words (Case-Insensitive):
 
@@ -140,9 +148,14 @@ Questions to Ask the Interviewer
 Do I block the word if it is part of another word? (e.g., does "WORKSHOP" count as "SHOP"?)
 Are there other words to block?
 Should I check other columns too?
+
+
+=====
 Part 4: Match Business Names
 What You Need To Do
-Make sure the Business Name (col2) matches the descriptions (col4 or col5). At least 50% of the words in the Business Name must appear in either the Short Description (col4) or Full Description (col5).
+Make sure the Business Name (col2) matches the descriptions (col4 or col5). 
+At least 50% of the words in the Business Name must appear in either the 
+Short Description (col4) or Full Description (col5).
 
 How to Match Words:
 
@@ -179,9 +192,13 @@ Questions to Ask the Interviewer
 Can I combine col4 and col5 for the check?
 How do I handle punctuation (like "Ben & Jerry's")?
 What if the name becomes empty after removing "LLC"?
+
+
+=========
 Part 5: Return Specific Error Codes
 What You Need To Do
-Do not just say "NOT VERIFIED". Return a specific code explaining the error. If there are multiple errors, return the first one you find.
+Do not just say "NOT VERIFIED". Return a specific code explaining the error. 
+If there are multiple errors, return the first one you find.
 
 Order of Checks:
 
@@ -209,6 +226,9 @@ Rules
 Check rules in the order listed above.
 Stop at the first error.
 Only return VERIFIED if everything passes.
+
+
+=======
 Solution Details
 Step 1: Checking for Missing Info
 Plan:

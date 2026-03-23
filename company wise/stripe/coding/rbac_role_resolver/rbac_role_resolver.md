@@ -35,6 +35,8 @@ rbac.getUserRoles("usr_1", "wksp_1")  # Returns: ["admin"] (inherited)
 rbac.getUserRoles("usr_1", "wksp_2")  # Returns: ["admin", "editor"]
 rbac.getUserRoles("usr_2", "wksp_1")  # Returns: ["editor"]
 rbac.getUserRoles("usr_2", "org_1")   # Returns: [] (no role at the top level)
+
+
 Phase 1: Direct Role Lookup
 Task Requirements
 Write a class that finds roles assigned directly to a user for a specific account. Do not worry about inheritance yet.
@@ -202,6 +204,7 @@ rbac.getUsersForAccountWithFilter("wksp_1", ["admin", "editor"])
 # Filter: Must be "superadmin" (nobody has this)
 rbac.getUsersForAccountWithFilter("wksp_1", ["superadmin"])
 # Returns: []
+
 Solution Details
 Phase 1: Direct Lookup Strategy
 Plan:

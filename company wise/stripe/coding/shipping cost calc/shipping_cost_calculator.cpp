@@ -19,11 +19,13 @@ You get two pieces of data:
         {"product": "laptop", "quantity": 5}
     ]
 }
-2. Shipping Cost Rules: This is a dictionary that holds the price rules for each country and product. The format changes slightly in each step.
+2. Shipping Cost Rules: This is a dictionary that holds the price rules for each country and product. 
+The format changes slightly in each step.
 
 Step 1: Simple Fixed Price
 The Task
-Write a function called calculate_shipping_cost(order, shipping_cost). It must calculate the total cost when every product has one fixed price per unit.
+Write a function called calculate_shipping_cost(order, shipping_cost). It must calculate the total cost 
+when every product has one fixed price per unit.
 
 Example Case
 Input:

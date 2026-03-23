@@ -167,6 +167,9 @@ Do I apply the discount before rounding or after?
 What if a merchant sells in different countries? Does that count towards the same volume total?
 Does the volume count ever reset (like every month)?
 How to Solve It
+
+
+
 Part 1 Solution
 Plan:
 

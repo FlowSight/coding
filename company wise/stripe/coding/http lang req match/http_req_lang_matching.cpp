@@ -1,8 +1,11 @@
 HTTP Request Language Matching
 Problem Summary
-You are building a system that shows content to users in their preferred language. When a browser sends an HTTP request, it sends an Accept-Language header. This header lists the languages the user wants, in order of preference.
+You are building a system that shows content to users in their preferred language. When a browser sends an HTTP request, 
+it sends an Accept-Language header. This header lists the languages the user wants, in order of preference.
 
-Your server only has a specific list of languages available. You need to figure out which of the user's requested languages you can actually provide. You must return a list of matching languages, keeping the user's preference order.
+Your server only has a specific list of languages available.
+ You need to figure out which of the users requested languages you can actually provide. 
+ You must return a list of matching languages, keeping the users preference order.
 
 This problem has four parts, starting simple and getting harder:
 
@@ -162,7 +165,8 @@ Keep the order consistent.
 
 Part 4: Quality Scores (q-factors)
 Problem Requirements
-Sometimes the header includes "q-factors". These are numbers between 0.0 and 1.0 that tell you how much the user wants a language.
+Sometimes the header includes "q-factors". These are numbers between 0.0 and 1.0 that tell you how much
+ the user wants a language.
 
 Higher number: Stronger preference.
 No number: Defaults to 1.0 (highest).

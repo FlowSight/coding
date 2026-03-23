@@ -54,6 +54,7 @@ Goal
 Pick one factory from each stage.
 Find the lowest total building cost.
 The code should work for any number of choices per stage.
+
 Part 2: Adding Moving Costs
 The Task
 Now, include transportation costs. Factories are at different places. Moving goods from stage i to stage i+1 costs money equal to the distance between them.
@@ -136,7 +137,10 @@ Try skipping every possible stage to find the best option.
 Questions to Ask the Interviewer
 Can I skip the very first or very last stage? (Usually yes).
 What if there are only 2 stages? (If you skip one, there is only one left, so moving cost is 0).
-How to Solve It
+
+
+
+
 Part 1 Solution: Greedy Approach
 Plan: For every stage, find the cheapest factory. Add all those cheap costs together. Since there is no moving cost, picking the cheapest local option is always the best global option.
 
@@ -159,6 +163,8 @@ Things to Watch Out For:
 The list of stages is empty.
 A stage has only one factory.
 All factories cost the same.
+
+
 Part 2 Solution: Nested Loops
 Plan: Use loops to check every possible combination of factories. Calculate the cost for each combination. Keep track of the lowest one.
 
