@@ -35,7 +35,8 @@ You must keep the output in the same order as the input.
 
 Part 1: Check for Missing Info
 What You Need To Do
-Write a function called validate_businesses(csv_data). This function checks if a business provided all the required information. A business is VERIFIED only if every field has text in it.
+Write a function called validate_businesses(csv_data). This function checks if a business provided all the required information. 
+A business is VERIFIED only if every field has text in it.
 
 If a field only contains spaces, count it as empty.
 

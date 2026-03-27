@@ -11,6 +11,7 @@
 #include <chrono>
 #include <unordered_set>
 #include <functional>
+#include <future>
 
 using namespace std;
 using Task = function<void()>;
@@ -143,9 +144,16 @@ void testmethod1(){
     this_thread::sleep_for(Time(10000));
     jm.shutdown();
     jm.waitforfinish();
+
+    function<void(int)> meth = [](int time){
+        this_thread::sleep_for(chrono::milliseconds(time));
+        cout<<"Slept"<<endl;
+    };
 }
 
 int main(){
     testmethod1();
     return 0;
 }
+
+

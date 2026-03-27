@@ -57,7 +57,7 @@ class BoundedQueue {
 
     void stop() {
         stopped = true;
-        cvarr.notify_all();
+        cvprod.notify_all();
         cvcons.notify_all();
         cvarr.notify_all();
         for(auto& th: prod){

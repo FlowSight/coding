@@ -65,6 +65,7 @@ class BathroomManager {
                 if(stopped) return;
                 p = demowait.front();
                 demowait.pop();
+                demoCnt++;
                 cvdemowait.notify_all();
             }
             {
@@ -76,6 +77,7 @@ class BathroomManager {
                 usingnow++;
                 curparty = Party::Democrat;
                 inbathroom.push(p);
+                demoCnt--;
                 cvusing.notify_all();
             }
         }
@@ -91,6 +93,7 @@ class BathroomManager {
                 if(stopped) return;
                 p = repubwait.front();
                 repubwait.pop();
+                repubCnt++;
                 cvrepubwait.notify_all();
             }
             {
@@ -102,6 +105,7 @@ class BathroomManager {
                 usingnow++;
                 curparty = Party::Republican;
                 inbathroom.push(p);
+                repubCnt--;
                 cvusing.notify_all();
             }
         }
@@ -126,26 +130,39 @@ class BathroomManager {
             {
                 unique_lock<mutex> ul2(mtxusing);
                 usingnow--;
-                if(usingnow == 0) curparty =  Party::NoParty;
+                if(usingnow == 0) {
+                    lastParty.store(curparty);
+                    curparty =  Party::NoParty;
+                }
                 cvusing.notify_all();
             }
         }
     }
 
     bool canAdmit(Party party){
-        if(curparty == Party::NoParty) return true;
+        if(curparty == Party::NoParty) {
+            if(party == Party::Democrat){
+                if(repubCnt <= 0) return true;
+                if((lastParty != Party::Democrat)) return true;
+            } else {
+                 if(demoCnt <= 0) return true;
+                if((lastParty == Party::Democrat)
+                    || (lastParty != Party::Republican)) return true;
+            }
+            return false;
+        }
         if(curparty != party) return false;
         if(usingnow >= cap) return false;
         return true;
     }
 
     int cap;
-    atomic<int> usingnow{0}, stopped{0};
+    atomic<int> usingnow{0}, stopped{0}, demoCnt{0}, repubCnt{0};
     queue<Person> demowait,repubwait;
     queue<Person> inbathroom;
     mutex mtxdemoq, mtxrepubq, mtxusing;
     thread admitterdemo, admitterrepub, toilerprocesser;
-    atomic<Party> curparty{Party::NoParty};
+    atomic<Party> curparty{Party::NoParty}, lastParty{Party::NoParty};
     condition_variable cvdemowait, cvrepubwait, cvusing;
     unordered_map<string,Person> timemap;
 };
