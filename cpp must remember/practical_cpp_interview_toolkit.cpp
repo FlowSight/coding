@@ -198,25 +198,105 @@ namespace JSONExamples {
 */
 
 // ============================================================
-// 5. CHRONO — measuring time, timeouts, rate limiting
+// 5. CHRONO — measuring time, timeouts, date arithmetic
 // ============================================================
 namespace ChronoExamples {
+
+    // --- Helper: chrono time_point -> broken-down tm ---
+    // This is the bridge from chrono to year/month/day/hour/min/sec
+    tm toTm(chrono::system_clock::time_point tp) {
+        time_t t = chrono::system_clock::to_time_t(tp);
+        tm result = {};
+        localtime_r(&t, &result);  // thread-safe (POSIX); use localtime_s on Windows
+        return result;
+    }
+
+    // --- Helper: build a time_point from components ---
+    chrono::system_clock::time_point fromDate(int yy, int mon, int dd,
+                                               int hh = 0, int mm = 0, int ss = 0) {
+        tm t = {};
+        t.tm_year = yy - 1900;
+        t.tm_mon  = mon - 1;
+        t.tm_mday = dd;
+        t.tm_hour = hh;
+        t.tm_min  = mm;
+        t.tm_sec  = ss;
+        return chrono::system_clock::from_time_t(mktime(&t));
+    }
+
+    // --- Next date (add 1 day) ---
+    chrono::system_clock::time_point nextDate(chrono::system_clock::time_point tp) {
+        return tp + chrono::hours(24);
+    }
+
+    // --- Date after D days ---
+    chrono::system_clock::time_point addDays(chrono::system_clock::time_point tp, int days) {
+        return tp + chrono::hours(24 * days);
+    }
+
+    // --- Extract components ---
+    int getYear(chrono::system_clock::time_point tp)   { return toTm(tp).tm_year + 1900; }
+    int getMonth(chrono::system_clock::time_point tp)   { return toTm(tp).tm_mon + 1; }    // 1-12
+    int getDay(chrono::system_clock::time_point tp)     { return toTm(tp).tm_mday; }
+    int getHour(chrono::system_clock::time_point tp)    { return toTm(tp).tm_hour; }
+    int getMinute(chrono::system_clock::time_point tp)  { return toTm(tp).tm_min; }
+    int getSecond(chrono::system_clock::time_point tp)  { return toTm(tp).tm_sec; }
+
+    // --- Weekday index: 0=Sun, 1=Mon, ..., 6=Sat ---
+    int getWeekday(chrono::system_clock::time_point tp) { return toTm(tp).tm_wday; }
+
+    string weekdayName(int wday) {
+        static const string names[] = {"Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
+        return names[wday % 7];
+    }
 
     void demo() {
         cout << "\n=== CHRONO ===" << endl;
 
-        // Measure elapsed time
+        // --- Measure elapsed time ---
         auto t1 = chrono::steady_clock::now();
         this_thread::sleep_for(chrono::milliseconds(50));
         auto t2 = chrono::steady_clock::now();
         auto ms = chrono::duration_cast<chrono::milliseconds>(t2 - t1).count();
         cout << "Elapsed: " << ms << "ms" << endl;
 
-        // Current time as epoch milliseconds (useful for rate limiters)
+        // --- Epoch milliseconds (rate limiters, timestamps) ---
         auto now = chrono::system_clock::now();
         long long epoch_ms = chrono::duration_cast<chrono::milliseconds>(
             now.time_since_epoch()).count();
         cout << "Epoch ms: " << epoch_ms << endl;
+
+        // --- Date arithmetic ---
+        auto apr7 = fromDate(2025, 4, 7, 14, 30, 0);  // 2025-04-07 14:30:00
+
+        // Extract components
+        cout << "Year:    " << getYear(apr7) << endl;     // 2025
+        cout << "Month:   " << getMonth(apr7) << endl;    // 4
+        cout << "Day:     " << getDay(apr7) << endl;      // 7
+        cout << "Hour:    " << getHour(apr7) << endl;     // 14
+        cout << "Minute:  " << getMinute(apr7) << endl;   // 30
+        cout << "Second:  " << getSecond(apr7) << endl;   // 0
+
+        // Weekday
+        int wday = getWeekday(apr7);
+        cout << "Weekday: " << wday << " (" << weekdayName(wday) << ")" << endl;  // 1 (Mon)
+
+        // Next date
+        auto apr8 = nextDate(apr7);
+        cout << "Next date: " << getYear(apr8) << "-" << getMonth(apr8) << "-" << getDay(apr8) << endl;  // 2025-4-8
+
+        // Add D days
+        auto apr17 = addDays(apr7, 10);
+        cout << "After 10 days: " << getYear(apr17) << "-" << getMonth(apr17) << "-" << getDay(apr17) << endl;  // 2025-4-17
+
+        // Subtract days (negative)
+        auto apr2 = addDays(apr7, -5);
+        cout << "5 days ago: " << getYear(apr2) << "-" << getMonth(apr2) << "-" << getDay(apr2) << endl;  // 2025-4-2
+
+        // Month/year rollover handled automatically
+        auto dec31 = fromDate(2025, 12, 31);
+        auto jan1  = nextDate(dec31);
+        cout << "Dec 31 + 1 day: " << getYear(jan1) << "-" << getMonth(jan1) << "-" << getDay(jan1) << endl;  // 2026-1-1
 
         // Sleep
         this_thread::sleep_for(chrono::milliseconds(100));

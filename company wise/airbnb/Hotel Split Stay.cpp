@@ -1,5 +1,8 @@
 Problem Description
-Given an integer n, representing n hotels. Each hotel has a list that shows the available dates of the hotel, i.e., the dates when rooms are free. Another given is a date range [start_date, end_date]. You need to split this range into two consecutive subranges, each covered by a different hotel, without overlap and with only forward checking (no backtracking allowed). Your task is to return the hotel combinations where each subrange can be fulfilled by a different hotel, and hotel combinations must not repeat.
+Given an integer n, representing n hotels. Each hotel has a list that shows the available dates of the hotel, i.e., the dates when rooms are free. 
+Another given is a date range [start_date, end_date]. You need to split this range into two consecutive subranges, each covered by a different hotel, 
+without overlap and with only forward checking (no backtracking allowed). 
+Your task is to return the hotel combinations where each subrange can be fulfilled by a different hotel, and hotel combinations must not repeat.
 
 Input
 n: integer, 2 <= n <= 100.

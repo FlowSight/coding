@@ -4,32 +4,77 @@
 
 using namespace std;
 
-
-// Build a time_t from components
-time_t makeTime(int yy, int mon, int dd, int hh, int mm, int ss) {
-    tm t = {};          // zero-init all fields
-    t.tm_year = yy - 1900;
-    t.tm_mon = mon - 1;
-    t.tm_mday = dd;
-    t.tm_hour = hh;
-    t.tm_min = mm;
-    t.tm_sec = ss;
-    return mktime(&t);
+typedef vector<int>  vi;
+vector<int> getnextdate(vi date){
+    vi ans = date;
+    ans[2]++;
+    if((ans[1]==2) && (ans[2] == 29)) {
+        ans[2] = 0;
+        ans[1]++;
+    } else if((ans[2] == 31) && 
+            ((ans[1] == 4) || (ans[1] == 6) || (ans[1] == 9) || (ans[1] = 11))){
+            ans[2] = 0;
+            ans[1]++;
+    } else if(ans[2] == 32) {
+            ans[2] = 0;
+            ans[1]++;
+    }
+    if(ans[1] == 13) {
+        ans[1] = 1;
+        ans[0]++;
+    }
+    ans[3] = ans[4] = ans[5] = 0;
+    return ans;
 }
 
-// Get next day: just add 86400 seconds
-time_t nextDay(time_t t) {
-    return t + 86400;
+void incr(int& starthr, int& startmin){
+    startmin += 30;
+    if(startmin == 60){
+        startmin = 0;
+        starthr++;
+    }
 }
 
-// Compare: just use < > == on integers
-time_t start = makeTime(2025, 4, 7, 0, 0, 0);
-time_t endtime  = makeTime(2025, 4, 13, 11, 59, 59);
+bool earlier(int starthr,int startmin, int endhr, int endmin){
+    if(starthr != endhr) return starthr < endhr;
+    return
+}
+
+void getslots(vi startdate, vi enddate, int sthr, int endhr){
+    if(startdate[0] != enddate[0]) return;
+    if(startdate[1] != enddate[1]) return;
+    if(startdate[2] != enddate[2]) return;
+    int starthr = max(sthr,startdate[3]), startmin = (sthr >= startdate[3] ? 0 : startdate[4]);
+    if(startmin >30) {
+        starthr++;
+        startmin = 0;
+    } else if (startmin >0) {
+        startmin = 30;
+    }
+    while(earlier(starthr,startmin,endhr)){
+        cout<<starthr<<" "<<startmin<<endl;
+        incr(starthr, startmin);
+    }
+}
+bool samedate(vi date1, vi date2){
+    return (date1[0] == date2[0]) &&  (date1[1] == date2[1]) &&  (date1[2] == date2[2]);
+}
+
+void testmethod(){
+    vector<int> startdate = {2025,4,17,0,0,0},
+        enddate = {2025,4,23,10,59,0};
+    for(auto date = startdate;date<=enddate;date = getnextdate(date)){
+        vi end = date;
+        if(samedate(end,enddate)) end = enddate;
+        else {
+            end[3] = 23, end[4] = 59, end[5] = 59;
+        }
+        getslots(date,end,9,11);
+    }
+    
+}
 
 int main(){
-    for (time_t t = start; t <= endtime; t = nextDay(t)) {
-        tm* d = localtime(&t);
-        cout << (d->tm_year + 1900) << "-" << (d->tm_mon + 1) << "-" << d->tm_mday << endl;
-    }
+    testmethod();
     return 1;
 }

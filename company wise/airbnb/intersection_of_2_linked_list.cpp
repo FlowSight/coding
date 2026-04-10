@@ -1,4 +1,5 @@
-Given two (singly) linked lists, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null. Note that the linked lists might contain cycles.
+Given two (singly) linked lists, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null. 
+Note that the linked lists might contain cycles.
 
 Example 1:
 
@@ -26,3 +27,6 @@ Input
 listA = [4,1,8,4,5], listB = [5,6,1,8,4,5]
 Output
 ListNode(8)
+
+
+// lca approach..loop with switch

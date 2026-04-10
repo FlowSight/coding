@@ -65,3 +65,8 @@ Combination Sum,39,Solved,19feb2026,Backtracking,classic backtrack template
 Number Of Beautiful Partitions,2478,Solved,19feb2026, dp, TODO
 Count K Subsequences Of A String With Maximum Beauty,2842,Solved,20feb2026, greedy, hard..mathmod
 Burst Ballons,312,Solved,15mar2026, dp,
+Design Excel Sum,631,Solved,28mar2026,,
+Best Meeting Point,296,Solved,10apr2026,,
+Contains Duplicate,220,Redo,10apr2026,,
+Smallest Team,1125,Solved,10apr2026,,
+Permutation Sequence,60,Solved,11apr2026,,

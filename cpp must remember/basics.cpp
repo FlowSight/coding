@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// how to set precision:
+ostringstream oss;
+oss << fixed << std::setprecision(3) << ans;
+return oss.c_str();
 
 labs for long abs
 

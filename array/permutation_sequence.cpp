@@ -1,3 +1,38 @@
+// LC : 60
+
+class Solution {
+public:
+    string getPermutation(int n, int k) {
+        string ans = "";
+        set<int> ss;
+        vector<int> perm(10,1);
+        for(auto i=2;i<=9;i++) perm[i] = perm[i-1]*i;
+        for(auto i=1;i<=n;i++)ss.insert(i);
+        while(ss.size()){
+            if(perm[ss.size()-1] > k) {
+                ans.push_back('0'+ *(ss.begin()));
+                ss.erase(ss.begin());
+            } else {
+                int idx = k/perm[ss.size()-1] + ((k%perm[ss.size()-1] != 0));
+                k%=perm[ss.size()-1];
+                auto it = ss.begin();
+                for(auto i=1;i<idx;i++)it++;
+                ans.push_back('0'+ *(it));
+                ss.erase(it);
+                if(k == 0){
+                    for(auto it = ss.rbegin();it != ss.rend();it++) ans.push_back('0' + *(it));
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
+};
+
+// n! kth
+
+
+
 class Solution {
 public:
     string getPermutation(int n, int k) {
