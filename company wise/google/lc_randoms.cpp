@@ -1,0 +1,3 @@
+1.Given array A of size n.A triplet i,j,k is interesting if for evey i<p<j A[p]<A[i] and A[p]<A[j] and for every j<q<k A[q]<A[j] and A[q]<A[k]. Among all such interesting triplets find the maxium distance between k and i.(N<1e5) (Google)
+
+2.An array of size n can have 3 values lets call them A,B,C.There are R requirements which demands exactly zi distinct values between xi and yi ,all these are of course input for R lines. How many such arrays are possible N<=300,R<=300 (Rubrik)

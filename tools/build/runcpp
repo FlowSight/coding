@@ -43,8 +43,12 @@ if [ ! -f "$FILE" ]; then
     exit 1
 fi
 
-echo "── Compile: $CXX -std=c++${STD} -g -pthread \"$FILE\" -o $OUTPUT ──"
-$CXX -std=c++${STD} -g -pthread "$FILE" -o "$OUTPUT"
+BREW_PREFIX="$(brew --prefix 2>/dev/null)"
+EXTRA_INCLUDES=""
+[ -d "$BREW_PREFIX/include" ] && EXTRA_INCLUDES="-I$BREW_PREFIX/include"
+
+echo "── Compile: $CXX -std=c++${STD} -g -pthread $EXTRA_INCLUDES \"$FILE\" -o $OUTPUT ──"
+$CXX -std=c++${STD} -g -pthread $EXTRA_INCLUDES "$FILE" -o "$OUTPUT"
 
 if [ $? -ne 0 ]; then
     echo "❌ Compilation failed"

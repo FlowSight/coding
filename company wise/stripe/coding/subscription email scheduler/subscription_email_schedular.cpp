@@ -23,7 +23,8 @@ The send_schedule tells you when to send emails:
 "start": Send on the day the subscription begins.
 "end": Send on the day the subscription expires.
 Number keys: These are days relative to the end date. For example, -15 means "15 days before the end date."
-Your code must be reusable. It should work with any number, not just -15. You need to check if a key is a specific word (like "start") or a number.
+Your code must be reusable. It should work with any number, not just -15. 
+You need to check if a key is a specific word (like "start") or a number.
 
 Input Data
 User Accounts:
@@ -195,6 +196,8 @@ Check if the change has a new_plan (Plan Change) or extension (Renewal).
 Renewals use the current plan name.
 Delete old future emails that are no longer correct.
 Calculate new emails based on the new end date.
+
+
 Solution Strategy
 Part 1: Scheduling Basics
 The Plan:

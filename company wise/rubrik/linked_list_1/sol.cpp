@@ -92,41 +92,46 @@ class LLCrud {
     void searchWorker(){
         int serKey  = -1;
         while(true){
-            shared_lock<shared_mutex> ul(mtxLL);
-            cvSer.wait(ul,[this]{
-                return stopped || !searchQ.empty();
-            });
-            if(stopped) return;
             {
              unique_lock<mutex> ul(mtxSer);
+             cvSer.wait(ul,[this]{
+                    return stopped || !searchQ.empty();
+             });
              serKey = searchQ.front();
              searchQ.pop();
             }
-            auto node = dummy->next;
-            while(node && (node->key != serKey)) node = node->next;
-            if(node) {
-                cout<<"found node with key "<<serKey<<" with val: "<<node->val<<endl;
-            } else {
-                cout<<"failed to search : "<<serKey<<endl;
+            {
+                shared_lock<shared_mutex> ul1(mtxLL);
+                // cvSer.wait(ul,[this]{
+                //     return stopped || !searchQ.empty();
+                // });
+                if(stopped) return;
+
+                auto node = dummy->next;
+                while(node && (node->key != serKey)) node = node->next;
+                if(node) {
+                    cout<<"found node with key "<<serKey<<" with val: "<<node->val<<endl;
+                } else {
+                    cout<<"failed to search : "<<serKey<<endl;
+                }
             }
         }
     }
     void insertWorker(){
         pair<int,int> inserKey;
         while(true){
+            {
+             unique_lock<mutex> ul(mtxinser);
+             cvInser.wait(ul,[this]{
+                    return stopped || !inserQ.empty();
+             });
+             inserKey = inserQ.front();
+             inserQ.pop();
+            }
             bs.acquire();
             {
                 shared_lock<shared_mutex> ul(mtxLL);
-                cvInser.wait(ul,[this]{
-                    return stopped || !inserQ.empty();
-                });
                 if(stopped) return;
-
-                {
-                    unique_lock<mutex> ul(mtxinser);
-                    inserKey = inserQ.front();
-                    inserQ.pop();
-                }
                 last->next = new DLL(inserKey.first,inserKey.second);
                 last->next->prev = last;
                 last = last->next;

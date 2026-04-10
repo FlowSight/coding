@@ -186,6 +186,7 @@ rle_font = {
         # ... more characters
     }
 }
+
 Solution Details
 Solution: Part 1
 The Plan:

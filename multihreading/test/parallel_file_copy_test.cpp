@@ -1,145 +1,142 @@
-#include<iostream>
-#include<thread>
-#include <fcntl.h> 
-#include <unistd.h>
+#include <iostream>
+#include <thread>
+#include <vector>
+#include<unistd.h>
 #include<sys/stat.h>
-#include<atomic>
+#include<fcntl.h>
+
 
 using namespace std;
-const size_t CHUNKSIZE = 1024;
-vector<vector<size_t>> chunks;
 
-class ParallelFileCopier {
+class FileManager {
     public:
-    explicit ParallelFileCopier (int _numworkers, int _srcFd, int _dstFd) {
-        numworkers = _numworkers;
-        srcFd = _srcFd;
-        dstFd = _dstFd;
-        for(auto i=0;i<numworkers;i++){
-            workers.emplace_back(&ParallelFileCopier::copyChunk,this,i);
+    explicit FileManager() = default;
+    explicit FileManager(int _copierthcnt) {
+        copierthcnt = _copierthcnt;
+        for(auto i=0;i<_copierthcnt;i++)workers.emplace_back(&FileManager::copychunk,this);
+    }
+    int create(string path, size_t size, bool writecontent = true){
+        int fd = open(path.c_str() ,O_CREAT | O_RDWR | O_TRUNC ,0644);
+        if(fd<0) {
+            throw runtime_error("file create failed");
         }
+        ftruncate(fd,size);
+        if(writecontent){
+            vector<char> arr(size);
+            for(auto i=0;i<size;i++)arr[i] = (rand()%26+'a');
+            write(fd,&arr,size);
+        }
+
+        return fd;
     }
 
-    int getResult(){
-        for(auto &th : workers ) {
+    void copy(int __srcfd, int _dstfd) {
+        srcfd = __srcfd;
+        dstfd = _dstfd;
+        size_t size = getFileSize(srcfd);
+        size_t offset = 0;
+        {
+            unique_lock<mutex> ul(mtxchunks);
+            while(offset < size){
+                size_t curchunk = min(chunksize,size-offset);
+                chunks.push({offset,curchunk});
+                cout<<srcfd <<" "<<dstfd<<" "<< offset<<" "<<curchunk<<endl;
+                offset += curchunk;
+            }
+            cout<<"chunked"<<endl;
+            cvchunks.notify_all();
+         }
+
+    }
+    void stop(){
+        stopped = true;
+        cvchunks.notify_all();
+        for(auto &th : workers){
             if(th.joinable()) th.join();
         }
-        return failed.load();
     }
-
-    private:
-    void copyChunk(int idx){
-        int curidx = idx;
-        while (curidx < (int)chunks.size())
-        {
-            if(failed.load()) return;
-            auto curChunk = chunks[curidx];
-            vector<char> buf(curChunk[1]);
-            ssize_t readLen = pread(srcFd,buf.data(),curChunk[1],curChunk[0]);
-            if(readLen < 0 || (size_t)readLen != curChunk[1]) {
-                failed.store(1);
-                cout<<"Failed to read offset: "<<curChunk[0] <<" length : "<<curChunk[1]<<endl;
-                return;
-            }
-            ssize_t writeLen = pwrite(dstFd,buf.data(),readLen,curChunk[0]);
-            if(writeLen < 0 || writeLen != readLen) {
-                cout<<"Failed to write offset: "<<curChunk[0] <<" length : "<<curChunk[1]<<endl;
-                failed.store(1);
-                return;
-            }
-            curidx+=numworkers;
+    
+    bool verify(int srcfd, int dstfd){
+        size_t szsrc = getFileSize(srcfd), szdst = getFileSize(dstfd);
+        if(szdst != szsrc) return false;
+        vector<char> arr(szsrc), arrdst(szsrc);
+        pread(srcfd,arr.data(),szsrc,0);
+        pread(srcfd,arrdst.data(),szsrc,0);
+        for(auto i=0;i<szsrc;i++){
+            if(arr[i] != arrdst[i]) return false;
         }
-    }
-    int numworkers, srcFd, dstFd;
-    atomic<int> failed{0};
-    vector<thread> workers;
-};
-
-off_t getFileSize(int fd) {
-    struct stat st;
-    if(fstat(fd,&st) < 0) return -1;
-    return st.st_size;
-}
-
-
-void copyFile(const string& srcfile, const string& dstFile, int numTh){
-    int fdSrc = open(srcfile.c_str(),O_RDONLY);
-    if(fdSrc < 0) {
-        cout<<"srcfile does not exist";
-        return;
-    }
-    off_t size = getFileSize(fdSrc);
-    if(size  <=0) {
-        close(fdSrc);
-        return;
-    }
-
-    int fdDst = open(dstFile.c_str(),O_WRONLY|O_TRUNC|O_CREAT, 0777);
-    if(fdDst < 0) {
-        cout<<"dst could not be created";
-        return;
-    }
-    ftruncate(fdDst,size);
-
-    chunks.clear();
-    size_t numChunks = size/CHUNKSIZE + (size%CHUNKSIZE !=0);
-    for(size_t i = 0, offset = 0; i<numChunks; i++){
-        size_t cursize = min(CHUNKSIZE, (size_t) size - offset);
-        chunks.push_back({offset, cursize});
-        offset += cursize;
-    }
-    ParallelFileCopier pfc(numTh,fdSrc,fdDst);
-    int res = pfc.getResult();
-    close(fdSrc);
-    close(fdDst);
-    if(res) cout<<"failed to copy file"<<endl;
-    else cout<<"successfully copied file"<<endl;
-}
-void createFile(const string& filename, size_t size = 1024 * 1024){
-    int fd = open(filename.c_str(),O_WRONLY|O_CREAT|O_TRUNC, 0644);
-    vector<char> data(size);
-    for(auto i=0;i<size;i++){
-        data[i] = rand()%26+'a';
-    }
-    write(fd,data.data(),size);
-    close(fd);
-    cout<<"created file: "<<filename<<" of size "<<size<<endl;
-}
-
-bool verify(const string& file1, const string& file2) {
-    int fd1 = open(file1.c_str(), O_RDONLY);
-    int fd2 = open(file2.c_str(), O_RDONLY);
-
-    off_t size1 = getFileSize(fd1);
-    off_t size2 = getFileSize(fd2);
-
-    if (size1 != size2) {
-        cerr << "FAIL: size mismatch! " << size1 << " vs " << size2 << "\n";
-        close(fd1);
-        close(fd2);
-        return false;
-    }
-
-    vector<char> buf1(size1), buf2(size2);
-    read(fd1, buf1.data(), size1);
-    read(fd2, buf2.data(), size2);
-
-    close(fd1);
-    close(fd2);
-
-    if (buf1 == buf2) {
-        cout << "PASS: files are identical!\n";
         return true;
     }
-    cerr << "FAIL: content mismatch!\n";
-    return false;
+
+
+
+    private:
+
+    void copychunk(){
+        vector<size_t> chunk;
+        while(true){
+            {       
+                unique_lock<mutex> ul(mtxchunks);
+                cvchunks.wait(ul,[this]{
+                    return  stopped || !chunks.empty();
+                });
+                if(stopped) return;
+                chunk = move(chunks.front());
+                chunks.pop();
+                cout<<"picked chunk "<<chunk[0]<<" "<<chunk[1]<<endl;
+                cvchunks.notify_all();
+            }
+            copychunkhelper(srcfd,dstfd,chunk[0],chunk[1]);
+        }
+    }
+
+    void copychunkhelper(int srcfd, int dstfd, off_t offset, size_t len){
+        vector<char> buf(len);
+        size_t sz =  pread(srcfd,buf.data(),len,offset);
+        if((sz <0 )|| (sz<len)){
+            throw runtime_error("file copy read failed at offset : "+to_string(offset));
+        }
+        sz =  pwrite(dstfd,buf.data(),len,offset);
+        if(sz < len){
+             throw runtime_error("file copy write  failed at offset : "+to_string(offset));
+        }
+        copied += len;
+        cout<<"file copy done at offset :"<<offset<<" len: "<<copied<<endl;
+    }
+    int copierthcnt;
+    size_t chunksize = 1024*2;
+    size_t getFileSize(int fd){
+        struct stat st;
+        if(fstat(fd,&st) < 0) return -1;
+        return st.st_size;
+    }
+    queue<vector<size_t>> chunks;
+    mutex mtxchunks;
+    condition_variable cvchunks;
+    int srcfd, dstfd;
+    atomic<bool> stopped{false};
+    atomic<int> copied;
+
+    vector<thread> workers;
+
+};
+
+
+void testmethod(){
+    string srcfile = "./source_file.dat" ,
+        dstfile = "./dst_file.dat";
+    size_t size = 1024*1024;
+
+    FileManager fm(3);
+    int srcfd = fm.create(srcfile,size); // create + write
+    int dstfd = fm.create(dstfile,size,false); 
+    fm.copy(srcfd,dstfd);
+    this_thread::sleep_for(chrono::milliseconds(10000));
+    fm.stop();
+    cout<<fm.verify(srcfd,dstfd)<<endl;
 }
 
-int main() {
-    const string srcFile = "source_file.dat";
-    const string dstFile = "dest_file.dat";
-    createFile(srcFile);
-    copyFile(srcFile,dstFile,4);
-    verify(srcFile, dstFile);
+int main(){
+    testmethod();
     return 0;
 }

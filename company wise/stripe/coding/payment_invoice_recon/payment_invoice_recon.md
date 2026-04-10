@@ -157,6 +157,7 @@ An exact amount match should win over a fuzzy match.
 Fuzzy match should only happen if there is no exact match.
 Test the edge of the range (e.g., if the difference is exactly 5).
 Make sure the earliest date logic works for all steps.
+
 How to Solve It
 Step 1 Solution: ID Matching
 Plan:

@@ -1,1 +1,8 @@
-There is single Bathroom to be used in a Voting agency for both Democrats(D) and Republicans(R) * This single Bathroom which can accomodate 3 people at most * each person takes f(N) secs to do his thing. f(N) is a function of the person's name and returns varying number * CONDITION: At any given time, the bathroom cannot have a mixed set of people i.e. * CONDITION: Bathroom can have at most 3 people * these combinations aren't allowed (2D, 1R) or (1D,1R) * These are allowed (), (3D), (2D), (1R) i.e. pure Republicans or Pure Democrats * While the bathroom is occupied people are to wait in a queue * What is the most optimal system where you would manage people in this queue, so that * the most eligible person instants gets to use the bathroom whenever its has room, based on above conditions
+There is single Bathroom to be used in a Voting agency for both Democrats(D) and Republicans(R) * This single Bathroom which can accomodate 3 people at most * each person takes f(N) secs to do his thing. f(N) is a function of the person's name and returns varying number 
+* CONDITION: At any given time, the bathroom cannot have a mixed set of people i.e. 
+* CONDITION: Bathroom can have at most 3 people 
+* these combinations aren't allowed (2D, 1R) or (1D,1R) 
+* These are allowed (), (3D), (2D), (1R) i.e. pure Republicans or Pure Democrats 
+* While the bathroom is occupied people are to wait in a queue 
+* What is the most optimal system where you would manage people in this queue, so that 
+* the most eligible person instants gets to use the bathroom whenever its has room, based on above conditions

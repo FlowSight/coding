@@ -43,6 +43,8 @@ How precise should the decimal numbers be?
 Are there duplicate rates in the string?
 Is the input format always correct?
 What happens if I convert USD to USD?
+
+
 Phase 2: One-Step Connection
 Problem Requirements
 Update your solution to handle a "middleman" currency.
@@ -65,6 +67,8 @@ Check for a direct rate first (Phase 1).
 If that fails, look for a single currency that connects the start and end.
 Multiply the two rates together.
 Return None if no single-step path exists.
+
+
 Phase 3: Best Possible Rate
 Problem Requirements
 Sometimes, there are multiple paths between two currencies. You must find the path that gives the maximum exchange rate.
@@ -87,6 +91,7 @@ Find every valid path between the currencies.
 Calculate the total rate for each path.
 Compare them and return the highest number.
 Remember to use both forward and reverse rates.
+
 Phase 4: Any Path Length
 Problem Requirements
 Now, allow conversions through any number of middle currencies. You will need to use graph traversal algorithms like BFS (Breadth-First Search) or DFS (Depth-First Search).

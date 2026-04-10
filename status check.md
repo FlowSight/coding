@@ -1,3 +1,10 @@
+27mar 2026
+- coding:
+    40hards - 13 days
+    revise all - 5/day = 40 days
+
+
+
 - 10 mar 2025
 
 

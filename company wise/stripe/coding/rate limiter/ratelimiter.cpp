@@ -1,53 +1,77 @@
-// Design a rate limiter system that begins with a specified capacity (limit) indicating the maximum number of requests allowed within a certain time interval (ttl, unit: Millisecond). When a new request arrives, return true if it is accepted under the current limit. Otherwise, return false.
-
-// Implement the RateLimiter class:
-
-// RateLimiter(int ttl, int limit) Initializes the rate limiter with a time-to-live window ttl in milliseconds and a maximum limit for the number of requests allowed in that time frame.
-
-// boolean allowRequest() Checks if a new request can be served based on recent requests within the ttl window.
 
 #include <queue>
 #include <chrono>
 #include <iostream>
 #include <thread>
 #include <mutex>
+#include<nlohmann/json.hpp>
+
+using json = nlohmann::json;
+using namespace std;
+
 
 class RateLimiter {
 private:
 public:
-    RateLimiter(long ttl, long limit) {
-        // TODO: Implement RateLimiter constructor logic.
+    RateLimiter(long _limit, long _window_seconds) {
+        maxReq = _limit;
+        window = _window_seconds;
+        maxts = 0;
     }
 
-    bool allowRequest() {
-        // TODO: Implement allowRequest logic.
+    void hit(string userid, long ts) {
+        if(!allowed(userid,ts)) return;
+        maxts = ts;
+        reqs[userid].push_front(ts);
+    }
+    bool allowed(string userid, long ts){
+        if(reqs.find(userid) == reqs.end()) return true;
+        cleanup(userid,ts);
+        return reqs[userid].size() < maxReq;
     }
 
-    static void test1() {
-        std::cout << "========= Test 1 =========" << std::endl;
-        RateLimiter rateLimiter(1000, 5);
+    private:
 
-        // Make 11 requests at a rate faster than the rate limiter allows
-        for (int i = 0; i < 11; i++) {
-            std::cout << "Request " << (i + 1) << " accepted (t=" << (i * 100) << "ms)? : " << (rateLimiter.allowRequest() ? "true" : "false") << std::endl;
-            std::this_thread::sleep_for(std::chrono::milliseconds(100)); // Sleep for 100 milliseconds between requests
-        }
+    void cleanup(string userid, long ts){
+        auto& deq = reqs[userid];
+        long startwinow = ts - window + 1;
+        while(!deq.empty() && (deq.back() < startwinow)) deq.pop_back();
     }
+    long maxReq, window, maxts;
+    unordered_map<string,deque<long>> reqs;
 
-    static void test2() {
-        std::cout << "\n========= Test 2 =========" << std::endl;
-        RateLimiter rateLimiter(1000, 5);
-
-        // Make 10 requests at a rate slower than the rate limiter allows
-        for (int i = 0; i < 10; i++) {
-            std::cout << "Request " << (i + 1) << " accepted (t=" << (i * 300) << "ms)? : " << (rateLimiter.allowRequest() ? "true" : "false") << std::endl;
-            std::this_thread::sleep_for(std::chrono::milliseconds(300)); // Sleep for 300 milliseconds between requests
-        }
-    }
 };
 
+void jsonDemo() {
+    json config = {
+        {"ttl_ms", 1000},
+        {"limit", 5},
+        {"users", 
+            {
+                {"alice", {{"limit",5},{"window",10}}}
+            }
+        }
+    };
+    cout<<config.dump(2)<<endl;
+    auto users = config["users"];
+    if (users.contains("alice")) {
+        cout << config["users"]["alice"]["limit"];  // 5
+    }
+}
+
+
+void testmethod(){
+    RateLimiter limiter(3,10);
+    limiter.hit("user_1", 1);
+    limiter.hit("user_1", 2);
+    cout<<limiter.allowed("user_1", 3)<<endl;
+    limiter.hit("user_1", 3);
+    cout<<limiter.allowed("user_1", 4)<<endl;
+}
+
 int main() {
-    RateLimiter::test1();
-    RateLimiter::test2();
+    jsonDemo();
+    cout << "\n--- Rate Limiter Test ---\n";
+    //testmethod();
     return 0;
 }
