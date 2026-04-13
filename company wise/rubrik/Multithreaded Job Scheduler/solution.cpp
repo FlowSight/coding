@@ -220,3 +220,18 @@ int main() {
     std::cout << "All tests passed.\n";
     return 0;
 }
+
+
+
+// Follow-up 1 (Scalability): How would you optimize throughput for DAGs 
+// with mixed parallelism — wide layers vs. deep sequential chains, 
+//say 10,000 jobs? 
+// ans : 
+// 1. Dynamic thread pool sizing — use something like a work-stealing thread pool. When wide layers hit, more threads are active. During deep chains, idle threads can be parked efficiently (no busy-waiting).
+// 2. Reduce lock contention — your current design has a single mutex for the queue. With 10,000 jobs and many workers, this becomes a bottleneck. Options:
+    // Lock-free concurrent queue
+    // Work-stealing: each worker has its own local deque, steals from others when idle
+
+// 3. Batch enqueuing — when a job with 500 children finishes and all become ready, enqueue them in a single lock acquisition rather than 500 separate lock/unlock cycles.
+
+// 4. Critical path awareness — identify the longest chain in the DAG (critical path) and prioritize those jobs, since they determine the minimum total execution time regardless of parallelism.

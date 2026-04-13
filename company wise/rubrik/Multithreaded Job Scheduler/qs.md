@@ -1,4 +1,4 @@
-asks have dependencies (A → B → C).
+tasks have dependencies (A → B → C).
 You’re given helper APIs like getDependentTasks() to discover the DAG. Starting task is returned when input is blank. Each task has a doWork() function to execute. Rules:
 * Parent tasks must finish before child tasks start.
 * If any task throws an exception → stop everything immediately
