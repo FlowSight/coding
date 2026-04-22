@@ -1,0 +1,26 @@
+constructs
+l1 -> need to define everything ->s3
+l2-> dynamodb/ sensible defaults/ helper methods/ security best practices
+
+l3-> construct pattern / elastic load balancer/ high level abstract constructs
+
+constructs  stacks App
+
+stacks - to organize resources // for logically separating items. // we can pass paramerters in our stack . they can talk to one another. 
+
+one app per project
+but multiple stacks and multiple constructs 
+
+stack is created in app.ts ( with new)
+ and file name in lib 
+nodejs
+
+
+
+create a spring Boot
+
+create s3 bucket and keep spring jar in bucket - make it public 
+
+create a ec2 using cdk  - and add the spring jar with required spring version 
+using elastic beans to host spring host 
+spring boot dynamo using cdk 

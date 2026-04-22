@@ -1,0 +1,9 @@
+Given a string containing characters 'T', 'C', and '.', 'T' represents a token that can move to the right in fixed steps of 3. It cannot move 1 or 2 steps. If there is another 'T' in the target position after jumping 3 steps, it cannot jump. If there is a 'C', the coin can be collected. '.' is a space that 'T' can jump over. Calculate how many coins can be collected by simulating the token's movement.
+
+Input:
+A string of length up to $10^5$ consisting of 'T', 'C', and '.'.
+Output:
+An integer representing the maximum number of coins that can be collected.
+Example
+Input
+T..C..CT.CC
