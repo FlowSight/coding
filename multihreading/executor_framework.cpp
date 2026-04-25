@@ -1,26 +1,4 @@
-/*
- * Executor Framework in C++ (mirrors Java's ExecutorService)
- *
- * Java equivalent:
- *   ExecutorService pool = Executors.newFixedThreadPool(4);
- *   Future<int> f = pool.submit(() -> compute());
- *   int result = f.get();
- *   pool.shutdown();
- *   pool.awaitTermination();
- *
- * Components:
- *   1. ThreadPool        → manages N worker threads + task queue
- *   2. submit(task)      → returns std::future<T> (like Java's Future)
- *   3. shutdown()        → stop accepting, finish pending tasks
- *   4. awaitTermination()→ block until all tasks done
- *
- * C++ tools used:
- *   std::future / std::promise  → async result passing
- *   std::packaged_task          → wraps callable + gives a future
- *   std::function               → type-erased task in the queue
- *
- * Compile: g++ -std=c++14 executor_framework.cpp -o executor_framework && ./executor_framework
- */
+
 
 #include <iostream>
 #include <thread>

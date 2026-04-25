@@ -44,6 +44,8 @@
     3. [Follow-up]:
         a. same as above
         b. even after discussing approaches, re-read the qs and write down the steps to code, and verify with the interviewer
+    4: [GENERAL (for base + followup)]:
+        a. keep taking snapshot of discussion every 1 min cadence(at least) while you are discussing (coding not yet started)
 2. [TIME : ]
     1. ask and write size constrainst
     2. ask and write data types
