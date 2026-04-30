@@ -1,0 +1,7 @@
+find median from large file of integers.
+I was a bit confused when I saw the question... At first glance, it seemed like a Divide Conquer, but merging wasn't easy.
+Thinking about LeetCode's median from stream, I realized I still needed heaps for storage... That didn't seem feasible.
+After trying many things, he started pushing me. He suggested looking at the upper bound and lower bound of the median.
+These two terms immediately made it binary search... I explained my ideas and discussed the complexity...
+
+Thank you for sharing. I'd like to ask you a question: After fixing a `guess`, scan the array and record two values: `smaller` (the number of values ​​less than `guess`) and `larger` (the number of values ​​greater than `guess`). If `smaller` equals `larger`, return `guess` directly; if `smaller` < `larger`, set `start` to `guess`; if `smaller` > `larger`, set `end` to `mid`. However, this doesn't rule out the possibility that `guess` might still be `mid`. The final termination condition is `start + 1 < end`. Then, determine whether the number of values ​​at `start` or `end` is greater. The final judgment should be whether the number of values ​​less than or equal to `start` or greater than or equal to `end` is greater. If one is greater, return their average.
