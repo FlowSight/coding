@@ -19,8 +19,56 @@ Example
 Input:
 
 4 2
-10 5 7 6
+10 5 7 6    
 0101
 Output:
 
 6 7
+
+
+import java.util.*;
+
+class Solution {
+    public int[] lexicographicallyLargestSequence(int[] values, String state, int m) {
+        int n = values.length;
+        int[] result = new int[m];
+
+        // Max heap: stores [value, index]
+        PriorityQueue<int[]> maxHeap = new PriorityQueue<>(
+            (a, b) -> Integer.compare(b[0], a[0])
+        );
+
+        boolean[] unlocked = new boolean[n];
+        int rightmostUnlocked = -1;
+
+        // Initialize available indices
+        for (int i = 0; i < n; i++) {
+            if (state.charAt(i) == '1') {
+                unlocked[i] = true;
+                maxHeap.offer(new int[]{values[i], i});
+                rightmostUnlocked = Math.max(rightmostUnlocked, i);
+            }
+        }
+
+        for (int step = 0; step < m; step++) {
+
+            // Pick lexicographically largest available value
+            int[] best = maxHeap.poll();
+            result[step] = best[0];
+
+            // Preserve current frontier for simultaneous expansion
+            int limit = rightmostUnlocked;
+
+            // Expand one layer to the right
+            for (int i = 0; i <= limit; i++) {
+                if (i + 1 < n && unlocked[i] && !unlocked[i + 1]) {
+                    unlocked[i + 1] = true;
+                    maxHeap.offer(new int[]{values[i + 1], i + 1});
+                    rightmostUnlocked = Math.max(rightmostUnlocked, i + 1);
+                }
+            }
+        }
+
+        return result;
+    }
+}

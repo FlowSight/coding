@@ -22,3 +22,18 @@ Input
 ABAB
 Output
 1 0 1 0
+
+static boolean isValid(String s, int blockSize) {
+    int L = s.length();
+    if (L % blockSize != 0) return false;
+    
+    int[] prefixFreq = getFreq(s, 0, blockSize);
+    
+    for (int j = blockSize; j < L; j += blockSize) {
+        int[] blockFreq = getFreq(s, j, blockSize);
+        if (!areFreqEqual(prefixFreq, blockFreq)) {
+            return false;
+        }
+    }
+    return true;
+}

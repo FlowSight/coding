@@ -7,8 +7,10 @@ The maximum possible system memory capacity.
 Example:
 
 Input: memory = [1, 2, 3, 4]
-Output: 6
-Explanation: An optimal server allocation is primary=[3,4], backup=[1,2], which provides a total primary server memory capacity of 3+3=6.
+Output: 3
+Explanation: An optimal server allocation is primary=[1,2], backup=[3,4], which provides a total primary server memory capacity of 1+2=3. 
+- Primary 1 is supported by backup 3 (3>=1) ✓
+- Primary 2 is supported by backup 4 (4>=2) ✓
 Constraints:
 
 1 <= n <= 10000
