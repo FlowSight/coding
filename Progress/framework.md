@@ -41,11 +41,30 @@
             2. you and you interviewer will AGREE on the approach -> go to step 4
             3 you will not find best approach, but interviewer will ask you to code suboptimal one -> goto step 4
             4 interviewer will move to next qs or drop the interview -> NA
+    3. [Follow-up]:
+        a. same as above
+        b. even after discussing approaches, re-read the qs and write down the steps to code, and verify with the interviewer
+    4: [GENERAL (for base + followup)]:
+        a. keep taking snapshot of discussion every 1 min cadence(at least) while you are discussing (coding not yet started)
 2. [TIME : ]
     1. ask and write size constrainst
     2. ask and write data types
     3. ask and write corner cases and output
-1 write qs key points [TIME : ]
+1. write qs key points [TIME : ]
+    - requirement should be written on TOP, followup qs requirements should also be written. NO EXCEPTION.
+
+
+
+
+// tmp revision steps:
+1.   
+2. 
+
+TODO:
+1. how to attempt open book exam
+2. how to attempt unseen qs
+3. deep cpp knowledge (jane street) 
+
 
 
 
@@ -55,5 +74,3 @@ AQ = Approach question = "i think this is most optimal that i can think of. are 
 intro : I am Anirban, a enginner at Microsoft, leading a team of 5 in Project Operations Time Entry module developing Agentic ERP systems. Before this I was at cohesity where I joined (after Graduating from IIT Roorkee)to work on enterprise backup restore where my work is filed for a patent. Love to travel, paint. Looking forward to this conversation.
 
 If probed : MSFT : latest work Time Agent is one of first agents introduced by Satya in KeyNote.
-
-sbi wa : 9022690226

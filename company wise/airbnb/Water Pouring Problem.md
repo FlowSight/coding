@@ -18,3 +18,5 @@ Input
 jug1 = 3
 jug2 = 5
 target = 4
+
+//bfs

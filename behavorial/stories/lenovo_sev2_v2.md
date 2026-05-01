@@ -52,6 +52,7 @@ __
 3. Introduce audit-enabled variations of all existing scenarios in release sign-off testing.
 4. Start a office hours between data modelling group and our product group, to make us aware of any change being introduced in upstream. Im working to improve the participation in this forum.
 5. Enhanced telemetry to capture audit scenarios
+6. Rollback of our module particularly by removing existing depedencies with many solutions inside bigger package.
 
 It taught me that while failures are inevitable, **how you respond defines your impact**.
 

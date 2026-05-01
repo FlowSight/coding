@@ -39,7 +39,7 @@ ACTION:
 - I took that extreme distribution and becnhmarked avg record create+update latency around 200ms with stringified json path
 - I tested the parallel hypothesis which M suggested in option 1 to track the editor per column via a different table along with the extreme distribution. 
 - It turned out that 2 new table lookup(one for editor, one for enum) infact resulted 100ms-200ms worse latency than existing approach which means at worst 8sec added latency per user runtime.
-- On option 2, my peer and I benchmarked non-clustered index with full-text index even with 3 tracked columns, to my surprise the latter resulted at least 100ms faster on avg.
+- On option 2, my peer and I benchmarked non-clustered index vs full-text index even with 3 tracked columns, to my surprise the latter resulted at least 100ms faster on avg.
 - Given no major improvement proven by experiment with option 1, I called up a larger forum with M1, M2 , stakeholders and the architect M. 
 - Presented our finding with numbers, let the forum decide. I had put my recommendation i.e keeping current change with option 2, as that will have no impact on the work done by all 4 teams.
 - Forum agreed, which I established over email. Un-reverted the commit with added change of full-text index.
