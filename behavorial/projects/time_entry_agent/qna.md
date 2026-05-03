@@ -63,3 +63,22 @@ A:
 - Custom API = server-side C#/.NET endpoint registered in Dataverse, callable via HTTP (e.g., `POST /api/data/v9.2/msdyn_CreateTimeEntries`)
 - **MCS is a separate service from Dataverse** — different compute, different infra. Even though both are "Microsoft cloud," they communicate over HTTP. Not co-located.
 - Same reason Power Automate → Dataverse is HTTP — they're all separate services in the Microsoft cloud backbone
+- **"Same org" = logical boundary, not physical.** "Org" is a config row / tenant ID in the auth token — not a deployment unit. MCS, Power Automate, and Dataverse are independently scaled microservices running on separate clusters. MCS cluster serves ALL orgs, Dataverse cluster serves ALL orgs — they don't share processes or memory.
+- Analogy: Gmail and Google Drive are in the same Google account but they're separate services that share your identity — same concept here.
+
+**Q: If orgs are in different regions (e.g., NAM vs Asia), do HTTP calls go cross-region?**
+A:
+- **No.** Each service (MCS, Dataverse, Power Automate) has **regional deployments**. All HTTP calls stay intra-region.
+- Org in NAM → PAF (NAM) → MCS (NAM) → Dataverse (NAM). Org in Asia → all calls within Asia.
+- **What IS global**: Tenant identity (Entra ID). Auth token issuance may hit a global endpoint, but data plane calls are regional.
+- Cross-region HTTP would add 100-300ms per call — unacceptable with multiple tool calls per user. Architecture ensures data sovereignty + low latency by keeping data plane regional.
+
+**Q: How does PAF (Asia) know MCS (Asia)'s HTTP address? Is there a service registry?**
+A:
+- **No runtime service registry** (not Consul/Eureka). Endpoint resolution is **deterministic from the region**.
+- Three mechanisms:
+  1. **Well-known URL patterns**: Services have deterministic regional URLs (e.g., `crm5.dynamics.com` = Asia, `crm.dynamics.com` = NAM). If you know the region, you know the URL.
+  2. **Environment metadata**: Each environment stores its region. Any service reading the environment context knows which regional endpoint to call.
+  3. **Connectors**: PAF doesn't make raw HTTP calls — it uses connectors (MCS connector, Dataverse connector) that encapsulate endpoint resolution logic internally.
+- Flow: PAF starts flow → reads environment context (knows it's Asia) → MCS connector resolves Asia → `https://asia.api.copilot.microsoft.com` → HTTP call → MCS reads tenant/env from auth token, scopes accordingly.
+- Key point: endpoints are deterministic from the region, so no runtime discovery is needed.
