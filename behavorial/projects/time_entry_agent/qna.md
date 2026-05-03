@@ -82,3 +82,12 @@ A:
   3. **Connectors**: PAF doesn't make raw HTTP calls — it uses connectors (MCS connector, Dataverse connector) that encapsulate endpoint resolution logic internally.
 - Flow: PAF starts flow → reads environment context (knows it's Asia) → MCS connector resolves Asia → `https://asia.api.copilot.microsoft.com` → HTTP call → MCS reads tenant/env from auth token, scopes accordingly.
 - Key point: endpoints are deterministic from the region, so no runtime discovery is needed.
+
+**Q: give key time breakdowns**
+
+action1 :  6sec median
+action 2 : 4sec median
+total : 8 sec median  (as most runs are without action2)
+action1 breakdown : Ra(2sec) + RB(1sec) + TE(1sec) + intersec (2sec) + creat (1sec)
+before optimizing : 10k users = 7days 50k users = 35 days
+after optimizing : 1days and 5days
