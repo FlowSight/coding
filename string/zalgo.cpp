@@ -3,6 +3,7 @@ vector<int> getZ(const string& s) {
     vector<int> z(n);
     int left = 0, right = 0;
     
+    // imp to start from 1, as z[0] = n trivial
     for (int i = 1; i < n; i++) {
         if (i <= right) {
             // i is inside the Z-box [left, right]

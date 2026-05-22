@@ -52,6 +52,7 @@ Choose someone who reflects:
 ---
 
 # 3. Talk About a Failure
+- lenovosev2
 
 ### Structure:
 
@@ -79,15 +80,34 @@ Choose someone who reflects:
 
 # 4. Biggest Mistake That Negatively Impacted Others
 
-### Example:
+### Context: Change Order Management Feature (Temporary Team Move)
 
-> “At one point, I underestimated the communication needed during a project transition, which caused confusion for team members relying on my deliverables. Although the issue was resolved quickly, it reinforced how critical proactive communication is when others depend on you.”
+### Structure: Situation → Assumption → Impact → Lesson → Growth
+
+### Answer:
+
+> **Situation:** I was temporarily moved to another team to help expedite a high-priority, large-scope feature called Change Order Management. The team had a lead engineer and one other engineer. The manager explained the timeline and mentioned the lead would lead the project. There were already regular sync-ups happening, and my role was to join and accelerate delivery.
+>
+> **What I assumed:** I assumed the lead would drive project direction—clarify requirements, set timelines, and coordinate with the PM. So I focused on what I thought was my lane: picking up chunks of work, understanding the scope.
+>
+> **What went wrong:** The spec was vague, and the same questions were being answered differently across follow-up calls with the PM, which caused engineering rework. Because I hadn't taken ownership of driving alignment, nobody was catching these inconsistencies early enough. The lead, who hadn't been deeply involved, eventually stepped in to gather a timeline and set up more frequent PM sync-ups. Then I learned that feedback had come from the PM that the team was moving slow. Worse, I discovered the actual expectation: the lead was only meant to step in for technical doubts—**I** was expected to lead the whole effort, clarify requirements, and put timelines in place.
+>
+> **The mistake:** I didn't proactively clarify my role and expectations on day one. I assumed someone else would lead, so I didn't drive the ambiguity out of the spec, didn't challenge inconsistent answers, and didn't own the timeline. That lack of ownership created confusion, rework for my teammates, and a negative perception of our velocity with the PM.
+>
+> **What I learned:** When you join a new team—especially under urgency—you can't wait for clarity to come to you. You have to own it from the start: confirm your role explicitly, drive alignment with stakeholders, and surface ambiguity before it becomes rework. Since then, whenever I join a new initiative, the first thing I do is align on who owns what, establish a cadence with stakeholders, and document decisions so the team isn't working off conflicting information.
 
 ### Focus:
 
-* Ownership
-* Empathy
-* Responsibility
+* **Ownership** — Not stepping up to lead when it was expected of me
+* **Empathy** — My inaction caused rework and frustration for teammates
+* **Responsibility** — Took accountability and changed how I approach new team engagements
+* **Proactive communication** — Learned to clarify role, expectations, and spec ambiguity upfront
+
+### Why this works for Airbnb:
+* Shows genuine self-awareness about a real mistake (not a humble brag)
+* Demonstrates growth: from passive participant to proactive owner
+* Highlights the importance of belonging—when you join a team, you must integrate fully, not stay on the sidelines
+* Connects to Airbnb's value of "be a host"—take responsibility for the experience, don't wait for others
 
 ### Related Stories:
 * [Tendency to take on too much during crises](../../../behavorial/stories/biggest_weakness_v1.md) - Impact on team when not delegating or preparing them for uncertainty; learned to shift from "rescuer" to "multiplier"
@@ -172,7 +192,9 @@ Highlight:
 
 ### Your Answer (Excellent):
 
-> “I would travel the world, immerse myself in different cultures, and document human stories. I believe understanding people from diverse backgrounds creates empathy, wisdom, and a richer perspective on life.”
+ "I would travel the world, immerse myself in different cultures, and document human stories. I believe understanding people from diverse backgrounds creates empathy, wisdom, and a richer perspective on life.
+>
+> Beyond that, I'd find ways to help people who are genuinely helpless in healthcare—patients in critical need who become victims of suboptimal treatment, delayed care, or worse, no treatment at all. Whether through an organization or individual effort, I'd want to support them both financially and by helping them navigate the system to get the care they deserve."
 
 ### Why this is perfect:
 
@@ -180,21 +202,35 @@ Highlight:
 * Travel
 * Cultural curiosity
 * Belonging
+* Genuine empathy and desire to help the most vulnerable
+* Shows depth beyond personal fulfillment—oriented toward impact on others
 
 ---
 
 # 10. Would You Read a Book About Your Entire Life?
 
+### What this question is really asking:
+* Are you reflective? Can you look at your past honestly, including the hard parts?
+* Do you have emotional resilience? Would you confront uncomfortable truths, or avoid them?
+* How do you relate to your own journey — with pride, regret, or growth?
+
 ### Your Answer:
 
-> “Absolutely. I’d call it ‘Small Town Boy with a Million Dollar Dream.’ It would remind me how ambition, resilience, and continuous growth shaped my journey.”
+> "Absolutely. I'd call it *'Small Town Boy with a Million Dollar Dream.'*
+>
+> I'd start from the early chapters — where I had nothing going for me, but always carried a huge dream that nobody around me acknowledged. I'd want to re-read all the discouragement, the people who said it wouldn't work out, because looking back now, those chapters prove that willpower overpowers everything. You just can't take 'no' for an answer.
+>
+> And then I'd flip to the parts where I was scared of taking big steps — postponing interviews, avoiding the tough conversation with my manager about promotion. Reading those chapters now would honestly make me smile, because I eventually realized it only took one step and a little bit of courage. The fear was always bigger than the action.
+>
+> I'd read the whole thing — not because every chapter would be easy to revisit, but because the arc from that small-town dreamer to where I am now is a story I'd want to hold onto."
 
 ### Why this is powerful:
 
-* Memorable
-* Personal
-* Inspirational
-* Shows ambition
+* Vulnerable and authentic — admits fear and self-doubt openly
+* Shows growth arc — from discouraged dreamer to someone who takes action
+* Reflective without being sentimental — looks back with humor and wisdom
+* The title is memorable and personal
+* Hits Airbnb's values: resilience, belonging, and the belief that where you start doesn't define where you end up
 
 ---
 

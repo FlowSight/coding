@@ -1,3 +1,39 @@
+/// Severity: Sev1
+// Date: 17May26
+// LC: 502
+// Where I failed: implemetation took time
+// Pattern: greedy 2d, sort by one dimen, then pq by another dimen
+// Notes: sev0..sev0..
+
+
+
+class Solution {
+public:
+    typedef vector<int> vi;
+    typedef vector<vi> vvi;
+    int findMaximizedCapital(int k, int w, vector<int>& profits, vector<int>& capital) {
+        vvi arr; // {cap,prof}
+        int n = profits.size(), idx = 0, taken = 0;
+        priority_queue<pair<int,int>> pq; // {prof,cap used}
+        for(auto i=0;i<n;i++){
+            arr.push_back({capital[i],profits[i]});
+        }
+        sort(arr.begin(),arr.end());
+        while(k--) {
+            while((idx<n) && (arr[idx][0] <= w) ) {
+                pq.push({arr[idx][1],arr[idx][0]});
+                idx++;
+            }
+            if(pq.empty()) break;
+            auto pick = pq.top();
+            pq.pop();
+            w = (w+pick.first);
+        }
+        return w;
+    }
+};
+
+
 class Project{
     public:
     int profit, capital;
