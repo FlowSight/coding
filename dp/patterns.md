@@ -59,6 +59,27 @@
 - Maintain set of lines, query minimum at point x
 - Use: divide & conquer optimization, Knuth's optimization, linear recurrences with slope
 
+## 12. Profile DP / State Compression on Narrow Grids
+- Grid is narrow (few columns) but long (many rows)
+- Enumerate all valid row configurations, group into equivalence classes by "type"
+- dp[row][type] with transitions between types — reduces exponential states to constant
+- Can also use bitmask to encode full row state when columns ≤ ~20
+- Examples:
+  - Paint n×3 grid (LC 1411): 12 valid rows → 2 types (ABC, ABA), O(1) transition per row
+  - Domino/tromino tiling (LC 790): track which cells in current row are filled
+  - Broken profile DP: bitmask of boundary between placed and unplaced cells
+- Use: narrow grid coloring, tiling, placing non-attacking pieces on narrow board
+
+## 13. Weighted Interval/Job Scheduling
+- Sort intervals by end time
+- dp[i] is inclusive of 0..i
+- think of left-to-right and opposite
+- Binary search for the last non-conflicting interval (rightmost with end < current start) (LC 1751), else you can keep the time points sorted and have a running dp on timestamps, then dp[starttime] we should look for 
+- dp[i] = max value considering first i intervals
+- Recurrence: dp[i] = max(dp[i-1], dp[bsIdx+1] + value[i]) — skip or take
+- Complexity: O(n log n + nk) with precomputed binary search indices
+- Use: LC 1235 (max profit job scheduling), LC 1751 (max events attended II), LC 435/452 variants
+
 ## Key Gotchas
 - Define states precisely — what does dp[i] represent? What are the transitions?
 - Overlapping subproblems? If not, it's just recursion (no memoization needed)

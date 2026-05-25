@@ -11,6 +11,8 @@
 - Modular inverse: a^(-1) mod p = a^(p-2) mod p (Fermat's, p prime)
 - Use nCr mod p via precomputed factorials + inverse factorials
 - **Gotcha**: subtraction needs +mod before %mod to avoid negatives
+- **Gotcha**: (a % mod) / b ≠ (a/b) % mod — division under mod requires modular inverse, never plain /
+- **Gotcha**: recursive mypow with memoization only works if base is constant across calls. For different bases (e.g., computing inverse of 2, 3, 4...), use iterative pow or precompute inverses.
 
 ## 3. GCD / LCM
 - Euclidean: gcd(a,b) = gcd(b, a%b), base gcd(a,0) = a

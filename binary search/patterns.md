@@ -41,3 +41,4 @@
 - **Loop termination**: lo < hi (converges to answer) vs lo <= hi (searches exact)
 - **Overflow**: mid = lo + (hi-lo)/2, not (lo+hi)/2
 - Identify monotonic property first — if no monotonicity, binary search won't work
+- always do if(l+1==r) check
