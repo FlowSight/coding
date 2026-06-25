@@ -39,6 +39,10 @@
 - Monotone stack for "remove k digits" type problems
 - Use: largest number, remove K digits, smallest subsequence
 
+## 9. Unconstrained Batch Reduction
+- If you can pick any K elements per operation (no restriction on which K): answer = ceil(total_work / K)
+- Use: LC 3495 (pick any 2, divide by 4)
+
 ## When Greedy Works
 - Optimal substructure + greedy choice property
 - If local optimal → global optimal (prove via exchange argument)

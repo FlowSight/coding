@@ -1,88 +1,155 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include<bits/stdc++.h>
 using namespace std;
 
-// Rerooting DP - O(n) time, O(n) space
-// Cities are 1-indexed in input, result[i] = answer for city (i+1)
-vector<int> countReverseEdges(int n, int edges, vector<int>& gfrom, vector<int>& gto) {
-    // Convert to 0-indexed; weight 0 = original direction (free), 1 = reversed (costs 1)
-    vector<vector<pair<int,int>>> adj(n);
-    for (int i = 0; i < edges; i++) {
-        int u = gfrom[i] - 1, v = gto[i] - 1;
-        adj[u].push_back({v, 0});
-        adj[v].push_back({u, 1});
+
+struct Task
+{
+    public:
+    string id, payload, status;
+    int maxret,delaysec, retrycnt;
+    
+    Task() = default;
+    Task(string _id, string _payload, int _maxret, int _delay){
+        id = _id;
+        payload = _payload;
+        maxret = _maxret;
+        delaysec = _delay;
+        status = "not picked";
+        retrycnt = 0;
+    }
+    /* data */
+};
+
+class TaskStore  {
+    int ts;
+    set<pair<int,string>> invisibletasks;
+    unordered_map<string,int> tasktovisibilitytomap;
+    set<pair<int,string>> taskqueue;
+    unordered_map<string,string> taskworkermap;
+    unordered_map<string,Task> taskmap;
+    unordered_map<string,int> workertovisibilityto;
+
+
+    TaskStore(){
+        ts = 0;
+    }
+ //Adds a task to the pending queue. If delaySeconds > 0, the task    must not be claimable before now + delaySeconds.  
+void enqueue(string taskId, string payload, int delaySeconds, int maxRetries) {
+
+    Task task(taskId,payload,maxRetries,delaySeconds);
+    taskmap[taskId] = task;
+    taskqueue.insert({delaySeconds+ts,taskId});
+    ts++;
+}
+ 
+
+
+//Atomically claims the next available task for workerId.    The task must not be visible to other workers for visibilityTimeout seconds.    Returns null if no tasks are ready.  
+string claimNext(string workerId, int visibilityTimeout) {
+    
+    auto task = *(taskqueue.begin());
+    taskqueue.erase(taskqueue.begin());
+
+    auto& taskobj = taskmap[task.second];
+    taskobj.status = "queued";
+    taskobj.retrycnt++;
+
+    workertovisibilityto[workerId] = visibilityTimeout;
+    taskworkermap[workerId] = task.second;
+    int timeout = visibilityTimeout+ts;
+    invisibletasks.insert({timeout,task.second});
+    tasktovisibilitytomap[task.second] = timeout;
+
+
+    ts++;
+}
+
+//Extends the visibility timeout of a claimed task by visibilityTimeout.    Returns false if the task is no longer owned by this worker.  
+bool heartbeat(string taskId, string workerId) {
+    auto it = taskworkermap.find(workerId);
+    if(it == taskworkermap.end()) return false;
+
+
+    auto taskid = it->second;
+    auto timeout = tasktovisibilitytomap[taskid];
+
+    auto it = invisibletasks.find({timeout,taskid});
+    invisibletasks.erase(it);
+
+    auto visibilityto = workertovisibilityto[workerId];
+    timeout += visibilityto;
+
+    invisibletasks.insert({timeout,taskId});
+
+}
+
+// Marks a task as SUCCEEDED. Throws if taskId not owned by workerId. 
+void complete(string taskId, string  workerId) {
+    auto it = taskworkermap.find(workerId);
+    if(it == taskworkermap.end()) {
+        throw runtime_error("not owned");
+    }
+    if(it->second != taskId) {
+         throw runtime_error("not owned");
     }
 
-    vector<int> ans(n, 0);
-    vector<bool> visited(n, false);
+    auto& taskobj = taskmap[taskId];
+    taskobj.status = "SUCCEEDED";
 
-    // BFS1: compute ans[0] = cost for node 0 to reach all others
-    vector<int> stk;
-    stk.push_back(0);
-    visited[0] = true;
-    int cost0 = 0;
+    auto visto = tasktovisibilitytomap.find(taskId);
+    invisibletasks.erase(invisibletasks.find({visto,taskId}));
 
-    while (!stk.empty()) {
-        int u = stk.back();
-        stk.pop_back();
-        for (auto& [v, w] : adj[u]) {
-            if (!visited[v]) {
-                visited[v] = true;
-                cost0 += w;
-                stk.push_back(v);
-            }
-        }
+    taskworkermap.erase(taskworkermap.find(taskId));
+} 
+
+// Marks the execution attempt as failed. If retries remain, re-schedules    the task with exponential backoff. Otherwise moves it to DLQ. 
+void fail(string taskId, string workerId, string error) {
+    auto it = taskworkermap.find(workerId);
+    if(it == taskworkermap.end()) {
+        throw runtime_error("not owned");
     }
-    ans[0] = cost0;
-
-    // BFS2: reroot - ans[child] = ans[parent] + 1 - 2*w
-    fill(visited.begin(), visited.end(), false);
-    visited[0] = true;
-    stk.push_back(0);
-
-    while (!stk.empty()) {
-        int u = stk.back();
-        stk.pop_back();
-        for (auto& [v, w] : adj[u]) {
-            if (!visited[v]) {
-                visited[v] = true;
-                ans[v] = ans[u] + 1 - 2 * w;
-                stk.push_back(v);
-            }
-        }
+    if(it->second != taskId) {
+         throw runtime_error("not owned");
     }
 
+    auto& taskobj = taskmap[taskId];
+    taskobj.status = "Failed";
+    taskobj.retrycnt++;
+
+    if(taskobj.retrycnt == taskobj.maxret) {
+        cout<<"move to DLQ"<<endl;
+    } else {
+        taskqueue.insert({taskobj.retrycnt * 10 +ts,taskId});
+    }
+
+    auto visto = tasktovisibilitytomap.find(taskId);
+    invisibletasks.erase(invisibletasks.find({visto,taskId}));
+
+    taskworkermap.erase(taskworkermap.find(taskId));
+}   
+ 
+//Returns the current state of the task. 
+string getStatus(string taskId) {
+    auto taskobj = taskmap[taskId];
+    return taskobj.status;
+}    
+ 
+//Scans for tasks whose visibility timeout has expired and re-queues them.    Returns count of tasks re-queued. (Called by a background sweeper.)
+int reapStuckTasks(){
+    int ans = 0;
+    while (invisibletasks.size()){
+        auto it = invisibletasks.begin();
+        if(it->first < ts) {
+            ans++;
+            taskqueue.insert({ts,it->second});
+            invisibletasks.erase(it);
+        } else break;
+    }
     return ans;
-}
+} 
 
-// ---------- Test Harness ----------
-void printVec(const vector<int>& v) {
-    cout << "[";
-    for (int i = 0; i < (int)v.size(); i++) {
-        cout << v[i] << (i + 1 < (int)v.size() ? ", " : "");
-    }
-    cout << "]" << endl;
-}
 
 int main() {
-    // Test 1: n=4, edges: 1->4, 2->4, 3->4 (star toward 4)
-    {
-        int n = 4, edges = 3;
-        vector<int> gfrom = {1, 2, 3}, gto = {4, 4, 4};
-        cout << "Test 1: ";
-        printVec(countReverseEdges(n, edges, gfrom, gto));
-        // Expected: [2, 2, 2, 3]
-    }
-
-    // Test 2: n=4, edges: 1->2, 2->3, 3->4 (chain)
-    {
-        int n = 4, edges = 3;
-        vector<int> gfrom = {1, 2, 3}, gto = {2, 3, 4};
-        cout << "Test 2: ";
-        printVec(countReverseEdges(n, edges, gfrom, gto));
-        // Expected: [0, 1, 2, 3]
-    }
 
     return 0;
 }

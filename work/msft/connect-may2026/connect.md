@@ -34,19 +34,35 @@
 
 #### CSS Queries
 
-TODO
+Handled CSS queries promptly — timely responses with accurate RCA and mitigations.
+
+#### Prior Connect Goals Addressed
+
+- **Main deliverable without major issues** → Modern Time Entry Grid (Dec–Feb, on-time)
+- **Significant AI usage** → Used AI (Copilot) as a core part of my workflow across Modern Grid + Change Order: refining feature specs, exploring design alternatives, generating PR code, and conducting code review. Contributed to 10+ PRs and 10k+ LOC with AI assistance.
+- **Cross-functional impact** → Change Order Management (cross-team with Budget)
+- **Mentorship/support** → Guided Nikita  (Modern Grid + flaky tests), Rupal (Bugs, ramp up).
+- **New topic learnt** → Budgeting model ramp-up, LongRunningJob framework adoption, AI Skillup L200 course.
 
 ### b. Features
 
 **Modern Time Entry Grid (#6067408)**
 
-Led feature end-to-end to on-time completion. 3k+ lines across 10+ PRs (Jan–Mar 2026). Guided Nikita on implementation — designed column visibility control pattern together. Iterative testing with PM (Mohit); shipped, reverted on feedback, re-shipped. Default grid switch for UR65. Feature flag for staged rollout. Leveraged AI throughout — spec refinement, design exploration, PR creation, code review. Fulfills prior Connect goal: *deliver at least 1 main Time Management deliverable successfully without major issues.*
+Led feature end-to-end to on-time completion. 3k+ lines across 10+ PRs. Guided Nikita on implementation — designed column visibility control pattern together. Iterative testing with PM (Mohit); shipped, reverted on feedback, re-shipped. Default grid switch for UR65. Feature flag for staged rollout. Leveraged AI throughout — spec refinement, design exploration, PR creation, code review. Delivered all of this within a compressed Dec–Feb timeline through the holiday season — fulfilling prior Connect goal: *deliver at least 1 main Time Management deliverable successfully without major issues.*
+
+**Change Order Management (cross-team with Budget)**
+
+Co-leading design and development with Anshul and Sunil since Mar 2026. Enables amendments to approved contracts — change orders update contract/contract line attributes and actuals on approval.Ramped up on budgeting model, refined the spec multiple iterations with Pooja, then contributed design decisions, corner-case analysis, alternative approaches. 7k+ lines across 12+ PRs: staging tables, change order item forms, price lists, chargeable roles, customer entities. Phase 1 design ~80% finalized, active development ongoing.
 
 ---
 
 ## 2. Reflect on recent setbacks — what did you learn and how did you grow?
 
-TODO
+**Siemens Sev 2 — Time Off corruption fix:**
+
+- **Review miss:** Approved Nikita's RCA PR without unit tests under time pressure — the gap was caught later. I've since made it a practice to enforce test coverage on high-stakes changes regardless of urgency.
+- **Redesign churn:** Went through 3 redesigns as stakeholders had conflicting opinions on approach. This taught me to drive design alignment upfront before committing to code by analyzing pros/cons before the call to help the team align instead of gathering opinions and deciding on spot.
+- **Late-stage testing gaps:** Timezone bugs surfaced only in the final testing round by PM. I now explicitly test edge cases (TZ boundaries, DST) early in the cycle rather than relying on happy-path validation, by listing down corner cases from PM early on, which I'm practicing in Chnage Order feature.
 
 ---
-*Draft in progress — last updated: 2026-05-25*
+*Draft in progress — last updated: 2026-05-26*
