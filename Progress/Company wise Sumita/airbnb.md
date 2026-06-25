@@ -1,0 +1,19 @@
+- remainings
+    - coding:
+        - 10 new qs in airbnb.pdf
+        - revision of airbnb.pdf
+        - medium qs revision of airbnb leetcode
+        - mocks
+    - sysdes
+        - hello int hard ones revision
+        - airbnb qs from Hello int prepare
+        - airbnb.pdf sys des qs 
+    - project dis
+        - one cohesity project prep
+        - revise and criticize existing project
+        - i need more numbers and parameters(specific, consistent) for all projects
+        - mock
+    - behav:
+        - revise
+        - airbnb qs prepare + revise
+        - mock
