@@ -1,3 +1,7 @@
+hard count : x
+med count : 
+
+
 # Topic-Wise Progress Tracker
 
 > **Last Updated**: 26 May 2026
@@ -22,6 +26,8 @@
 ### BFS
 ### DFS
 ### Topological Sort
+    leetcode 1234 
+    misc    row no 
 ### Dijkstra
 ### Bellman-Ford (TODO)
 ### Union-Find
