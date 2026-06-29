@@ -1,23 +1,36 @@
 
+/// Severity: Sev0
+// Date: 29Jun26
+// LC: 2263
+// Where I failed: got confused in dp state
+// Pattern: dp with prefix min
+// Notes: additional_notes
 
 
-    int helper(vector<int>& nums, set<int>& levels) {
+
+class Solution {
+public:
+    set<int> ss;
+    int helper(vector<int> arr){
         unordered_map<int,int> dp;
-        for(auto num : nums) {
-            int cur_res = INT_MAX;
-            for(auto level : levels) {
-                cur_res = min(cur_res, dp[level]+abs(num-level));
-                dp[level] = cur_res;
+        for(auto it : arr){
+            int cur = INT_MAX;
+            for(auto it1 : ss){
+                dp[it1] = cur = min(cur,dp[it1] + abs(it1-it));
             }
         }
-        return dp[*--levels.end()];
+        return dp[*prev(ss.end())];
     }
     int convertArray(vector<int>& nums) {
-        set<int> levels(nums.begin(),nums.end());
-        vector<int> nums2 = nums;
-        reverse(nums2.begin(),nums2.end());
-        return min(helper(nums,levels),helper(nums2,levels));
+        for(auto it : nums)ss.insert(it);
+        vector<int> arr = nums;
+        reverse(arr.begin(),arr.end());
+        return min(helper(arr),helper(nums));
     }
+};
+
+// dp[i][j] = till i, keeping arr[i] <=j and 0..i non-decreasing, min score is how much?
+//      = min(dp[i-1][x] + abs(arr[i]-x) ) for x<=j
 
     
 

@@ -114,6 +114,15 @@ Use: LC 3743 (maximize cyclic partition score), LC 188 (buy sell stock IV)
   (one item can cover any amount ≤ its full coverage)
 - Use: LC 2742 (painting the walls)
 
+## 17. Monotone Sequence DP (Make Array Non-Decreasing)
+- Goal: min cost to make array monotone by changing elements
+- State: dp(i, j) = min cost for 0..i with nums[i] ≤ j (prefix-min version)
+- Recurrence: dp(i, j) = min_{level0 ≤ j}(dp(i-1, level0) + |nums[i] - level0|)
+- Optimization: iterate targets in sorted order, keep running min → O(n * |distinct values|)
+- Coordinate compression: optimal target values are always a subset of original array values
+- Non-increasing: reverse the array and solve non-decreasing
+- Use: LC 2263, LC 2098 (subsequence variant uses heap instead)
+
 ## Key Gotchas
 - Define states precisely — what does dp[i] represent? What are the transitions?
 - Overlapping subproblems? If not, it's just recursion (no memoization needed)
