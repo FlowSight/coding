@@ -232,6 +232,7 @@ Financial services (compliance, on-prem):
 ## 9. Performance Optimization
 
 ### Indexing:
+- cluster already on vectors _> search ann on cluster -> then docs
 - Batch inserts (don't insert one-by-one)
 - Pre-warm index after build
 - Choose right index type for your read/write ratio

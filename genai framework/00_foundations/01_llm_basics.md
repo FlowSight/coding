@@ -21,10 +21,18 @@ Input Text → Tokenizer → Embeddings → [Transformer Blocks × N] → Output
 1. **Self-Attention**: Each token attends to all other tokens. Computes Q, K, V matrices.
    - Attention(Q,K,V) = softmax(QK^T / √d_k) × V
    - Multi-head attention: multiple attention heads capture different relationships
+    - a word/token is e.g. 4096 dimension, if there are 64 heads each head works on 4096/64 = 64 dimensions
+    - heads are random initialized , trained during pre-training
    
 2. **Feed-Forward Network**: Position-wise MLP after attention layer
 
 3. **Layer Normalization**: Stabilizes training
+    - Each token is normalized independently.
+    - Original Transformer (Post-Norm):
+        x → Attention → Add(x + result) → LayerNorm → FFN → Add → LayerNorm
+
+    - Modern LLMs like GPT/Llama (Pre-Norm):
+        x → LayerNorm → Attention → Add(x + result) → LayerNorm → FFN → Add
 
 4. **Positional Encoding**: Since attention is permutation-invariant, positions are encoded
    - Original: sinusoidal
@@ -54,6 +62,23 @@ Stage 3: RLHF / DPO (alignment with human preferences)
 ### Fine-tuning:
 - **Full fine-tuning**: Update all weights (expensive)
 - **LoRA/QLoRA**: Low-rank adaptation, update small matrices (efficient)
+                    ┌─────────────────┐
+Input x ──────────→│  W (frozen)     │──────→ + ──→ Output
+       │           └─────────────────┘        ↑
+       │           ┌──────┐  ┌──────┐         │
+       └──────────→│ A    │→ │ B    │─────────┘
+                   │4096×r│  │r×4096│
+                   └──────┘  └──────┘
+                   (trainable, r=8 or 16)
+    Original weight matrix W: [4096 × 4096] = 16M parameters
+
+    LoRA: freeze W, learn two tiny matrices instead:
+    A: [4096 × 16]  = 65K params
+    B: [16 × 4096]  = 65K params
+    
+    Output = W·x + A·B·x    (original + low-rank update)
+                    ↑
+            130K params instead of 16M (99.2% reduction!)
 - **Instruction tuning**: Train on (instruction, response) pairs
 
 ### Alignment:
