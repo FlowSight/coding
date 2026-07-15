@@ -5,6 +5,8 @@
 > **Interview Date**: TBD  
 > **Last Updated**: 18 Feb 2026  
 
+This file contains list of questions and topics to be minimally covered for google L5 coding
+
 ---
 
 ## 🎯 Hard Problems Goal
@@ -146,16 +148,15 @@
 | 6 | Sum of Subarray Minimums | 907 | M | ⬜ | Monotonic stack pattern |
 | 7 | Online Stock Span | 901 | M | ⬜ | |
 
-### 1.3 Advanced Graph  `[1/7 done]`
-| # | Problem | LC# | Difficulty | Status | Notes |
-|---|---------|-----|-----------|--------|-------|
-| 1 | Course Schedule II (Topological Sort) | 210 | M | ⬜ | Clean template |
-| 2 | Alien Dictionary | 269 | H | ✅ | Already done — revisit |
-| 3 | Longest Increasing Path in Matrix | 329 | H | ⬜ | Topo sort + memoization |
-| 4 | Critical Connections in a Network | 1192 | H | ⬜ | Tarjan's bridges |
-| 5 | Strongly Connected Components | — | — | ⬜ | Tarjan's/Kosaraju template |
-| 6 | Minimum Cost to Reach City With Discounts | 2093 | M | ⬜ | Modified Dijkstra |
-| 7 | Swim in Rising Water | 778 | H | ⬜ | Binary Search + BFS / UF |
+### 1.3 Graph Basic
+  - BFS
+  - DFS
+  - UF
+  - Trie
+  - MST
+  - Dijkstra
+  - Floyed warshall
+  - bellman ford
 
 ### 1.4 Bitmask DP / Advanced Bits  `[0/5 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
@@ -194,6 +195,55 @@
 | 2 | Rectangle Area II | 850 | H | ⬜ | Line sweep + segment tree |
 | 3 | Max Points on a Line | 149 | H | ⬜ | GCD based |
 | 4 | Minimum Number of Arrows to Burst Balloons | 452 | M | ⬜ | Greedy sweep |
+
+======== Advanced =============
+
+### 1.8 DP
+  1. Digit DP
+  2. Tree DP
+
+### 1.9 Maths
+  - probability and statistics
+  - resourvoir sampling
+  - rejection sampling
+  - number theory
+
+
+### 1.10 Greedy - hards
+
+### 1.10 String - advanced
+  1. Rabin Karp
+  2. rolling hash
+  3. KMP
+  4. Manachar
+
+### 1.9 Game theory
+
+### 1.8 Interactive
+
+### 1.3 Advanced Graph  `[1/7 done]`
+  - euclidean circuit
+  - euler path
+  - bridge
+  - articulation point
+  - SCC
+  - biconnected component
+  - Quad tree
+  - Rope
+  - Skip list
+
+
+| # | Problem | LC# | Difficulty | Status | Notes |
+|---|---------|-----|-----------|--------|-------|
+| 1 | Course Schedule II (Topological Sort) | 210 | M | ⬜ | Clean template |
+| 2 | Alien Dictionary | 269 | H | ✅ | Already done — revisit |
+| 3 | Longest Increasing Path in Matrix | 329 | H | ⬜ | Topo sort + memoization |
+| 4 | Critical Connections in a Network | 1192 | H | ⬜ | Tarjan's bridges |
+| 5 | Strongly Connected Components | — | — | ⬜ | Tarjan's/Kosaraju template |
+| 6 | Minimum Cost to Reach City With Discounts | 2093 | M | ⬜ | Modified Dijkstra |
+| 7 | Swim in Rising Water | 778 | H | ⬜ | Binary Search + BFS / UF |
+
+
 
 ---
 
