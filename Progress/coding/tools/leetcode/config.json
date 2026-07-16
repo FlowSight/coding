@@ -1,0 +1,14 @@
+{
+  "username": "adremspark",
+  "cutoff_date": "2025-05-01",
+  "lang_filter": "cpp",
+  "global_xlsx": "Progress/coding/Global_tracker.XLSX",
+  "trackers": [
+    {
+      "name": "Google Prep",
+      "path": "Progress/Company wise/google/google_prep_tracker.md",
+      "excel": "Progress/Company wise/google/google_prep_questions.xlsx",
+      "enabled": true
+    }
+  ]
+}

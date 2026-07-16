@@ -5,7 +5,10 @@
 > **Interview Date**: TBD  
 > **Last Updated**: 18 Feb 2026  
 
-This file contains list of questions and topics to be minimally covered for google L5 coding
+> **Convention**:  
+> - This MD file contains only questions that are **not yet done** (all sections: to-be-done).  
+> - Once a question is completed, remove it from here.  
+> - The Excel (`google_prep_questions.xlsx`) contains all questions that are **done**.
 
 ---
 
@@ -23,20 +26,20 @@ This file contains list of questions and topics to be minimally covered for goog
 ### Hard Problem Log
 | # | Date | Problem | LC# | Topic | Time | Notes |
 |---|------|---------|-----|-------|------|-------|
-| 147 | | | | | | |
-| 148 | | | | | | |
-| 149 | | | | | | |
-| 150 | | | | | | |
-| 151 | | | | | | |
-| 152 | | | | | | |
-| 153 | | | | | | |
-| 154 | | | | | | |
-| 155 | | | | | | |
-| 156 | | | | | | |
-| 157 | | | | | | |
-| 158 | | | | | | |
-| 159 | | | | | | |
-| 160 | | | | | | |
+| 1 | | | | | | |
+| 2 | | | | | | |
+| 3 | | | | | | |
+| 4 | | | | | | |
+| 5 | | | | | | |
+| 6 | | | | | | |
+| 7 | | | | | | |
+| 8 | | | | | | |
+| 9 | | | | | | |
+| 10 | | | | | | |
+| 11 | | | | | | |
+| 12 | | | | | | |
+| 13 | | | | | | |
+| 14 | | | | | | |
 | 161-170 | | | | | | |
 | 171-180 | | | | | | |
 | 181-190 | | | | | | |
@@ -127,26 +130,13 @@ This file contains list of questions and topics to be minimally covered for goog
 
 ## Phase 1: Foundation & Gap Filling (Weeks 1-3)
 
-### 1.1 Segment Tree / BIT  `[0/6 done]`
+### 1.1 Segment Tree / BIT  `[0/1 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | Range Sum Query - Mutable | 307 | M | ⬜ | BIT + Segment Tree both |
-| 2 | Count of Smaller Numbers After Self | 315 | H | ⬜ | BIT / Merge Sort |
-| 3 | Range Sum Query 2D - Mutable | 308 | H | ⬜ | 2D BIT |
-| 4 | My Calendar III | 732 | H | ⬜ | Segment Tree + Lazy Propagation |
-| 5 | Falling Squares | 699 | H | ⬜ | Segment Tree |
-| 6 | Count of Range Sum | 327 | H | ⬜ | BIT / Merge Sort |
 
-### 1.2 Monotonic Stack / Deque  `[0/7 done]`
+### 1.2 Monotonic Stack / Deque  `[0/1 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | Next Greater Element II | 503 | M | ⬜ | Template problem |
-| 2 | Sliding Window Maximum | 239 | H | ⬜ | Monotonic Deque |
-| 3 | Largest Rectangle in Histogram | 84 | H | ⬜ | Classic monotonic stack |
-| 4 | Maximal Rectangle | 85 | H | ⬜ | Stack + DP |
-| 5 | Shortest Subarray with Sum at Least K | 862 | H | ⬜ | Monotonic Deque + Prefix Sum |
-| 6 | Sum of Subarray Minimums | 907 | M | ⬜ | Monotonic stack pattern |
-| 7 | Online Stock Span | 901 | M | ⬜ | |
 
 ### 1.3 Graph Basic
   - BFS
@@ -158,92 +148,115 @@ This file contains list of questions and topics to be minimally covered for goog
   - Floyed warshall
   - bellman ford
 
-### 1.4 Bitmask DP / Advanced Bits  `[0/5 done]`
+### 1.4 Bitmask DP / Advanced Bits  `[0/3 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | Partition to K Equal Sum Subsets | 698 | M | ⬜ | Bitmask DP |
-| 2 | Shortest Path Visiting All Nodes | 847 | H | ⬜ | BFS + bitmask |
-| 3 | Maximum Students Taking Exam | 1349 | H | ⬜ | Bitmask DP |
-| 4 | Find the Shortest Superstring | 943 | H | ⬜ | TSP-style bitmask DP |
-| 5 | Number of Valid Words for Each Puzzle | 1178 | H | ⬜ | Bitmask + subset enumeration |
 
-### 1.5 Prefix Sum / Difference Array  `[2/6 done]`
+### 1.5 Prefix Sum / Difference Array  `[0/3 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | Subarray Sum Equals K | 560 | M | ✅ | Already done — revisit |
-| 2 | Product of Array Except Self | 238 | M | ✅ | Already done |
-| 3 | Range Addition | 370 | M | ⬜ | Difference array template |
-| 4 | Corporate Flight Bookings | 1109 | M | ⬜ | Difference array |
-| 5 | Maximum Sum of 3 Non-Overlapping Subarrays | 689 | H | ⬜ | Prefix sum + DP |
-| 6 | Stamping the Grid | 2132 | H | ⬜ | 2D prefix sum + diff array |
+| 3 | Maximum Sum Obtained of Any Permutation | 1589 | M | [ ] | Diff array + greedy |
 
-### 1.6 Design-in-Interview  `[2/7 done]`
+### 1.6 Design-in-Interview  `[0/1 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | LRU Cache | 146 | M | ✅ | Revisit for speed |
-| 2 | LFU Cache | 460 | H | ⬜ | Google favorite |
-| 3 | Design In-Memory File System | 588 | H | ⬜ | Trie-based |
-| 4 | Design Search Autocomplete System | 642 | H | ✅ | Already done |
-| 5 | Snapshot Array | 1146 | M | ⬜ | Google tagged |
-| 6 | Design Hit Counter | 362 | M | ⬜ | |
-| 7 | Iterator for Combination | 1286 | M | ⬜ | Iterator pattern |
 
-### 1.7 Geometry / Line Sweep  `[0/4 done]`
+### 1.7 Geometry / Line Sweep  `[0/1 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | The Skyline Problem | 218 | H | ⬜ | Line sweep + heap |
-| 2 | Rectangle Area II | 850 | H | ⬜ | Line sweep + segment tree |
-| 3 | Max Points on a Line | 149 | H | ⬜ | GCD based |
-| 4 | Minimum Number of Arrows to Burst Balloons | 452 | M | ⬜ | Greedy sweep |
 
 ======== Advanced =============
 
-### 1.8 DP
-  1. Digit DP
-  2. Tree DP
-
-### 1.9 Maths
-  - probability and statistics
-  - resourvoir sampling
-  - rejection sampling
-  - number theory
-
-
-### 1.10 Greedy - hards
-
-### 1.10 String - advanced
-  1. Rabin Karp
-  2. rolling hash
-  3. KMP
-  4. Manachar
-
-### 1.9 Game theory
-
-### 1.8 Interactive
-
-### 1.3 Advanced Graph  `[1/7 done]`
-  - euclidean circuit
-  - euler path
-  - bridge
-  - articulation point
-  - SCC
-  - biconnected component
-  - Quad tree
-  - Rope
-  - Skip list
-
-
+### 1.8 DP - Advanced
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | Course Schedule II (Topological Sort) | 210 | M | ⬜ | Clean template |
-| 2 | Alien Dictionary | 269 | H | ✅ | Already done — revisit |
-| 3 | Longest Increasing Path in Matrix | 329 | H | ⬜ | Topo sort + memoization |
-| 4 | Critical Connections in a Network | 1192 | H | ⬜ | Tarjan's bridges |
-| 5 | Strongly Connected Components | — | — | ⬜ | Tarjan's/Kosaraju template |
-| 6 | Minimum Cost to Reach City With Discounts | 2093 | M | ⬜ | Modified Dijkstra |
-| 7 | Swim in Rising Water | 778 | H | ⬜ | Binary Search + BFS / UF |
+| 1 | Numbers At Most N Given Digit Set | 902 | H | [ ] | Digit DP |
+| 2 | Count of Integers | 2719 | H | [ ] | Digit DP |
+| 5 | Longest Path in a DAG | — | — | [ ] | DP on DAGs (template) |
+| 7 | Count Array Pairs Divisible by K | 2183 | H | [ ] | SOS DP |
+| 8 | Maximum Building Height | 1840 | H | [ ] | Convex Hull Trick / slope |
 
+### 1.9 Maths
+| # | Problem | LC# | Difficulty | Status | Notes |
+|---|---------|-----|-----------|--------|-------|
+| 3 | Count Collisions of Monkeys on a Polygon | 2550 | M | [ ] | Modular inverse |
+| 5 | Count All Valid Pickup and Delivery Options | 1359 | H | [ ] | Combinatorics |
+| 6 | Linked List Random Node | 382 | M | [ ] | Reservoir sampling |
+| 7 | Random Point in Non-overlapping Rectangles | 497 | M | [ ] | Rejection sampling |
+| 9 | X of a Kind in a Deck of Cards | 914 | E | [ ] | GCD |
 
+### 1.10 Greedy - Hards
+| # | Problem | LC# | Difficulty | Status | Notes |
+|---|---------|-----|-----------|--------|-------|
+| 4 | Queue Reconstruction by Height | 406 | M | [ ] | Sort + greedy insert |
+
+### 1.11 String - Advanced
+| # | Problem | LC# | Difficulty | Status | Notes |
+|---|---------|-----|-----------|--------|-------|
+| 1 | Repeated DNA Sequences | 187 | M | [ ] | Rabin Karp / rolling hash |
+| 5 | Maximum Number of Non-Overlapping Palindrome Substrings | 2472 | H | [ ] | Manacher's + DP |
+| 6 | Stamping the Sequence | 936 | H | [ ] | Reverse simulation (Google fav) |
+
+### 1.12 Game Theory
+| # | Problem | LC# | Difficulty | Status | Notes |
+|---|---------|-----|-----------|--------|-------|
+| 3 | Stone Game IV | 1510 | H | [ ] | Sprague-Grundy |
+| 4 | Can I Win | 464 | M | [ ] | Bitmask + game theory |
+| 5 | Predict the Winner | 486 | M | [ ] | Minimax DP |
+
+### 1.13 Interactive Problems
+| # | Problem | LC# | Difficulty | Status | Notes |
+|---|---------|-----|-----------|--------|-------|
+| 1 | Guess Number Higher or Lower | 374 | E | [ ] | Binary search interactive |
+| 2 | Find the Duplicate Number (interactive variant) | 287 | M | [ ] | Cycle detection |
+| 4 | Find in Mountain Array | 1095 | H | [ ] | Binary search interactive |
+
+### 1.14 Advanced Graph  `[0/8 done]`
+
+| # | Problem | LC# | Difficulty | Status | Subtopic |
+|---|---------|-----|-----------|--------|----------|
+| 1 | Valid Arrangement of Pairs | 2097 | H | [ ] | Euler path (Hierholzer's) |
+| 3 | Strongly Connected Components (template) | — | — | [ ] | SCC (Tarjan's / Kosaraju) |
+| 4 | Maximum Number of Accepted Invitations | 1820 | M | [ ] | Bipartite matching (Hungarian) |
+| 6 | Rank Transform of a Matrix | 1632 | H | [ ] | Biconnected component / Union-Find |
+| 7 | 2-Satisfiability (template) | — | — | [ ] | 2-SAT implication graph |
+
+### 1.15 Advanced Data Structures
+| # | Problem | LC# | Difficulty | Status | Notes |
+|---|---------|-----|-----------|--------|-------|
+| 1 | Implement Trie II (Prefix Tree) | 1804 | M | [ ] | Trie with count |
+| 2 | Design Skiplist | 1206 | H | [ ] | Skip list |
+| 3 | Range Module | 715 | H | [ ] | Sorted set / segment tree |
+| 4 | My Calendar II | 731 | M | [ ] | Ordered map / segment tree |
+
+### 1.16 Segment Tree - Advanced
+| # | Problem | LC# | Difficulty | Status | Notes |
+|---|---------|-----|-----------|--------|-------|
+
+### 1.17 Geometry - Advanced
+| # | Problem | LC# | Difficulty | Status | Notes |
+|---|---------|-----|-----------|--------|-------|
+| 1 | Erect the Fence | 587 | H | [ ] | Convex hull (Andrew's) |
+| 2 | Closest Pair of Points | — | — | [ ] | D&C template |
+| 3 | Perfect Rectangle | 391 | H | [ ] | Sweep line + interval |
+
+### 1.18 Divide & Conquer - Advanced
+| # | Problem | LC# | Difficulty | Status | Notes |
+|---|---------|-----|-----------|--------|-------|
+
+### 1.19 Concurrency / Multi-threaded
+| # | Problem | LC# | Difficulty | Status | Notes |
+|---|---------|-----|-----------|--------|-------|
+| 1 | Print FooBar Alternately | 1115 | M | [ ] | Semaphore / mutex |
+| 2 | Building H2O | 1117 | M | [ ] | Barrier pattern |
+| 3 | Dining Philosophers | 1226 | M | [ ] | Deadlock avoidance |
+| 4 | Print in Order | 1114 | E | [ ] | Basic synchronization |
+| 5 | Web Crawler Multithreaded | 1242 | M | [ ] | BFS + threading |
+
+### 1.20 Randomized Algorithms
+| # | Problem | LC# | Difficulty | Status | Notes |
+|---|---------|-----|-----------|--------|-------|
+| 2 | Implement Rand10() Using Rand7() | 470 | M | [ ] | Rejection sampling |
 
 ---
 
@@ -251,29 +264,9 @@ This file contains list of questions and topics to be minimally covered for goog
 
 Focus on **frequently asked** Google problems not yet solved.
 
-### Priority Google Problems  `[2/20 done]`
+### Priority Google Problems  `[0/14 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | Maximum Frequency Stack | 895 | H | ⬜ | Stack + HashMap |
-| 2 | Split Array Largest Sum | 410 | H | ⬜ | Binary Search + Greedy |
-| 3 | Median of Two Sorted Arrays | 4 | H | ✅ | Revisit for under 10 min |
-| 4 | Count Different Palindromic Subsequences | 730 | H | ⬜ | DP |
-| 5 | Minimum Window Subsequence | 727 | H | ✅ | Already done |
-| 6 | Race Car | 818 | H | ⬜ | BFS / DP |
-| 7 | Strobogrammatic Number III | 248 | H | ⬜ | Recursion |
-| 8 | Minimize Max Distance to Gas Station | 774 | H | ⬜ | Binary Search |
-| 9 | Maximum Sum of 3 Non-Overlapping Subarrays | 689 | H | ⬜ | DP |
-| 10 | Campus Bikes II | 1066 | M | ⬜ | Bitmask DP / Hungarian |
-| 11 | Longest String Chain | 1048 | M | ⬜ | DP |
-| 12 | Number of Atoms | 726 | H | ⬜ | Stack + Parsing |
-| 13 | Flip Equivalent Binary Trees | 951 | M | ⬜ | Recursion |
-| 14 | Minimum Area Rectangle | 939 | M | ⬜ | HashSet |
-| 15 | Odd Even Jump | 975 | H | ⬜ | Monotonic stack + DP |
-| 16 | Most Stones Removed with Same Row or Column | 947 | M | ⬜ | Union-Find |
-| 17 | Robot Room Cleaner | 489 | H | ⬜ | DFS + backtrack |
-| 18 | Detect Squares | 2013 | M | ⬜ | HashMap |
-| 19 | Amount of New Area Painted Each Day | 2158 | H | ⬜ | Segment tree / sorted set |
-| 20 | Step-By-Step Directions From a Binary Tree Node to Another | 2096 | M | ⬜ | LCA |
 
 ---
 

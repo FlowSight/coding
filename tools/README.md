@@ -14,6 +14,11 @@ tools/
 │   ├── track.sh            # Manual tracker: tag file + update CSV
 │   ├── track_sync.sh       # Auto-sync: reads file header → updates CSV
 │   └── newproblem.sh       # Scaffold a new .cpp with header template
+├── leetcode/               # LeetCode API sync (Node.js)
+│   ├── init.js             # Full backfill from cutoff date
+│   ├── sync.js             # Incremental sync from last run
+│   ├── common.js           # Shared API, CSV, MD tracker utilities
+│   └── config.json         # Username, cutoff date, file paths
 └── README.md               # This file
 ```
 
@@ -25,6 +30,7 @@ Place new scripts in the appropriate subdirectory, or create a new one:
 |----------|-----------|---------|
 | Build | `tools/build/` | Compilation, linking, execution |
 | Tracking | `tools/tracking/` | Progress tracking, CSV sync, scaffolding |
+| LeetCode | `tools/leetcode/` | LeetCode API sync (submissions → CSV + MD) |
 | Analysis | `tools/analysis/` | Stats, reports, visualizations *(future)* |
 | Testing | `tools/testing/` | Test runners, validators *(future)* |
 
@@ -63,4 +69,21 @@ make r FILE=array/two_sum.cpp
 
 # Auto-sync from file header (or use Cmd+Shift+T in VS Code)
 ./tools/tracking/track_sync.sh "company wise/google/alien_dictionary.cpp"
+```
+
+### LeetCode Sync
+```bash
+# 1. Get your session token from browser:
+#    DevTools → Application → Cookies → leetcode.com → LEETCODE_SESSION
+#    Save it (pick one):
+echo "LEETCODE_SESSION=your_token_here" > tools/leetcode/.env   # option A
+export LEETCODE_SESSION=your_token_here                          # option B
+
+# 2. First-time full backfill (all accepted C++ after cutoff date):
+node tools/leetcode/init.js
+
+# 3. Incremental sync (new submissions since last run):
+node tools/leetcode/sync.js
+
+# Config: tools/leetcode/config.json (username, cutoff date, lang, file paths)
 ```
