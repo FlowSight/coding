@@ -91,3 +91,18 @@ total : 8 sec median  (as most runs are without action2)
 action1 breakdown : Ra(2sec) + RB(1sec) + TE(1sec) + intersec (2sec) + creat (1sec)
 before optimizing : 10k users = 7days 50k users = 35 days
 after optimizing : 1days and 5days
+
+
+
+- **Why RAG with tools vs. single LLM call?** — single LLM call does not fit this usecase as the decision on next steps is deterministic. 
+- ** stil why did we use RAG/LLM, RAG makes call to LLM** : 
+    - Business reason : This was a flagship agent for Microsoft's agent-first vision. Shipping on MCS was a strategic requirement, not just a technical choice
+    - Technical Reason :
+        - The pipeline isn't frozen — Today it's 2 actions, mostly deterministic. But the roadmap includes approval workflows, user preference learning, conflict resolution ("you have overlapping bookings — which project gets priority?"), and multi-turn clarification. These are inherently non-deterministic and need LLM reasoning. Building on MCS from day 1 avoids a rearchitect later.
+
+        - Error handling & graceful degradation — 
+            — Customization story :  tunable prompt and knowledge . These let a customer having custom time entry creation logic add a new prompt+knowledge, point MCS to it, add their customapi and expect MCS to pick it up. Instead of deterministic path : writing custom code for all possible case/branch checks , error handling. Its a trade-off of (a) spaghetti deterministic logic with 100% accuracy with no customizaility support vs (b) simple implementation, customization support with marginal hallucination risk (<0.1%)
+
+            - When a tool fails mid-pipeline, MCS can reason about it: skip the user, retry, log and continue: these are long tail errors. A PAF needs every failure mode pre-coded as a branch, results in spaghetty code and rigidity. LLM-based orchestration handles the long tail more gracefully.
+
+        - The overhead is already minimal — deterministic path means single customapi having all cases embedded into it + retry . After the 8→2 consolidation, MCS makes exactly 2 orchestration calls. The marginal cost of MCS routing (~$0.60/user) vs. a raw Power Automate flow(0.4) is small relative to the flexibility gained. We already pushed all heavy lifting server-side.
