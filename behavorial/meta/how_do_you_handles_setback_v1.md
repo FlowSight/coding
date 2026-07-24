@@ -24,10 +24,13 @@
             - same solution as above,
             - except when a piece can not be worked on completely, pick a future piece to make progress there, maybe from next release items.
     predicatable internal:
-        - bugs missed in PR
+        - code review
         - ETA for item usually takes 20% extra time
+        - AI created code and UT : code redundency, assumptions, does not adhere to existing patterns, overengineering , PR review takes more time than earlier
         - SOLUTION:
-            - estimate judiciously and levergae more eyes + AI in code reviews.
+            - reviewer agent
+            - estimate judiciously and levergae more eyes, 
+            - manual testing with AI - generated/reviewed test plan
     Unpredictable internal:
         - unknown PR comment
         - sudden capacity lacking of teammates

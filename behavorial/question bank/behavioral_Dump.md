@@ -1,11 +1,16 @@
 ## Technical Leadership & System Design
 
 - Tell me about the most impactful project you've worked on.
+    - Time entry agent
 - Tell me about the most challenging project you've worked on.
 - Tell me about the most complex problem you've solved.
+    - lenovo sev2
 - Describe a system you designed and why you designed it that way.
+    - time entry agent
 - Tell me about a project you led from design to delivery.
+    - Time entry agent
 - Tell me about a time you redesigned a process.
+    - NA
 - Tell me about a time you solved a complex problem with a simple solution.
 - Tell me about your most significant accomplishment.
 - Give an example of how you innovated in your area.

@@ -15,12 +15,15 @@ __
 
 **Situation**
 ***Give time entry COPILOT context with top 3 highest MAU***
-- After public preview phase of complete roll out on 250+ enterprise customers across 7 geos, 1000+ tenants and 400+ orgs, exactly and only one of our **largest enterprise clients** raised a **Sev2**. 
+- After public preview phase of complete roll out on 250+ enterprise customers across 7 geos, 100+ tenants and 400+ orgs, exactly and only one of our **largest enterprise clients** raised a **Sev2**. 
 - Thousands of employees of the customer were **unable to submit time**, disrupting **payroll processing**, **billing**, and **regulatory reporting**. An estimated **\$1.2M per day business losss was quoted by customer in potential downstream impact**, and leadership was deeply involved due to the visibility of the unwanted blockage. There was a real possibility of entire business loss with the particular customer.
 - Team could not replicate this in internal env. We cant solve what we cant replicate. The generic logs were not at all indicative of the true reason.
-- We missed adding logs for audit scenario
-- we missed to accomodate for rollback as there was no rollback mechanism for our product group.
 - handling over to on-call cross geo team was not an option because we build a lot of context while investigating things . 
+- It was a failure on my part as :
+    - We missed adding targeted logs for audit scenario.
+    - we missed to accomodate for rollback as there was no rollback mechanism for our product group.
+    - lack of testing cover  did bite us back causing release blocker.
+
 
 
 **Task**

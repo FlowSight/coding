@@ -133,10 +133,12 @@
 ### 1.1 Segment Tree / BIT  `[0/1 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
+| 1 | Falling Squares | 699 | H | [ ] | Segment Tree |
 
 ### 1.2 Monotonic Stack / Deque  `[0/1 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
+| 1 | Online Stock Span | 901 | M | [ ] | Monotonic Stack |
 
 ### 1.3 Graph Basic
   - BFS
@@ -151,51 +153,57 @@
 ### 1.4 Bitmask DP / Advanced Bits  `[0/3 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
+| 1 | Maximum Students Taking Exam | 1349 | H | [ ] | Bitmask DP |
+| 2 | Number of Valid Words for Each Puzzle | 1178 | H | [ ] | Bitmask + subset enumeration |
 
 ### 1.5 Prefix Sum / Difference Array  `[0/3 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
 | 3 | Maximum Sum Obtained of Any Permutation | 1589 | M | [ ] | Diff array + greedy |
+| 2 | Range Addition | 370 | M | [ ] | Difference array template |
+| 3 | Corporate Flight Bookings | 1109 | M | [ ] | Difference array |
+| 4 | Stamping the Grid | 2132 | H | [ ] | 2D prefix sum + diff array |
 
 ### 1.6 Design-in-Interview  `[0/1 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
+| 1 | Iterator for Combination | 1286 | M | [ ] | Iterator pattern |
 
 ### 1.7 Geometry / Line Sweep  `[0/1 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
+| 1 | Rectangle Area II | 850 | H | [ ] | Line sweep + segment tree |
 
 ======== Advanced =============
 
 ### 1.8 DP - Advanced
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | Numbers At Most N Given Digit Set | 902 | H | [ ] | Digit DP |
-| 2 | Count of Integers | 2719 | H | [ ] | Digit DP |
-| 5 | Longest Path in a DAG | — | — | [ ] | DP on DAGs (template) |
-| 7 | Count Array Pairs Divisible by K | 2183 | H | [ ] | SOS DP |
-| 8 | Maximum Building Height | 1840 | H | [ ] | Convex Hull Trick / slope |
+| 1 | Count of Integers | 2719 | H | [ ] | Digit DP |
+| 2 | Longest Path in a DAG | — | — | [ ] | DP on DAGs (template) |
+| 3 | Count Array Pairs Divisible by K | 2183 | H | [ ] | SOS DP |
+| 4 | Maximum Building Height | 1840 | H | [ ] | Convex Hull Trick / slope |
 
 ### 1.9 Maths
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 3 | Count Collisions of Monkeys on a Polygon | 2550 | M | [ ] | Modular inverse |
-| 5 | Count All Valid Pickup and Delivery Options | 1359 | H | [ ] | Combinatorics |
-| 6 | Linked List Random Node | 382 | M | [ ] | Reservoir sampling |
-| 7 | Random Point in Non-overlapping Rectangles | 497 | M | [ ] | Rejection sampling |
-| 9 | X of a Kind in a Deck of Cards | 914 | E | [ ] | GCD |
+| 1 | Count Collisions of Monkeys on a Polygon | 2550 | M | [ ] | Modular inverse |
+| 2 | Count All Valid Pickup and Delivery Options | 1359 | H | [ ] | Combinatorics |
+| 3 | Linked List Random Node | 382 | M | [ ] | Reservoir sampling |
+| 4 | Random Point in Non-overlapping Rectangles | 497 | M | [ ] | Rejection sampling |
+| 5 | X of a Kind in a Deck of Cards | 914 | E | [ ] | GCD |
 
 ### 1.10 Greedy - Hards
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 4 | Queue Reconstruction by Height | 406 | M | [ ] | Sort + greedy insert |
+| 1 | Queue Reconstruction by Height | 406 | M | [ ] | Sort + greedy insert |
 
 ### 1.11 String - Advanced
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
 | 1 | Repeated DNA Sequences | 187 | M | [ ] | Rabin Karp / rolling hash |
-| 5 | Maximum Number of Non-Overlapping Palindrome Substrings | 2472 | H | [ ] | Manacher's + DP |
-| 6 | Stamping the Sequence | 936 | H | [ ] | Reverse simulation (Google fav) |
+| 2 | Maximum Number of Non-Overlapping Palindrome Substrings | 2472 | H | [ ] | Manacher's + DP |
+| 3 | Stamping the Sequence | 936 | H | [ ] | Reverse simulation (Google fav) |
 
 ### 1.12 Game Theory
 | # | Problem | LC# | Difficulty | Status | Notes |
@@ -220,12 +228,17 @@
 | 4 | Maximum Number of Accepted Invitations | 1820 | M | [ ] | Bipartite matching (Hungarian) |
 | 6 | Rank Transform of a Matrix | 1632 | H | [ ] | Biconnected component / Union-Find |
 | 7 | 2-Satisfiability (template) | — | — | [ ] | 2-SAT implication graph |
+| 6 | Course Schedule II (Topological Sort) | 210 | M | [ ] | Clean template |
+| 7 | Critical Connections in a Network | 1192 | H | [ ] | Tarjan's bridges |
+| 8 | Minimum Cost to Reach City With Discounts | 2093 | M | [ ] | Modified Dijkstra |
+| 9 | Swim in Rising Water | 778 | H | [ ] | Binary Search + BFS / UF |
 
 ### 1.15 Advanced Data Structures
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | Implement Trie II (Prefix Tree) | 1804 | M | [ ] | Trie with count |
-| 2 | Design Skiplist | 1206 | H | [ ] | Skip list |
+| 1 | Prefix and Suffix Search | 745 | H | [ ] | Trie design (double trie / combined key) |
+| 2 | Sum of Prefix Scores of Strings | 2416 | H | [ ] | Trie + prefix count |
+| 3 | Design Skiplist | 1206 | H | [ ] | Skip list |
 | 3 | Range Module | 715 | H | [ ] | Sorted set / segment tree |
 | 4 | My Calendar II | 731 | M | [ ] | Ordered map / segment tree |
 
@@ -256,7 +269,7 @@
 ### 1.20 Randomized Algorithms
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 2 | Implement Rand10() Using Rand7() | 470 | M | [ ] | Rejection sampling |
+| 1 | Implement Rand10() Using Rand7() | 470 | M | [ ] | Rejection sampling |
 
 ---
 
@@ -267,6 +280,20 @@ Focus on **frequently asked** Google problems not yet solved.
 ### Priority Google Problems  `[0/14 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
+| 1 | Count Different Palindromic Subsequences | 730 | H | [ ] | DP |
+| 2 | Race Car | 818 | H | [ ] | BFS / DP |
+| 3 | Strobogrammatic Number III | 248 | H | [ ] | Recursion |
+| 4 | Minimize Max Distance to Gas Station | 774 | H | [ ] | Binary Search |
+| 5 | Campus Bikes II | 1066 | M | [ ] | Bitmask DP / Hungarian |
+| 6 | Longest String Chain | 1048 | M | [ ] | DP |
+| 7 | Number of Atoms | 726 | H | [ ] | Stack + Parsing |
+| 8 | Flip Equivalent Binary Trees | 951 | M | [ ] | Recursion |
+| 9 | Minimum Area Rectangle | 939 | M | [ ] | HashSet |
+| 10 | Odd Even Jump | 975 | H | [ ] | Monotonic stack + DP |
+| 11 | Most Stones Removed with Same Row or Column | 947 | M | [ ] | Union-Find |
+| 12 | Detect Squares | 2013 | M | [ ] | HashMap |
+| 13 | Amount of New Area Painted Each Day | 2158 | H | [ ] | Segment tree / sorted set |
+| 14 | Step-By-Step Directions From a Binary Tree Node to Another | 2096 | M | [ ] | LCA |
 
 ---
 
