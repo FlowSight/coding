@@ -43,6 +43,10 @@
 - If you can pick any K elements per operation (no restriction on which K): answer = ceil(total_work / K)
 - Use: LC 3495 (pick any 2, divide by 4)
 
+## 10. always add init and last stubs to arr when edge case handling is tricky.
+    - e.g. lc 1840..
+    - qualify : identify if edge case on boundary, sorting is natural 
+
 ## When Greedy Works
 - Optimal substructure + greedy choice property
 - If local optimal → global optimal (prove via exchange argument)

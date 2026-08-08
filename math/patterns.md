@@ -18,7 +18,8 @@
 - Euclidean: gcd(a,b) = gcd(b, a%b), base gcd(a,0) = a
 - lcm(a,b) = a / gcd(a,b) * b (divide first to avoid overflow)
 - Extended GCD: find x,y s.t. ax + by = gcd(a,b)
-- Use: Bezout's identity, modular inverse when gcd=1
+    - Use: Bezout's identity, modular inverse when gcd=1
+- if (gcd(a,k) * gcd(b,k))%k == 0, then (a*b)%k = 0 lc 2183
 
 ## 4. Sieve of Eratosthenes
 - O(n log log n) to find all primes up to n

@@ -59,3 +59,20 @@
 - Always clarify: binary tree vs BST vs n-ary tree
 - Recursive depth limit for very deep trees (1e5 nodes → use iterative)
 - Height-balanced BST operations are O(log n); skewed is O(n)
+- Segment Tree Lazy:
+    - Forgot to initialize children, null in constructor
+    - When a node has no children but the query partially overlaps, you need to return directly
+    - read path : only recurse into a child if it exists; 
+    - write path : after left/right child update,update parentans with ONLY that child's ans
+
+
+
+
+
+#
+
+
+
+
+
+

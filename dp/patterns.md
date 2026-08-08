@@ -37,6 +37,7 @@
 ## 7. Digit DP
 - Count numbers in [0..N] with some digit property
 - State: (pos, tight, started, ...extra)
+- when (l..r) : pad l with prefix 0s, to make same len -> easier implmentation
 - Use: count numbers with digit sum = K, no repeated digits, divisible by M
 
 ## 8. DP on DAG / Topological Order

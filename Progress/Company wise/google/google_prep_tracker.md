@@ -17,9 +17,9 @@
 | Metric | Value |
 |--------|-------|
 | **Goal** | 200 LC Hards |
-| **Current** | 146 / 200 |
-| **Remaining** | 54 |
-| **Progress** | ████████████████░░░░ 73% |
+| **Current** | 148 / 200 |
+| **Remaining** | 52 |
+| **Progress** | ███████████████░░░░░ 74% |
 
 > Track every hard solved below. Update the count after each session.
 
@@ -133,7 +133,6 @@
 ### 1.1 Segment Tree / BIT  `[0/1 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | Falling Squares | 699 | H | [ ] | Segment Tree |
 
 ### 1.2 Monotonic Stack / Deque  `[0/1 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
@@ -153,14 +152,11 @@
 ### 1.4 Bitmask DP / Advanced Bits  `[0/3 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | Maximum Students Taking Exam | 1349 | H | [ ] | Bitmask DP |
 | 2 | Number of Valid Words for Each Puzzle | 1178 | H | [ ] | Bitmask + subset enumeration |
 
 ### 1.5 Prefix Sum / Difference Array  `[0/3 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 3 | Maximum Sum Obtained of Any Permutation | 1589 | M | [ ] | Diff array + greedy |
-| 2 | Range Addition | 370 | M | [ ] | Difference array template |
 | 3 | Corporate Flight Bookings | 1109 | M | [ ] | Difference array |
 | 4 | Stamping the Grid | 2132 | H | [ ] | 2D prefix sum + diff array |
 
@@ -179,10 +175,7 @@
 ### 1.8 DP - Advanced
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | Count of Integers | 2719 | H | [ ] | Digit DP |
 | 2 | Longest Path in a DAG | — | — | [ ] | DP on DAGs (template) |
-| 3 | Count Array Pairs Divisible by K | 2183 | H | [ ] | SOS DP |
-| 4 | Maximum Building Height | 1840 | H | [ ] | Convex Hull Trick / slope |
 
 ### 1.9 Maths
 | # | Problem | LC# | Difficulty | Status | Notes |

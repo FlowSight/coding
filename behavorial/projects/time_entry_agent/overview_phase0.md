@@ -1,4 +1,3 @@
-5. **Tool Implementation**: Each step is a Custom API (C#/.NET) registered in Dataverse. MCS calls them via HTTP.
 
 ### Key Design Decisions
 
@@ -22,7 +21,7 @@ Configuring MCS was a significant challenge. MCS has multiple configurable parts
 
 **Key insight**: Separating **"what things are"** (Knowledge) from **"what to do"** (Instructions) dramatically reduced hallucination. The LLM retrieves context from Knowledge and follows directives from Instructions — no mixing.
 
-* ##  Context Window Optimization — Agent Metadata Table
+* ## Context Window Optimization — Agent Metadata Table
 
 As the pipeline grew, tool outputs (resource assignments, bookings, existing entries) were bloating the LLM's context window. Each tool returned full JSON payloads, and by step d/e the accumulated context was approaching the model's token limit — causing truncation, degraded reasoning, and increased latency.
 
