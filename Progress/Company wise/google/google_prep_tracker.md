@@ -17,9 +17,9 @@
 | Metric | Value |
 |--------|-------|
 | **Goal** | 200 LC Hards |
-| **Current** | 148 / 200 |
-| **Remaining** | 52 |
-| **Progress** | ███████████████░░░░░ 74% |
+| **Current** | 151 / 200 |
+| **Remaining** | 49 |
+| **Progress** | ███████████████░░░░░ 76% |
 
 > Track every hard solved below. Update the count after each session.
 
@@ -181,22 +181,18 @@
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
 | 1 | Count Collisions of Monkeys on a Polygon | 2550 | M | [ ] | Modular inverse |
-| 2 | Count All Valid Pickup and Delivery Options | 1359 | H | [ ] | Combinatorics |
-| 3 | Linked List Random Node | 382 | M | [ ] | Reservoir sampling |
-| 4 | Random Point in Non-overlapping Rectangles | 497 | M | [ ] | Rejection sampling |
-| 5 | X of a Kind in a Deck of Cards | 914 | E | [ ] | GCD |
+| 2 | Linked List Random Node | 382 | M | [ ] | Reservoir sampling |
+| 3 | Random Point in Non-overlapping Rectangles | 497 | M | [ ] | Rejection sampling |
+| 4 | X of a Kind in a Deck of Cards | 914 | E | [ ] | GCD |
 
 ### 1.10 Greedy - Hards
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
 | 1 | Queue Reconstruction by Height | 406 | M | [ ] | Sort + greedy insert |
 
-### 1.11 String - Advanced
+### 1.11 String - Advanced  `[all done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | Repeated DNA Sequences | 187 | M | [ ] | Rabin Karp / rolling hash |
-| 2 | Maximum Number of Non-Overlapping Palindrome Substrings | 2472 | H | [ ] | Manacher's + DP |
-| 3 | Stamping the Sequence | 936 | H | [ ] | Reverse simulation (Google fav) |
 
 ### 1.12 Game Theory
 | # | Problem | LC# | Difficulty | Status | Notes |

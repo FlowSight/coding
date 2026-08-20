@@ -16,7 +16,10 @@
 - Rolling polynomial hash over a sliding window
 - Double hash (two mod/base pairs) to reduce collision probability
 - Prefix hash array gives O(1) substring hash queries
-- **Gotcha**: hash(A) < hash(B) does NOT imply A < B lexicographically. Hashes only tell equal/not-equal — never ordering.
+- **Gotcha**: 
+    - hash(A) < hash(B) does NOT imply A < B lexicographically. Hashes only tell equal/not-equal — never ordering.
+    - when shrinking left pointer, (s[l]-'A') * exp[window_size] NOT (s[l]-'A') * exp[window_size-1]
+    - keep starting indexes for collision, saves mem
 - Use: multi-pattern search, longest duplicate substring, wildcard matching
 
 ## 4. Manacher
