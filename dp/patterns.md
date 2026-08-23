@@ -32,7 +32,8 @@
 ## 6. Bitmask DP
 - dp[mask] where mask ⊆ {0..n-1}, n ≤ 20
 - Iterate subsets of mask: `for(s=mask; s; s=(s-1)&mask)`
-- Use: TSP, assignment problem, Hamiltonian path, SOS DP
+- **Gotcha**: never add a second memo dimension for a value that's derivable from the mask (e.g. `remaining sum`, `count of set bits`, `running total`) — recompute it from the mask instead. A derivable extra key (e.g. `map<derivable_val, map<mask,...>>`) multiplies memory by allocating a full nested container per distinct outer value, and is a classic MLE cause even when the true state space (just the masks) easily fits (see LC 464 Can I Win)
+- Use: TSP, assignment problem, Hamiltonian path, SOS DP, memoized game-state search (LC 464)
 
 ## 7. Digit DP
 - Count numbers in [0..N] with some digit property
@@ -95,3 +96,5 @@
 - Overlapping subproblems? If not, it's just recursion (no memoization needed)
 - Check if greedy works first — dp is often overkill
 - Space: can you roll the array? (e.g., 2D → 1D by processing row by row)
+- Memo key must be minimal and exact: don't key on a value derivable from other state dimensions (multiplies memory, classic MLE cause), and never check "is this cached?" with an OR across partial/unrelated conditions — that silently short-circuits on states that were never actually computed, returning a stale default instead of the real answer
+- Recursion whose base case is "ran out of moves/options" (as opposed to "reached the actual goal") needs an explicit reachability/feasibility guard before recursing — otherwise "no moves left" silently gets treated as a real outcome (e.g. a win/loss) when it should instead mean "target was never achievable", inverted incorrectly one level up the call stack

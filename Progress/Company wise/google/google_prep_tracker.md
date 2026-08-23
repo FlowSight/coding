@@ -17,9 +17,9 @@
 | Metric | Value |
 |--------|-------|
 | **Goal** | 200 LC Hards |
-| **Current** | 151 / 200 |
-| **Remaining** | 49 |
-| **Progress** | ███████████████░░░░░ 76% |
+| **Current** | 152 / 200 |
+| **Remaining** | 48 |
+| **Progress** | ███████████████░░░░░ 77% |
 
 > Track every hard solved below. Update the count after each session.
 
@@ -194,12 +194,10 @@
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
 
-### 1.12 Game Theory
+### 1.12 Game Theory  `[1/2 done]`
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 3 | Stone Game IV | 1510 | H | [ ] | Sprague-Grundy |
-| 4 | Can I Win | 464 | M | [ ] | Bitmask + game theory |
-| 5 | Predict the Winner | 486 | M | [ ] | Minimax DP |
+| 1 | Predict the Winner | 486 | M | [ ] | Minimax DP |
 
 ### 1.13 Interactive Problems
 | # | Problem | LC# | Difficulty | Status | Notes |
