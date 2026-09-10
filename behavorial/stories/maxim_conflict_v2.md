@@ -29,9 +29,10 @@ ACTION:
     1. Regarding load-unload time of stringified json, suggestion was to use another table to caputre the last editor per column. OR
     2. change the non-cluster index to full-text index on the string column.
 - I retrospected this during design and moved away from the exact concerns as they deemed to be overengineering at that time, given stakeholders stated there was no plan for expansion beyond tracking 3 columns. 
-- The concern could be real, the feedback might be stemming from a real experience, which I absolutely need to evaluate before roll out. 
+- The concern could be real, the feedback might be stemming from a real experience, which I absolutely need to evaluate before roll out. It was not a time to argue whether it was signoff's responsibility vs project owners (me) responsibility.
 - To emphasize 'data over debates', I decided to carry out a quick experiment 
 - Due to time crunch, I took up evaluating option 1 and option 2 across myself and other teammates.
+-
 - We were tracking update for 3 columns, I extended it to track all 20 columns and measured a max size of 600 bytes in string column.
 
 - in average  agent scenario path, a user can have at most 80 time entries logged, 8 hour logged resulting in maximum 80 ser-deser ops per invocation. 

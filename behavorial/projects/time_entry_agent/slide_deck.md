@@ -12,7 +12,7 @@
 ## Slide 2: Problem Statement
 - 1.2M users fill timesheets weekly — manual, repetitive, error-prone
 - Business ask: fully automate, no human interaction needed
-- Naive math: 50k users × 55sec = 35 days processing → unrealistic
+- Naive math: 50k users × 1min per week fill time x 45weeks = 4.315 years productivity loss per year
 - Why it matters: top 3 highest-usage module in the product
 
 ---
@@ -25,14 +25,17 @@
 
 ---
 
-## Slide 4: Architecture — High Level (jargon-free)
+## Slide 4: Architecture — High Level 
 
 ```
-Scheduled Cron Job (per org)
-    ↓ (for each user, throttled to 10 concurrent)
+Azure Durable Functions: WeeklyTrigger (starter)
+    ↓ starts DispatchOrchestrator instance (replaces Power Automate Flow)
+    ↓ schedules DispatchUser in bounded batches of 100, one wave at a time
+DispatchUser (activity, per user, throttled to 10 concurrent)
+    ↓
 Impersonation Token (acts AS the user)
     ↓
-AI Orchestrator
+AI Orchestrator (MCS/RAG — decides next tool, not the same as the Durable orchestrator above)
     ↓ (2 tool calls)
 ┌──────────────────────────────────┐
 │  Action 1: Create Time Entries   │
@@ -52,6 +55,7 @@ Database (per-user RBAC, OCC)
 ```
 
 - Callout: "Only comment generation uses LLM — rest is deterministic"
+- Callout: "'Orchestrator' appears twice: the Durable Functions orchestrator is a code coordinator (schedules/awaits activities); the AI orchestrator is MCS's LLM-driven tool picker. Different layers, same word."
 
 ---
 
@@ -76,8 +80,9 @@ Database (per-user RBAC, OCC)
 
 | Problem | Discovery | Root Cause | Fix |
 |---------|-----------|------------|-----|
-| 35-day processing time | Customer onboarding math | 5 HTTP calls, no parallelism, new DB connection per call | Merge 5 tools → 1 action: 55s → 12s latency, cost $4 → $0.80 |
+| 35-day processing time | Customer onboarding math | 5 HTTP calls, no parallelism, new DB connection per call | Merge 5 tools → 1 action: 55s → 18s median latency, cost $6.40 → ~$1 (full breakdown: Slide 8) |
 | Context window crash | Load test with 30 entries/user | 30 intermediate TEs = 30KB in LLM memory | Metadata table — pass GUIDs (700 bytes) not payloads |
+| PAF dispatch was $150/month and couldn't express MCS's custom retry | Cost/reliability review of the weekly trigger mechanism | Power Automate premium connector billed per run regardless of scale; fixed-interval retry ≠ MCS's `Retry-After` semantics | Replaced PAF with Azure Durable Functions (WeeklyTrigger → DispatchOrchestrator → DispatchUser): $150 → $0.48-$1.24/month (99.2-99.7% savings) |
 
 - POC for action consolidation: 1.5 sprints
 - Implementation: 3-4 months (architecture change)
@@ -146,8 +151,9 @@ SemaphoreSlim(10) — 10 users concurrently
 | Metric | Value |
 |--------|-------|
 | Scale | 0 → 200k users |
-| Latency | 55s → 12s per user |
-| Cost | $6.40 → ~$1 per user |
+| Latency | 55s → 18s per user |
+| Cost (AI orchestrator round-trips) | $6.40 → ~$1 per user |
+| Dispatch trigger cost (PAF → Durable Functions) | $150 → $0.48-$1.24/month (99.2-99.7% savings) |
 | Entries accepted without edit | ~87% |
 | Operational failure rate | 20% month 1 → 3% current |
 | OCC conflict rate | < 0.1% |

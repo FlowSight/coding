@@ -153,3 +153,38 @@ if(val.compare_exchange_strong(expected,desired)) {
     } else {
         expected = val
     }
+
+/////////////////////////////memset / fill gotchas/////////////////////////////
+// VERIFIED via compiled test -- these are not theoretical, all reproduced directly:
+
+// GOTCHA 1: memset fills BYTE BY BYTE, not value by value. Only safe for 0 and -1.
+int arr[5];
+memset(arr, 1, sizeof(arr));
+// arr[0] == 16843009, NOT 1!! memset(arr,1,...) writes the byte 0x01 into EVERY byte
+// of every int, so a 4-byte int becomes 0x01010101 = 16843009.
+memset(arr, 0, sizeof(arr));  // arr[0] == 0   -- SAFE (all-zero-bytes == int 0)
+memset(arr, -1, sizeof(arr)); // arr[0] == -1  -- SAFE (all-1-bits == int -1, two's complement)
+// RULE: only ever memset with 0 or -1 for int/long arrays. For ANY other value, use fill().
+
+// GOTCHA 2: memset on a function parameter (decayed array = pointer) uses the WRONG size.
+void setWrong(int* p) {
+    memset(p, 0, sizeof(p)); // sizeof(p) == 8 (pointer size), NOT the array's real byte size!
+    // compiler even warns: "memset call operates on objects of type 'int' while the size
+    // is based on a different type 'int *'" -- only the first ~2 ints get zeroed, rest untouched.
+}
+// RULE: never memset inside a function using sizeof() on a pointer parameter. Pass the
+// element count explicitly instead: memset(p, 0, n * sizeof(int));
+
+// GOTCHA 3: raw pointer-array "fill" can alias rows (all rows = same memory).
+int** rows = new int*[3];
+int* shared = new int[4]{0,0,0,0};
+fill(rows, rows+3, shared);   // all 3 row pointers now point to the SAME int[4]!
+rows[0][0] = 99;              // rows[1][0] is ALSO now 99 -- not independent rows.
+// RULE: never fill() an array of raw pointers with one shared buffer if you need independent rows.
+
+// SAFE alternatives (verified correct):
+vector<int> v(5);
+fill(v.begin(), v.end(), 1);              // v[0]==1, correct -- fill does real assignment, not byte-copy
+vector<vector<int>> vv(3, vector<int>(4, 0));  // independent inner vectors, no aliasing, vv[1][0]==0 always
+// std::fill and the (n, vector<T>(m,val)) constructor are always safe for ANY value/type --
+// prefer these over memset unless you specifically need memset's raw-byte speed for 0/-1 fills.

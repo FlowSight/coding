@@ -17,9 +17,9 @@
 | Metric | Value |
 |--------|-------|
 | **Goal** | 200 LC Hards |
-| **Current** | 152 / 200 |
-| **Remaining** | 48 |
-| **Progress** | ███████████████░░░░░ 77% |
+| **Current** | 157 / 200 |
+| **Remaining** | 43 |
+| **Progress** | ████████████████░░░░ 82% |
 
 > Track every hard solved below. Update the count after each session.
 
@@ -204,21 +204,18 @@
 |---|---------|-----|-----------|--------|-------|
 | 1 | Guess Number Higher or Lower | 374 | E | [ ] | Binary search interactive |
 | 2 | Find the Duplicate Number (interactive variant) | 287 | M | [ ] | Cycle detection |
-| 4 | Find in Mountain Array | 1095 | H | [ ] | Binary search interactive |
 
-### 1.14 Advanced Graph  `[0/8 done]`
+### 1.14 Advanced Graph  `[2/8 done]`
 
 | # | Problem | LC# | Difficulty | Status | Subtopic |
 |---|---------|-----|-----------|--------|----------|
-| 1 | Valid Arrangement of Pairs | 2097 | H | [ ] | Euler path (Hierholzer's) |
-| 3 | Strongly Connected Components (template) | — | — | [ ] | SCC (Tarjan's / Kosaraju) |
-| 4 | Maximum Number of Accepted Invitations | 1820 | M | [ ] | Bipartite matching (Hungarian) |
-| 6 | Rank Transform of a Matrix | 1632 | H | [ ] | Biconnected component / Union-Find |
-| 7 | 2-Satisfiability (template) | — | — | [ ] | 2-SAT implication graph |
-| 6 | Course Schedule II (Topological Sort) | 210 | M | [ ] | Clean template |
-| 7 | Critical Connections in a Network | 1192 | H | [ ] | Tarjan's bridges |
-| 8 | Minimum Cost to Reach City With Discounts | 2093 | M | [ ] | Modified Dijkstra |
-| 9 | Swim in Rising Water | 778 | H | [ ] | Binary Search + BFS / UF |
+| 1 | Strongly Connected Components (template) | — | — | [ ] | SCC (Tarjan's / Kosaraju) |
+| 2 | Maximum Number of Accepted Invitations | 1820 | M | [ ] | Bipartite matching (Hungarian) |
+| 3 | Rank Transform of a Matrix | 1632 | H | [ ] | Biconnected component / Union-Find |
+| 4 | 2-Satisfiability (template) | — | — | [ ] | 2-SAT implication graph |
+| 5 | Course Schedule II (Topological Sort) | 210 | M | [ ] | Clean template |
+| 6 | Minimum Cost to Reach City With Discounts | 2093 | M | [ ] | Modified Dijkstra |
+| 7 | Swim in Rising Water | 778 | H | [ ] | Binary Search + BFS / UF |
 
 ### 1.15 Advanced Data Structures
 | # | Problem | LC# | Difficulty | Status | Notes |
@@ -236,9 +233,8 @@
 ### 1.17 Geometry - Advanced
 | # | Problem | LC# | Difficulty | Status | Notes |
 |---|---------|-----|-----------|--------|-------|
-| 1 | Erect the Fence | 587 | H | [ ] | Convex hull (Andrew's) |
-| 2 | Closest Pair of Points | — | — | [ ] | D&C template |
-| 3 | Perfect Rectangle | 391 | H | [ ] | Sweep line + interval |
+| 1 | Closest Pair of Points | — | — | [ ] | D&C template |
+| 2 | Perfect Rectangle | 391 | H | [ ] | Sweep line + interval |
 
 ### 1.18 Divide & Conquer - Advanced
 | # | Problem | LC# | Difficulty | Status | Notes |

@@ -1,0 +1,21 @@
+- A Hamiltonian path is a route in a graph that visits every vertex (node) exactly once without repeating any vertex.
+
+- criteria (these are known **sufficient** conditions, not necessary — Hamiltonian path/cycle existence is NP-complete in general, so no known necessary-and-sufficient test runs in poly time):
+    - undirected graph:
+        - **Dirac's theorem** (cycle): if every vertex has degree ≥ n/2 (n = number of vertices, n≥3), a Hamiltonian cycle exists.
+        - **Ore's theorem** (cycle): if for every pair of non-adjacent vertices u,v, deg(u) + deg(v) ≥ n, a Hamiltonian cycle exists. (Strictly more general than Dirac's — Dirac's is a special case.)
+        - **Chvátal–Erdős theorem**: if the graph's vertex-connectivity κ(G) ≥ independence number α(G), a Hamiltonian cycle exists.
+        - Complete graphs (Kₙ, n≥3) always have a Hamiltonian cycle.
+    - directed graph:
+        - **Ghouila-Houri theorem**: if every vertex v has deg⁺(v) + deg⁻(v) ≥ n (in a strongly connected digraph), a Hamiltonian cycle exists.
+        - **Meyniel's theorem**: in a strongly connected digraph, if deg(u) + deg(v) ≥ 2n − 1 for every pair of non-adjacent vertices u,v (counting both in+out degree), a Hamiltonian cycle exists.
+        - **Rédei's theorem**: every tournament (complete directed graph — every pair of vertices has exactly one directed edge between them) has at least one Hamiltonian path (not necessarily a cycle).
+
+- criteria specifically for **Hamiltonian path** (weaker requirement than a cycle — path doesn't need to return to start, so these thresholds are easier to satisfy):
+    - **Path from cycle criteria**: any theorem above (Dirac's/Ore's/Ghouila-Houri/Meyniel's) that guarantees a Hamiltonian **cycle** also trivially guarantees a Hamiltonian **path** (just drop one edge of the cycle) — but a graph can have a Hamiltonian path while failing every cycle criterion (e.g. a simple path graph itself, or a "near-complete" graph missing just enough edges to break cyclicity).
+    - **Ore-type path theorem (Chvátal–Erdős / Ore variant for paths)**: if for every pair of non-adjacent vertices u,v in an undirected graph, deg(u) + deg(v) ≥ n − 1 (note: n−1, not n — one less than the cycle version), a Hamiltonian path exists.
+    - **Any connected graph on ≤ 2 vertices** trivially has a Hamiltonian path.
+    - **Trees**: a tree has a Hamiltonian path if and only if it IS a path graph (i.e., no vertex has degree ≥ 3 — any branching vertex makes a Hamiltonian path impossible, since you can't revisit that vertex to explore multiple branches).
+    - **Bipartite graphs**: if the two partitions have sizes differing by more than 1 (i.e. ||A| − |B|| > 1), NO Hamiltonian path can exist (path must alternate sides, so partition sizes can differ by at most 1) — this is a necessary condition (a fast **rejection** test), not sufficient.
+    - **Practical/LeetCode approach**: for small n (≤ ~20), poly-time sufficient theorems rarely apply directly to problem-specific constraints — the standard approach is **bitmask DP** (Held-Karp style: `dp[mask][last_vertex]` = can we visit exactly the vertices in `mask`, ending at `last_vertex`), O(2ⁿ · n²) time. This is what LC problems like "Shortest Superstring" (943) or generic Hamiltonian-path-existence questions actually expect, since the graph-theory sufficient conditions above are existence-only and don't reconstruct the path or handle arbitrary edge-weighted variants.
+    - **Watch for disguised Euler problems**: if the input is a list of pairs/tuples that must ALL be arranged into one sequence, it superficially resembles "visit every pair exactly once" (Hamiltonian-shaped → tempts you into exponential search). Check first whether each pair can be reframed as a directed EDGE `u→v` in a NEW graph over the pair's values — if so, the real task is an **Eulerian path** (every edge used once, O(V+E), Hierholzer's), not a Hamiltonian path over the pairs themselves. See LC 2097 (Valid Arrangement of Pairs) and `Graph/patterns.md` §13 for the full writeup — this reduction is a huge complexity win (poly vs NP-complete) and is easy to miss because "arrange all pairs" sounds visit-every-node-ish by default.

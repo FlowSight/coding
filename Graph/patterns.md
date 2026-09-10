@@ -54,7 +54,17 @@
 ## 10. Strongly Connected Components (SCC)
 - Tarjan's or Kosaraju's — O(V+E)
 - Condensation: SCC → single node, forming a DAG
-- Use: 2-SAT, reachability queries, finding bridges/articulation points
+- Use: 2-SAT, reachability queries
+- **Note**: SCC is a DIRECTED-graph concept only (mutual reachability needs direction to be meaningful). For UNDIRECTED graphs, the analogous "which edges/nodes are structurally critical" question is answered by Bridges / Articulation Points (see below), NOT by SCC — different check condition, different meaning.
+
+## 10b. Bridges (Tarjan's Bridge-Finding, undirected graphs)
+- An edge is a BRIDGE iff removing it increases the number of connected components (i.e. it's the only path between the two halves it connects)
+- Reuses the same disc[]/low[] DFS machinery as Tarjan's SCC, but with a DIFFERENT check:
+    - SCC root check: `low[u] == disc[u]` (u is the earliest-reachable anchor of its component)
+    - Bridge check: `low[child] > disc[u]` (STRICT `>`) — child's subtree has NO way back to u or higher, not even to u itself
+- **Gotcha — skip the parent edge**: undirected edges are bidirectional, so a plain DFS will immediately walk back from a child to its own parent via the same edge and mistake this for a cycle/back-edge. Must explicitly skip the edge back to the immediate parent (track by edge identity/index if there can be multiple parallel edges between the same two nodes, not just by node id, to avoid incorrectly skipping a genuine second edge)
+- Articulation points (cut vertices): a related but distinct check — node u (non-root) is an articulation point if ANY child has `low[child] >= disc[u]` (non-strict; contrast with the strict `>` for bridges). Root of DFS tree is an articulation point iff it has 2+ children in the DFS tree.
+- Use: LC 1192 (Critical Connections in a Network) — bridges; general "single point of failure" network analysis
 
 ## 11. Bipartite / Matching
 - Bipartite check: 2-color via BFS/DFS
@@ -69,6 +79,8 @@
 - Euler: visit every EDGE exactly once — exists if 0 or 2 odd-degree nodes
 - Hamiltonian: visit every NODE exactly once — NP-complete (bitmask DP for small n)
 - Use: reconstruct itinerary, Chinese postman problem
+- **Gotcha — Hamiltonian-shaped problem may actually be Euler in disguise**: if a problem gives you a list of pairs/tuples and asks you to arrange ALL of them into one valid sequence, it can look like "visit every item exactly once" (Hamiltonian-flavored, tempting you toward NP-complete search). Check whether each pair can instead be modeled as a directed EDGE `u→v` between the pair's two values — if so, "use every pair once" becomes "use every edge once" = Eulerian path, solvable in O(V+E) via Hierholzer's instead of exponential search. This reframing (item → edge, instead of item → node) is the key trick, not just "try Euler instead of Hamiltonian" — you must first see that the *pairs themselves* are the edges of a NEW graph over the original values, not that the pairs are nodes to be visited.
+- Use: LC 2097 (Valid Arrangement of Pairs) — pairs ARE directed edges; find any valid Eulerian path over them
 
 ## Key Gotchas
 - Directed vs undirected changes everything (cycle detection, connectivity)

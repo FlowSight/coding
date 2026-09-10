@@ -32,8 +32,9 @@
 ## 6. Bitmask DP
 - dp[mask] where mask ⊆ {0..n-1}, n ≤ 20
 - Iterate subsets of mask: `for(s=mask; s; s=(s-1)&mask)`
+- **Trick — popcount(mask) as the implicit sequential index**: when items on one side must be processed/assigned in a FIXED order (e.g. worker 0, then worker 1, then worker 2...), you don't need a separate dimension to track "which item are we on" — `__builtin_popcount(mask)` (count of bits already set) IS that index, since exactly that many items have been assigned so far. Collapses what looks like a 2D dp[i][mask] into 1D dp[mask], because `i` is always derivable as `popcount(mask)`. Only works when the fixed-order side's identity is implied by mask size, not by which bits are set (e.g. LC 1066 Campus Bikes II: `i-th worker` assigned once `i` bikes are in the mask — workers are NOT part of the mask at all, only bikes are, since workers are consumed in order)
 - **Gotcha**: never add a second memo dimension for a value that's derivable from the mask (e.g. `remaining sum`, `count of set bits`, `running total`) — recompute it from the mask instead. A derivable extra key (e.g. `map<derivable_val, map<mask,...>>`) multiplies memory by allocating a full nested container per distinct outer value, and is a classic MLE cause even when the true state space (just the masks) easily fits (see LC 464 Can I Win)
-- Use: TSP, assignment problem, Hamiltonian path, SOS DP, memoized game-state search (LC 464)
+- Use: TSP, assignment problem, Hamiltonian path, SOS DP, memoized game-state search (LC 464), min-cost bipartite assignment (LC 1066)
 
 ## 7. Digit DP
 - Count numbers in [0..N] with some digit property
