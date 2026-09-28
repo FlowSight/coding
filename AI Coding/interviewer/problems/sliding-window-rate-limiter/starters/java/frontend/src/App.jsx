@@ -1,0 +1,2 @@
+import React,{useState}from'react';import{checkRequest}from'./api.js';import RequestTimeline from'./components/RequestTimeline.jsx';
+export default function App(){const[events,setEvents]=useState([]);const[error,setError]=useState('');async function send(){try{const decision=await checkRequest(Date.now());setEvents([...events,decision]);setError('')}catch(e){setError(e.message)}}return <main><h1>Rate Limit Telemetry</h1><button onClick={send}>Send request</button>{error&&<p>{error}</p>}<RequestTimeline events={events}/></main>}

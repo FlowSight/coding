@@ -1,0 +1,1 @@
+{"name":"rate-limit-console","private":true,"version":"0.0.1","type":"module","scripts":{"dev":"vite","build":"vite build","test":"node --test"},"dependencies":{"vite":"latest","react":"18.3.1","react-dom":"18.3.1"}}

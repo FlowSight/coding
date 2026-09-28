@@ -36,3 +36,5 @@ Tips
 13. Graph qs :
     1. verify urself the data structure, problem , possible solution in mind. Prompt AI with the data structure adheration, optionally with the algorithm
     2. print a small graph during construction. ensure input is correctly formed
+       3
+14. for a algo heavy qs, ask ai to annotate each loop with roll up tc and decoare methods with tc and sc

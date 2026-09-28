@@ -1,0 +1,13 @@
+{
+  "name": "sliding-window-rate-limiter-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node src/server.js",
+    "build": "node --check src/server.js && node --check src/app.js && node --check src/routes/rateLimitRoutes.js && node --check src/services/rateLimiterService.js",
+    "test": "node --test"
+  },
+  "dependencies": { "express": "^4.21.2" }
+}

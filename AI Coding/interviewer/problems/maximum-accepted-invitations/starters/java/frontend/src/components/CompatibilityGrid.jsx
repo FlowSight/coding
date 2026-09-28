@@ -1,0 +1,1 @@
+import React from'react';export default function CompatibilityGrid({grid}){return <table><tbody>{grid.map((row,i)=><tr key={i}>{row.map((value,j)=><td key={j}>{value?'compatible':'—'}</td>)}</tr>)}</tbody></table>}

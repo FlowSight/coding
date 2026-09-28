@@ -53,5 +53,8 @@
         "forward_list": "cpp",
         "map": "cpp",
         "shared_mutex": "cpp"
-    }
+    },
+    "markdown.styles": [
+        ".vscode/markdown-preview.css"
+    ]
 }

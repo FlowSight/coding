@@ -1,0 +1,102 @@
+{
+  "version": 2,
+  "interviewTypes": {
+    "ai-assisted-coding": "AI Assisted Coding",
+    "coding": "Coding",
+    "system-design": "System Design",
+    "behavioral": "Behavioral",
+    "project-discussion": "Project Discussion"
+  },
+  "allowedLanguages": ["java", "python", "node", "go"],
+  "problems": [
+    {
+      "id": "maximum-accepted-invitations",
+      "title": "Maximum Number of Accepted Invitations",
+      "interviewType": "ai-assisted-coding",
+      "summary": "Debug and extend a small bipartite-matching library.",
+      "difficulty": "Medium",
+      "statementPath": "AI Coding/interviewer/problems/maximum-accepted-invitations/problem.md",
+      "starterPaths": {
+        "java": "AI Coding/interviewer/problems/maximum-accepted-invitations/starters/java",
+        "python": "AI Coding/interviewer/problems/maximum-accepted-invitations/starters/python",
+        "node": "AI Coding/interviewer/problems/maximum-accepted-invitations/starters/node",
+        "go": "AI Coding/interviewer/problems/maximum-accepted-invitations/starters/go"
+      }
+    },
+    {
+      "id": "diagnose-scaled-system-slow",
+      "title": "Diagnose Why a Scaled System Became Slow",
+      "interviewType": "system-design",
+      "summary": "Use telemetry to form, prioritize, and validate performance hypotheses.",
+      "difficulty": "Medium",
+      "sourceUrl": "https://prachub.com/interview-questions/diagnose-why-a-scaled-system-became-slow",
+      "statementPath": "AI Coding/interviewer/problems/diagnose-scaled-system-slow/problem.md",
+      "starterPaths": {
+        "java": "AI Coding/interviewer/problems/diagnose-scaled-system-slow/starters/java",
+        "python": "AI Coding/interviewer/problems/diagnose-scaled-system-slow/starters/python",
+        "node": "AI Coding/interviewer/problems/diagnose-scaled-system-slow/starters/node",
+        "go": "AI Coding/interviewer/problems/diagnose-scaled-system-slow/starters/go"
+      }
+    },
+    {
+      "id": "sequential-parallel-url-requests",
+      "title": "Implement Sequential and Parallel URL Requests",
+      "interviewType": "ai-assisted-coding",
+      "summary": "Implement deterministic URL fetching with concurrency and robust failures.",
+      "difficulty": "Medium",
+      "sourceUrl": "https://prachub.com/interview-questions/implement-sequential-and-parallel-url-requests",
+      "statementPath": "AI Coding/interviewer/problems/sequential-parallel-url-requests/problem.md",
+      "starterPaths": {
+        "java": "AI Coding/interviewer/problems/sequential-parallel-url-requests/starters/java",
+        "python": "AI Coding/interviewer/problems/sequential-parallel-url-requests/starters/python",
+        "node": "AI Coding/interviewer/problems/sequential-parallel-url-requests/starters/node",
+        "go": "AI Coding/interviewer/problems/sequential-parallel-url-requests/starters/go"
+      }
+    },
+    {
+      "id": "trie-url-router-wildcards",
+      "title": "Design a Trie-Based URL Router with Wildcards",
+      "interviewType": "ai-assisted-coding",
+      "summary": "Build a mutable segment trie with wildcard matching and deterministic precedence.",
+      "difficulty": "Medium",
+      "sourceUrl": "https://prachub.com/interview-questions/design-a-trie-based-url-router-with-wildcards",
+      "statementPath": "AI Coding/interviewer/problems/trie-url-router-wildcards/problem.md",
+      "starterPaths": {
+        "java": "AI Coding/interviewer/problems/trie-url-router-wildcards/starters/java",
+        "python": "AI Coding/interviewer/problems/trie-url-router-wildcards/starters/python",
+        "node": "AI Coding/interviewer/problems/trie-url-router-wildcards/starters/node",
+        "go": "AI Coding/interviewer/problems/trie-url-router-wildcards/starters/go"
+      }
+    },
+    {
+      "id": "filter-invalid-data-events",
+      "title": "Filter Invalid Data Events",
+      "interviewType": "ai-assisted-coding",
+      "summary": "Translate validation, allow-list, time-window, and deduplication rules into stable filtering.",
+      "difficulty": "Easy",
+      "sourceUrl": "https://prachub.com/coding-questions/filter-invalid-data-events",
+      "statementPath": "AI Coding/interviewer/problems/filter-invalid-data-events/problem.md",
+      "starterPaths": {
+        "java": "AI Coding/interviewer/problems/filter-invalid-data-events/starters/java",
+        "python": "AI Coding/interviewer/problems/filter-invalid-data-events/starters/python",
+        "node": "AI Coding/interviewer/problems/filter-invalid-data-events/starters/node",
+        "go": "AI Coding/interviewer/problems/filter-invalid-data-events/starters/go"
+      }
+    },
+    {
+      "id": "sliding-window-rate-limiter",
+      "title": "Implement Sliding-Window Rate Limiter Function",
+      "interviewType": "ai-assisted-coding",
+      "summary": "Implement correct time-window accounting and evolve it into a keyed concurrent limiter.",
+      "difficulty": "Medium",
+      "sourceUrl": "https://prachub.com/coding-questions/implement-sliding-window-rate-limiter-function",
+      "statementPath": "AI Coding/interviewer/problems/sliding-window-rate-limiter/problem.md",
+      "starterPaths": {
+        "java": "AI Coding/interviewer/problems/sliding-window-rate-limiter/starters/java",
+        "python": "AI Coding/interviewer/problems/sliding-window-rate-limiter/starters/python",
+        "node": "AI Coding/interviewer/problems/sliding-window-rate-limiter/starters/node",
+        "go": "AI Coding/interviewer/problems/sliding-window-rate-limiter/starters/go"
+      }
+    }
+  ]
+}

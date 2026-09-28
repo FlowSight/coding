@@ -1,0 +1,1 @@
+export async function matchRoute(path){const r=await fetch('http://localhost:8080/api/routes/match',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({path})});if(r.status===404)return null;if(!r.ok)throw new Error('Route lookup failed');return r.json();}

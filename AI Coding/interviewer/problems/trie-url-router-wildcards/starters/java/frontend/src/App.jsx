@@ -1,0 +1,2 @@
+import React,{useState}from'react';import{matchRoute}from'./api.js';import RouteLookup from'./components/RouteLookup.jsx';
+export default function App(){const[result,setResult]=useState(null);const[error,setError]=useState('');async function lookup(path){try{setResult(await matchRoute(path));setError('')}catch(e){setError(e.message)}}return <main><h1>Trie Router Inspector</h1><RouteLookup onLookup={lookup}/>{error&&<p>{error}</p>}<pre>{result?JSON.stringify(result,null,2):'No match'}</pre></main>}

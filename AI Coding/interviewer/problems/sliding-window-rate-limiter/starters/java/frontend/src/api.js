@@ -1,0 +1,1 @@
+export async function checkRequest(timestampMillis){const r=await fetch('http://localhost:8080/api/rate-limit/check',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({timestampMillis})});if(!r.ok)throw new Error('Rate-limit check failed');return r.json();}

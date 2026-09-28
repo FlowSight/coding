@@ -1,0 +1,13 @@
+{
+  "name": "url-request-scheduler-api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node src/server.js",
+    "build": "node --check src/server.js && node --check src/app.js && node --check src/routes/requestRoutes.js && node --check src/services/urlRequestService.js",
+    "test": "node --test"
+  },
+  "dependencies": { "express": "^4.21.2" }
+}

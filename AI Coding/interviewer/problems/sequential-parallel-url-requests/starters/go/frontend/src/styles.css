@@ -1,0 +1,2 @@
+body { font-family: system-ui; margin: 2rem; background: #f5f7ff; color: #17254f; }
+textarea { display: block; width: min(42rem, 100%); margin-bottom: 1rem; } button { padding: .6rem 1rem; }

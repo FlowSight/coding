@@ -1,0 +1,1 @@
+export async function executeSequential(urls){const r=await fetch('http://localhost:8080/api/requests/sequential',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({urls})});if(!r.ok)throw new Error('Execution failed');return r.json();}

@@ -1,0 +1,1 @@
+import React,{useState}from'react';export default function RouteLookup({onLookup}){const[path,setPath]=useState('/users/new/profile');return <section><input value={path} onChange={e=>setPath(e.target.value)}/><button onClick={()=>onLookup(path)}>Match route</button></section>}

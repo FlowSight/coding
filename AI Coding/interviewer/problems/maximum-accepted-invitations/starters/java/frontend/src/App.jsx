@@ -1,0 +1,2 @@
+import React,{useState}from'react';import{maximumInvitations}from'./api.js';import CompatibilityGrid from'./components/CompatibilityGrid.jsx';
+const grid=[[1,1],[1,0]];export default function App(){const[result,setResult]=useState(null);const[error,setError]=useState('');async function run(){try{setResult(await maximumInvitations(grid));setError('')}catch(e){setError(e.message)}}return <main><h1>Invitation Matcher</h1><CompatibilityGrid grid={grid}/><button onClick={run}>Calculate maximum</button>{error&&<p>{error}</p>}{result&&<h2>Accepted: {result.count}</h2>}</main>}

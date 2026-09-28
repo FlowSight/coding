@@ -1,0 +1,1 @@
+import React from'react';export default function UrlBatchEditor({urls,onChange}){return <textarea rows="6" value={urls.join('\n')} onChange={e=>onChange(e.target.value.split('\n').filter(Boolean))}/>}
