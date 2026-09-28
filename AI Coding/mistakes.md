@@ -1,3 +1,5 @@
+### Interview judgement failures :
+
 1. Problem-solving and approach
    * Pasting the raw problem into AI without forming your own plan first, then building on whatever comes back
    * Following the AI into architectural decisions that should be yours to make
@@ -14,3 +16,22 @@
    * Going silent for long stretches while prompting, leaving the interviewer with nothing to evaluate
    * Narrating after the fact instead of before ("I just asked the AI to..." vs. "I'm going to ask the AI to...")
    * Not explaining when you pivot ("the AI suggested DFS so I'm using DFS now") without saying whether you actually agree with it
+
+### AI Failures:
+
+AI spiral : When a model doesn't know the answer, it often starts proposing rewrites, restructuring your architecture, or suggesting you start over from scratch. This can feel like momentum but it's actually the AI flailing. Interviewers want to see you recognize that pattern and interrupt it. Step back, reassess, and redirect rather than following the AI down a rabbit hole.
+
+Type of output failures:
+
+1. verbosity :
+2. training data bias : AI gave a technically correct but strategically wrong answer. problem has a twist/existing util can help.
+3. Design shortcuts : ai loves complicated nested clas designs, even when its not needed, simpple if-else woud do
+4. **correctness shortcuts**. AI will sometimes delete failing tests instead of fixing , use 'any' to bypass type errors, add try/catch blocks that swallow exceptions, or hardcode values to make specific test cases pass.
+
+
+### nerfed AI :
+
+interview AI feeling noticeably worse than state of the art models, giving nudges rather than solutions, might not point out bugs directly, give cryptic or incomplete responses, or refuse to help with certain types of requests.
+
+1. use it only for : generating boilerplate, explaining unfamiliar syntax, scaffolding basic structures,
+2. handle the harder thinking yourself

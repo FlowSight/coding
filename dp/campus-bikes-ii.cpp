@@ -54,6 +54,7 @@ public:
 // negative effective cost -- you're giving something back, so plain Dijkstra without
 // potentials doesn't directly apply here).
 //
+
 // This IS "solved with Kuhn's" in the sense that matters: it's Kuhn's algorithm's proper
 // weighted extension (same family as the Hungarian algorithm, which is SSP + Dijkstra with
 // vertex potentials for better complexity). For LC 1066's tiny constraints, bitmask DP above
@@ -95,7 +96,11 @@ public:
                 int w = matchBike[j];
                 for (int j2 = 0; j2 < m; j2++) {
                     if (j2 == j) continue;
+                    // dist of j to current worker - cost of moving evicted worker
                     int newDist = dist[j] - cost[w][j] + cost[w][j2];
+                    // after movement cost < without movement cost ===
+                    // (dist[j] + cost[w][j2]  < cost[start][j2] + cost[w][j])
+                    // (dist[j] - cost[w][j] + cost[w][j2] + cost[w][j] < cost[start][j2] + cost[w][j])
                     if (newDist < dist[j2]) {
                         dist[j2] = newDist;
                         prevWorker[j2] = w;
@@ -123,5 +128,4 @@ public:
     }
 };
 
-// Verified: both manual examples match (6, 4); 0 mismatches across 3000 randomized trials
-// (cross-checked against Solution above AND independent brute-force permutation search).
+
