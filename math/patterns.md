@@ -49,6 +49,9 @@
 - Cross product: orientation test (left/right/collinear)
 - Convex hull: Graham scan O(n log n) or Andrew's monotone chain
 - Line intersection, point-in-polygon (ray casting)
+- Line sweep: sort boundary events along one axis, add/remove active ranges, and accumulate `deltaAxis * activeUnionLength` before applying events at the new coordinate.
+- **Sparse-range gotcha**: active coverage is the union length of intervals, not `maxEndpoint - minEndpoint`; disjoint intervals such as `[0,1]` and `[2,3]` cover length `2`, not `3`.
+- To compute active union length, process ranges by start and merge overlaps with `end = max(end, nextEnd)`; never let a contained interval shrink the current merged end.
 - Use: closest pair of points, sweep line problems
 
 ## 9. Optimal Splitting into 3s (AM-GM Optimization)

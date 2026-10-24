@@ -11,10 +11,22 @@
 - Use: count occurrences = upper_bound - lower_bound, insert position
 
 ## 3. Binary Search on Answer
-- "What's the minimum X such that condition(X) is true?"
-- Monotonic feasibility: if X works, X+1 also works (or vice versa)
-- lo = min possible, hi = max possible; binary search on X, check feasibility
-- Use: koko eating bananas, split array largest sum, capacity to ship packages, magnetic force
+- Use when the answer is a numeric threshold (distance, time, speed, capacity, workload, cost), not necessarily an element in the input.
+- Strong wording clues: **minimize the maximum**, **maximize the minimum**, minimum capacity/speed/time required, or largest feasible distance.
+- Convert optimization into a decision problem: instead of constructing the optimal solution, guess `X` and ask, "Can the requirement be satisfied with answer at most/at least `X`?"
+- Define a monotonic feasibility predicate:
+  - Minimum feasible value: `false false false | true true true`; find the first `true`.
+  - Maximum feasible value: `true true true | false false false`; find the last `true`.
+- Prove monotonicity before coding. If `X` works, either every larger `X` must work or every smaller `X` must work.
+- Set `lo` and `hi` to guaranteed bounds on the answer, then use the feasibility check to discard half of the answer space.
+- A common clue is an expensive simulation that performs `k` operations. Ask whether a candidate `X` lets you count all required operations directly in one pass.
+- Example: minimize maximum gas-station distance. Guess distance `D`; a gap `g` needs `ceil(g / D) - 1` new stations. If the total is at most `k`, `D` is feasible, and every larger distance is also feasible.
+- Recognition checklist:
+  1. Is the required answer a number?
+  2. Can I guess that number and efficiently check feasibility?
+  3. Are the feasibility results monotonic?
+  4. Can I establish safe minimum and maximum bounds?
+- Use: koko eating bananas, split array largest sum, capacity to ship packages, magnetic force, minimize max distance to gas station
 
 ## 4. Search in Rotated Array
 - One half is always sorted — determine which, then decide direction

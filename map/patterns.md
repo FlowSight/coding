@@ -33,3 +33,4 @@
 - unordered_map O(1) average but O(n) worst case — use custom hash to avoid hash collision attacks
 - For multi-set operations: map<val, count> is often cleaner than multiset
 - Prefix sum + hashmap: initialize map with {0: 1} for subarrays starting at index 0
+- Map iterators returned by `find`, `lower_bound`, or `upper_bound` use `->` for entry members: `it->first` and `it->second` (equivalent to `(*it).first` and `(*it).second`), not `it.first` or `it.second`

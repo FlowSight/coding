@@ -38,3 +38,4 @@ Tips
     2. print a small graph during construction. ensure input is correctly formed
        3
 14. for a algo heavy qs, ask ai to annotate each loop with roll up tc and decoare methods with tc and sc
+15. for open ended env, use another chat to get critique of the implementation from the main/anchor chat

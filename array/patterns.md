@@ -25,6 +25,8 @@
 ## 5. Sorting + Custom Comparators
 - Sort then scan: merge intervals, meeting rooms, largest number
 - Custom sort: comparator based on problem's ordering
+- C++ operator gotcha: `operator=` is assignment, while `operator==` is equality. Ordered containers usually need ordering (`operator<` or a comparator), not `operator==`.
+- Comparators used by STL ordered containers must work on immutable keys. A member comparator should normally be `bool operator<(const T& other) const`; the parameter `const` protects `other`, and the trailing `const` protects `*this`.
 - Use: merge intervals, non-overlapping intervals, reorder data in log files
 
 ## 6. Binary Search on Array
@@ -49,6 +51,8 @@
 
 ## 10. Merge Intervals Pattern
 - Sort by start, merge overlapping
+- For an overlap, extend with `currentEnd = max(currentEnd, nextEnd)`, not `currentEnd = nextEnd`; a nested interval such as `[2,3]` must not shrink an existing merged interval `[0,10]`.
+- If `nextStart > currentEnd`, close the current merged interval and start a new one; do not count the gap between disjoint intervals.
 - Use: insert interval, meeting rooms, interval list intersections
 
 ## 11. Merge 2 arrays into sorted array (incre or decresing)
