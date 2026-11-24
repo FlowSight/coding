@@ -19,9 +19,9 @@
 | Metric        | Value                                        |
 | ------------- | -------------------------------------------- |
 | **Goal**      | 200 LC Hards                                 |
-| **Current**   | 159 / 200                                    |
-| **Remaining** | 41                                           |
-| **Progress**  | ████████████████░░░░ 84% |
+| **Current**   | 164 / 200                                    |
+| **Remaining** | 36                                           |
+| **Progress**  | ████████████████████ 88% |
 
 ---
 
@@ -39,13 +39,13 @@
 | Heap / Priority Queue    | 4        | 8        | ▓▓▓▓░░░░░░ | 🟡 Medium  |
 | HashMap / HashSet        | 8        | 10       | ▓▓▓▓▓▓▓▓░░ | 🟢 Strong  |
 | Trees (BST / Binary)     | 10       | 12       | ▓▓▓▓▓▓▓▓░░ | 🟢 Strong  |
-| Trie                     | 3        | 5        | ▓▓▓▓▓░░░░░ | 🟡 Medium  |
+| Trie                     | 4        | 5        | ▓▓▓▓▓▓▓▓░░ | 🟢 Strong  |
 | Graph (BFS/DFS)          | 12       | 15       | ▓▓▓▓▓▓▓▓░░ | 🟢 Strong  |
 | Graph (Shortest Path)    | 5        | 6        | ▓▓▓▓▓▓▓▓░░ | 🟢 Strong  |
 | Graph (Union-Find)       | 3        | 6        | ▓▓▓▓░░░░░░ | 🟡 Medium  |
 | Graph (Topological Sort) | 2        | 5        | ▓▓▓░░░░░░░ | 🟡 Medium  |
 | Graph (Tarjan's / SCC)   | 0        | 3        | ░░░░░░░░░░ | 🔴 Weak    |
-| Segment Tree / BIT       | 0        | 6        | ░░░░░░░░░░ | 🔴 Weak    |
+| Segment Tree / BIT       | 1        | 6        | ▓░░░░░░░░░ | 🔴 Weak    |
 | DP (1D)                  | 12       | 15       | ▓▓▓▓▓▓▓▓░░ | 🟢 Strong  |
 | DP (2D / Grid)           | 5        | 8        | ▓▓▓▓▓░░░░░ | 🟡 Medium  |
 | DP (on Strings)          | 6        | 8        | ▓▓▓▓▓▓░░░░ | 🟢 Strong  |
@@ -61,7 +61,7 @@
 | Divide & Conquer         | 1        | 4        | ▓▓░░░░░░░░ | 🔴 Weak    |
 | Intervals                | 4        | 7        | ▓▓▓▓▓░░░░░ | 🟡 Medium  |
 | Design (In-Interview)    | 2        | 7        | ▓▓▓░░░░░░░ | 🔴 Weak    |
-| **TOTAL**                | **~146** | **~235** |                      |            |
+| **TOTAL**                | **~148** | **~235** |                      |            |
 
 > **Legend**: 🟢 Strong (≥75%) · 🟡 Medium (40-74%) · 🔴 Weak (<40%)
 > Update counts as you solve problems. Confidence = self-assessed comfort in interview setting.
@@ -142,13 +142,12 @@
 | # | Problem | LC# | Difficulty | Status | Notes |
 | - | ------- | --- | ---------- | ------ | ----- |
 
-### 1.5 Prefix Sum / Difference Array  `[0/3 done]`
+### 1.5 Prefix Sum / Difference Array  `[1/3 done]`
 
 
 | # | Problem                   | LC#  | Difficulty | Status | Notes                      |
 | - | ------------------------- | ---- | ---------- | ------ | -------------------------- |
 | 3 | Corporate Flight Bookings | 1109 | M          | [ ]    | Difference array           |
-| 4 | Stamping the Grid         | 2132 | H          | [ ]    | 2D prefix sum + diff array |
 
 ### 1.6 Design-in-Interview  `[0/1 done]`
 
@@ -157,12 +156,11 @@
 | - | ------------------------ | ---- | ---------- | ------ | ---------------- |
 | 1 | Iterator for Combination | 1286 | M          | [ ]    | Iterator pattern |
 
-### 1.7 Geometry / Line Sweep  `[0/1 done]`
+### 1.7 Geometry / Line Sweep  `[1/1 done]`
 
 
 | # | Problem           | LC# | Difficulty | Status | Notes                     |
 | - | ----------------- | --- | ---------- | ------ | ------------------------- |
-| 1 | Rectangle Area II | 850 | H          | [ ]    | Line sweep + segment tree |
 
 ======== Advanced =============
 
@@ -211,14 +209,13 @@
 | 1 | Guess Number Higher or Lower                    | 374 | E          | [ ]    | Binary search interactive |
 | 2 | Find the Duplicate Number (interactive variant) | 287 | M          | [ ]    | Cycle detection           |
 
-### 1.14 Advanced Graph  `[2/8 done]`
+### 1.14 Advanced Graph  `[3/8 done]`
 
 
 | # | Problem                                   | LC#  | Difficulty | Status | Subtopic                           |
 | - | ----------------------------------------- | ---- | ---------- | ------ | ---------------------------------- |
 | 1 | Strongly Connected Components (template)  | —   | —         | [ ]    | SCC (Tarjan's / Kosaraju)          |
 | 2 | Maximum Number of Accepted Invitations    | 1820 | M          | [ ]    | Bipartite matching (Hungarian)     |
-| 3 | Rank Transform of a Matrix                | 1632 | H          | [ ]    | Biconnected component / Union-Find |
 | 4 | 2-Satisfiability (template)               | —   | —         | [ ]    | 2-SAT implication graph            |
 | 5 | Course Schedule II (Topological Sort)     | 210  | M          | [ ]    | Clean template                     |
 | 6 | Minimum Cost to Reach City With Discounts | 2093 | M          | [ ]    | Modified Dijkstra                  |
@@ -229,10 +226,8 @@
 
 | # | Problem                         | LC#  | Difficulty | Status | Notes                                    |
 | - | ------------------------------- | ---- | ---------- | ------ | ---------------------------------------- |
-| 1 | Prefix and Suffix Search        | 745  | H          | [ ]    | Trie design (double trie / combined key) |
 | 2 | Sum of Prefix Scores of Strings | 2416 | H          | [ ]    | Trie + prefix count                      |
 | 3 | Design Skiplist                 | 1206 | H          | [ ]    | Skip list                                |
-| 3 | Range Module                    | 715  | H          | [ ]    | Sorted set / segment tree                |
 | 4 | My Calendar II                  | 731  | M          | [ ]    | Ordered map / segment tree               |
 
 ### 1.16 Segment Tree - Advanced

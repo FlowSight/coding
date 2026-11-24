@@ -23,6 +23,18 @@
 - lower_bound / upper_bound for range queries
 - Use: my calendar, count of smaller numbers after self, skyline problem
 
+### Dynamic Interval Set
+- Store disjoint canonical intervals as `map<start,end>`. Before inserting `[L,R]`, use `lower_bound(L)` and inspect its predecessor because an interval starting before `L` may overlap or touch the new range.
+- Decide the boundary convention first:
+  - Half-open intervals `[L,R)` merge when `nextStart <= mergedRight`.
+  - Inclusive unit-segment intervals `[L,R]` merge when `nextStart <= mergedRight + 1`.
+- During the forward scan, continuously extend `mergedRight = max(mergedRight, intervalEnd)`. A larger right boundary can trigger additional merges, so the loop condition must use the updated boundary.
+- Chain-merge example for inclusive ranges: existing `[10,15]`, `[18,25]`, insert `[16,22]` -> merge to `[10,22]` -> then merge to `[10,25]`.
+- Delete every absorbed interval, then insert exactly one canonical merged interval. Keeping touching intervals separate can make a query spanning their boundary incorrectly return false.
+- To find the interval that may contain `x`, use `upper_bound(x)` and step back once; this gives the interval with the largest start `<= x`. Guard against `begin()` before decrementing.
+- For removal `[L,R]`, merge is not needed: erase every overlapping interval and reinsert at most two leftovers, `[oldStart,L-1]` and `[R+1,oldEnd]` for inclusive ranges.
+- Use: LC 715 Range Module, interval calendars, dynamic covered-range queries.
+
 ## 6. Design Problems
 - LRU Cache: hashmap + doubly linked list
 - LFU Cache: hashmap + frequency buckets

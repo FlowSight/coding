@@ -36,6 +36,75 @@
 
 ## 7. Union-Find (DSU)
 - Near O(1) amortized union + find with path compression + rank
+- In `unite(u,v)`, finding the roots of `u` and `v` is logically independent and can run in parallel. Ordinary path-compressing `find` writes to shared parent state, however, so actual parallel execution requires a thread-safe/concurrent DSU or a read-only root lookup followed by synchronized compression; do not parallelize two normal `find` calls on a non-thread-safe DSU.
+- **Epoch-based DSU**: when repeatedly building temporary components over the same fixed node universe, allocate dense `parent`, `size`, and `activeEpoch` arrays once. Increment an epoch per batch and lazily initialize a node when `activeEpoch[node] != currentEpoch`; this resets only touched nodes and avoids rebuilding/clearing arrays or hash maps for every batch.
+- Epoch DSU is useful when each batch touches a sparse subset of a known dense universe, such as processing equal-value batches in LC 1632 Matrix Rank Transform. Per batch, union touched nodes, consume the components, then advance the epoch.
+- Epoch values must not collide with stale markers. Use a sufficiently wide counter or explicitly clear/reset epoch markers before overflow in long-lived systems.
+- Revision template:
+```cpp
+class EpochDSU {
+    vector<int> parent, size, seen;
+    int epoch = 0;
+
+public:
+    explicit EpochDSU(int n)
+        : parent(n), size(n), seen(n, -1) {}
+
+    void beginBatch() {
+        ++epoch;
+    }
+
+    void touch(int x) {
+        if (seen[x] == epoch) return;
+        seen[x] = epoch;
+        parent[x] = x;
+        size[x] = 1;
+    }
+
+    int find(int x) {
+        return parent[x] == x ? x : parent[x] = find(parent[x]);
+    }
+
+    void unite(int a, int b) {
+        touch(a);
+        touch(b);
+        a = find(a);
+        b = find(b);
+        if (a == b) return;
+        if (size[a] < size[b]) swap(a, b);
+        parent[b] = a;
+        size[a] += size[b];
+    }
+};
+```
+- Usage:
+```cpp
+EpochDSU dsu(nodeCount);
+
+for (const auto& edges : edgeBatches) {
+    dsu.beginBatch();
+    vector<int> touched;
+
+    for (const auto& [u, v] : edges) {
+        dsu.unite(u, v); // unite() touches both endpoints
+        touched.push_back(u);
+        touched.push_back(v);
+    }
+
+    sort(touched.begin(), touched.end());
+    touched.erase(unique(touched.begin(), touched.end()), touched.end());
+
+    unordered_map<int, vector<int>> groups;
+    for (int node : touched) {
+        groups[dsu.find(node)].push_back(node);
+    }
+
+    for (const auto& [root, nodes] : groups) {
+        // Consume this batch's connected component.
+    }
+}
+```
+- Usage invariant: call `beginBatch()` once per independent batch; call `touch(x)` before a standalone `find(x)`. `unite(a,b)` touches both nodes automatically. Never iterate all `n` nodes to discover a batch's components—retain only its touched nodes, otherwise epoch-based reset loses its performance benefit.
 - Use: connected components dynamically, Kruskal's MST, cycle detection in undirected graph, accounts merge
 
 ## 8. Greedy DSU with Shared-First Edges
